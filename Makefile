@@ -3,6 +3,7 @@ APP_VERSION = 0.0-SNAPSHOT
 APP_FULLNAME = $(APP_NAME)-$(APP_VERSION)
 APP_DIR = /var/tmp
 BUILD_BASE = $(APP_DIR)/build
+BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
 DEPLOY_HOST = teuchi
 DEPLOY_PORT = 2218
@@ -19,7 +20,11 @@ clean: init
 	rm -f $(APP_DIR)/nohup.*
 
 dep:
-	npm install npm express ejs soda
+	npm install npm express ejs nodelint soda
+
+lint:
+	mkdir -p $(BUILD_LINT)
+	nodelint --config $(TOOL_DIR)/b0b/lint.js --reporter $(TOOL_DIR)/b0b/lintreporter.js $(APP_NAME)-app.js $(APP_DIR)/lib/ | tee $(BUILD_LINT)/jslint.xml
 
 start-dev:
 	$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
