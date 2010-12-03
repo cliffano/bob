@@ -40,7 +40,7 @@ status:
     
 package: clean
 	mkdir -p $(BUILD_PACKAGE)
-	tar --exclude test -X $(TOOL_DIR)/b0b/exclude.txt -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar *
+	tar --exclude test -X $(TOOL_DIR)/b0b/packageexclude.txt -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar *
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
 
 deploy: package
