@@ -14,15 +14,18 @@ TOOL_DIR = $(DEPLOY_BASE)/tool
 init:
 	echo "B0b shall build."
 
-clean:
+clean: init
 	rm -rf $(BUILD_BASE)
 	rm -f $(APP_DIR)/nohup.*
 
 dep:
-	npm install express ejs
+	npm install npm express ejs soda
 
-start-dev: clean
+start-dev:
 	$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
+
+start-prd:
+	$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(APP_DIR) start prd
 
 stop:
 	$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(APP_DIR) stop
@@ -43,4 +46,4 @@ deploy: package
 deploy-r: deploy
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) '$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) stop; $(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) start prd;'
 
-.PHONY: init clean dep start-dev stop status package deploy
+.PHONY: init clean dep start-dev start-prd stop status package deploy deploy-r
