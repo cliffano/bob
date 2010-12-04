@@ -1,0 +1,5 @@
+.svn
+.git
+.DS_Store
+build
+exclude.txt
