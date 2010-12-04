@@ -19,8 +19,11 @@ clean: init
 	rm -rf $(BUILD_BASE)
 	rm -f $(APP_DIR)/nohup.*
 
-dep:
-	npm install npm express ejs nodelint soda
+dep-js:
+	npm install npm express connect-assetmanager connect-assetmanager-handlers ejs log4js nodelint vows soda
+
+dep-rb:
+	sudo gem install rb-appscript safariwatir
 
 lint:
 	mkdir -p $(BUILD_LINT)
@@ -51,4 +54,4 @@ deploy: package
 deploy-r: deploy
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) '$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) stop; $(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) start prd;'
 
-.PHONY: init clean dep start-dev start-prd stop status package deploy deploy-r
+.PHONY: init clean dep-js dep-rb start-dev start-prd stop status package deploy deploy-r
