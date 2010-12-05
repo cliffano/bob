@@ -24,11 +24,14 @@ dep-run:
 
 dep-tool:
 	npm install nodelint vows soda
-	sudo gem install rb-appscript safariwatir
+	sudo gem install json rb-appscript safariwatir
 
 lint:
 	mkdir -p $(BUILD_LINT)
 	nodelint --config $(TOOL_DIR)/b0b/lint.js --reporter $(TOOL_DIR)/b0b/lintreporter.js $(APP_NAME)-app.js $(APP_DIR)/lib/ | tee $(BUILD_LINT)/jslint.xml
+
+test-web:
+	ruby test/web/main.rb
 
 start-dev:
 	$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
@@ -55,4 +58,4 @@ deploy: package
 deploy-r: deploy
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) '$(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) stop; $(TOOL_DIR)/b0b/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) start prd;'
 
-.PHONY: init clean dep-run dep-tool start-dev start-prd stop status package deploy deploy-r
+.PHONY: init clean dep-run dep-tool lint test-web start-dev start-prd stop status package deploy deploy-r
