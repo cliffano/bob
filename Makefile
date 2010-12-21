@@ -30,6 +30,9 @@ lint:
 	mkdir -p $(BUILD_LINT)
 	nodelint --config $(TOOL_DIR)/b0b/lint.js --reporter $(TOOL_DIR)/b0b/lintreporter.js $(APP_NAME)-app.js $(APP_DIR)/lib/ | tee $(BUILD_LINT)/jslint.xml
 
+test-unit:
+	vows test/unit/*
+
 test-web:
 	ruby test/web/main.rb
 
