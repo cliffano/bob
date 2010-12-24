@@ -1,0 +1,22 @@
+#! /bin/sh
+
+. b0b.cfg
+
+echo "[INFO] Checking B0b's fitness."
+vars=( "$B0B_HOME" "$APP_NAME" "$APP_VERSION" )
+names=( "B0B_HOME - b0b home directory" "APP_NAME - application name" "APP_VERSION - application version" )
+for (( i = 0 ; i < ${#vars[@]} ; i++ ))
+do
+    if [[ -z "${vars[$i]}" ]]; then
+        echo >&2 "[ERROR] ${names[$i]} has not been set"
+        exit 1
+    fi
+done
+
+echo "[INFO] Dispatching B0b to construction site."
+make -f $B0B_HOME/Makefile \
+    APP_NAME="$APP_NAME" \
+    APP_VERSION="$APP_VERSION" \
+    APP_DIR=`pwd` \
+    DEPLOY_SUBDIR="$DEPLOY_SUBDIR" \
+    $1 $2 $3 $4 $5 $6 $7 $8 $9
