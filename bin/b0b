@@ -18,5 +18,5 @@ make -f $B0B_HOME/Makefile \
     APP_NAME="$APP_NAME" \
     APP_VERSION="$APP_VERSION" \
     APP_DIR=`pwd` \
-    DEPLOY_SUBDIR="$DEPLOY_SUBDIR" \
+    DEPLOY_DIR="$DEPLOY_DIR" \
     $1 $2 $3 $4 $5 $6 $7 $8 $9
