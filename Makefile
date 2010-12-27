@@ -3,8 +3,8 @@ APP_DIR = /var/tmp/b0b_app_dir
 BUILD_BASE = $(APP_DIR)/build
 BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
-DEPLOY_HOST = teuchi
-DEPLOY_PORT = 2218
+DEPLOY_HOST = b0b_deploy_host
+DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/b0b_deploy_dir
 
 init:
