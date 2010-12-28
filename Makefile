@@ -1,12 +1,14 @@
+APP_NAME = my_app_name
+APP_VERSION = my_version
 APP_FULLNAME = $(APP_NAME)-$(APP_VERSION)
-APP_DIR = /var/tmp/b0b_app_dir
+APP_DIR = /var/tmp/my_app_dir
 BUILD_BASE = $(APP_DIR)/build
 BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
 BUILD_TEST = $(BUILD_BASE)/test
-DEPLOY_HOST = b0b_deploy_host
+DEPLOY_HOST = my_deploy_host
 DEPLOY_PORT = 22
-DEPLOY_DIR = /var/tmp/b0b_deploy_dir
+DEPLOY_DIR = /var/tmp/my_deploy_dir
 
 init:
 	echo "B0b shall build."

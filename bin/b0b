@@ -4,7 +4,7 @@
 
 echo "[INFO] Checking B0b's fitness."
 vars=( "$B0B_HOME" "$APP_NAME" "$APP_VERSION" )
-names=( "B0B_HOME - b0b home directory" "APP_NAME - application name" "APP_VERSION - application version" )
+names=( "B0B_HOME" "APP_NAME" "APP_VERSION" )
 for (( i = 0 ; i < ${#vars[@]} ; i++ ))
 do
     if [[ -z "${vars[$i]}" ]]; then

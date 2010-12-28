@@ -14,15 +14,15 @@ Installation
 Usage
 -----
 
-Create /path/to/myproject/b0b.cfg
+Create /path/to/myapp/b0b.cfg
 
-    APP_NAME=myproject
+    APP_NAME=myapp
     APP_VERSION=0.1
-    DEPLOY_HOST=remote_host
+    DEPLOY_HOST=myremotehost
     DEPLOY_PORT=22
-    DEPLOY_DIR=/remote/path/to/myproject
+    DEPLOY_DIR=/remote/path/to/myapp
     
 Run B0b
 
-    cd /path/to/myproject
+    cd /path/to/myapp
     b0b clean lint test-unit test-web package deploy
