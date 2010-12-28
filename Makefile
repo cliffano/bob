@@ -18,7 +18,7 @@ dep-run:
 	npm install npm express connect-assetmanager connect-assetmanager-handlers ejs log4js
 
 dep-tool:
-	npm install nodelint vows node-static
+	npm install nodelint vows tobi node-static
 	sudo gem install json rb-appscript safariwatir
 
 lint:
