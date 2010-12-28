@@ -3,6 +3,7 @@ APP_DIR = /var/tmp/b0b_app_dir
 BUILD_BASE = $(APP_DIR)/build
 BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
+BUILD_TEST = $(BUILD_BASE)/test
 DEPLOY_HOST = b0b_deploy_host
 DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/b0b_deploy_dir
@@ -26,6 +27,7 @@ lint:
 	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(APP_NAME)-app.js $(APP_DIR)/lib/ | tee $(BUILD_LINT)/jslint.xml
 
 test-unit:
+	mkdir -p $(BUILD_TEST)
 	vows test/unit/*
 
 test-web:
