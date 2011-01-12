@@ -18,7 +18,7 @@ clean: init
 	rm -f $(APP_DIR)/nohup.*
 
 dep-run:
-	npm install npm express connect-assetmanager connect-assetmanager-handlers ejs log4js
+	npm install npm cradle express connect-assetmanager connect-assetmanager-handlers ejs log4js
 
 dep-tool:
 	npm install nodelint vows tobi node-static
