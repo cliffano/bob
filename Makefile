@@ -18,10 +18,10 @@ clean: init
 	rm -f $(APP_DIR)/nohup.*
 
 dep-run:
-	npm install npm cradle express connect-assetmanager connect-assetmanager-handlers ejs log4js
+	npm install npm cradle express connect-assetmanager connect-assetmanager-handlers uglify-js ejs log4js
 
 dep-tool:
-	npm install nodelint vows tobi node-static
+	npm install nodelint vows node-static
 	sudo gem install json rb-appscript safariwatir
 
 lint:
