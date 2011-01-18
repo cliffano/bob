@@ -1,17 +1,6 @@
 #! /bin/sh
 
-. b0b.cfg
-
-echo "Checking B0b's health."
-vars=( "$B0B_HOME" "$APP_NAME" "$APP_VERSION" )
-names=( "B0B_HOME" "APP_NAME" "APP_VERSION" )
-for (( i = 0 ; i < ${#vars[@]} ; i++ ))
-do
-    if [[ -z "${vars[$i]}" ]]; then
-        echo >&2 "Error: ${names[$i]} has not been set"
-        exit 1
-    fi
-done
+. ./b0b.cfg
 
 make -f $B0B_HOME/Makefile \
     APP_NAME="$APP_NAME" \
