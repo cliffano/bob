@@ -2,4 +2,4 @@
 .git
 .DS_Store
 build
-exclude.txt
+design
