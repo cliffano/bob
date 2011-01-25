@@ -1,5 +1,6 @@
-.svn
-.git
 .DS_Store
+.git
+.gitignore
+.svn
 build
 design
