@@ -35,14 +35,18 @@ test-unit:
 test-web:
 	ruby test/web/main.rb
 
+stop:
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) stop
+
 start-dev:
 	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
+
+restart-dev: stop start-dev
 
 start-prd:
 	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start prd
 
-stop:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) stop
+restart-prd: stop start-prd
 
 status:
 	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) status
