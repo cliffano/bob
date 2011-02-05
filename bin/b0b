@@ -1,6 +1,9 @@
 #! /bin/sh
 
-. ./b0b.cfg
+if [ -f ./b0b.cfg ]
+then
+    . ./b0b.cfg
+fi
 
 make -f $B0B_HOME/Makefile \
     APP_NAME="$APP_NAME" \
