@@ -10,6 +10,13 @@ DEPLOY_HOST = my_deploy_host
 DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/my_deploy_dir
 
+dep-run:
+	npm install npm cradle express connect-assetmanager connect-assetmanager-handlers connect-redis uglify-js ejs log4js request
+
+dep-tool:
+	npm install nodelint vows node-static
+	sudo gem install json rb-appscript safariwatir
+	
 init:
 	echo "B0b shall build."
 
@@ -17,41 +24,18 @@ clean: init
 	rm -rf $(BUILD_BASE)
 	rm -f $(APP_DIR)/nohup.*
 
-dep-run:
-	npm install npm cradle express connect-assetmanager connect-assetmanager-handlers connect-redis uglify-js ejs log4js request
-
-dep-tool:
-	npm install nodelint vows node-static
-	sudo gem install json rb-appscript safariwatir
-
-lint:
+lint: init
 	mkdir -p $(BUILD_LINT)
 	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/lib/ | tee $(BUILD_LINT)/jslint.xml
 
-test-unit:
+test-unit: init
 	mkdir -p $(BUILD_TEST)
 	vows test/unit/*
 
-test-web:
+test-web: init
 	ruby test/web/main.rb
-
-stop:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) stop
-
-start-dev:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
-
-restart-dev: stop start-dev
-
-start-prd:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start prd
-
-restart-prd: stop start-prd
-
-status:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) status
     
-package: clean
+package: init
 	mkdir -p $(BUILD_PACKAGE)
 	tar --exclude test -X $(B0B_HOME)/conf/packageexclude.txt -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar *
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
@@ -64,4 +48,20 @@ deploy: package
 deploy-r: deploy
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) '$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) stop; $(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) start prd;'
 
+start-dev:
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
+	
+start-prd:
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start prd
+
+stop:
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) stop
+
+restart-dev: stop start-dev
+
+restart-prd: stop start-prd
+
+status:
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) status
+	
 .PHONY: init clean dep-run dep-tool lint test-web start-dev start-prd stop status package deploy deploy-r
