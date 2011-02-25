@@ -1,8 +1,9 @@
 B0b
 ---
 
-A very minimalistic build, deploy, and startup script for NodeJS apps
-Also a handy build script for JS libraries
+A very minimalistic build, deploy, and startup script for NodeJS apps.
+
+Also a handy build script for JS libraries.
 
 Installation
 ------------
