@@ -2,6 +2,9 @@ APP_NAME = my_app_name
 APP_VERSION = my_version
 APP_FULLNAME = $(APP_NAME)-$(APP_VERSION)
 APP_DIR = /var/tmp/my_app_dir
+APP_LIB_DIR = lib
+APP_SRC_DIR = .
+APP_TEST_DIR = test
 BUILD_BASE = $(APP_DIR)/build
 BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
@@ -22,18 +25,19 @@ clean: init
 
 lint: init
 	mkdir -p $(BUILD_LINT)
-	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/lib/ | tee $(BUILD_LINT)/jslint.xml
+	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ | tee $(BUILD_LINT)/jslint.xml
 
 test-unit: init
 	mkdir -p $(BUILD_TEST)
-	vows test/unit/*
+	vows $(APP_DIR)/$(APP_TEST_DIR)/unit/*
 
 test-web: init
-	ruby test/web/main.rb
+	ruby $(APP_DIR)/$(APP_TEST_DIR)/web/main.rb
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
-	tar --exclude test -X $(B0B_HOME)/conf/packageexclude.txt -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar *
+	echo $(APP_SRC_DIR)
+	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(B0B_HOME)/conf/packageexclude.txt -C $(APP_DIR)/$(APP_SRC_DIR) -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar .
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
 
 deploy: package
