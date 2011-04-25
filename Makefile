@@ -10,11 +10,8 @@ DEPLOY_HOST = my_deploy_host
 DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/my_deploy_dir
 
-dep-run:
-	npm install npm cradle express connect-assetmanager connect-assetmanager-handlers connect-redis uglify-js ejs log4js request
-
-dep-tool:
-	npm install nodelint vows node-static
+dep:
+	npm install nodelint vows
 	sudo gem install json rb-appscript safariwatir
 	
 init:
