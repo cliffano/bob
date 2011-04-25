@@ -12,7 +12,6 @@ DEPLOY_DIR = /var/tmp/my_deploy_dir
 
 dep:
 	npm install nodelint vows
-	sudo gem install json rb-appscript safariwatir
 	
 init:
 	echo "B0b shall build."
