@@ -25,7 +25,7 @@ clean: init
 
 lint: init
 	mkdir -p $(BUILD_LINT)
-	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ | tee $(BUILD_LINT)/jslint.xml
+	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ | tee $(BUILD_LINT)/jslint.xml
 
 test-unit: init
 	mkdir -p $(BUILD_TEST)
