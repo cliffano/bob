@@ -22,6 +22,7 @@ init:
 clean: init
 	rm -rf $(BUILD_BASE)
 	rm -f $(APP_DIR)/nohup.*
+	rm -f $(APP_DIR)/*.log
 
 lint: init
 	mkdir -p $(BUILD_LINT)
