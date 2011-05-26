@@ -16,7 +16,7 @@ case $3 in
     then
         cd $DIR
         echo "Starting $NAME in $4 environment at $DIR."
-        ENV=$4 nohup node $DIR/$FILE > $DIR/nohup.out 2> $DIR/nohup.err < /dev/null &
+        NODE_ENV=$4 nohup node $DIR/$FILE > $DIR/nohup.out 2> $DIR/nohup.err < /dev/null &
         pid=$(get_pid)
         echo "$NAME is running on pid $pid."
     else
