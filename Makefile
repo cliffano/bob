@@ -50,10 +50,10 @@ deploy-r: deploy
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) '$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) stop; $(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) start prd;'
 
 start-dev:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start development
 	
 start-prd:
-	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start prd
+	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start production
 
 stop:
 	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) stop

@@ -40,5 +40,5 @@ case $3 in
         kill -9 "$pid"
     fi;;
 *)
-    echo "Usage:\n\t$0 NAME DIR <start|stop|status> ENV";;
+    echo "Usage:\n\t$0 NAME DIR <start|stop|status> NODE_ENV";;
 esac
