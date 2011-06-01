@@ -14,7 +14,7 @@ DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/my_deploy_dir
 
 dep:
-	npm install nodelint vows
+	npm install -g nodelint vows
 	
 init:
 	echo "B0b shall build."
