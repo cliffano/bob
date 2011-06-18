@@ -13,7 +13,8 @@ DEPLOY_HOST = my_deploy_host
 DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/my_deploy_dir
 
-dep:
+b0b-dep:
+	cd $(B0B_HOME)
 	npm install -g nodelint vows
 	
 init:
@@ -23,6 +24,9 @@ clean: init
 	rm -rf $(BUILD_BASE)
 	rm -f $(APP_DIR)/nohup.*
 	rm -f $(APP_DIR)/*.log
+	
+dep: init
+	npm install . 
 
 lint: init
 	mkdir -p $(BUILD_LINT)
@@ -30,7 +34,7 @@ lint: init
 
 test-unit: init
 	mkdir -p $(BUILD_TEST)
-	vows $(APP_DIR)/$(APP_TEST_DIR)/unit/*
+	vows $(APP_TEST_DIR)/unit/*
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
