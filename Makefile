@@ -37,7 +37,6 @@ test-web: init
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
-	echo $(APP_SRC_DIR)
 	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(B0B_HOME)/conf/packageexclude.txt -C $(APP_DIR)/$(APP_SRC_DIR) -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar .
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
 

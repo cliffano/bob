@@ -1,17 +1,15 @@
 #! /bin/sh
 
-if [ -f ./b0b.cfg ]
-then
-    . ./b0b.cfg
-fi
-
+NUM=`date +%s`
+FILE="/tmp/b0b_$NUM.cfg"
+python $B0B_HOME/bin/package.py > $FILE
+. $FILE
 make -f $B0B_HOME/Makefile \
     APP_NAME="$APP_NAME" \
     APP_VERSION="$APP_VERSION" \
     APP_DIR=`pwd` \
-    APP_SRC_DIR="$APP_SRC_DIR" \
-    BUILD_LINT_FILES="$BUILD_LINT_FILES" \
     DEPLOY_HOST="$DEPLOY_HOST" \
     DEPLOY_PORT="$DEPLOY_PORT" \
     DEPLOY_DIR="$DEPLOY_DIR" \
     $1 $2 $3 $4 $5 $6 $7 $8 $9
+rm b0b.cfg

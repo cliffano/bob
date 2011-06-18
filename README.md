@@ -1,13 +1,13 @@
 B0b
 ---
 
-A very minimalistic build, deploy, and startup script for NodeJS apps.
-
+An opinionated simplistic build, deploy, and startup script for NodeJS apps.
 Also a handy build script for JS libraries.
 
 Installation
 ------------
 
+    # make sure you have Python, NodeJS, and Npm installed
     cd /path/to
     git clone git@github.com:/cliffano/b0b.git
     export B0B_HOME=/path/to/b0b
@@ -16,16 +16,19 @@ Installation
 Config
 ------
 
-An app can have a config file.
-Create /path/to/mystuff/b0b.cfg file with the following properties:
+B0b reads package.json file
 
-    APP_NAME=mystuff
-    APP_VERSION=0.1
-    DEPLOY_HOST=myremotehost
-    DEPLOY_PORT=22
-    DEPLOY_DIR=/remote/path/to/mystuff
-
-This config file is not necessary for JS libraries.
+    {
+        "name": "mystuff",
+        "version": "0.0.1",
+        "app": {
+            "deploy": {
+                "host": "myremotehost",
+                "port": 22,
+                "dir": "/remote/path/to/mystuff"
+            }
+        }
+    }
 
 Usage
 -----
