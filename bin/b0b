@@ -4,7 +4,7 @@ NUM=`date +%s`
 FILE="/tmp/b0b_$NUM.cfg"
 python $B0B_HOME/bin/package.py > $FILE
 . $FILE
-make -f $B0B_HOME/Makefile \
+make -f $B0B_HOME/conf/Makefile \
     APP_NAME="$APP_NAME" \
     APP_VERSION="$APP_VERSION" \
     APP_DIR=`pwd` \
