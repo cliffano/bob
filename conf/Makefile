@@ -12,10 +12,6 @@ BUILD_TEST = $(BUILD_BASE)/test
 DEPLOY_HOST = my_deploy_host
 DEPLOY_PORT = 22
 DEPLOY_DIR = /var/tmp/my_deploy_dir
-
-b0b-dep:
-	cd $(B0B_HOME)
-	npm install -g nodelint vows
 	
 init:
 	echo "B0b shall build."
@@ -64,5 +60,9 @@ restart-prd: stop start-prd
 
 status:
 	$(B0B_HOME)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) status
+
+b0b-dep:
+	cd $(B0B_HOME)
+	npm install -g nodelint vows
 	
-.PHONY: init clean dep-run dep-tool lint test-web start-dev start-prd stop status package deploy deploy-r
+.PHONY: init clean dep lint test-unit package deploy deploy-r start-dev start-prd stop restart-dev restart-prd status b0b-dep
