@@ -31,9 +31,6 @@ lint: init
 test-unit: init
 	mkdir -p $(BUILD_TEST)
 	vows $(APP_DIR)/$(APP_TEST_DIR)/unit/*
-
-test-web: init
-	ruby $(APP_DIR)/$(APP_TEST_DIR)/web/main.rb
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)

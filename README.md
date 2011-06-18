@@ -52,9 +52,6 @@ Build
     test-unit:
     Run `vows` against all .js files under test/unit/ 
     
-    test-web:
-    Run `watir` test at test/web/main.rb
-    
     package:
     Create a .tar.gz package of the app/library at build/package/
 
