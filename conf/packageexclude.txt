@@ -2,5 +2,6 @@
 .git
 .gitignore
 .svn
+.svnignore
 build
 design
