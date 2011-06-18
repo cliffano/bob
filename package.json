@@ -1,15 +1,15 @@
 {
     "name": "b0b",
-    "description": "TODO.",
-    "keywords": ["build", "make", "b0b"],
+    "description": "A very minimalistic build, deploy, and startup script for NodeJS apps",
+    "keywords": ["build", "deploy", "make"],
     "version": "0.0.1",
     "homepage" : "http://github.com/cliffano/b0b",
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
     "bin": { "b0b": "./bin/b0b" },
     "repository": { "type": "git", "url": "http://github.com/cliffano/b0b.git" },
     "bugs": { "web": "http://github.com/cliffano/b0b/issues" },
-    "directories": { "bin": "./bin", "lib": "./lib" },
-    "dependencies": { "nodelint": ">= TODO", "vows": ">= TODO" },
+    "directories": { "bin": "./bin" },
+    "dependencies": { "nodelint": ">= latest", "vows": ">= latest" },
     "engines": { "node": ">= 0.4.0" },
     "licenses" : [{ "type" : "MIT", "url" : "http://github.com/cliffano/b0b/raw/master/LICENSE" } ]
 }
