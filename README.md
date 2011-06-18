@@ -1,7 +1,7 @@
 B0b
 ---
 
-An opinionated simplistic build, deploy, and startup script for NodeJS apps.
+An opinionated+simplistic build, deploy, and startup script for NodeJS apps.
 Also a handy build script for JS libraries.
 
 Installation
