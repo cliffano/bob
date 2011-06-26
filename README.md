@@ -16,12 +16,15 @@ Installation
 Config
 ------
 
-B0b reads package.json file
+B0b reads package.json file, properties under "app" are not mandatory.
 
     {
         "name": "mystuff",
         "version": "0.0.1",
         "app": {
+            "src": {
+                "dir": "/path/to/mystuff/mysrc"
+            }
             "deploy": {
                 "host": "myremotehost",
                 "port": 22,
@@ -33,7 +36,7 @@ B0b reads package.json file
 Usage
 -----
     
-Run B0b
+Run B0b.
 
     cd /path/to/mystuff
     b0b target1 target2 target3 ...
