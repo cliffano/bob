@@ -8,6 +8,7 @@ make -f $B0B_HOME/conf/Makefile \
     APP_NAME="$APP_NAME" \
     APP_VERSION="$APP_VERSION" \
     APP_DIR=`pwd` \
+    APP_SRC_DIR="$APP_SRC_DIR" \
     DEPLOY_HOST="$DEPLOY_HOST" \
     DEPLOY_PORT="$DEPLOY_PORT" \
     DEPLOY_DIR="$DEPLOY_DIR" \
