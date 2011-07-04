@@ -9,7 +9,7 @@ try:
 except:
     print('# Using default source dir')
 try:
-    out += 'DEPLOY_HOST="' + conf['app']['deploy']['host'] + '"\n' + 'DEPLOY_PORT="' + conf['app']['deploy']['port'] + '"\n' + 'DEPLOY_DIR="' + conf['app']['deploy']['dir'] + '"\n'
+    out += 'DEPLOY_HOST="' + conf['app']['deploy']['host'] + '"\n' + 'DEPLOY_PORT=' + str(conf['app']['deploy']['port']) + '\n' + 'DEPLOY_DIR="' + conf['app']['deploy']['dir'] + '"\n'
 except:
     print('# No deploy info')
 print(out)
