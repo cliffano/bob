@@ -28,9 +28,13 @@ lint: init
 	mkdir -p $(BUILD_LINT)
 	nodelint --config $(B0B_HOME)/conf/lint.js --reporter $(B0B_HOME)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ | tee $(BUILD_LINT)/jslint.xml
 
+test: init
+	mkdir -p $(BUILD_TEST)
+	vows $(APP_TEST_DIR)/*.js
+	
 test-unit: init
 	mkdir -p $(BUILD_TEST)
-	vows $(APP_TEST_DIR)/unit/*
+	vows $(APP_TEST_DIR)/unit/*.js
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
@@ -65,4 +69,4 @@ b0b-dep:
 	cd $(B0B_HOME)
 	npm install -g nodelint vows
 	
-.PHONY: init clean dep lint test-unit package deploy deploy-r start-dev start-prd stop restart-dev restart-prd status b0b-dep
+.PHONY: init clean dep lint test test-unit package deploy deploy-r start-dev start-prd stop restart-dev restart-prd status b0b-dep
