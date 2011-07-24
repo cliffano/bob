@@ -12,5 +12,6 @@ make -f $B0B_HOME/conf/Makefile \
     DEPLOY_HOST="$DEPLOY_HOST" \
     DEPLOY_PORT="$DEPLOY_PORT" \
     DEPLOY_DIR="$DEPLOY_DIR" \
+    BUILD_LINT_FILES="$BUILD_LINT_FILES" \
     $1 $2 $3 $4 $5 $6 $7 $8 $9
 rm $FILE

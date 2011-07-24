@@ -12,5 +12,9 @@ try:
     out += 'DEPLOY_HOST="' + conf['app']['deploy']['host'] + '"\n' + 'DEPLOY_PORT=' + str(conf['app']['deploy']['port']) + '\n' + 'DEPLOY_DIR="' + conf['app']['deploy']['dir'] + '"\n'
 except:
     print('# No deploy info')
+try:
+    out += 'BUILD_LINT_FILES="' + conf['app']['build']['lint'] + '"\n'
+except:
+    print('# No custom lint files')
 print(out)
 file.close()
