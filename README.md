@@ -1,7 +1,13 @@
 Bob
 ---
 
-A simplistic build script for Node.js libs, also a deploy and startup script for Node.js apps.
+A simplistic build script for Node.js libs, also a deploy and startup script for Express apps.
+
+Overview
+--------
+
+Bob provides standard build targets (clean, lint, test, package, deploy, stop,
+start, status, restart) for projects following some standard conventions.
 
 Installation
 ------------
@@ -11,7 +17,7 @@ Installation
 Config
 ------
 
-Bob reads package.json file, properties under "app" are optional (only applicable if you want to deploy the app.
+Bob reads package.json file, properties under "app" are optional.
 
     {
         "name": "myproject",
@@ -45,10 +51,10 @@ Build
     Delete build/
     
     lint:
-    Run `nodelint` against all .js files under lib/ and custom files configured in app.build.lint if any
+    Run `nodelint` against all .js files under ./ and custom files configured in app.build.lint if any
     
-    test-unit:
-    Run `vows` against all .js files under test/ 
+    test:
+    Run `vows` against all .js files under test/
     
     package:
     Create a .tar.gz package of the source at build/package/
