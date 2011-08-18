@@ -1,13 +1,13 @@
 Bob
 ---
 
-A simplistic build script for Node.js libs, also a deploy and startup script for Express apps.
+A minimalistic build script for Node.js libs, also a deploy and startup script for Express apps.
 
 Overview
 --------
 
 Bob provides standard build targets (clean, lint, test, package, deploy, stop,
-start, status, restart) for projects following some standard conventions.
+start, status, restart) for Node.js libs/apps following certain conventions.
 
 Installation
 ------------
