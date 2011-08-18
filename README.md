@@ -1,34 +1,29 @@
-B0b
+Bob
 ---
 
-An opinionated+simplistic build, deploy, and startup script for NodeJS apps.
-Also a handy build script for JS libraries.
+A simplistic build script for Node.js libs, also a deploy and startup script for Node.js apps.
 
 Installation
 ------------
 
-    # make sure you have Python, NodeJS, and Npm installed
-    cd /path/to
-    git clone git@github.com:/cliffano/b0b.git
-    export B0B_HOME=/path/to/b0b
-    export PATH=$PATH:$B0B_HOME/bin
+    npm install -g bob
 
 Config
 ------
 
-B0b reads package.json file, properties under "app" are not mandatory.
+Bob reads package.json file, properties under "app" are optional (only applicable if you want to deploy the app.
 
     {
-        "name": "mystuff",
+        "name": "myproject",
         "version": "0.0.1",
         "app": {
             "src": {
-                "dir": "/path/to/mystuff/mysrc"
+                "dir": "/path/to/myproject/mysrc"
             }
             "deploy": {
                 "host": "myremotehost",
                 "port": 22,
-                "dir": "/remote/path/to/mystuff"
+                "dir": "/remote/path/to/myproject"
             }
         }
     }
@@ -36,10 +31,10 @@ B0b reads package.json file, properties under "app" are not mandatory.
 Usage
 -----
     
-Run B0b.
+Run Bob.
 
-    cd /path/to/mystuff
-    b0b target1 target2 target3 ...
+    cd /path/to/myproject
+    bob target1 target2 target3 ...
     
 Targets
 -------
@@ -50,18 +45,18 @@ Build
     Delete build/
     
     lint:
-    Run `nodelint` against all .js files under lib/ and custom files configured in BUILD_LINT_FILES
+    Run `nodelint` against all .js files under lib/ and custom files configured in app.build.lint if any
     
     test-unit:
-    Run `vows` against all .js files under test/unit/ 
+    Run `vows` against all .js files under test/ 
     
     package:
-    Create a .tar.gz package of the app/library at build/package/
+    Create a .tar.gz package of the source at build/package/
 
 Deploy
 
     deploy:
-    Deploy the package to DEPLOY_HOST:DEPLOY_PORT:DEPLOY_DIR
+    Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
     
     deploy-r:
     Deploy the package and then remotely restart the app

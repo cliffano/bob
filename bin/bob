@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    path = require('path'),
+    appDir = process.cwd(),
+    bobDir = path.join(__dirname, '..'),
+    appCakefile = path.join(appDir, 'Cakefile'),
+    bobCakefile = path.join(bobDir, 'conf/Cakefile');
+
+try {
+    fs.lstatSync(appCakefile);
+} catch (e) {
+    fs.symlinkSync(bobCakefile, appCakefile);
+}
+require(path.join(bobDir, 'node_modules/coffee-script/lib/cake')).run();
+//fs.unlinkSync(appCakefile);
