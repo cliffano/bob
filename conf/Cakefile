@@ -68,11 +68,19 @@ task 'package', '', (options) ->
         'gzip ' + path.join BUILD_PACKAGE, APP_FULLNAME + '.tar'
     ]
 
-task 'remote-r', '', (options) ->
+task 'deploy', '', (options) ->
+    invoke 'package'
     execFn [
-        'ssh -p ' + (argVal conf, 'app.deploy.port') + ' ' + (argVal conf, 'app.deploy.host') + '. ~/.bash_profile; ' + (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + (argVal conf, 'app.deploy.dir') + ' stop; ' + (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + (argVal conf, 'app.deploy.dir') + ' start prd'
+        'ssh -p ' + (argVal conf, 'app.deploy.port') + ' ' + (argVal conf, 'app.deploy.host') + ' "cd ' + (argVal conf, 'app.deploy.dir') + '; rm -rf *;"'
+        'scp -P ' + (argVal conf, 'app.deploy.port') + ' ' + (path.join BUILD_PACKAGE, APP_FULLNAME + '.tar.gz ') + (argVal conf, 'app.deploy.host') + ':' + (argVal conf, 'app.deploy.dir')
+        'ssh -p ' + (argVal conf, 'app.deploy.port') + ' ' + (argVal conf, 'app.deploy.host') + ' "cd ' + (argVal conf, 'app.deploy.dir') + '; gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;"'
     ]
 
+task 'remote-r', '', (options) ->
+    execFn [
+        'ssh -p ' + (argVal conf, 'app.deploy.port') + ' ' + (argVal conf, 'app.deploy.host') + ' . ~/.bash_profile; ' + (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + (argVal conf, 'app.deploy.dir') + ' stop; ' + (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + (argVal conf, 'app.deploy.dir') + ' start prd'
+    ]
+    
 task 'deploy-r', '', (options) ->
     invoke 'deploy'
     invoke 'remote-r'
