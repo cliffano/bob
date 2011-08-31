@@ -2,7 +2,7 @@
     "name": "bob",
     "description": "A minimalistic build script for Node.js libraries, also a deploy and startup script for Express apps.",
     "keywords": ["build", "deploy", "make", "cake"],
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage" : "http://github.com/cliffano/bob",
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
     "bin": { "bob": "./bin/bob" },

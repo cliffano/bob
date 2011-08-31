@@ -113,6 +113,11 @@ task 'status', '', (options) ->
         (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + appDir + ' status'
     ]
 
+task 'dep', '', (options) ->
+    execFn [
+        'npm install'
+    ]
+    
 task 'tools', '', (options) ->
     execFn [
         'npm install -g nodelint vows'
