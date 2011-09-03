@@ -85,7 +85,7 @@ task 'deploy-r', '', (options) ->
     invoke 'deploy'
     invoke 'remote-r'
 	
-task 'start-dev', '', (options) ->
+task 'start', '', (options) ->
     execFn [
         (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + appDir + ' start dev'
     ]
@@ -100,9 +100,9 @@ task 'stop', '', (options) ->
         (path.join bobDir, 'bin/ghibli.sh') + ' ' + APP_NAME + ' ' + appDir + ' stop'
     ]
     
-task 'restart-dev', '', (options) ->
+task 'restart', '', (options) ->
     invoke 'stop'
-    invoke 'start-dev'
+    invoke 'start'
 
 task 'restart-prd', '', (options) ->
     invoke 'stop'
