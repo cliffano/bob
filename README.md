@@ -37,52 +37,33 @@ Bob reads package.json file, properties under "app" are optional.
 Usage
 -----
     
-Run Bob.
+Run Bob from project directory.
 
-    cd /path/to/myproject
     bob target1 target2 target3 ...
     
 Targets
 -------
 
-Build
+    clean: Delete build/ directory
+    
+    lint: Run `nodelint` against all .js files under ./ directory and custom files configured in app.build.lint if there's any
+    
+    test: Run `vows` against all .js files under test/ directory
+        
+    package: Create a .tar.gz package of the source at build/package/ directory
 
-    clean:
-    Delete build/
+    deploy: Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
     
-    lint:
-    Run `nodelint` against all .js files under ./ and custom files configured in app.build.lint if any
-    
-    test:
-    Run `vows` against all .js files under test/
-    
-    package:
-    Create a .tar.gz package of the source at build/package/
+    deploy-r: Deploy the package and then remotely restart the app
 
-Deploy
-
-    deploy:
-    Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
+    stop: Stop the app
     
-    deploy-r:
-    Deploy the package and then remotely restart the app
-
-Startup
-
-    start-dev:
-    Start the app in development mode
+    start: Start the app in development mode
     
-    start-prd:
-    Start the app in production mode
+    start-prd: Start the app in production mode
     
-    stop:
-    Stop the app
+    restart: Stop the app, then start it in development mode
     
-    restart-dev:
-    Stop the app, then start it in development mode
+    restart-prd: Stop the app, then start it in production mode
     
-    restart-prd:
-    Stop the app, then start it in production mode
-    
-    status:
-    Display the status of the app, whether it's running or not
+    status: Display the status of the app, whether it's running or not
