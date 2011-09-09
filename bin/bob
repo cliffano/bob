@@ -1,16 +1,45 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
+var child_process = require('child_process'),
+    fs = require('fs'),
     path = require('path'),
     appDir = process.cwd(),
     bobDir = path.join(__dirname, '..'),
-    appCakefile = path.join(appDir, 'Cakefile'),
-    bobCakefile = path.join(bobDir, 'conf/Cakefile');
+    conf = JSON.parse(fs.readFileSync('package.json')),
+    argVal, command, exec;
 
-try {
-    fs.lstatSync(appCakefile);
-} catch (e) {
-    fs.symlinkSync(bobCakefile, appCakefile);
+argVal = function (obj, propNamesDsv) {
+    var propNames = propNamesDsv.split('.'),
+        temp = obj,
+        value = undefined;
+    propNames.forEach(function (propName) {
+        if (temp[propName]) {
+            value = temp[propName];
+            temp = value;
+        } else {
+            value = '';
+        }
+    });
+    return value;
 }
-require(path.join(bobDir, 'node_modules/coffee-script/lib/cake')).run();
-//fs.unlinkSync(appCakefile);
+
+command = 'make -f ' + bobDir + '/conf/Makefile '
+    + 'BOB_DIR="' + bobDir + '" '
+    + 'APP_NAME="' + argVal(conf, 'name') + '" '
+    + 'APP_VERSION="' + argVal(conf, 'version') + '" '
+    + 'APP_DIR="' + appDir + '" '
+    + 'BUILD_LINT_FILES="' + argVal(conf, 'app.build.lint') + '" '
+    + 'DEPLOY_HOST="' + argVal(conf, 'app.deploy.host') + '" '
+    + 'DEPLOY_PORT="' + argVal(conf, 'app.deploy.port') + '" '
+    + 'DEPLOY_DIR="' + argVal(conf, 'app.deploy.dir') + '" '
+    + process.argv.slice(2, process.argv.length).join(' ');
+//console.log("Command:" + command);
+
+exec = child_process.exec(command,
+    function (error, stdout, stderr) {
+        if (error) {
+            console.error(error.message);
+        } else {
+            console.log(stdout);
+        }
+    });

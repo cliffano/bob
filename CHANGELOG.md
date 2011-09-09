@@ -1,8 +1,9 @@
 ### 0.1.1
-* Added dep target
+* Add dep target
+* Replace Cake with plain Makefile
 
 ### 0.1.0
-* Replaced ShellScript + Make + Python with CoffeeScript + Cake
+* Replace ShellScript + Make + Python with CoffeeScript + Cake
 
 ### 0.0.1
 * Initial version

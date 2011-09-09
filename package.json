@@ -9,7 +9,7 @@
     "repository": { "type": "git", "url": "http://github.com/cliffano/bob.git" },
     "bugs": { "web": "http://github.com/cliffano/bob/issues" },
     "directories": { "bin": "./bin" },
-    "dependencies": { "coffee-script": "1.1.1" },
+    "dependencies": { },
     "engines": { "node": ">= 0.4.0" },
     "licenses" : [{ "type" : "MIT", "url" : "http://github.com/cliffano/bob/raw/master/LICENSE" } ]
 }
