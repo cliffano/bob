@@ -44,26 +44,15 @@ Run Bob from project directory.
 Targets
 -------
 
-    clean: Delete build/ directory
-    
-    lint: Run `nodelint` against all .js files under ./ directory and custom files configured in app.build.lint if there's any
-    
-    test: Run `vows` against all .js files under test/ directory
-        
-    package: Create a .tar.gz package of the source at build/package/ directory
-
-    deploy: Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
-    
-    deploy-r: Deploy the package and then remotely restart the app
-
-    stop: Stop the app
-    
-    start: Start the app in development mode
-    
-    start-prd: Start the app in production mode
-    
-    restart: Stop the app, then start it in development mode
-    
-    restart-prd: Stop the app, then start it in production mode
-    
-    status: Display the status of the app, whether it's running or not
+* clean - Delete build/ directory
+* lint - Run `nodelint` against all .js files under ./ directory and custom files configured in app.build.lint if there's any
+* test - Run `vows` against all .js files under test/ directory
+* package - Create a .tar.gz package of the source at build/package/ directory
+* deploy - Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
+* deploy-r - Deploy the package and then remotely restart the app
+* stop - Stop the app
+* start - Start the app in development mode
+* start-prd - Start the app in production mode
+* restart - Stop the app, then start it in development mode
+* restart-prd - Stop the app, then start it in production mode
+* status - Display the status of the app, whether it's running or not
