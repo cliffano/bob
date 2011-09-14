@@ -34,25 +34,21 @@ deploy: package
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
-	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) '$(BOB_DIR)/bin/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) stop; $(BOB_DIR)/bin/ghibli.sh $(APP_NAME) $(DEPLOY_DIR) start prd;'
+	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js restart;" &;'
 
 deploy-r: deploy remote-r
 	
 stop:
-	$(BOB_DIR)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) stop
+	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js stop;" &
 	
 start:
-	$(BOB_DIR)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start dev
+	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js start;" &
 	
-start-prd:
-	$(BOB_DIR)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) start prd
-
-restart: stop start
-
-restart-prd: stop start-prd
+restart:
+	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js restart;" &
 
 status:
-	$(BOB_DIR)/bin/ghibli.sh $(APP_NAME) $(APP_DIR) status
+	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js status;" &
 
 dep: init
 	npm install .
