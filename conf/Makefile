@@ -6,12 +6,14 @@ BUILD_BASE = $(APP_DIR)/build
 BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
 BUILD_TEST = $(BUILD_BASE)/test
+RUN_BASE = $(APP_DIR)/run
 
 init:
 	echo "Bob shall build."
 
 clean: init
 	rm -rf $(BUILD_BASE)
+	rm -rf $(RUN_BASE)
 	rm -f $(APP_DIR)/nohup.*
 	rm -f $(APP_DIR)/*.log
 
