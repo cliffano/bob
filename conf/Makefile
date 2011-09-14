@@ -11,6 +11,12 @@ RUN_BASE = $(APP_DIR)/run
 init:
 	echo "Bob shall build."
 
+dep: init
+	npm install .
+	
+tools: init
+	npm install -g nodelint vows
+
 clean: init
 	rm -rf $(BUILD_BASE)
 	rm -rf $(RUN_BASE)
@@ -52,10 +58,8 @@ restart:
 status:
 	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js status;" &
 
-dep: init
-	npm install .
-	
-tools: init
-	npm install -g nodelint vows
+rampage:
+	pid=`ps -ef | sed -n '/node .*'"$FILE"'/{/grep/!p;}' | awk '{print$2}'`;
+	kill -9 "$pid"
 
-.PHONY: init clean lint test package deploy remote-r deploy-r stop start start-prd restart restart-prd status dep tools
+.PHONY: dep tools init clean lint test package deploy remote-r deploy-r stop start restart status rampage
