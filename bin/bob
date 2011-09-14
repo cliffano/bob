@@ -33,7 +33,7 @@ command = 'make -f ' + bobDir + '/conf/Makefile '
     + 'DEPLOY_HOST="' + argVal(conf, 'app.deploy.host') + '" '
     + 'DEPLOY_PORT="' + argVal(conf, 'app.deploy.port') + '" '
     + 'DEPLOY_DIR="' + argVal(conf, 'app.deploy.dir') + '" '
-    + 'NODE_ENV="' + ('' || DEFAULT_ENV) + '" '
+    + 'NODE_ENV="' + (process.env.NODE_ENV || DEFAULT_ENV) + '" '
     + process.argv.slice(2, process.argv.length).join(' ');
 //console.log("Command:" + command);
 
