@@ -1,6 +1,6 @@
 {
     "name": "bob",
-    "description": "A minimalistic build script for Node.js libraries, also a deploy and startup script for Express apps.",
+    "description": "A minimalistic build script for Node.js projects.",
     "keywords": ["build", "deploy", "make", "cake"],
     "version": "0.1.1",
     "homepage" : "http://github.com/cliffano/bob",
