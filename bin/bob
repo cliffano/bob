@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var child_process = require('child_process'),
+var DEFAULT_ENV = 'development',
+    child_process = require('child_process'),
     fs = require('fs'),
     path = require('path'),
     appDir = process.cwd(),
@@ -32,6 +33,7 @@ command = 'make -f ' + bobDir + '/conf/Makefile '
     + 'DEPLOY_HOST="' + argVal(conf, 'app.deploy.host') + '" '
     + 'DEPLOY_PORT="' + argVal(conf, 'app.deploy.port') + '" '
     + 'DEPLOY_DIR="' + argVal(conf, 'app.deploy.dir') + '" '
+    + 'NODE_ENV="' + ('' || DEFAULT_ENV) + '" '
     + process.argv.slice(2, process.argv.length).join(' ');
 //console.log("Command:" + command);
 
