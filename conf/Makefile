@@ -36,16 +36,6 @@ package: init
 	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(BOB_DIR)/conf/packageexclude.txt -C $(APP_DIR)/$(APP_SRC_DIR) -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar .
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
 
-deploy: package
-	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); rm -rf *;'
-	scp -P $(DEPLOY_PORT) $(BUILD_PACKAGE)/$(APP_FULLNAME).tar.gz $(DEPLOY_HOST):$(DEPLOY_DIR)
-	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
-
-remote-r:
-	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(APP_NAME).js restart;'
-
-deploy-r: deploy remote-r
-	
 stop:
 	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js stop
 	
@@ -61,4 +51,14 @@ status:
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
 
-.PHONY: dep tools init clean lint test package deploy remote-r deploy-r stop start restart status rampage
+deploy: package
+	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); rm -rf *;'
+	scp -P $(DEPLOY_PORT) $(BUILD_PACKAGE)/$(APP_FULLNAME).tar.gz $(DEPLOY_HOST):$(DEPLOY_DIR)
+	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
+
+remote-r:
+	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(APP_NAME).js restart;'
+
+deploy-r: deploy remote-r
+	
+.PHONY: dep tools init clean lint test package stop start restart status nuke deploy remote-r deploy-r
