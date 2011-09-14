@@ -42,21 +42,21 @@ deploy: package
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
-	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js restart;" &;'
+	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(APP_NAME).js restart;'
 
 deploy-r: deploy remote-r
 	
 stop:
-	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js stop;" &
+	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js stop
 	
 start:
-	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js start;" &
+	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js start
 	
 restart:
-	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js restart;" &
+	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js restart
 
 status:
-	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js status;" &
+	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js status
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
