@@ -29,13 +29,14 @@ command = 'make -f ' + bobDir + '/conf/Makefile '
     + 'APP_NAME="' + argVal(conf, 'name') + '" '
     + 'APP_VERSION="' + argVal(conf, 'version') + '" '
     + 'APP_DIR="' + appDir + '" '
+    + 'BUILD_HINT_FILES="' + argVal(conf, 'app.build.hint') + '" '
     + 'BUILD_LINT_FILES="' + argVal(conf, 'app.build.lint') + '" '
     + 'DEPLOY_HOST="' + argVal(conf, 'app.deploy.host') + '" '
     + 'DEPLOY_PORT="' + argVal(conf, 'app.deploy.port') + '" '
     + 'DEPLOY_DIR="' + argVal(conf, 'app.deploy.dir') + '" '
     + 'NODE_ENV="' + (process.env.NODE_ENV || DEFAULT_ENV) + '" '
     + process.argv.slice(2, process.argv.length).join(' ');
-//console.log("Command:" + command);
+//console.log("command:" + command);
 
 exec = child_process.exec(command,
     function (error, stdout, stderr) {
