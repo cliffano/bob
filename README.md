@@ -55,5 +55,6 @@ Targets
 * start - Start the app
 * restart - Restart the app
 * status - Display the status of the app
+* nuke - Kill all processes with the word 'node' in the command
 * deploy - Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
 * deploy-r - Deploy the package and then remotely restart the app
