@@ -58,8 +58,7 @@ restart:
 status:
 	nohup sh -c "export NODE_ENV=$(NODE_ENV); node $(APP_NAME).js status;" &
 
-rampage:
-	pid=`ps -ef | sed -n '/node .*'"$FILE"'/{/grep/!p;}' | awk '{print$2}'`;
-	kill -9 "$pid"
+nuke:
+	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
 
 .PHONY: dep tools init clean lint test package deploy remote-r deploy-r stop start restart status rampage
