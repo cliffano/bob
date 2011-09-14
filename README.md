@@ -48,13 +48,14 @@ Targets
 -------
 
 * clean - Delete build/ and run/ directory
-* lint - Run `nodelint` against all .js files under ./ directory and additional files configured in app.build.lint if there's any
+* lint - Run `nodelint` against all .js files under lib/ and test/ directories plus additional files configured in app.build.lint
+* hint - Run `jshint` against all .js files under lib/ and test/ directories plus additional files configured in app.build.hint
 * test - Run `vows` against all .js files under test/ directory
-* package - Create a .tar.gz package of the source at build/package/ directory
+* package - Create a source .tar.gz package at build/package/ directory
 * stop - Stop the app
 * start - Start the app
 * restart - Restart the app
-* status - Display the status of the app
-* nuke - Kill all processes with the word 'node' in the command
+* status - Display app status
+* nuke - Kill all processes with command containing the word 'node'
 * deploy - Deploy the package to app.deploy.host:app.deploy.port at app.deploy.dir
 * deploy-r - Deploy the package and then remotely restart the app

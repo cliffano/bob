@@ -30,7 +30,7 @@ lint: init
 
 hint: init
 	mkdir -p $(BUILD_HINT)
-	jshint ./ --jslint-reporter | tee $(BUILD_HINT)/jshint.xml
+	jshint $(BUILD_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ --jslint-reporter | tee $(BUILD_HINT)/jshint.xml
 
 test: init
 	mkdir -p $(BUILD_TEST)
