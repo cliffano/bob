@@ -15,7 +15,7 @@ dep: init
 	npm install .
 	
 tools: init
-	npm install -g nodelint vows
+	npm install -g nodelint jshint vows
 
 clean: init
 	rm -rf $(BUILD_BASE)
@@ -26,6 +26,9 @@ clean: init
 lint: init
 	mkdir -p $(BUILD_LINT)
 	nodelint --config $(BOB_DIR)/conf/lint.js --reporter $(BOB_DIR)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ | tee $(BUILD_LINT)/jslint.xml
+
+hint: init
+	jshint ./ --jslint-reporter 
 
 test: init
 	mkdir -p $(BUILD_TEST)
@@ -61,4 +64,4 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean lint test package stop start restart status nuke deploy remote-r deploy-r
+.PHONY: dep tools init clean lint hint test package stop start restart status nuke deploy remote-r deploy-r
