@@ -3,6 +3,7 @@ APP_LIB_DIR = lib
 APP_SRC_DIR = .
 APP_TEST_DIR = test
 BUILD_BASE = $(APP_DIR)/build
+BUILD_HINT = $(BUILD_BASE)/hint
 BUILD_LINT = $(BUILD_BASE)/lint
 BUILD_PACKAGE = $(BUILD_BASE)/package
 BUILD_TEST = $(BUILD_BASE)/test
@@ -28,7 +29,8 @@ lint: init
 	nodelint --config $(BOB_DIR)/conf/lint.js --reporter $(BOB_DIR)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ | tee $(BUILD_LINT)/jslint.xml
 
 hint: init
-	jshint ./ --jslint-reporter 
+	mkdir -p $(BUILD_HINT)
+	jshint ./ --jslint-reporter | tee $(BUILD_HINT)/jshint.xml
 
 test: init
 	mkdir -p $(BUILD_TEST)
