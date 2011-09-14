@@ -21,7 +21,7 @@ lint: init
 
 test: init
 	mkdir -p $(BUILD_TEST)
-	vows $(APP_TEST_DIR)/unit/*
+	vows $(APP_TEST_DIR)/*
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
