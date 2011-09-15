@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
-var DEFAULT_ENV = 'development',
-    DEFAULT_BUILD_TEST_OPTS = '--spec',
-    child_process = require('child_process'),
+var child_process = require('child_process'),
     fs = require('fs'),
     path = require('path'),
     appDir = process.cwd(),
     bobDir = path.join(__dirname, '..'),
     conf = JSON.parse(fs.readFileSync('package.json')),
-    argVal, command, exec;
+    argVal, command, exec,
+    DEFAULT_ENV = 'development',
+    DEFAULT_BUILD_LINT_OPTS = '--config ' + bobDir + '/conf/lint.js --reporter ' + bobDir + '/conf/lintreporter.js',
+    DEFAULT_BUILD_HINT_OPTS = '--jslint-reporter',
+    DEFAULT_BUILD_TEST_OPTS = '--spec';
 
 argVal = function (obj, propNamesDsv) {
     var propNames = propNamesDsv.split('.'),
@@ -30,9 +32,11 @@ command = 'make -f ' + bobDir + '/conf/Makefile '
     + 'APP_NAME="' + argVal(conf, 'name') + '" '
     + 'APP_VERSION="' + argVal(conf, 'version') + '" '
     + 'APP_DIR="' + appDir + '" '
-    + 'BUILD_HINT_FILES="' + argVal(conf, 'app.build.hint') + '" '
-    + 'BUILD_LINT_FILES="' + argVal(conf, 'app.build.lint') + '" '
-    + 'BUILD_TEST_OPTS="' + (argVal(conf, 'app.build.test.opts') || DEFAULT_BUILD_TEST_OPTS) + '" '
+    + 'BUILD_HINT_FILES="' + argVal(conf, 'app.hint.files') + '" '
+    + 'BUILD_HINT_OPTS="' + (argVal(conf, 'app.hint.opts') || DEFAULT_BUILD_HINT_OPTS) + '" '
+    + 'BUILD_LINT_FILES="' + argVal(conf, 'app.lint.files') + '" '
+    + 'BUILD_LINT_OPTS="' + (argVal(conf, 'app.lint.opts') || DEFAULT_BUILD_LINT_OPTS) + '" '
+    + 'BUILD_TEST_OPTS="' + (argVal(conf, 'app.test.opts') || DEFAULT_BUILD_TEST_OPTS) + '" '
     + 'DEPLOY_HOST="' + argVal(conf, 'app.deploy.host') + '" '
     + 'DEPLOY_PORT="' + argVal(conf, 'app.deploy.port') + '" '
     + 'DEPLOY_DIR="' + argVal(conf, 'app.deploy.dir') + '" '

@@ -29,10 +29,10 @@ clean: init
 	rm -f $(APP_DIR)/*.log
 
 lint: init
-	$(call exec_report, $(BUILD_LINT), nodelint --config $(BOB_DIR)/conf/lint.js --reporter $(BOB_DIR)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_LINT)/jslint.xml)
+	$(call exec_report, $(BUILD_LINT), nodelint $(BUILD_LINT_OPTS) $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_LINT)/lint.out)
 
 hint: init
-	$(call exec_report, $(BUILD_HINT), jshint $(BUILD_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ --jslint-reporter, $(BUILD_HINT)/jshint.xml)
+	$(call exec_report, $(BUILD_HINT), jshint $(BUILD_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ $(BUILD_HINT_OPTS), $(BUILD_HINT)/hint.out)
 
 test: init
 	$(call exec_report, $(BUILD_TEST), vows $(APP_TEST_DIR)/*.js $(BUILD_TEST_OPTS), $(BUILD_TEST)/test.out)

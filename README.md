@@ -16,7 +16,7 @@ Installation
 Config
 ------
 
-Bob reads package.json file, properties under "app" are optional.
+Bob reads package.json file, each property under "app" is *optional*.
 
     {
         "name": "myproject",
@@ -25,9 +25,13 @@ Bob reads package.json file, properties under "app" are optional.
             "src": {
                 "dir": "mysrc/"
             },
-            "build": {
-                "hint": "lib-extras/ test-integration/",
-                "lint": "lib-extras/ test-integration/"
+            "hint": {
+                "files": "lib-extras/ test-integration/",
+                "opts": "--config path/to/myhintconf.js"
+            },
+            "lint": {
+                "files": "lib-extras/ test-integration/",
+                "opts": "--config path/to/mylintconf.js"
             },
             "deploy": {
                 "host": "myremotehost",
