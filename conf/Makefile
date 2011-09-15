@@ -9,6 +9,10 @@ BUILD_PACKAGE = $(BUILD_BASE)/package
 BUILD_TEST = $(BUILD_BASE)/test
 RUN_BASE = $(APP_DIR)/run
 
+exec_report =             \
+	mkdir -p $1;      \
+	$2 2>&1 | tee $3; \
+
 init:
 	echo "Bob shall build."
 
@@ -25,16 +29,13 @@ clean: init
 	rm -f $(APP_DIR)/*.log
 
 lint: init
-	mkdir -p $(BUILD_LINT)
-	nodelint --config $(BOB_DIR)/conf/lint.js --reporter $(BOB_DIR)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ | tee $(BUILD_LINT)/jslint.xml
+	$(call exec_report, $(BUILD_LINT), nodelint --config $(BOB_DIR)/conf/lint.js --reporter $(BOB_DIR)/conf/lintreporter.js $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_LINT)/jslint.xml)
 
 hint: init
-	mkdir -p $(BUILD_HINT)
-	jshint $(BUILD_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ --jslint-reporter | tee $(BUILD_HINT)/jshint.xml
+	$(call exec_report, $(BUILD_HINT), jshint $(BUILD_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ --jslint-reporter, $(BUILD_HINT)/jshint.xml)
 
 test: init
-	mkdir -p $(BUILD_TEST)
-	vows $(APP_TEST_DIR)/*.js
+	$(call exec_report, $(BUILD_TEST), vows $(APP_TEST_DIR)/*.js $(BUILD_TEST_OPTS), $(BUILD_TEST)/test.out)
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
