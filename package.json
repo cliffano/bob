@@ -8,8 +8,9 @@
     "bin": { "bob": "./bin/bob" },
     "repository": { "type": "git", "url": "http://github.com/cliffano/bob.git" },
     "bugs": { "web": "http://github.com/cliffano/bob/issues" },
-    "directories": { "bin": "./bin" },
+    "directories": { "bin": "./bin", "lib": "./lib" },
     "dependencies": { },
+    "devDependencies": { "vows": "0.5.9" },
     "engines": { "node": ">= 0.4.0" },
     "licenses" : [{ "type" : "MIT", "url" : "http://github.com/cliffano/bob/raw/master/LICENSE" } ]
 }
