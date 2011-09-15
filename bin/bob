@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var DEFAULT_ENV = 'development',
+    DEFAULT_BUILD_TEST_OPTS = '--spec',
     child_process = require('child_process'),
     fs = require('fs'),
     path = require('path'),
@@ -31,6 +32,7 @@ command = 'make -f ' + bobDir + '/conf/Makefile '
     + 'APP_DIR="' + appDir + '" '
     + 'BUILD_HINT_FILES="' + argVal(conf, 'app.build.hint') + '" '
     + 'BUILD_LINT_FILES="' + argVal(conf, 'app.build.lint') + '" '
+    + 'BUILD_TEST_OPTS="' + (argVal(conf, 'app.build.test.opts') || DEFAULT_BUILD_TEST_OPTS) + '" '
     + 'DEPLOY_HOST="' + argVal(conf, 'app.deploy.host') + '" '
     + 'DEPLOY_PORT="' + argVal(conf, 'app.deploy.port') + '" '
     + 'DEPLOY_DIR="' + argVal(conf, 'app.deploy.dir') + '" '
