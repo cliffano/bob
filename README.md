@@ -21,7 +21,7 @@ Bob reads package.json file, each property under "app" is *optional*.
     {
         "name": "myproject",
         "version": "0.0.1",
-        "app": {
+        "bob": {
             "src": {
                 "dir": "mysrc/"
             },
