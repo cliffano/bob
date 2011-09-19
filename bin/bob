@@ -1,54 +1,29 @@
 #!/usr/bin/env node
 
-var child_process = require('child_process'),
+var DEFAULT_ENV = 'development',
     fs = require('fs'),
     path = require('path'),
+    Bob = require('../lib/bob').Bob,
+    Toolbelt = require('../lib/toolbelt').Toolbelt,
     appDir = process.cwd(),
     bobDir = path.join(__dirname, '..'),
     conf = JSON.parse(fs.readFileSync('package.json')),
-    argVal, command, exec,
-    DEFAULT_ENV = 'development',
-    DEFAULT_BUILD_LINT_OPTS = '--config ' + bobDir + '/conf/lint.js --reporter ' + bobDir + '/conf/lintreporter.js',
-    DEFAULT_BUILD_HINT_OPTS = '',
-    DEFAULT_BUILD_TEST_OPTS = '--spec';
+    toolbelt = new Toolbelt(),
+    bob = new Bob(toolbelt, conf),
+    params = [
+        { name: 'BOB_DIR', defaultVal: bobDir },
+        { name: 'APP_DIR', defaultVal: appDir },
+        { name: 'NODE_ENV', defaultVal: (process.env.NODE_ENV || DEFAULT_ENV) },
+        { name: 'NAME' },
+        { name: 'VERSION' },
+        { name: 'BOB_HINT_FILES' },
+        { name: 'BOB_HINT_OPTS' },
+        { name: 'BOB_LINT_FILES' },
+        { name: 'BOB_LINT_OPTS', defaultVal: '--config ' + bobDir + '/conf/lint.js --reporter ' + bobDir + '/conf/lintreporter.js' },
+        { name: 'BOB_TEST_OPTS', defaultVal: '--spec' },
+        { name: 'BOB_DEPLOY_HOST' },
+        { name: 'BOB_DEPLOY_PORT' },
+        { name: 'BOB_DEPLOY_DIR' }
+    ];
 
-argVal = function (obj, propNamesDsv) {
-    var propNames = propNamesDsv.split('.'),
-        temp = obj,
-        value = undefined;
-    propNames.forEach(function (propName) {
-        if (temp[propName]) {
-            value = temp[propName];
-            temp = value;
-        } else {
-            value = '';
-        }
-    });
-    return value;
-}
-
-command = 'make -f ' + bobDir + '/conf/Makefile '
-    + 'BOB_DIR="' + bobDir + '" '
-    + 'APP_NAME="' + argVal(conf, 'name') + '" '
-    + 'APP_VERSION="' + argVal(conf, 'version') + '" '
-    + 'APP_DIR="' + appDir + '" '
-    + 'BUILD_HINT_FILES="' + argVal(conf, 'bob.hint.files') + '" '
-    + 'BUILD_HINT_OPTS="' + (argVal(conf, 'bob.hint.opts') || DEFAULT_BUILD_HINT_OPTS) + '" '
-    + 'BUILD_LINT_FILES="' + argVal(conf, 'bob.lint.files') + '" '
-    + 'BUILD_LINT_OPTS="' + (argVal(conf, 'bob.lint.opts') || DEFAULT_BUILD_LINT_OPTS) + '" '
-    + 'BUILD_TEST_OPTS="' + (argVal(conf, 'bob.test.opts') || DEFAULT_BUILD_TEST_OPTS) + '" '
-    + 'DEPLOY_HOST="' + argVal(conf, 'bob.deploy.host') + '" '
-    + 'DEPLOY_PORT="' + argVal(conf, 'bob.deploy.port') + '" '
-    + 'DEPLOY_DIR="' + argVal(conf, 'bob.deploy.dir') + '" '
-    + 'NODE_ENV="' + (process.env.NODE_ENV || DEFAULT_ENV) + '" '
-    + process.argv.slice(2, process.argv.length).join(' ');
-//console.log("command:" + command);
-
-exec = child_process.exec(command,
-    function (error, stdout, stderr) {
-        if (error) {
-            console.error(error.message);
-        } else {
-            console.log(stdout);
-        }
-    });
+bob.build(bobDir, params, process.argv.slice(2));
