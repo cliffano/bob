@@ -1,6 +1,5 @@
 APP_FULLNAME = $(NAME)-$(VERSION)
 APP_LIB_DIR = lib
-APP_SRC_DIR = .
 APP_TEST_DIR = test
 BUILD_BASE = $(APP_DIR)/build
 BUILD_HINT = $(BUILD_BASE)/hint
@@ -39,7 +38,7 @@ test: init
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
-	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(BOB_DIR)/conf/packageexclude.txt -C $(APP_DIR)/$(APP_SRC_DIR) -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar .
+	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(BOB_DIR)/conf/packageexclude.txt -C $(APP_DIR)/$(BOB_SRC_DIR) -cvf $(BUILD_PACKAGE)/$(APP_FULLNAME).tar .
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
 
 stop:
