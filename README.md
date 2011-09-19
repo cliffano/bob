@@ -85,17 +85,17 @@ Run Bob with specific environment. (by default it uses NODE_ENV=development)
 Targets
 -------
 
-* clean - Delete build/ and run/ directory
-* checkstyle - Run `jscheckstyle` against TODO
-* lint - Run `nodelint` against all .js files under lib/ and test/ directories plus additional files configured in {app.build.lint}
-* hint - Run `jshint` against all .js files under lib/ and test/ directories plus additional files configured in {app.build.hint}
-* test - Run `vows` against all .js files under test/ directory
-* coverage - Run `vows` against all .js files under test/ directory with coverage flag
-* package - Create a source .tar.gz package at build/package/ directory
+* clean - Delete build/ and run/ directories, along with any nohup.* and *.log files
+* checkstyle - Run `jscheckstyle` against all .js files under lib/ directory, configurable via {bob.checkstyle.files}
+* lint - Run `nodelint` against all .js files under lib/ and test/ directories, configurable via {bob.lint.files}
+* hint - Run `jshint` against all .js files under lib/ and test/ directories, configurable via {bob.hint.files}
+* test - Run `vows` against all .js files under test/ directory, configurable via {bob.test.files}
+* coverage - Run `vows` against all .js files under test/ directory with coverage flag, configurable via {bob.coverage.files}
+* package - Create a source .tar.gz package at build/artifact/ directory
 * stop - Stop the app
 * start - Start the app
 * restart - Restart the app
 * status - Display app status
 * nuke - Kill all processes with command containing the word 'node'
-* deploy - Deploy the package to {app.deploy.host}:{app.deploy.port} at {app.deploy.dir}
+* deploy - Deploy the package to {bob.deploy.host}:{bob.deploy.port} at {bob.deploy.dir}
 * deploy-r - Deploy the package and then remotely restart the app
