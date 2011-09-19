@@ -25,13 +25,17 @@ Bob reads package.json file, each property under "app" is *optional*.
             "src": {
                 "dir": "mysrc/"
             },
+            "checkstyle": {
+                "files": "foo.js bar/",
+                "opts": "--checkstyle"
+            },
             "hint": {
-                "files": "lib-extras/ test-integration/",
-                "opts": "--config path/to/myhintconf.js"
+                "files": "foo.js bar/",
+                "opts": "--jslint-reporter --config path/to/hintconfig.js"
             },
             "lint": {
-                "files": "lib-extras/ test-integration/",
-                "opts": "--config path/to/mylintconf.js"
+                "files": "foo.js bar/",
+                "opts": "--reporter path/to/lintreporter.js --config path/to/lintconfig.js"
             },
             "deploy": {
                 "host": "myremotehost",
@@ -74,6 +78,7 @@ Targets
 -------
 
 * clean - Delete build/ and run/ directory
+* checkstyle - Run `jscheckstyle` against TODO
 * lint - Run `nodelint` against all .js files under lib/ and test/ directories plus additional files configured in {app.build.lint}
 * hint - Run `jshint` against all .js files under lib/ and test/ directories plus additional files configured in {app.build.hint}
 * test - Run `vows` against all .js files under test/ directory
