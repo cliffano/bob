@@ -1,6 +1,4 @@
 APP_FULLNAME = $(NAME)-$(VERSION)
-APP_LIB_DIR = lib
-APP_TEST_DIR = test
 BUILD_BASE = $(APP_DIR)/build
 BUILD_REPORT = $(BUILD_BASE)/report
 BUILD_ARTIFACT = $(BUILD_BASE)/artifact
@@ -26,19 +24,19 @@ clean: init
 	rm -f $(APP_DIR)/*.log
 
 checkstyle: init
-	$(call exec_report, $(BUILD_REPORT), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_REPORT)/checkstyle.out)
+	$(call exec_report, $(BUILD_REPORT), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES), $(BUILD_REPORT)/checkstyle.out)
 
 lint: init
-	$(call exec_report, $(BUILD_REPORT), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_REPORT})/lint.out)
+	$(call exec_report, $(BUILD_REPORT), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES), $(BUILD_REPORT})/lint.out)
 
 hint: init
-	$(call exec_report, $(BUILD_REPORT), jshint $(BOB_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ $(BOB_HINT_OPTS), $(BUILD_REPORT)/hint.out)
+	$(call exec_report, $(BUILD_REPORT), jshint $(BOB_HINT_FILES) $(BOB_HINT_OPTS), $(BUILD_REPORT)/hint.out)
 
 test: init
-	$(call exec_report, $(BUILD_REPORT), vows $(APP_TEST_DIR)/*.js $(BOB_TEST_OPTS), $(BUILD_REPORT)/test.out)
+	$(call exec_report, $(BUILD_REPORT), vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS), $(BUILD_REPORT)/test.out)
 
 coverage: init
-	$(call exec_report, $(BUILD_REPORT), vows $(APP_TEST_DIR)/*.js $(BOB_COVERAGE_OPTS), $(BUILD_REPORT)/coverage.out)
+	$(call exec_report, $(BUILD_REPORT), vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS), $(BUILD_REPORT)/coverage.out)
 
 package: init
 	mkdir -p $(BUILD_ARTIFACT)
