@@ -6,7 +6,7 @@ A minimalistic build tool for Node.js projects.
 Overview
 --------
 
-Bob provides common build targets (clean, checkstyle, lint, test, package, deploy, stop, start, status, restart) for Node.js libs/apps following a certain convention. It essentially allows multiple projects to use the same Makefile stored in a global node_modules.
+Bob provides common build targets (clean, checkstyle, lint, test, coverage, package, deploy, stop, start, status, restart) for Node.js libs/apps following a certain convention. It essentially allows multiple projects to use the same Makefile stored in a global node_modules.
 
 Installation
 ------------
@@ -16,7 +16,7 @@ Installation
 Config
 ------
 
-Bob reads package.json file, each property under "app" is *optional*.
+Bob reads package.json file, please note that each property under "bob" is *optional*.
 
     {
         "name": "myproject",
@@ -36,6 +36,12 @@ Bob reads package.json file, each property under "app" is *optional*.
             "lint": {
                 "files": "foo.js bar/",
                 "opts": "--reporter path/to/lintreporter.js --config path/to/lintconfig.js"
+            },
+            "test": {
+                "opts": "--dot-matrix"
+            },
+            "coverage": {
+                "opts": "--cover-html"
             },
             "deploy": {
                 "host": "myremotehost",
@@ -82,6 +88,7 @@ Targets
 * lint - Run `nodelint` against all .js files under lib/ and test/ directories plus additional files configured in {app.build.lint}
 * hint - Run `jshint` against all .js files under lib/ and test/ directories plus additional files configured in {app.build.hint}
 * test - Run `vows` against all .js files under test/ directory
+* coverage - Run `vows` against all .js files under test/ directory with coverage flag
 * package - Create a source .tar.gz package at build/package/ directory
 * stop - Stop the app
 * start - Start the app
