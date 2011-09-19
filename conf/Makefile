@@ -1,4 +1,4 @@
-APP_FULLNAME = $(APP_NAME)-$(APP_VERSION)
+APP_FULLNAME = $(NAME)-$(VERSION)
 APP_LIB_DIR = lib
 APP_SRC_DIR = .
 APP_TEST_DIR = test
@@ -29,13 +29,13 @@ clean: init
 	rm -f $(APP_DIR)/*.log
 
 lint: init
-	$(call exec_report, $(BUILD_LINT), nodelint $(BUILD_LINT_OPTS) $(BUILD_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_LINT)/lint.out)
+	$(call exec_report, $(BUILD_LINT), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/, $(BUILD_LINT)/lint.out)
 
 hint: init
-	$(call exec_report, $(BUILD_HINT), jshint $(BUILD_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ $(BUILD_HINT_OPTS), $(BUILD_HINT)/hint.out)
+	$(call exec_report, $(BUILD_HINT), jshint $(BOB_HINT_FILES) $(APP_DIR)/$(APP_LIB_DIR)/ $(APP_DIR)/$(APP_TEST_DIR)/ $(BOB_HINT_OPTS), $(BUILD_HINT)/hint.out)
 
 test: init
-	$(call exec_report, $(BUILD_TEST), vows $(APP_TEST_DIR)/*.js $(BUILD_TEST_OPTS), $(BUILD_TEST)/test.out)
+	$(call exec_report, $(BUILD_TEST), vows $(APP_TEST_DIR)/*.js $(BOB_TEST_OPTS), $(BUILD_TEST)/test.out)
     
 package: init
 	mkdir -p $(BUILD_PACKAGE)
@@ -43,16 +43,16 @@ package: init
 	gzip $(BUILD_PACKAGE)/$(APP_FULLNAME).tar
 
 stop:
-	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js stop
+	NODE_ENV=$(NODE_ENV) node $(NAME).js stop
 	
 start:
-	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js start
+	NODE_ENV=$(NODE_ENV) node $(NAME).js start
 	
 restart:
-	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js restart
+	NODE_ENV=$(NODE_ENV) node $(NAME).js restart
 
 status:
-	NODE_ENV=$(NODE_ENV) node $(APP_NAME).js status
+	NODE_ENV=$(NODE_ENV) node $(NAME).js status
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
@@ -63,7 +63,7 @@ deploy: package
 	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
-	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(APP_NAME).js restart;'
+	ssh -p $(DEPLOY_PORT) $(DEPLOY_HOST) 'cd $(DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(NAME).js restart;'
 
 deploy-r: deploy remote-r
 	
