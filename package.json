@@ -2,7 +2,7 @@
     "name": "bob",
     "description": "A minimalistic build script for Node.js projects.",
     "keywords": ["build", "deploy", "make"],
-    "version": "0.2.0",
+    "version": "0.2.1",
     "homepage" : "http://github.com/cliffano/bob",
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
     "bin": { "bob": "./bin/bob" },
