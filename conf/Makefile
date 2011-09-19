@@ -36,7 +36,10 @@ hint: init
 
 test: init
 	$(call exec_report, $(BUILD_REPORT), vows $(APP_TEST_DIR)/*.js $(BOB_TEST_OPTS), $(BUILD_REPORT)/test.out)
-    
+
+coverage: init
+	$(call exec_report, $(BUILD_REPORT), vows $(APP_TEST_DIR)/*.js $(BOB_COVERAGE_OPTS), $(BUILD_REPORT)/coverage.out)
+
 package: init
 	mkdir -p $(BUILD_ARTIFACT)
 	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(BOB_DIR)/conf/packageexclude.txt -C $(APP_DIR)/$(BOB_SRC_DIR) -cvf $(BUILD_ARTIFACT)/$(APP_FULLNAME).tar .
@@ -67,4 +70,4 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean lint hint test package stop start restart status nuke deploy remote-r deploy-r
+.PHONY: dep tools init clean checkstyle lint hint test coverage package stop start restart status nuke deploy remote-r deploy-r

@@ -24,6 +24,7 @@ var DEFAULT_ENV = 'development',
         { name: 'BOB_LINT_FILES' },
         { name: 'BOB_LINT_OPTS' },
         { name: 'BOB_TEST_OPTS', defaultVal: '--spec' },
+        { name: 'BOB_COVERAGE_OPTS', defaultVal: '--silent --cover-plain' },
         { name: 'BOB_DEPLOY_HOST' },
         { name: 'BOB_DEPLOY_PORT' },
         { name: 'BOB_DEPLOY_DIR' }

@@ -1,5 +1,5 @@
 ### 0.2.0
-* Add checkstyle, dep, hint, nuke target
+* Add checkstyle, coverage, dep, hint, nuke targets
 * Replace Cake with plain Makefile
 * Replace ghibli.sh with plain node * start|stop|restart|status
 
