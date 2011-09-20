@@ -11,34 +11,34 @@ exec_report =             \
 init:
 	echo "Bob shall build."
 
-dep: init
+dep: 
 	npm install .
 	
-tools: init
+tools:
 	npm install -g jscheckstyle jshint nodelint vows
 
-clean: init
+clean: 
 	rm -rf $(BUILD_DIR)
 	rm -rf $(RUN_DIR)
 	rm -f $(APP_DIR)/nohup.*
 	rm -f $(APP_DIR)/*.log
 
-checkstyle: init
+checkstyle: 
 	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES), $(REPORT_DIR)/checkstyle.out)
 
-lint: init
+lint:
 	$(call exec_report, $(REPORT_DIR), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES), $(REPORT_DIR})/lint.out)
 
-hint: init
+hint:
 	$(call exec_report, $(REPORT_DIR), jshint $(BOB_HINT_FILES) $(BOB_HINT_OPTS), $(REPORT_DIR)/hint.out)
 
-test: init
+test:
 	$(call exec_report, $(REPORT_DIR), vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS), $(REPORT_DIR)/test.out)
 
-coverage: init
+coverage:
 	$(call exec_report, $(REPORT_DIR), vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS), $(REPORT_DIR)/coverage.out)
 
-package: init
+package:
 	mkdir -p $(ARTIFACT_DIR)
 	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(BOB_DIR)/conf/packageexclude.txt -C $(APP_DIR)/$(BOB_SRC_DIR) -cvf $(ARTIFACT_DIR)/$(FULLNAME).tar .
 	gzip $(ARTIFACT_DIR)/$(FULLNAME).tar
