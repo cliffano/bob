@@ -41,6 +41,20 @@ vows.describe('Toolbelt').addBatch({
         },
         'args should return empty string when params is undefined': function (topic) {
             assert.equal(topic.args(conf, undefined), '');
+        },
+        'merge should return an object with properties from multiple objects': function (topic) {
+            var o = {
+                    foo: 'bar',
+                    a: 'xyz'
+                },
+                merge = topic.merge([o, conf]);
+            assert.equal(merge.foo, 'bar');
+            assert.equal(merge.a.b.c, 'js-fu');
+            assert.equal(merge.d.e.f, 'asyncism');
+        },
+        'merge should return empty object when there is nothing to merge': function (topic) {
+            var merge = topic.merge([]);
+            assert.isEmpty(merge);
         }
     }
 }).export(module);
