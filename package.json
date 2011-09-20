@@ -1,6 +1,6 @@
 {
     "name": "bob",
-    "description": "A minimalistic build script for Node.js projects.",
+    "description": "A minimalistic build tool for Node.js projects.",
     "keywords": ["build", "deploy", "make"],
     "version": "0.2.1",
     "homepage" : "http://github.com/cliffano/bob",
