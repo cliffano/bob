@@ -9,7 +9,7 @@ exec_report =             \
 	$2 2>&1 | tee $3; \
 
 init:
-	echo "Bob shall build."
+	@echo "Bob shall build."
 
 dep: init
 	npm install .
