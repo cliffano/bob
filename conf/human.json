@@ -1,0 +1,19 @@
+{
+    "bob": {
+        "checkstyle": {
+            "opts": "--violations"
+        },
+        "lint": {
+            "opts": ""
+        },
+        "hint": {
+            "opts": ""
+        },
+        "test": {
+            "opts": "--spec"
+        },
+        "coverage": {
+            "opts": "--silent --cover-plain"
+        }
+    }
+}

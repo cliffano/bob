@@ -1,3 +1,6 @@
+### 0.2.1
+* Add mode support (BOB_MODE=robot FTW!)
+
 ### 0.2.0
 * Add checkstyle, coverage, dep, hint, nuke targets
 * Replace Cake with plain Makefile

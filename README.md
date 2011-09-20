@@ -81,6 +81,10 @@ Run Bob from project directory.
 Run Bob with specific environment. (by default it uses NODE_ENV=development)
 
     NODE_ENV=production bob start
+
+Run Bob in robot mode (generate XML reports)
+
+    BOB_MODE=robot bob checkstyle hint test
     
 Targets
 -------
