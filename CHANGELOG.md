@@ -1,3 +1,6 @@
+### 0.2.2
+* Text and coverage tests *.js files in test/ dir and subdirs by default
+
 ### 0.2.1
 * Add mode support (BOB_MODE=robot FTW!)
 
