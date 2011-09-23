@@ -1,3 +1,6 @@
+### 0.2.3
+* Use underscore extend to merge config files
+
 ### 0.2.2
 * Text and coverage tests *.js files in test/ dir and subdirs by default
 * Stream child process output
