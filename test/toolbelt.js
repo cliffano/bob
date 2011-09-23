@@ -20,27 +20,31 @@ vows.describe('Toolbelt').addBatch({
         'val should return undefined when property is null and no default value provided': function (topic) {
             assert.isUndefined(topic.val(conf, null));
         },
-        'val should return empty string when property is undefined and no default value provided': function (topic) {
+        'val should return undefined when property is undefined and no default value provided': function (topic) {
             assert.isUndefined(topic.val(conf, undefined));
         },
-        'args should return Makefile argument string when params are provided': function (topic) {
+        'args should return argument array when params are provided': function (topic) {
             var params = [
                     { name: 'A_B_C', defaultVal: 'some default' },
                     { name: 'X_Y_Z', defaultVal: 'woo hoo'},
                     { name: 'D_E_F' },
                     { name: 'FOOBAR' }
-                ];
-            assert.equal(topic.args(conf, params),
-                'A_B_C="js-fu" X_Y_Z="woo hoo" D_E_F="asyncism" FOOBAR=""');
+                ],
+                args = topic.args(conf, params);
+            assert.equal(args.length, 4);
+            assert.equal(args[0], 'A_B_C=js-fu');
+            assert.equal(args[1], 'X_Y_Z=woo hoo');
+            assert.equal(args[2], 'D_E_F=asyncism');
+            assert.equal(args[3], 'FOOBAR=');
         },
-        'args should return empty string when params is an empty string': function (topic) {
-            assert.equal(topic.args(conf, []), '');
+        'args should return empty array when params is an empty array': function (topic) {
+            assert.isEmpty(topic.args(conf, []));
         },
-        'args should return empty string when params is null': function (topic) {
-            assert.equal(topic.args(conf, null), '');
+        'args should return empty array when params is null': function (topic) {
+            assert.isEmpty(topic.args(conf, null));
         },
-        'args should return empty string when params is undefined': function (topic) {
-            assert.equal(topic.args(conf, undefined), '');
+        'args should return empty array when params is undefined': function (topic) {
+            assert.isEmpty(topic.args(conf, undefined));
         },
         'merge should return an object with properties from multiple objects': function (topic) {
             var o = {
@@ -57,4 +61,4 @@ vows.describe('Toolbelt').addBatch({
             assert.isEmpty(merge);
         }
     }
-}).export(module);
+}).exportTo(module);
