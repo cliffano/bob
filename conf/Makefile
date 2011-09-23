@@ -10,6 +10,10 @@ exec_report =             \
 
 init:
 	@echo "Bob shall build."
+	mkdir -p $(BUILD_DIR)
+	mkdir -p $(RUN_DIR)
+	mkdir -p $(RUN_DIR)/logs
+	mkdir -p $(RUN_DIR)/pids
 
 dep: init
 	npm install .
@@ -17,7 +21,7 @@ dep: init
 tools: init
 	npm install -g jscheckstyle jshint nodelint vows
 
-clean: init
+clean:
 	rm -rf $(BUILD_DIR)
 	rm -rf $(RUN_DIR)
 	rm -f $(APP_DIR)/nohup.*
