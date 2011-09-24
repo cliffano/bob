@@ -10,22 +10,16 @@ exec_report =             \
 
 init:
 	@echo "Bob shall build."
-	mkdir -p $(BUILD_DIR)
-	mkdir -p $(RUN_DIR)
-	mkdir -p $(RUN_DIR)/logs
-	mkdir -p $(RUN_DIR)/pids
+	mkdir -p $(BUILD_DIR) $(RUN_DIR)/logs $(RUN_DIR)/pids
 
-dep: init
+dep: 
 	npm install .
 	
-tools: init
+tools: 
 	npm install -g jscheckstyle jshint nodelint vows
 
 clean:
-	rm -rf $(BUILD_DIR)
-	rm -rf $(RUN_DIR)
-	rm -f $(APP_DIR)/nohup.*
-	rm -f $(APP_DIR)/*.log
+	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
 
 checkstyle: init
 	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES), $(REPORT_DIR)/checkstyle.out)
