@@ -37,10 +37,10 @@ coverage: init
 	$(call exec_report, $(REPORT_DIR), vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS), $(REPORT_DIR)/coverage.out)
 
 package: init
-	mkdir -p $(ARTIFACT_DIR)
-	tar --exclude $(APP_DIR)/$(APP_TEST_DIR) -X $(BOB_DIR)/conf/packageexclude.txt -C $(APP_DIR)/$(BOB_SRC_DIR) -cvf $(ARTIFACT_DIR)/$(FULLNAME).tar .
-	gzip $(ARTIFACT_DIR)/$(FULLNAME).tar
-
+	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
+	rsync -av . $(ARTIFACT_DIR)/$(FULLNAME)
+	cd $(ARTIFACT_DIR); tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(FULLNAME).tar.gz .
+	
 stop:
 	NODE_ENV=$(NODE_ENV) node $(NAME).js stop
 	
