@@ -1,3 +1,6 @@
+### 0.2.4
+* Fix custom source dir config
+
 ### 0.2.3
 * Use underscore extend to merge config files
 * Package artifact includes name-version base directory

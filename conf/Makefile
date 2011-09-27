@@ -38,7 +38,7 @@ coverage: init
 
 package: init
 	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
-	rsync -av . $(ARTIFACT_DIR)/$(FULLNAME)
+	rsync -av $(BOB_SRC_DIR)/ $(ARTIFACT_DIR)/$(FULLNAME)
 	cd $(ARTIFACT_DIR); tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(FULLNAME).tar.gz .
 	
 stop:
