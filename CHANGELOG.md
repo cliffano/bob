@@ -1,5 +1,6 @@
 ### 0.2.4
 * Fix custom source dir config
+* Change main app file to {name}-app.js
 
 ### 0.2.3
 * Use underscore extend to merge config files
