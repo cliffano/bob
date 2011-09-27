@@ -42,16 +42,16 @@ package: init
 	cd $(ARTIFACT_DIR); tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(FULLNAME).tar.gz .
 	
 stop:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js stop
+	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js stop
 	
 start:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js start
+	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js start
 	
 restart:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js restart
+	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js restart
 
 status:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js status
+	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js status
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
