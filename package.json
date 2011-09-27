@@ -2,7 +2,7 @@
     "name": "bob",
     "description": "A minimalistic build tool for Node.js projects.",
     "keywords": ["build", "lint", "hint", "checkstyle", "test", "deploy", "make"],
-    "version": "0.2.4",
+    "version": "0.2.5",
     "homepage" : "http://github.com/cliffano/bob",
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
     "bin": { "bob": "./bin/bob" },
