@@ -25,7 +25,7 @@ checkstyle: init
 	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES), $(REPORT_DIR)/checkstyle.out)
 
 lint: init
-	$(call exec_report, $(REPORT_DIR), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES), $(REPORT_DIR})/lint.out)
+	$(call exec_report, $(REPORT_DIR), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES), $(REPORT_DIR)/lint.out)
 
 hint: init
 	$(call exec_report, $(REPORT_DIR), jshint $(BOB_HINT_FILES) $(BOB_HINT_OPTS), $(REPORT_DIR)/hint.out)
