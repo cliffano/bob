@@ -11,16 +11,20 @@ vows.describe('Toolbelt').addBatch({
         'val should return value when property exists': function (topic) {
             assert.equal(topic.val(conf, 'a.b.c', 'default value'), 'js-fu');
         },
-        'val should return undefined when property does not exist and no default value provided': function (topic) {
+        'val should return undefined when property does not exist and no default value provided':
+        function (topic) {
             assert.isUndefined(topic.val(conf, 'x.y.z'));
         },
-        'val should return default value when property does not exist but default value provided': function (topic) {
+        'val should return default value when property does not exist but default value provided':
+        function (topic) {
             assert.equal(topic.val(conf, 'x.y.z', 'blah'), 'blah');
         },
-        'val should return undefined when property is null and no default value provided': function (topic) {
+        'val should return undefined when property is null and no default value provided':
+        function (topic) {
             assert.isUndefined(topic.val(conf, null));
         },
-        'val should return undefined when property is undefined and no default value provided': function (topic) {
+        'val should return undefined when property is undefined and no default value provided':
+        function (topic) {
             assert.isUndefined(topic.val(conf, undefined));
         },
         'args should return argument array when params are provided': function (topic) {
