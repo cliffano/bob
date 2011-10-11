@@ -6,6 +6,7 @@ RUN_DIR = $(APP_DIR)/run
 
 exec_report =             \
 	mkdir -p $1;      \
+	set -eo pipefail; \
 	$2 2>&1 | tee $3; \
 
 init:
