@@ -93,11 +93,15 @@ Targets
 * lint - Run `nodelint` against all .js files under lib/ and test/ directories, configurable via {bob.lint.files}
 * hint - Run `jshint` against all .js files under lib/ and test/ directories, configurable via {bob.hint.files}
 * test - Run `vows` against all .js files under test/ directory, configurable via {bob.test.files}
+         Run `npm test` if scripts.test exists in package.json 
 * coverage - Run `vows` against all .js files under test/ directory with coverage flag, configurable via {bob.coverage.files}
 * package - Create a source .tar.gz package at build/artifact/ directory
 * stop - Stop the app
+         Run `npm stop` if scripts.stop exists in package.json
 * start - Start the app
+          Run `npm start` if scripts.start exists in package.json
 * restart - Restart the app
+            Run `npm restart` if scripts.restart exists in package.json
 * status - Display app status
 * nuke - Kill all processes with command containing the word 'node'
 * deploy - Deploy the package to {bob.deploy.host}:{bob.deploy.port} at {bob.deploy.dir}

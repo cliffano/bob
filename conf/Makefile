@@ -35,6 +35,9 @@ hint: init
 test: init
 	$(call exec_report, $(REPORT_DIR), vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS), $(REPORT_DIR)/test.out)
 
+test-npm:
+	npm test
+
 coverage: init
 	$(call exec_report, $(REPORT_DIR), vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS), $(REPORT_DIR)/coverage.out)
 
@@ -46,11 +49,20 @@ package: init
 stop:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js stop
 	
+stop-npm:
+	npm stop
+
 start:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js start
 	
+start-npm:
+	npm start
+
 restart:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js restart
+
+restart-npm:
+	npm restart
 
 status:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js status

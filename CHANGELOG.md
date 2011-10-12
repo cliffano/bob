@@ -1,5 +1,6 @@
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks
+* Honour npm scripts.test|stop|start|restart if exists in place of test, stop, start, restart tasks
 
 ### 0.2.4
 * Fix custom source dir config
