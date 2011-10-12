@@ -1,4 +1,5 @@
 {
+    "scripts": { "test": "vows test/toolbelt.js" },
     "name": "bob",
     "description": "A minimalistic build tool for Node.js projects.",
     "keywords": ["build", "lint", "hint", "checkstyle", "test", "deploy", "make"],

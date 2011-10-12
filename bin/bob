@@ -8,9 +8,10 @@ var fs = require('fs'),
     bobDir = path.join(__dirname, '..'),
     bobMode = process.env.BOB_MODE || 'human',
     toolbelt = new Toolbelt(),
+    appConf = JSON.parse(fs.readFileSync('package.json')),
     conf = toolbelt.merge([
             JSON.parse(fs.readFileSync(bobDir + '/conf/' + bobMode + '.json')),
-            JSON.parse(fs.readFileSync('package.json'))
+            appConf
         ]),
     bob = new Bob(toolbelt, conf),
     params = [
@@ -33,6 +34,7 @@ var fs = require('fs'),
         { name: 'BOB_DEPLOY_HOST' },
         { name: 'BOB_DEPLOY_PORT' },
         { name: 'BOB_DEPLOY_DIR' }
-    ];
+    ],
+    tasks = bob.plan(appConf, process.argv.slice(2));
 
-bob.build(bobDir, params, process.argv.slice(2));
+bob.build(bobDir, params, tasks);
