@@ -1,3 +1,6 @@
+### 0.2.5
+* Fix exit code for checkstyle, hint, lint, test tasks
+
 ### 0.2.4
 * Fix custom source dir config
 * Change main app file to {name}-app.js

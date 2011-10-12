@@ -6,7 +6,7 @@ A minimalistic build tool for Node.js projects.
 Overview
 --------
 
-Bob provides common build targets (clean, checkstyle, lint, test, coverage, package, deploy, stop, start, status, restart) for Node.js libs/apps. It essentially allows multiple projects to use the same Makefile stored in a global node_modules.
+Bob provides common build targets (clean, checkstyle, lint, test, coverage, package, deploy, stop, start, status, restart) for Node.js libs/apps. It essentially allows multiple projects to use the same Makefile stored in a global node_modules. Bob uses bash shell.
 
 Installation
 ------------
@@ -55,7 +55,6 @@ Bob reads package.json file, please note that each property under "bob" is *opti
 
 Project convention:
 
-* Uses `jscheckstyle`, `jshint`, `nodelint`, and `vows` as choices of tools
 * package.json - project descriptor
 * lib/ - .js library files
 * test/ - .js test files
