@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 FULLNAME = $(NAME)-$(VERSION)
 BUILD_DIR = $(APP_DIR)/build
 REPORT_DIR = $(BUILD_DIR)/report
@@ -6,7 +7,7 @@ RUN_DIR = $(APP_DIR)/run
 
 exec_report =             \
 	mkdir -p $1;      \
-	set -eo pipefail; \
+	set -eo pipefail;  \
 	$2 2>&1 | tee $3; \
 
 init:
