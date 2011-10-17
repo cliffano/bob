@@ -1,3 +1,6 @@
+### 0.2.6
+* Fix robot mode nodelint to generate xml report
+
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks
 * Honour npm scripts.test|stop|start|restart if exists in place of test, stop, start, restart tasks
