@@ -7,7 +7,7 @@
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
     "bin": { "bob": "./bin/bob" },
     "repository": { "type": "git", "url": "http://github.com/cliffano/bob.git" },
-    "bugs": { "web": "http://github.com/cliffano/bob/issues" },
+    "bugs": { "url": "http://github.com/cliffano/bob/issues" },
     "directories": { "bin": "./bin", "lib": "./lib" },
     "dependencies": { "underscore": "1.1.7" },
     "devDependencies": { "vows": "0.5.9" },
