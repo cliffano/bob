@@ -4,7 +4,7 @@
             "opts": "--checkstyle"
         },
         "lint": {
-            "opts": ""
+            "opts": "--xml-reporter"
         },
         "hint": {
             "opts": "--jslint-reporter"
