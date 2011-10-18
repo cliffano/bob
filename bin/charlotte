@@ -28,4 +28,7 @@ nomnom.command('versionup-minor').callback(function (args) {
 nomnom.command('versionup-major').callback(function (args) {
     console.log('Bump version up to ' + charlotte.versionup('major'));
 });
+nomnom.command('template').callback(function (args) {
+    charlotte.template();
+});
 nomnom.parseArgs();

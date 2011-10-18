@@ -65,6 +65,9 @@ versionup-minor:
 	
 versionup-major:
 	charlotte versionup-major
+
+template:
+	charlotte template
 	
 stop:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js stop
@@ -100,4 +103,4 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean checkstyle lint hint test coverage package package-meta versionup versionup-minor versionup-major stop start restart status nuke deploy remote-r deploy-r
+.PHONY: dep tools init clean checkstyle lint hint test coverage package package-meta versionup versionup-minor versionup-major template stop start restart status nuke deploy remote-r deploy-r
