@@ -60,6 +60,21 @@ vows.describe('Toolbelt').addBatch({
             assert.equal(merge.a.b.c, 'js-fu');
             assert.equal(merge.d.e.f, 'asyncism');
         },
+        'merge should return an object with nested properties': function (topic) {
+            var o = {
+                    foo: 'bar',
+                    a: {
+                        b: {
+                            d: 'awesome'
+                        }
+                    }
+                },
+                merge = topic.merge([o, conf]);
+            assert.equal(merge.foo, 'bar');
+            assert.equal(merge.a.b.c, 'js-fu');
+            assert.equal(merge.a.b.d, 'awesome');
+            assert.equal(merge.d.e.f, 'asyncism');
+        },
         'merge should return empty object when there is nothing to merge': function (topic) {
             var merge = topic.merge([]);
             assert.isEmpty(merge);
