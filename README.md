@@ -100,6 +100,9 @@ Targets
 * coverage - Run `vows` against all .js files under test/ directory with coverage flag, configurable via {bob.coverage.files}
 * package - Create a .tar.gz package at build/artifact/ directory, along with md5 and sha1 checksums.
 * package-meta - Add a meta file to build/artifact, along with md5 and sha1 checksums.
+* versionup - Upgrade build version number in package.json
+* versionup-minor - Upgrade minor version number in package.json
+* versionup-major - Upgrade major version number in package.json
 * stop - Stop the app. Run `npm stop` if scripts.stop exists in package.json
 * start - Start the app. Run `npm start` if scripts.start exists in package.json
 * restart - Restart the app. Run `npm restart` if scripts.restart exists in package.json

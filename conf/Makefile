@@ -56,6 +56,15 @@ package-meta:
 	cd $(BOB_PACKAGEMETA_DIR); cp $(BOB_PACKAGEMETA_FILE) $(ARTIFACT_DIR)/
 	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
+
+versionup:
+	charlotte versionup
+
+versionup-minor:
+	charlotte versionup-minor
+	
+versionup-major:
+	charlotte versionup-major
 	
 stop:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js stop
@@ -91,4 +100,4 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean checkstyle lint hint test coverage package package-meta stop start restart status nuke deploy remote-r deploy-r
+.PHONY: dep tools init clean checkstyle lint hint test coverage package package-meta versionup versionup-minor versionup-major stop start restart status nuke deploy remote-r deploy-r
