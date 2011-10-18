@@ -1,5 +1,7 @@
 ### 0.2.6
 * Fix robot mode nodelint to generate xml report
+* Add package-meta target
+* Add md5 and sha1 hash for package and package-meta
 
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks

@@ -7,8 +7,11 @@ RUN_DIR = $(APP_DIR)/run
 
 exec_report =             \
 	mkdir -p $1;      \
-	set -eo pipefail;  \
+	set -eo pipefail; \
 	$2 2>&1 | tee $3; \
+
+exec_sum =                                 \
+	$1sum $2 | awk '{print $$1}' > $2.$1; \
 
 init:
 	@echo "Bob shall build."
@@ -27,24 +30,32 @@ checkstyle: init
 	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES), $(REPORT_DIR)/checkstyle.out)
 
 lint: init
-	$(call exec_report, $(REPORT_DIR), nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES), $(REPORT_DIR)/lint.out)
+	$(call exec_report,$(REPORT_DIR),nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES),$(REPORT_DIR)/lint.out)
 
 hint: init
-	$(call exec_report, $(REPORT_DIR), jshint $(BOB_HINT_FILES) $(BOB_HINT_OPTS), $(REPORT_DIR)/hint.out)
+	$(call exec_report,$(REPORT_DIR),jshint $(BOB_HINT_FILES) $(BOB_HINT_OPTS),$(REPORT_DIR)/hint.out)
 
 test: init
-	$(call exec_report, $(REPORT_DIR), vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS), $(REPORT_DIR)/test.out)
+	$(call exec_report,$(REPORT_DIR),vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
 
 test-npm:
 	npm test
 
 coverage: init
-	$(call exec_report, $(REPORT_DIR), vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS), $(REPORT_DIR)/coverage.out)
+	$(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
 package: init
 	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
 	rsync -av $(BOB_SRC_DIR)/ $(ARTIFACT_DIR)/$(FULLNAME)
-	cd $(ARTIFACT_DIR); tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(FULLNAME).tar.gz .
+	tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(ARTIFACT_DIR)/$(FULLNAME).tar.gz .
+	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
+	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
+	rm -rf $(ARTIFACT_DIR)/$(FULLNAME)
+
+package-meta:
+	cd $(BOB_PACKAGEMETA_DIR); cp $(BOB_PACKAGEMETA_FILE) $(ARTIFACT_DIR)/
+	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
+	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 	
 stop:
 	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js stop
@@ -80,4 +91,4 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean checkstyle lint hint test coverage package stop start restart status nuke deploy remote-r deploy-r
+.PHONY: dep tools init clean checkstyle lint hint test coverage package package-meta stop start restart status nuke deploy remote-r deploy-r
