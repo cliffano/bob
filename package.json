@@ -5,12 +5,12 @@
     "version": "0.2.6",
     "homepage" : "http://github.com/cliffano/bob",
     "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
-    "bin": { "bob": "./bin/bob" },
+    "bin": { "bob": "./bin/bob", "charlotte": "./bin/charlotte" },
     "repository": { "type": "git", "url": "http://github.com/cliffano/bob.git" },
     "bugs": { "url": "http://github.com/cliffano/bob/issues" },
     "directories": { "bin": "./bin", "lib": "./lib" },
-    "dependencies": { "underscore": "1.1.7" },
-    "devDependencies": { "vows": "0.5.9" },
+    "dependencies": { "nomnom": "1.0.0", "underscore": "1.1.7" },
+    "devDependencies": { "sandboxed-module": "0.1.1", "vows": "0.5.9" },
     "engines": { "node": ">= 0.4.0" },
     "licenses" : [{ "type" : "MIT", "url" : "http://github.com/cliffano/bob/raw/master/LICENSE" } ]
 }
