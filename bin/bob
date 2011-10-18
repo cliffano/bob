@@ -30,6 +30,8 @@ var fs = require('fs'),
         { name: 'BOB_TEST_OPTS' },
         { name: 'BOB_COVERAGE_FILES', defaultVal: '`find test -name "*.js" | tr "\\r\\n" " "`' },
         { name: 'BOB_COVERAGE_OPTS' },
+        { name: 'BOB_PACKAGEMETA_DIR' },
+        { name: 'BOB_PACKAGEMETA_FILE' },
         { name: 'BOB_DEPLOY_HOST' },
         { name: 'BOB_DEPLOY_PORT' },
         { name: 'BOB_DEPLOY_DIR' }
