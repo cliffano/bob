@@ -3,6 +3,7 @@
 * Add package-meta target
 * Add md5 and sha1 hash for package and package-meta
 * Add versionup, versionup-minor, versionup-major targets
+* Add template target
 
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks

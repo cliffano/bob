@@ -49,6 +49,9 @@ Bob reads package.json file, please note that each property under "bob" is *opti
                 "dir": "conf",
                 "file": "artifact-meta.json"
             },
+            "template": {
+                "conf/artifact-meta.json": ["version", "name"]
+            },
             "deploy": {
                 "host": "myremotehost",
                 "port": 22,
@@ -103,6 +106,7 @@ Targets
 * versionup - Upgrade build version number in package.json
 * versionup-minor - Upgrade minor version number in package.json
 * versionup-major - Upgrade major version number in package.json
+* template - Replace variables in template files with values from package.json. E.g. bob.template config in Usage example above, will replace ${version} and ${name} in conf/artifact-meta.json with '0.0.1' and 'myproject'
 * stop - Stop the app. Run `npm stop` if scripts.stop exists in package.json
 * start - Start the app. Run `npm start` if scripts.start exists in package.json
 * restart - Restart the app. Run `npm restart` if scripts.restart exists in package.json
