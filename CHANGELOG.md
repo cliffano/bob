@@ -7,6 +7,7 @@
 * Add custom user and key for deploy target
 * Add send target, sends all files in {artifact.dir}
 * Deploy target now depends on send target, then unpacks the main .tar.gz artifact
+* Add variable support in configuration values
 
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks

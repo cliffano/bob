@@ -16,7 +16,10 @@ Installation
 Config
 ------
 
-Bob reads package.json file, please note that each property under "bob" is *optional*.
+Bob reads package.json file.
+NOTE:
+* each property under "bob" is *optional*
+* bob property value with ${name} or ${version} will be populated with name and version values accordingly
 
     {
         "name": "myproject",
@@ -57,7 +60,7 @@ Bob reads package.json file, please note that each property under "bob" is *opti
                 "key": "/local/path/to/mykey"
                 "host": "myremotehost",
                 "port": 22,
-                "dir": "/remote/path/to/myproject"
+                "dir": "/remote/path/to/${name}/${version}"
             }
         }
     }
