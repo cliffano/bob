@@ -5,7 +5,8 @@
 * Add versionup, versionup-minor, versionup-major targets
 * Add template target
 * Add custom user and key for deploy target
-* Deploy target now send all files in {artifact.dir}
+* Add send target, sends all files in {artifact.dir}
+* Deploy target now depends on send target, then unpacks the main .tar.gz artifact
 
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks
