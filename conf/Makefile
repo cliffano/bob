@@ -44,19 +44,6 @@ test-npm:
 coverage: init
 	$(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
-package: init
-	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
-	rsync -av $(BOB_SRC_DIR)/ $(ARTIFACT_DIR)/$(FULLNAME)
-	tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(ARTIFACT_DIR)/$(FULLNAME).tar.gz .
-	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
-	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
-	rm -rf $(ARTIFACT_DIR)/$(FULLNAME)
-
-package-meta:
-	cd $(BOB_PACKAGEMETA_DIR); cp $(BOB_PACKAGEMETA_FILE) $(ARTIFACT_DIR)/
-	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
-	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
-
 versionup:
 	charlotte versionup
 
@@ -93,14 +80,27 @@ status:
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
 
+package: init
+	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
+	rsync -av $(BOB_SRC_DIR)/ $(ARTIFACT_DIR)/$(FULLNAME)
+	tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(ARTIFACT_DIR)/$(FULLNAME).tar.gz .
+	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
+	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
+	rm -rf $(ARTIFACT_DIR)/$(FULLNAME)
+
+package-meta:
+	cd $(BOB_PACKAGEMETA_DIR); cp $(BOB_PACKAGEMETA_FILE) $(ARTIFACT_DIR)/
+	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
+	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
+
 deploy: package
-	ssh -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); rm -rf *;'
-	scp -P $(BOB_DEPLOY_PORT) $(ARTIFACT_DIR)/$(FULLNAME).tar.gz $(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)
-	ssh -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
+	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'mkdir -p $(BOB_DEPLOY_DIR); cd $(BOB_DEPLOY_DIR); rm -rf *;'
+	scp -i $(BOB_DEPLOY_KEY) -P $(BOB_DEPLOY_PORT) $(ARTIFACT_DIR)/* $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)
+	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
 	ssh -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(NAME).js restart;'
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean checkstyle lint hint test coverage package package-meta versionup versionup-minor versionup-major template stop start restart status nuke deploy remote-r deploy-r
+.PHONY: dep tools init clean checkstyle lint hint test coverage versionup versionup-minor versionup-major template stop start restart status nuke package package-meta deploy remote-r deploy-r
