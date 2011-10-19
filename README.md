@@ -18,6 +18,7 @@ Config
 
 Bob reads package.json file.
 NOTE:
+
 * each property under "bob" is *optional*
 * bob property value with ${name} or ${version} will be populated with name and version values accordingly
 
