@@ -4,5 +4,4 @@
 .svn
 .svnignore
 build
-design
 run
