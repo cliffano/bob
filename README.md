@@ -23,6 +23,7 @@ NOTE:
 * bob property value with ${name} or ${version} will be populated with name and version values accordingly
 
 Example:
+
     {
         "name": "myproject",
         "version": "0.0.1",
