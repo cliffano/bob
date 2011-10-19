@@ -57,25 +57,25 @@ template:
 	charlotte template
 	
 stop:
-	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js stop
+	NODE_ENV=$(NODE_ENV) node $(NAME).js stop
 	
 stop-npm:
 	npm stop
 
 start:
-	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js start
+	NODE_ENV=$(NODE_ENV) node $(NAME).js start
 	
 start-npm:
 	npm start
 
 restart:
-	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js restart
+	NODE_ENV=$(NODE_ENV) node $(NAME).js restart
 
 restart-npm:
 	npm restart
 
 status:
-	NODE_ENV=$(NODE_ENV) node $(NAME)-app.js status
+	NODE_ENV=$(NODE_ENV) node $(NAME).js status
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
@@ -101,7 +101,7 @@ deploy: send
 	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
-	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(NAME)-app.js restart;'
+	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(NAME).js restart;'
 
 deploy-r: deploy remote-r
 	

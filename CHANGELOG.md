@@ -1,3 +1,6 @@
+### 0.2.7
+* Switch main app file back to {name}.js (apology for the flip-flop)
+
 ### 0.2.6
 * Fix robot mode nodelint to generate xml report
 * Add package-meta target
