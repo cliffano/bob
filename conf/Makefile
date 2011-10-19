@@ -83,10 +83,10 @@ nuke:
 package: init
 	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
 	rsync -av $(BOB_SRC_DIR)/ $(ARTIFACT_DIR)/$(FULLNAME)
-	tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(ARTIFACT_DIR)/$(FULLNAME).tar.gz .
+	cd $(ARTIFACT_DIR); tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(FULLNAME).tar.gz $(FULLNAME)/
+	rm -rf $(ARTIFACT_DIR)/$(FULLNAME)
 	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
 	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
-	rm -rf $(ARTIFACT_DIR)/$(FULLNAME)
 
 package-meta:
 	cd $(BOB_PACKAGEMETA_DIR); cp $(BOB_PACKAGEMETA_FILE) $(ARTIFACT_DIR)/
