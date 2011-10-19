@@ -1,7 +1,8 @@
 var assert = require('assert'),
     Toolbelt = require('../lib/toolbelt').Toolbelt,
     vows = require('vows'),
-    conf = { a: { b: { c: 'js-fu' } }, d: { e: { f: 'asyncism' } } };
+    conf = { name: 'myproject', version: '8.8.8', path: '/foo/bar/${name}/${version}', 
+        a: { b: { c: 'js-fu' } }, d: { e: { f: 'asyncism' } } };
 
 vows.describe('Toolbelt').addBatch({
     'industry standard toolbelt': {
@@ -10,6 +11,12 @@ vows.describe('Toolbelt').addBatch({
         },
         'val should return value when property exists': function (topic) {
             assert.equal(topic.val(conf, 'a.b.c', 'default value'), 'js-fu');
+        },
+        'val should return value with overridden variables': function (topic) {
+            assert.equal(topic.val(conf, 'path', 'default value'), '/foo/bar/myproject/8.8.8');
+        },
+        'val should return default value with overridden variables': function (topic) {
+            assert.equal(topic.val(conf, 'inexistentpath', '/default/value/${name}/${version}'), '/default/value/myproject/8.8.8');
         },
         'val should return undefined when property does not exist and no default value provided':
         function (topic) {
