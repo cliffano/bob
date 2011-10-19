@@ -4,6 +4,8 @@
 * Add md5 and sha1 hash for package and package-meta
 * Add versionup, versionup-minor, versionup-major targets
 * Add template target
+* Add custom user and key for deploy target
+* Deploy target now send all files in {artifact.dir}
 
 ### 0.2.5
 * Fix exit code for checkstyle, hint, lint, test tasks
