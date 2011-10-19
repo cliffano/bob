@@ -93,14 +93,16 @@ package-meta:
 	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 
-deploy: package
+send: package
 	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'mkdir -p $(BOB_DEPLOY_DIR); cd $(BOB_DEPLOY_DIR); rm -rf *;'
 	scp -i $(BOB_DEPLOY_KEY) -P $(BOB_DEPLOY_PORT) $(ARTIFACT_DIR)/* $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)
+
+deploy: send
 	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
-	ssh -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(NAME).js restart;'
+	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); NODE_ENV=$(NODE_ENV) node $(NAME)-app.js restart;'
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean checkstyle lint hint test coverage versionup versionup-minor versionup-major template stop start restart status nuke package package-meta deploy remote-r deploy-r
+.PHONY: dep tools init clean checkstyle lint hint test coverage versionup versionup-minor versionup-major template stop start restart status nuke package package-meta send deploy remote-r deploy-r

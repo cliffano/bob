@@ -114,5 +114,6 @@ Targets
 * restart - Restart the app. Run `npm restart` if scripts.restart exists in package.json
 * status - Display app status
 * nuke - Kill all processes with command containing the word 'node'
-* deploy - Deploy the package to {bob.deploy.user}@{bob.deploy.host}:{bob.deploy.port} at {bob.deploy.dir}, remember to configure the private key for the specified user
+* send - Send the artifacts to {bob.deploy.user}@{bob.deploy.host}:{bob.deploy.port} at {bob.deploy.dir}, remember to configure the private key for the specified user
+* deploy - Send, then unpack the main .tar.gz artifact
 * deploy-r - Deploy the package and then remotely restart the app
