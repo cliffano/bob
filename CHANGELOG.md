@@ -1,5 +1,6 @@
 ### 0.2.7
 * Switch main app file back to {name}.js (apology for the flip-flop)
+* Fix versionup-minor and versionup-major to reset lower-priority numbers to 0
 
 ### 0.2.6
 * Fix robot mode nodelint to generate xml report
