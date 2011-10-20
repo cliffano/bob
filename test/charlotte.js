@@ -49,12 +49,12 @@ vows.describe('Charlotte').addBatch({
             assert.equal((new charlotte.Charlotte()).versionup(), '8.8.9');
         },
         'minor should upgrade version minor number': function () {
-            var charlotte = getVersionUpCharlotte('8.8.8', '8.9.8');
-            assert.equal((new charlotte.Charlotte()).versionup('minor'), '8.9.8');
+            var charlotte = getVersionUpCharlotte('8.8.8', '8.9.0');
+            assert.equal((new charlotte.Charlotte()).versionup('minor'), '8.9.0');
         },
         'major should upgrade version major number': function () {
-            var charlotte = getVersionUpCharlotte('8.8.8', '9.8.8');
-            assert.equal((new charlotte.Charlotte()).versionup('major'), '9.8.8');
+            var charlotte = getVersionUpCharlotte('8.8.8', '9.0.0');
+            assert.equal((new charlotte.Charlotte()).versionup('major'), '9.0.0');
         },
         'should set version to 0.0.1 when original version is undefined': function () {
             var charlotte = getVersionUpCharlotte(undefined, '0.0.1');
