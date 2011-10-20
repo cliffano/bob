@@ -94,7 +94,7 @@ package-meta:
 	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 
 send: package
-	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'mkdir -p $(BOB_DEPLOY_DIR); cd $(BOB_DEPLOY_DIR); rm -rf *;'
+	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'mkdir -p $(BOB_DEPLOY_DIR);'
 	scp -i $(BOB_DEPLOY_KEY) -P $(BOB_DEPLOY_PORT) $(ARTIFACT_DIR)/* $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)
 
 deploy: send
