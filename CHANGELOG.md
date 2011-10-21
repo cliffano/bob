@@ -1,3 +1,6 @@
+### 0.2.8
+* Simplify coverage target setup by using cliffano/vows
+
 ### 0.2.7
 * Switch main app file back to {name}.js (apology for the flip-flop)
 * Fix versionup-minor and versionup-major to reset lower-priority numbers to 0
