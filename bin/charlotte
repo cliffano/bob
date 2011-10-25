@@ -4,7 +4,7 @@ var fs = require('fs'),
     nomnom = require('nomnom'),
     path = require('path'),
     Charlotte = require('../lib/charlotte').Charlotte,
-    charlotte = new Charlotte(toolbelt),
+    charlotte = new Charlotte(),
     scriptOpts;
 
 scriptOpts = {
