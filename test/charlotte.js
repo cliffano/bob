@@ -27,7 +27,7 @@ function getVersionUpCharlotte(origVersion, newVersion) {
     return sandboxedmodule.require('../lib/charlotte', {
         requires: {
             'fs': mockFs,
-            '../lib/toolbelt': mockToolbelt
+            './toolbelt': mockToolbelt
         }
     });
 }
@@ -50,7 +50,7 @@ function getTemplateCharlotte(confData, fileData, mergedFileData) {
     return sandboxedmodule.require('../lib/charlotte', {
         requires: {
             'fs': mockFs,
-            '../lib/toolbelt': mockToolbelt
+            './toolbelt': mockToolbelt
         }
     });
 }
