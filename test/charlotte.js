@@ -1,6 +1,17 @@
 var assert = require('assert'),
     sandboxedmodule = require('sandboxed-module'),
-    vows = require('vows');
+    vows = require('vows'),
+    mockToolbelt;
+
+mockToolbelt = {
+    Toolbelt: function () {
+        return {
+            applyFn: function (data) {
+                return data;
+            }
+        };                  
+    }
+};
 
 function getVersionUpCharlotte(origVersion, newVersion) {
     var mockFs = {
@@ -15,7 +26,8 @@ function getVersionUpCharlotte(origVersion, newVersion) {
         };
     return sandboxedmodule.require('../lib/charlotte', {
         requires: {
-            'fs': mockFs    
+            'fs': mockFs,
+            '../lib/toolbelt': mockToolbelt
         }
     });
 }
@@ -37,7 +49,8 @@ function getTemplateCharlotte(confData, fileData, mergedFileData) {
         };
     return sandboxedmodule.require('../lib/charlotte', {
         requires: {
-            'fs': mockFs    
+            'fs': mockFs,
+            '../lib/toolbelt': mockToolbelt
         }
     });
 }
