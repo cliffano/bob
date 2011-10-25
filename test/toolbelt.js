@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    Toolbelt = require('../lib/toolbelt').Toolbelt,
+    sandboxedmodule = require('sandboxed-module'),
     vows = require('vows'),
     conf = { name: 'myproject', version: '8.8.8', path: '/foo/bar/${name}/${version}', 
         a: { b: { c: 'js-fu' } }, d: { e: { f: 'asyncism' } } };
@@ -7,7 +7,15 @@ var assert = require('assert'),
 vows.describe('Toolbelt').addBatch({
     'industry standard toolbelt': {
         topic: function () {
-            return new Toolbelt();
+            var toolbelt = sandboxedmodule.require('../lib/toolbelt', {
+                    requires: {
+                        'dateformat': function (date, format) {
+                            assert.equal(format, 'yyyymmddhhMMss');
+                            return '20110102030405';
+                        }
+                    }
+                });
+            return new toolbelt.Toolbelt();
         },
         'val should return value when property exists': function (topic) {
             assert.equal(topic.val(conf, 'a.b.c', 'default value'), 'js-fu');
@@ -85,6 +93,10 @@ vows.describe('Toolbelt').addBatch({
         'merge should return empty object when there is nothing to merge': function (topic) {
             var merge = topic.merge([]);
             assert.isEmpty(merge);
+        },
+        'func should replace now function with correct format': function (topic) {
+            var data = topic.applyFn('aaa ${now(\'yyyymmddhhMMss\')} bbb');
+            assert.equal(data, 'aaa 20110102030405 bbb');
         }
     }
 }).exportTo(module);

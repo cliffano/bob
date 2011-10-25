@@ -1,5 +1,6 @@
 ### 0.2.9
 * Make coverage target work by using cliffano/vows with cliffano/node-runforcover 
+* Add function support to template target, starting with now(format) function
 
 ### 0.2.7
 * Switch main app file back to {name}.js (apology for the flip-flop)
