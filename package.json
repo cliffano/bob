@@ -3,10 +3,11 @@
     "description": "A minimalistic build tool for Node.js projects.",
     "keywords": [
         "build",
-        "lint",
-        "hint",
-        "checkstyle",
-        "test",
+        "nodelint",
+        "jshint",
+        "jscheckstyle",
+        "vows",
+        "runforcover",
         "deploy",
         "make"
     ],
