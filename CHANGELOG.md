@@ -1,6 +1,8 @@
 ### 0.2.9
 * Make coverage target work by using cliffano/vows with cliffano/node-runforcover 
 * Add function support to template target, starting with now(format) function
+* Rename lint target to lintstrict, hint to lint, checkstyle to style
+* Add build target which calls style, lint, and test targets
 
 ### 0.2.7
 * Switch main app file back to {name}.js (apology for the flip-flop)

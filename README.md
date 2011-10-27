@@ -6,7 +6,7 @@ A minimalistic build tool for Node.js projects.
 Overview
 --------
 
-Bob provides common build targets (clean, checkstyle, lint, test, coverage, package, deploy, stop, start, status, restart) for Node.js libs/apps. It essentially allows multiple projects to use the same Makefile stored in a global node_modules. Bob uses bash shell.
+Bob provides common build targets (clean, style, lint, test, cover, package, deploy, stop, start, status, restart) for Node.js libs/apps. It essentially allows multiple projects to use the same Makefile stored in a global node_modules. Bob requires bash shell.
 
 Installation
 ------------
@@ -31,15 +31,15 @@ Example:
             "src": {
                 "dir": "mysrc/"
             },
-            "checkstyle": {
+            "style": {
                 "files": "foo.js bar/",
                 "opts": "--checkstyle"
             },
-            "hint": {
+            "lint": {
                 "files": "foo.js bar/",
                 "opts": "--jslint-reporter --config path/to/hintconfig.js"
             },
-            "lint": {
+            "lintstrict": {
                 "files": "foo.js bar/",
                 "opts": "--reporter path/to/lintreporter.js --config path/to/lintconfig.js"
             },
@@ -104,9 +104,9 @@ Targets
 -------
 
 * clean - Delete build/ and run/ directories, along with any nohup.* and *.log files
-* checkstyle - Run `jscheckstyle` against all .js files under lib/ directory, configurable via {bob.checkstyle.files}
-* lint - Run `nodelint` against all .js files under lib/ and test/ directories, configurable via {bob.lint.files}
-* hint - Run `jshint` against all .js files under lib/ and test/ directories, configurable via {bob.hint.files}
+* style - Run `jscheckstyle` against all .js files under lib/ directory, configurable via {bob.style.files}
+* lintstrict - Run `nodelint` against all .js files under lib/ and test/ directories, configurable via {bob.lintstrict.files}
+* lint - Run `jshint` against all .js files under lib/ and test/ directories, configurable via {bob.lint.files}
 * test - Run `vows` against all .js files under test/ directory, configurable via {bob.test.files}. Run `npm test` if scripts.test exists in package.json 
 * coverage - Run `vows` against all .js files under test/ directory with coverage flag, configurable via {bob.coverage.files}
 * package - Create a .tar.gz package at build/artifact/ directory, along with md5 and sha1 checksums.

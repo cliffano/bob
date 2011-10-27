@@ -26,14 +26,14 @@ tools:
 clean:
 	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
 
-checkstyle: init
-	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_CHECKSTYLE_OPTS) $(BOB_CHECKSTYLE_FILES), $(REPORT_DIR)/checkstyle.out)
+style: init
+	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
+
+lintstrict: init
+	$(call exec_report,$(REPORT_DIR),nodelint $(BOB_LINTSTRICT_OPTS) $(BOB_LINTSTRICT_FILES),$(REPORT_DIR)/lintstrict.out)
 
 lint: init
-	$(call exec_report,$(REPORT_DIR),nodelint $(BOB_LINT_OPTS) $(BOB_LINT_FILES),$(REPORT_DIR)/lint.out)
-
-hint: init
-	$(call exec_report,$(REPORT_DIR),jshint $(BOB_HINT_FILES) $(BOB_HINT_OPTS),$(REPORT_DIR)/hint.out)
+	$(call exec_report,$(REPORT_DIR),jshint $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
 
 test: init
 	$(call exec_report,$(REPORT_DIR),vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
@@ -43,6 +43,8 @@ test-npm:
 
 coverage: init
 	$(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+
+build: clean style lint test
 
 versionup:
 	charlotte versionup
@@ -105,4 +107,4 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean checkstyle lint hint test coverage versionup versionup-minor versionup-major template stop start restart status nuke package package-meta send deploy remote-r deploy-r
+.PHONY: dep tools init clean style lint-strict lint test cover build versionup versionup-minor versionup-major template stop start restart status nuke package package-meta send deploy remote-r deploy-r

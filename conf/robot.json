@@ -1,12 +1,12 @@
 {
     "bob": {
-        "checkstyle": {
+        "style": {
             "opts": "--checkstyle"
         },
-        "lint": {
+        "lintstrict": {
             "opts": "--xml-reporter"
         },
-        "hint": {
+        "lint": {
             "opts": "--jslint-reporter"
         },
         "test": {
