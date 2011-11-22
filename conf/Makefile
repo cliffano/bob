@@ -42,7 +42,7 @@ test: init
 test-npm:
 	npm test
 
-coverage: init dep
+coverage: init
 	mkdir -p $(STAGE_DIR)
 	node-jscoverage lib $(STAGE_DIR)/lib
 	cp -r test $(STAGE_DIR)
