@@ -3,6 +3,7 @@ FULLNAME = $(NAME)-$(VERSION)
 BUILD_DIR = $(APP_DIR)/build
 REPORT_DIR = $(BUILD_DIR)/report
 ARTIFACT_DIR = $(BUILD_DIR)/artifact
+STAGE_DIR = $(BUILD_DIR)/stage
 RUN_DIR = $(APP_DIR)/run
 
 exec_report =             \
@@ -21,7 +22,7 @@ dep:
 	npm install .
 	
 tools: 
-	npm install -g jscheckstyle jshint nodelint http://nodeload.github.com/cliffano/vows/tarball/master
+	npm install -g jscheckstyle jshint nodelint vows expresso
 
 clean:
 	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
@@ -41,8 +42,13 @@ test: init
 test-npm:
 	npm test
 
-coverage: init
-	$(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+coverage: init dep
+	mkdir -p $(STAGE_DIR)
+	node-jscoverage lib $(STAGE_DIR)/lib
+	cp -r test $(STAGE_DIR)
+	cp -r package.json $(STAGE_DIR)
+	cp -r node_modules $(STAGE_DIR)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
 build: clean style lint test
 

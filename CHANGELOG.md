@@ -1,3 +1,6 @@
+### 0.2.10
+* Replace node-runforcover with good ol' node-jscoverage
+
 ### 0.2.9
 * Make coverage target work by using cliffano/vows with cliffano/node-runforcover 
 * Add function support to template target, starting with now(format) function
