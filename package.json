@@ -11,7 +11,7 @@
     "deploy",
     "make"
   ],
-  "version": "0.2.10",
+  "version": "0.2.11",
   "homepage": "http://github.com/cliffano/bob",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
   "bin": {
