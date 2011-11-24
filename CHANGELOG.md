@@ -1,5 +1,6 @@
 ### 0.2.11
 * Remove empty line from output display
+* Display build SUCCESS/FAILURE message based on exit code
 
 ### 0.2.10
 * Replace node-runforcover with good ol' node-jscoverage
