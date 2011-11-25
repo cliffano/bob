@@ -13,7 +13,7 @@
             "opts": "--xunit"
         },
         "coverage": {
-            "opts": "--silent --cover-html"
+            "opts": "--silent --cover-xml"
         }
     }
 }
