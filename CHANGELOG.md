@@ -1,6 +1,7 @@
 ### 0.2.11
 * Remove empty line from output display
 * Display build SUCCESS/FAILURE message based on exit code
+* Robot mode coverage now generates xml report, while html report is now generated on any mode
 
 ### 0.2.10
 * Replace node-runforcover with good ol' node-jscoverage
