@@ -48,7 +48,7 @@ coverage: init
 	cp -r test $(STAGE_DIR)
 	cp -r package.json $(STAGE_DIR)
 	cp -r node_modules $(STAGE_DIR)
-	cd $(STAGE_DIR); vows $(BOB_COVERAGE_FILES) --silent --cover-html
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
 	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
 	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
