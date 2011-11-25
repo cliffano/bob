@@ -22,7 +22,7 @@ dep:
 	npm install .
 	
 tools: 
-	npm install -g jscheckstyle jshint nodelint vows expresso
+	npm install -g jscheckstyle jshint nodelint http://nodeload.github.com/cliffano/vows/tarball/master expresso
 
 clean:
 	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
