@@ -1,3 +1,6 @@
+### 0.3.0
+*
+
 ### 0.2.11
 * Remove empty line from output display
 * Display build SUCCESS/FAILURE message based on exit code
