@@ -3,20 +3,22 @@
   "description": "A minimalistic build tool for Node.js projects.",
   "keywords": [
     "build",
-    "nodelint",
-    "jshint",
-    "jscheckstyle",
-    "vows",
-    "runforcover",
+    "lint",
+    "checkstyle",
+    "test",
+    "coverage",
     "deploy",
     "make"
   ],
-  "version": "0.2.11",
+  "version": "0.3.0",
   "homepage": "http://github.com/cliffano/bob",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
   "bin": {
     "bob": "./bin/bob",
     "charlotte": "./bin/charlotte"
+  },
+  "scripts": {
+    "test": "vows --spec `find test -name \"*.js\"`"
   },
   "repository": {
     "type": "git",
@@ -27,16 +29,17 @@
   },
   "directories": {
     "bin": "./bin",
-    "lib": "./lib"
+    "lib": "./lib",
+    "test": "./test"
   },
   "dependencies": {
     "dateformat": "1.0.2-1.2.3",
     "jquery": "1.6.3",
-    "nomnom": "1.0.0",
-    "underscore": "1.1.7"
+    "nomnom": "1.5.1",
+    "underscore": "1.2.2"
   },
   "devDependencies": {
-    "sandboxed-module": "0.1.1",
+    "sandboxed-module": "0.1.2",
     "vows": "0.5.9"
   },
   "engines": {
