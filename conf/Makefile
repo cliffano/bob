@@ -28,16 +28,16 @@ clean:
 	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
 
 style: init
-	$(call exec_report, $(REPORT_DIR), jscheckstyle $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
+	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/node_modules/jscheckstyle/bin/jscheckstyle $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
 
 lintstrict: init
-	$(call exec_report,$(REPORT_DIR),nodelint $(BOB_LINTSTRICT_OPTS) $(BOB_LINTSTRICT_FILES),$(REPORT_DIR)/lintstrict.out)
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/nodelint/nodelint $(BOB_LINTSTRICT_OPTS) $(BOB_LINTSTRICT_FILES),$(REPORT_DIR)/lintstrict.out)
 
 lint: init
-	$(call exec_report,$(REPORT_DIR),jshint $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/jshint/bin/hint $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
 
 test: init
-	$(call exec_report,$(REPORT_DIR),vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
 
 test-npm:
 	npm test
@@ -48,9 +48,9 @@ coverage: init
 	cp -r test $(STAGE_DIR)
 	cp -r package.json $(STAGE_DIR)
 	cp -r node_modules $(STAGE_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
 	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
 build: clean style lint test
 

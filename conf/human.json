@@ -1,19 +1,19 @@
 {
-    "bob": {
-        "style": {
-            "opts": "--violations"
-        },
-        "lintstrict": {
-            "opts": ""
-        },
-        "lint": {
-            "opts": ""
-        },
-        "test": {
-            "opts": "--spec"
-        },
-        "coverage": {
-            "opts": "--silent --cover-plain"
-        }
+  "bob": {
+    "style": {
+      "opts": "--violations"
+    },
+    "lintstrict": {
+      "opts": ""
+    },
+    "lint": {
+      "opts": ""
+    },
+    "test": {
+      "opts": "--spec"
+    },
+    "coverage": {
+      "opts": "--silent --cover-plain"
     }
+  }
 }
