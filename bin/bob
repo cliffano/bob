@@ -1,43 +1,4 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
-    path = require('path'),
-    Bob = require('../lib/bob').Bob,
-    Toolbelt = require('../lib/toolbelt').Toolbelt,
-    appDir = process.cwd(),
-    bobDir = path.join(__dirname, '..'),
-    bobMode = process.env.BOB_MODE || 'human',
-    toolbelt = new Toolbelt(),
-    conf = toolbelt.merge([
-            JSON.parse(fs.readFileSync(bobDir + '/conf/' + bobMode + '.json')),
-            JSON.parse(fs.readFileSync('package.json'))
-        ]),
-    bob = new Bob(toolbelt, conf),
-    params = [
-        { name: 'BOB_DIR', defaultVal: bobDir },
-        { name: 'APP_DIR', defaultVal: appDir },
-        { name: 'NODE_ENV', defaultVal: (process.env.NODE_ENV || 'development') },
-        { name: 'NAME' },
-        { name: 'VERSION' },
-        { name: 'BOB_SRC_DIR', defaultVal: '.' },
-        { name: 'BOB_STYLE_FILES', defaultVal: 'lib/' },
-        { name: 'BOB_STYLE_OPTS' },
-        { name: 'BOB_LINT_FILES', defaultVal: 'lib/ test/' },
-        { name: 'BOB_LINT_OPTS' },
-        { name: 'BOB_LINTSTRICT_FILES', defaultVal: 'lib/ test/' },
-        { name: 'BOB_LINTSTRICT_OPTS' },
-        { name: 'BOB_TEST_FILES', defaultVal: '`find test -name "*.js" | tr "\\r\\n" " "`' },
-        { name: 'BOB_TEST_OPTS' },
-        { name: 'BOB_COVERAGE_FILES', defaultVal: '`find test -name "*.js" | tr "\\r\\n" " "`' },
-        { name: 'BOB_COVERAGE_OPTS' },
-        { name: 'BOB_PACKAGEMETA_DIR' },
-        { name: 'BOB_PACKAGEMETA_FILE' },
-        { name: 'BOB_DEPLOY_USER' },
-        { name: 'BOB_DEPLOY_KEY' },
-        { name: 'BOB_DEPLOY_HOST' },
-        { name: 'BOB_DEPLOY_PORT' },
-        { name: 'BOB_DEPLOY_DIR' }
-    ],
-    tasks = bob.plan(process.argv.slice(2));
-
-bob.build(bobDir, params, tasks);
+var cli = require('../lib/cli');
+cli.exec();

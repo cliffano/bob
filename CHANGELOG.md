@@ -1,5 +1,7 @@
 ### 0.3.0
-*
+* Move tools dependency to local to simplify installation
+* Tools target is now optional and only a handy convenience for executing tools against a single file
+* bob -v now returns Bob version, not make version
 
 ### 0.2.11
 * Remove empty line from output display
