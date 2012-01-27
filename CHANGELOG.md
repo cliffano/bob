@@ -2,6 +2,7 @@
 * Move tools dependency to local to simplify installation
 * Tools target is now optional and only a handy convenience for executing tools against a single file
 * bob -v now returns Bob version, not make version
+* Template config now uses an array of template file names, was an object with template file name as key and array of parameters as value.
 
 ### 0.2.11
 * Remove empty line from output display
