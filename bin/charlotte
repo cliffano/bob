@@ -1,34 +1,4 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
-    nomnom = require('nomnom'),
-    path = require('path'),
-    Charlotte = require('../lib/charlotte').Charlotte,
-    charlotte = new Charlotte(),
-    scriptOpts;
-
-scriptOpts = {
-    version: {
-        string: '-v',
-        flag: true,
-        help: 'charlotte version number',
-        callback: function () {
-            return JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'))).version;
-        }
-    }
-}
-
-nomnom.scriptName('charlotte').opts(scriptOpts);
-nomnom.command('versionup').callback(function (args) {
-    console.log('Bump version up to ' + charlotte.versionup());
-});
-nomnom.command('versionup-minor').callback(function (args) {
-    console.log('Bump version up to ' + charlotte.versionup('minor'));
-});
-nomnom.command('versionup-major').callback(function (args) {
-    console.log('Bump version up to ' + charlotte.versionup('major'));
-});
-nomnom.command('template').callback(function (args) {
-    charlotte.template();
-});
-nomnom.parseArgs();
+var cli = require('../lib/cli');
+cli.exec('charlotte');
