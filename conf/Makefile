@@ -30,11 +30,8 @@ clean:
 style: init
 	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/node_modules/jscheckstyle/bin/jscheckstyle $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
 
-lintstrict: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/nodelint/nodelint $(BOB_LINTSTRICT_OPTS) $(BOB_LINTSTRICT_FILES),$(REPORT_DIR)/lintstrict.out)
-
 lint: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/jshint/bin/hint $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_LINT_BIN) $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
 
 test-vows: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
