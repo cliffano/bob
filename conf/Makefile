@@ -36,7 +36,7 @@ lintstrict: init
 lint: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/jshint/bin/hint $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
 
-test: init
+test-vows: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
 
 test-npm:
