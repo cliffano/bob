@@ -22,5 +22,6 @@
     "BOB_DEPLOY_DIR": {}
   },
   "targets": {
+    "test": { "default": "vows" }
   }
 }
