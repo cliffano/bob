@@ -28,13 +28,13 @@ clean:
 	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
 
 style: init
-	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/node_modules/jscheckstyle/bin/jscheckstyle $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
+	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/$(BOB_STYLE_BIN) $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
 
 lint: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_LINT_BIN) $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
 
-test-vows: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
+test: init
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_TEST_BIN) $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
 
 test-npm:
 	npm test
@@ -45,9 +45,9 @@ coverage: init
 	cp -r test $(STAGE_DIR)
 	cp -r package.json $(STAGE_DIR)
 	cp -r node_modules $(STAGE_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_BIN) $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
 	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/node_modules/vows/bin/vows $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_BIN) $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
 build: clean style lint test
 

@@ -1,3 +1,4 @@
+.design
 .DS_Store
 .git
 .gitignore

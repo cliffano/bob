@@ -54,10 +54,5 @@
       "type": "MIT",
       "url": "http://github.com/cliffano/bob/raw/master/LICENSE"
     }
-  ],
-  "bob": {
-    "lint": {
-      "type": "nodelint"
-    }
-  }
+  ]
 }

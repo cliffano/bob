@@ -54,5 +54,31 @@
     },
     "BOB_DEPLOY_DIR": {
     }
+  },
+  "targets": {
+    "restart": {
+      "override": {
+        "prop": "scripts.restart",
+        "target": "restart-npm"
+      }
+    },
+    "start": {
+      "override": {
+        "prop": "scripts.start",
+        "target": "start-npm"
+      }
+    },
+    "stop": {
+      "override": {
+        "prop": "scripts.stop",
+        "target": "stop-npm"
+      }
+    },
+    "test": {
+      "override": {
+        "prop": "scripts.test",
+        "target": "test-npm"
+      }
+    }
   }
 }
