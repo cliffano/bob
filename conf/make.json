@@ -73,12 +73,6 @@
         "prop": "scripts.stop",
         "target": "stop-npm"
       }
-    },
-    "test": {
-      "override": {
-        "prop": "scripts.test",
-        "target": "test-npm"
-      }
     }
   }
 }

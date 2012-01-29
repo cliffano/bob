@@ -4,7 +4,8 @@
 * bob -v now returns Bob version, not make version
 * Template config now uses an array of template file names, previously it was an object with template file name as key and array of parameters as value.
 * Introduce task type, this provides flexibility for having task type specific target execution.
-* lintstrict target is replaced with lint target having package.json { "bob"; { "lint": { "type": "nodelint" } } }
+* lintstrict target is replaced with lint target having bob.lint.type: nodelint
+* scripts.test no longer overrides test target, this is to allow Bob usage on Travis
 
 ### 0.2.11
 * Remove empty line from output display
