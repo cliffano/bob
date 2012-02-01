@@ -33,6 +33,9 @@
     "BOB_TEST_OPTS": {
     },
     "BOB_COVERAGE_BIN": {
+      "default": "node_modules/expresso/deps/jscoverage/node-jscoverage"
+    },
+    "BOB_COVERAGE_TESTBIN": {
       "default": "node_modules/vows/bin/vows"
     },
     "BOB_COVERAGE_FILES": {

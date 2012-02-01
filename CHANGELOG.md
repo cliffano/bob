@@ -1,3 +1,6 @@
+### 0.3.1
+* Coverage target no longer requires global node-jscoverage
+
 ### 0.3.0
 * Move tools dependency to local to simplify installation
 * Tools target is now optional and only a handy convenience for executing tools against a single file

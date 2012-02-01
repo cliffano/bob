@@ -41,13 +41,13 @@ test-npm:
 
 coverage: init
 	mkdir -p $(STAGE_DIR)
-	node-jscoverage lib $(STAGE_DIR)/lib
+	$(BOB_DIR)/$(BOB_COVERAGE_BIN) lib $(STAGE_DIR)/lib
 	cp -r test $(STAGE_DIR)
 	cp -r package.json $(STAGE_DIR)
 	cp -r node_modules $(STAGE_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_BIN) $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
 	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_BIN) $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
 
 build: clean style lint test
 
