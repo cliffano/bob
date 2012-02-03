@@ -1,3 +1,6 @@
+### 0.3.2
+* Send target no longer creates base directory.
+
 ### 0.3.1
 * Coverage target no longer requires global node-jscoverage
 
