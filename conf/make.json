@@ -48,14 +48,31 @@
     "BOB_PACKAGEMETA_FILE": {
     },
     "BOB_DEPLOY_USER": {
+      "default": "anonymous"
     },
     "BOB_DEPLOY_KEY": {
     },
     "BOB_DEPLOY_HOST": {
     },
     "BOB_DEPLOY_PORT": {
+      "default": "22",
+      "ftp": "21"
     },
     "BOB_DEPLOY_DIR": {
+      "default": ".",
+      "ftp": "/"
+    },
+    "BOB_DEPLOY_BIN": {
+      "default": "scp",
+      "ftp": "ncftpput"
+    },
+    "BOB_DEPLOY_OPTS": {
+      "default": "-i $(BOB_DEPLOY_KEY) -P $(BOB_DEPLOY_PORT)",
+      "ftp": "-f $(BOB_DEPLOY_KEY) -u $(BOB_DEPLOY_USER) -P $(BOB_DEPLOY_PORT)"
+    },
+    "BOB_DEPLOY_FILES": {
+      "default": "$(ARTIFACT_DIR)/* $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)",
+      "ftp": "$(BOB_DEPLOY_DIR) $(ARTIFACT_DIR)/$(FULLNAME).tar.gz"
     }
   },
   "targets": {
