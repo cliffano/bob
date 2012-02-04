@@ -100,10 +100,10 @@ package-meta:
 	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
 
-send: package
-	scp -i $(BOB_DEPLOY_KEY) -P $(BOB_DEPLOY_PORT) $(ARTIFACT_DIR)/* $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)
+deploy: package
+	$(BOB_DEPLOY_BIN) $(BOB_DEPLOY_OPTS) $(BOB_DEPLOY_FILES)
 
-deploy: send
+deploy-unpack: deploy
 	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 remote-r:
@@ -111,4 +111,3 @@ remote-r:
 
 deploy-r: deploy remote-r
 	
-.PHONY: dep tools init clean style lint-strict lint test cover build versionup versionup-minor versionup-major template stop start restart status nuke package package-meta send deploy remote-r deploy-r
