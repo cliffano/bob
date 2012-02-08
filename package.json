@@ -41,11 +41,10 @@
     "nodelint": "0.5.2",
     "nomnom": "1.5.1",
     "underscore": "1.2.2",
-    "vows": "http://nodeload.github.com/cliffano/vows/tarball/master"
+    "vows": "http://nodeload.github.com/cloudhead/vows/tarball/master"
   },
   "devDependencies": {
-    "sandboxed-module": "0.1.2",
-    "vows": "0.5.9"
+    "sandboxed-module": "0.1.2"
   },
   "engines": {
     "node": ">= 0.4.0"
