@@ -1,7 +1,8 @@
-### 0.3.2 (SNAPSHOT)
+### 0.3.2
 * Send target no longer creates base directory
 * Add ftp type support for deploy target
 * Remove send target, add deploy-unpack target
+* Change vows dependency to cloudhead/vows master now that --cover-xml pull request is merged
 
 ### 0.3.1
 * Coverage target no longer requires global node-jscoverage
