@@ -4,7 +4,7 @@ var assert = require('assert'),
   vows = require('vows');
 
 vows.describe('packagejson').addBatch({
-  'packgejson': {
+  'packagejson': {
     topic: function () {
       return sandbox.require('../lib/packagejson', {
         requires: {
