@@ -44,7 +44,7 @@
     "vows": "http://nodeload.github.com/cloudhead/vows/tarball/master"
   },
   "devDependencies": {
-    "sandboxed-module": "0.1.2"
+    "sandboxed-module": "http://nodeload.github.com/cliffano/node-sandboxed-module/tarball/master"
   },
   "engines": {
     "node": ">= 0.4.0"
