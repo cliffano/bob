@@ -43,6 +43,15 @@
     },
     "BOB_COVERAGE_OPTS": {
     },
+    "BOB_DOC_BIN": {
+      "default": "node_modules/ndoc/bin/ndoc"
+    },
+    "BOB_DOC_FILES": {
+      "default": "lib/"
+    },
+    "BOB_DOC_OPTS": {
+      "default": "-o build/report/doc"
+    },
     "BOB_PACKAGEMETA_DIR": {
     },
     "BOB_PACKAGEMETA_FILE": {
