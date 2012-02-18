@@ -74,6 +74,12 @@ vows.describe('util').addBatch({
         assert.isUndefined(value);
       }
     },
+    'when property does not exist in object but its leaf node exists as root property in object': {
+      'then value should be undefined': function (topic) {
+        var value = topic.val('bob.doc.bin', { bin: {}, bob: { foo: 'bar' }});
+        assert.isUndefined(value);
+      }
+    },
     'when property exists in object': {
       'then value should be undefined': function (topic) {
         var value = topic.val('x.y.z', { x: { y: { z: 'bar' } } });
