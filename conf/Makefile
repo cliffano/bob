@@ -43,11 +43,14 @@ coverage: init
 	mkdir -p $(STAGE_DIR)
 	$(BOB_DIR)/$(BOB_COVERAGE_BIN) lib $(STAGE_DIR)/lib
 	cp -r test $(STAGE_DIR)
-	cp -r package.json $(STAGE_DIR)
-	cp -r node_modules $(STAGE_DIR)
+	ln -s package.json $(STAGE_DIR)/package.json
+	ln -s node_modules $(STAGE_DIR)/node_modules
 	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
 	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
 	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+
+doc: init
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_DOC_BIN) $(BOB_DOC_FILES) $(BOB_DOC_OPTS),$(REPORT_DIR)/doc.out)
 
 build: clean style lint test
 
