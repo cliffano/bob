@@ -1,4 +1,7 @@
-### 0.3.3 (SNAPSHOT)
+### 0.3.4 (SNAPSHOT)
+*
+
+### 0.3.3
 * Fix config value handling when dsv is x.y.z with undefined x.y but z exists
 * Add doc target, using ndoc as default doc tool
 * Replace jquery object extend with valentine's
