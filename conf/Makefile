@@ -43,8 +43,8 @@ coverage: init
 	mkdir -p $(STAGE_DIR)
 	$(BOB_DIR)/$(BOB_COVERAGE_BIN) lib $(STAGE_DIR)/lib
 	cp -r test $(STAGE_DIR)
-	ln -s package.json $(STAGE_DIR)/package.json
-	ln -s node_modules $(STAGE_DIR)/node_modules
+	ln -s $(APP_DIR)/package.json $(STAGE_DIR)/package.json
+	ln -s $(APP_DIR)/node_modules $(STAGE_DIR)/node_modules
 	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
 	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
 	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
