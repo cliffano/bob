@@ -1,6 +1,7 @@
 ### 0.3.3 (SNAPSHOT)
 * Fix config value handling when dsv is x.y.z with undefined x.y but z exists
 * Add doc target, using ndoc as default doc tool
+* Replace jquery object extend with valentine's
 
 ### 0.3.2
 * Send target no longer creates base directory
