@@ -1,5 +1,5 @@
 ### 0.3.4 (SNAPSHOT)
-*
+* Fix package.json and node_modules symlink in build/stage for coverage target
 
 ### 0.3.3
 * Fix config value handling when dsv is x.y.z with undefined x.y but z exists
