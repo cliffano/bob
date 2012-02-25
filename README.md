@@ -158,7 +158,7 @@ Add this scripts.test to project's package.json file:
 
 ###Jenkins CI
 
-Install Bob on the server, then configure a job with shell script build step 
+Install Bob on the server, then configure a job with shell script build step:
 
     bob clean lint test coverage;
 
