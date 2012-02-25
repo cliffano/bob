@@ -78,7 +78,7 @@ Targets
     <td>Run <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ directory.</td>
   </tr>
   <tr>
-    <td>coverage (experimental)</td>
+    <td>coverage <code>(experimental)</code></td>
     <td>Run <a href=http://github.com/visionmedia/node-jscoverage">visionmedia/node-jscoverage</a> via <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ and lib/ directories.</td>
   </tr>
   <tr>
@@ -98,7 +98,7 @@ Targets
     <td>Upgrade major version number in package.json file.</td>
   </tr>
   <tr>
-    <td>template (experimental)</td>
+    <td>template <code>(experimental)</code></td>
     <td>Populate variables in template files with values from package.json file.</td>
   </tr>
   <tr>
@@ -126,19 +126,19 @@ Targets
     <td>Create a .tar.gz package file at build/artifact/ directory, along with md5 and sha1 checksums of the package file.</td>
   </tr>
   <tr>
-    <td>package-meta (experimental)</td>
+    <td>package-meta <code>(experimental)</code></td>
     <td>Create a meta file to build/artifact, along with md5 and sha1 checksums of the meta file.</td>
   </tr>
   <tr>
-    <td>deploy (experimental)</td>
+    <td>deploy <code>(experimental)</code></td>
     <td>Upload the .tar.gz package file to a remote location, either via SCP or FTP.</td>
   </tr>
   <tr>
-    <td>deploy-unpack (experimental)</td>
+    <td>deploy-unpack <code>(experimental)</code></td>
     <td>Deploy, then remotely unpack the .tar.gz package file via SSH.</td>
   </tr>
   <tr>
-    <td>deploy-restart (experimental)</td>
+    <td>deploy-restart <code>(experimental)</code></td>
     <td>Deploy, unpack, then remotely execute <code>node {name.js} restart</code> .</td>
   </tr>
 </table>
