@@ -1,4 +1,7 @@
-### 0.3.4 (SNAPSHOT)
+### 0.3.5 (SNAPSHOT)
+*
+
+### 0.3.4 
 * Fix package.json and node_modules symlink in build/stage for coverage target
 
 ### 0.3.3
