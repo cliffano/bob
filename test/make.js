@@ -6,7 +6,6 @@ vows.describe('make').addBatch({
   'make': {
     topic: function () {
       return function (exitCode) {
-        console.log(">>" + exitCode)
         return sandbox.require('../lib/make', {
           requires: {
             child_process: {
