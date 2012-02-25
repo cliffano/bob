@@ -27,11 +27,11 @@ tools:
 clean:
 	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
 
-style: init
-	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/$(BOB_STYLE_BIN) $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
-
 lint: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_LINT_BIN) $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
+
+style: init
+	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/$(BOB_STYLE_BIN) $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
 
 test: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_TEST_BIN) $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
