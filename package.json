@@ -17,9 +17,6 @@
     "bob": "./bin/bob",
     "charlotte": "./bin/charlotte"
   },
-  "scripts": {
-    "test": "npm install -g bob; bob clean lint test coverage;"
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/cliffano/bob.git"
@@ -48,7 +45,7 @@
     "sandboxed-module": "0.1.3"
   },
   "engines": {
-    "node": ">= 0.4.0"
+    "node": ">= 0.4.0 < 0.7.0"
   },
   "licenses": [
     {
