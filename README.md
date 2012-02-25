@@ -55,7 +55,7 @@ Targets
 <table>
   <tr>
     <td>dep</td>
-    <td>Install all dependencies specified in package.json file by executing <pre>npm install .</pre> .</td>
+    <td>Install all dependencies specified in package.json file by executing <code>npm install .</code> .</td>
   </tr>
   <tr>
     <td>tools</td>
@@ -103,19 +103,19 @@ Targets
   </tr>
   <tr>
     <td>stop</td>
-    <td>Stop the app by executing <pre>node {name}.js stop</pre> .</td>
+    <td>Stop the app by executing <code>node {name}.js stop</code> .</td>
   </tr>
   <tr>
     <td>start</td>
-    <td>Start the app by executing <pre>node {name}.js start</pre> .</td>
+    <td>Start the app by executing <code>node {name}.js start</code> .</td>
   </tr>
   <tr>
     <td>restart</td>
-    <td>Restart the app by executing <pre>node {name}.js restart</pre> .</td>
+    <td>Restart the app by executing <code>node {name}.js restart</code> .</td>
   </tr>
   <tr>
     <td>status</td>
-    <td>Display app status by executing <pre>node {name}.js status</pre> .</td>
+    <td>Display app status by executing <code>node {name}.js status</code> .</td>
   </tr>
   <tr>
     <td>nuke</td>
@@ -139,7 +139,7 @@ Targets
   </tr>
   <tr>
     <td>deploy-restart (experimental)</td>
-    <td>Deploy, unpack, then remotely execute <pre>node {name.js} restart</pre> .</td>
+    <td>Deploy, unpack, then remotely execute <code>node {name.js} restart</code> .</td>
   </tr>
 </table>
 
