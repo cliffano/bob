@@ -1,5 +1,5 @@
 ### 0.3.5 (SNAPSHOT)
-*
+* Re-add scripts.test override
 
 ### 0.3.4 
 * Fix package.json and node_modules symlink in build/stage for coverage target
