@@ -148,13 +148,10 @@ Continuous Integration
 
 ###Travis CI
 
-Add this scripts.test to project's package.json file:
+Configure the project's .travis.yml file:
 
-    {
-      "scripts": {
-        "test": "npm install -g bob; bob clean lint test coverage;"
-      }
-    }
+    before_install: "npm install -g bob"
+    script: "bob clean lint test coverage"
 
 ###Jenkins CI
 
