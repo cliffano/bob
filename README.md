@@ -55,7 +55,7 @@ Targets
 <table>
   <tr>
     <td>dep</td>
-    <td>Install all dependencies specified in package.json file by executing `npm install .` .</td>
+    <td>Install all dependencies specified in package.json file by executing <pre>npm install .</pre> .</td>
   </tr>
   <tr>
     <td>tools</td>
@@ -67,23 +67,23 @@ Targets
   </tr>
   <tr>
     <td>lint</td>
-    <td>Run [jshint/node-jshint](http://github.com/jshint/node-jshint) or [tav/nodelint](http://github.com/tav/nodelint) against all .js files in lib/ and test/ directories.</td>
+    <td>Run <a href=http://github.com/jshint/node-jshint">jshint/node-jshint</a> or <a href=http://github.com/tav/nodelint">tav/nodelint</a> against all .js files in lib/ and test/ directories.</td>
   </tr>
   <tr>
     <td>style</td>
-    <td>Run [nomiddlename/jscheckstyle](http://github.com/nomiddlename/jscheckstyle) against all .js files in lib/ directory.</td>
+    <td>Run <a href=http://github.com/nomiddlename/jscheckstyle">nomiddlename/jscheckstyle</a> against all .js files in lib/ directory.</td>
   </tr>
   <tr>
     <td>test</td>
-    <td>Run [cloudhead/vows](http://github.com/cloudhead/vows) against all .js files in test/ directory.</td>
+    <td>Run <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ directory.</td>
   </tr>
   <tr>
     <td>coverage (experimental)</td>
-    <td>Run [visionmedia/node-jscoverage](http://github.com/visionmedia/node-jscoverage) via [cloudhead/vows](http://github.com/cloudhead/vows) against all .js files in test/ and lib/ directories.</td>
+    <td>Run <a href=http://github.com/visionmedia/node-jscoverage">visionmedia/node-jscoverage</a> via <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ and lib/ directories.</td>
   </tr>
   <tr>
     <td>doc</td>
-    <td>Run [nodeca/ndoc](http://github.com/nodeca/ndoc) against all .js files in lib/ directory.</td>
+    <td>Run <a href=http://github.com/nodeca/ndoc">nodeca/ndoc</a> against all .js files in lib/ directory.</td>
   </tr>
   <tr>
     <td>versionup</td>
@@ -103,19 +103,19 @@ Targets
   </tr>
   <tr>
     <td>stop</td>
-    <td>Stop the app by executing `node {name}.js stop` .</td>
+    <td>Stop the app by executing <pre>node {name}.js stop</pre> .</td>
   </tr>
   <tr>
     <td>start</td>
-    <td>Start the app by executing `node {name}.js start` .</td>
+    <td>Start the app by executing <pre>node {name}.js start</pre> .</td>
   </tr>
   <tr>
     <td>restart</td>
-    <td>Restart the app by executing `node {name}.js restart` .</td>
+    <td>Restart the app by executing <pre>node {name}.js restart</pre> .</td>
   </tr>
   <tr>
     <td>status</td>
-    <td>Display app status by executing `node {name}.js status` .</td>
+    <td>Display app status by executing <pre>node {name}.js status</pre> .</td>
   </tr>
   <tr>
     <td>nuke</td>
@@ -139,7 +139,7 @@ Targets
   </tr>
   <tr>
     <td>deploy-restart (experimental)</td>
-    <td>Deploy, unpack, then remotely execute `node {name.js} restart` .</td>
+    <td>Deploy, unpack, then remotely execute <pre>node {name.js} restart</pre> .</td>
   </tr>
 </table>
 
