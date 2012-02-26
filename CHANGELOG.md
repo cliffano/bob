@@ -1,4 +1,4 @@
-### 0.3.5 (SNAPSHOT)
+### 0.4.0 (SNAPSHOT)
 * Re-add scripts.test override
 
 ### 0.3.4 
