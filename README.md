@@ -134,12 +134,16 @@ Targets
     <td>Upload the .tar.gz package file to a remote location, either via SCP or FTP.</td>
   </tr>
   <tr>
-    <td>deploy-unpack <code>(experimental)</code></td>
-    <td>Deploy, then remotely unpack the .tar.gz package file via SSH.</td>
+    <td>ssh-unpack <code>(experimental)</code></td>
+    <td>(SSH only) Deploy, then remotely unpack the .tar.gz package file.</td>
   </tr>
   <tr>
-    <td>deploy-restart <code>(experimental)</code></td>
-    <td>Deploy, unpack, then remotely execute <code>node {name.js} restart</code> .</td>
+    <td>ssh-restart <code>(experimental)</code></td>
+    <td>(SSH only) Deploy, unpack, then remotely execute <code>node {name.js} restart</code> .</td>
+  </tr>
+  <tr>
+    <td>ssh-mkdir <code>(experimental)</code></td>
+    <td>(SSH only) Remotely create the directory to deploy the package file to.</td>
   </tr>
 </table>
 
