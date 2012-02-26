@@ -1,4 +1,7 @@
-### 0.4.0 (SNAPSHOT)
+### 0.4.1 (SNAPSHOT)
+*
+
+### 0.4.0
 * Re-add scripts.test override
 * Add .bob.json configuration file support
 * Rename deploy-unpack to ssh-unpack, deploy-restart to ssh-restart
