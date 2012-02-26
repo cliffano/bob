@@ -106,9 +106,11 @@ package-meta:
 deploy: package
 	$(BOB_DEPLOY_BIN) $(BOB_DEPLOY_OPTS) $(BOB_DEPLOY_FILES)
 
-deploy-unpack: deploy
+ssh-unpack: deploy
 	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
-deploy-restart: deploy-unpack
+ssh-restart: ssh-unpack
 	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'source ~/.bash_profile; cd $(BOB_DEPLOY_DIR)/$(FULLNAME); nohup node $(NAME).js start;'
-	
+
+ssh-mkdir:
+	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'mkdir -p $(BOB_DEPLOY_DIR);'

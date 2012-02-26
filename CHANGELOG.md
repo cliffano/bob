@@ -1,6 +1,8 @@
 ### 0.4.0 (SNAPSHOT)
 * Re-add scripts.test override
 * Add .bob.json configuration file support
+* Rename deploy-unpack to ssh-unpack, deploy-restart to ssh-restart
+* Add shh-mkdir target to create remote directory to deploy to
 
 ### 0.3.4 
 * Fix package.json and node_modules symlink in build/stage for coverage target
