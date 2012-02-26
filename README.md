@@ -75,7 +75,7 @@ Targets
   </tr>
   <tr>
     <td>test</td>
-    <td>Run <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ directory. If {scripts.test} is available, then <code>npm test</code> will be executed instead.</td>
+    <td>Run <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ directory. If <code>{scripts.test}</code> is available, then <code>npm test</code> will be executed instead.</td>
   </tr>
   <tr>
     <td>coverage <code>(experimental)</code></td>
@@ -103,15 +103,15 @@ Targets
   </tr>
   <tr>
     <td>stop</td>
-    <td>Stop the app by executing <code>node {name}.js stop</code> . If {scripts.stop} is available, then <code>npm stop</code> will be executed instead.</td>
+    <td>Stop the app by executing <code>node {name}.js stop</code> . If <code>{scripts.stop}</code> is configured, then <code>npm stop</code> will be executed instead.</td>
   </tr>
   <tr>
     <td>start</td>
-    <td>Start the app by executing <code>node {name}.js start</code> . If {scripts.start} is available, then <code>npm start</code> will be executed instead.</td>
+    <td>Start the app by executing <code>node {name}.js start</code> . If <code>{scripts.start}</code> is configured, then <code>npm start</code> will be executed instead.</td>
   </tr>
   <tr>
     <td>restart</td>
-    <td>Restart the app by executing <code>node {name}.js restart</code>  . If {scripts.restart} is available, then <code>npm restart</code> will be executed instead.</td>
+    <td>Restart the app by executing <code>node {name}.js restart</code>  . If <code>{scripts.restart}</code> is configured, then <code>npm restart</code> will be executed instead.</td>
   </tr>
   <tr>
     <td>status</td>
