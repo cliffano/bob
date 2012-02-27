@@ -1,5 +1,5 @@
 ### 0.4.1 (SNAPSHOT)
-*
+* Fix broken template target
 
 ### 0.4.0
 * Re-add scripts.test override
