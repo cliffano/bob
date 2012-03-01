@@ -1,6 +1,6 @@
 {
   "name": "bob",
-  "description": "A minimalistic build tool for Node.js projects.",
+  "description": "Convention-based build tool for Node.js projects.",
   "keywords": [
     "build",
     "lint",
