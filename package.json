@@ -39,7 +39,7 @@
     "nomnom": "1.5.1",
     "underscore": "1.2.2",
     "valentine": "1.4.7",
-    "vows": "http://nodeload.github.com/cloudhead/vows/tarball/master"
+    "vows": "0.6.2"
   },
   "devDependencies": {
     "sandboxed-module": "0.1.3"
