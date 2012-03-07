@@ -83,7 +83,7 @@ vows.describe('cli').addBatch({
         });
       };
     },
-    'when mode is bob': function (topic) {
+    'when mode is bob then it should set version target and bob build': function (topic) {
       var checks = { messages: [] },
         mocks = {};
       new topic(mocks, checks).exec('bob');
@@ -97,7 +97,7 @@ vows.describe('cli').addBatch({
       assert.equal(checks.exitCode, 0);
       assert.equal(checks.targets, 'clean restart');
     },
-    'when mode is charlotte': function (topic) {
+    'when mode is charlotte then it should call versionUp and template functions': function (topic) {
       var checks = { messages: [] },
         mocks = {};
       new topic(mocks, checks).exec('charlotte');
