@@ -59,7 +59,7 @@ Targets
   </tr>
   <tr>
     <td>tools</td>
-    <td>Install all Bob dependencies having binary executablein the global scope.</td>
+    <td>Install all Bob CLI dependencies in global scope.</td>
   </tr>
   <tr>
     <td>clean</td>
@@ -147,6 +147,23 @@ Targets
   </tr>
 </table>
 
+Config
+------
+
+Even though it's recommended to follow the project convention further above, it is possible to customise Bob's build target parameters.
+
+Create a .bob.json file on the project's root directory (same level as package.json), containing a JSON object with this format:
+
+    {
+      "x": {
+        "y": "z"
+      }
+    }
+
+x.y properties will be used as BOB_X_Y in Bob's Makefile.
+
+Check out the [Makefile](https://github.com/cliffano/bob/blob/master/conf/Makefile) for a full list of parameters. NOTE: only the parameters prefixed with BOB_ are customisable.
+
 Continuous Integration
 ----------------------
 
@@ -162,11 +179,6 @@ Configure the project's .travis.yml file:
 Install Bob on the server, then configure a job with shell script build step:
 
     bob clean lint test coverage;
-
-Config
-------
-
-TODO
 
 Colophon
 --------
