@@ -1,4 +1,7 @@
-### 0.4.1 (SNAPSHOT)
+### 0.4.2 (SNAPSHOT)
+*
+
+### 0.4.1
 * Fix broken template target
 
 ### 0.4.0
