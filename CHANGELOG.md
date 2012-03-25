@@ -1,5 +1,5 @@
 ### 0.4.2 (SNAPSHOT)
-*
+* Fix broken ssh-* targets
 
 ### 0.4.1
 * Fix broken template target

@@ -60,6 +60,7 @@
       "default": "anonymous"
     },
     "BOB_DEPLOY_KEY": {
+      "default": "~/.ssh/id_rsa"
     },
     "BOB_DEPLOY_HOST": {
     },
@@ -82,6 +83,9 @@
     "BOB_DEPLOY_FILES": {
       "default": "$(ARTIFACT_DIR)/* $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST):$(BOB_DEPLOY_DIR)",
       "ftp": "$(BOB_DEPLOY_DIR) $(ARTIFACT_DIR)/$(FULLNAME).tar.gz"
+    },
+    "BOB_SSH_BINOPTSARGS": {
+      "default": "ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST)"
     }
   },
   "targets": {
