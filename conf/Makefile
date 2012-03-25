@@ -6,12 +6,12 @@ ARTIFACT_DIR = $(BUILD_DIR)/artifact
 STAGE_DIR = $(BUILD_DIR)/stage
 RUN_DIR = $(APP_DIR)/run
 
-exec_report =             \
+exec_report =         \
 	mkdir -p $1;      \
 	set -eo pipefail; \
 	$2 2>&1 | tee $3; \
 
-exec_sum =                                 \
+exec_sum =                                \
 	$1sum $2 | awk '{print $$1}' > $2.$1; \
 
 init:
@@ -107,10 +107,10 @@ deploy: package
 	$(BOB_DEPLOY_BIN) $(BOB_DEPLOY_OPTS) $(BOB_DEPLOY_FILES)
 
 ssh-unpack: deploy
-	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
+	$(BOB_SSH_BINOPTSARGS) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
 
 ssh-restart: ssh-unpack
-	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'source ~/.bash_profile; cd $(BOB_DEPLOY_DIR)/$(FULLNAME); nohup node $(NAME).js start;'
+	$(BOB_SSH_BINOPTSARGS) 'source ~/.bash_profile; cd $(BOB_DEPLOY_DIR)/$(FULLNAME); nohup node $(NAME).js start;'
 
 ssh-mkdir:
-	ssh -i $(BOB_DEPLOY_KEY) -p $(BOB_DEPLOY_PORT) $(BOB_DEPLOY_USER)@$(BOB_DEPLOY_HOST) 'mkdir -p $(BOB_DEPLOY_DIR);'
+	$(BOB_SSH_BINOPTSARGS) 'mkdir -p $(BOB_DEPLOY_DIR);'
