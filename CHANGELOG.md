@@ -1,4 +1,6 @@
-### 0.4.2 (SNAPSHOT)
+### 0.4.3 (SNAPSHOT)
+* 
+### 0.4.2
 * Fix broken ssh-* targets
 
 ### 0.4.1
