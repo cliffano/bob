@@ -1,4 +1,7 @@
-### 0.4.3 (SNAPSHOT)
+### 0.4.4 (SNAPSHOT)
+*
+
+### 0.4.3
 * Add mocha test option
 
 ### 0.4.2
