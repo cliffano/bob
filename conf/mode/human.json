@@ -10,10 +10,8 @@
       "opts": ""
     },
     "test": {
-      "opts": "--spec"
     },
     "coverage": {
-      "opts": "--silent --cover-plain"
     }
   }
 }
