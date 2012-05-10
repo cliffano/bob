@@ -34,7 +34,7 @@ style: init
 	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/$(BOB_STYLE_BIN) $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
 
 test: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_TEST_BIN) $(BOB_TEST_FILES) $(BOB_TEST_OPTS),$(REPORT_DIR)/test.out)
+	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_TEST_BIN) $(BOB_TEST_OPTS) $(BOB_TEST_FILES),$(REPORT_DIR)/test.out)
 
 test-npm:
 	npm test
@@ -45,9 +45,7 @@ coverage: init
 	cp -r test $(STAGE_DIR)
 	ln -s $(APP_DIR)/package.json $(STAGE_DIR)/package.json
 	ln -s $(APP_DIR)/node_modules $(STAGE_DIR)/node_modules
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) --silent --cover-html,$(REPORT_DIR)/coverage.out)
-	cp $(STAGE_DIR)/coverage.html $(REPORT_DIR)
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_FILES) $(BOB_COVERAGE_OPTS),$(REPORT_DIR)/coverage.out)
+	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_OPTS) $(BOB_COVERAGE_FILES),$(REPORT_DIR)/coverage.out)
 
 doc: init
 	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_DOC_BIN) $(BOB_DOC_FILES) $(BOB_DOC_OPTS),$(REPORT_DIR)/doc.out)

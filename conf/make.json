@@ -25,23 +25,29 @@
     "BOB_LINT_OPTS": {
     },
     "BOB_TEST_BIN": {
-      "default": "node_modules/vows/bin/vows"
+      "default": "node_modules/vows/bin/vows",
+      "mocha": "node_modules/mocha/bin/mocha"
     },
     "BOB_TEST_FILES": {
       "default": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     },
     "BOB_TEST_OPTS": {
+      "default": "--spec",
+      "mocha": "--reporter spec"
     },
     "BOB_COVERAGE_BIN": {
       "default": "node_modules/expresso/deps/jscoverage/node-jscoverage"
     },
     "BOB_COVERAGE_TESTBIN": {
-      "default": "node_modules/vows/bin/vows"
+      "default": "node_modules/vows/bin/vows",
+      "mocha": "node_modules/mocha/bin/mocha"
     },
     "BOB_COVERAGE_FILES": {
       "default": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     },
     "BOB_COVERAGE_OPTS": {
+      "default": "--silent --cover-plain",
+      "mocha": "--reporter html-cov"
     },
     "BOB_DOC_BIN": {
       "default": "node_modules/ndoc/bin/ndoc"

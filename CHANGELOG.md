@@ -1,5 +1,6 @@
 ### 0.4.3 (SNAPSHOT)
-* 
+* Add mocha test option
+
 ### 0.4.2
 * Fix broken ssh-* targets
 
