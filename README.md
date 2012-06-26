@@ -82,10 +82,6 @@ Targets
     <td>Run <a href=http://github.com/visionmedia/node-jscoverage">visionmedia/node-jscoverage</a> via <a href=http://github.com/cloudhead/vows">cloudhead/vows</a> against all .js files in test/ and lib/ directories.</td>
   </tr>
   <tr>
-    <td>doc</td>
-    <td>Run <a href=http://github.com/nodeca/ndoc">nodeca/ndoc</a> against all .js files in lib/ directory.</td>
-  </tr>
-  <tr>
     <td>versionup</td>
     <td>Upgrade patch version number in package.json file.</td>
   </tr>

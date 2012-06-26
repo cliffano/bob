@@ -10,7 +10,7 @@
     "deploy",
     "make"
   ],
-  "version": "0.4.4",
+  "version": "0.4.5",
   "homepage": "http://github.com/cliffano/bob",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
   "bin": {
@@ -35,7 +35,6 @@
     "jscheckstyle": "0.0.5",
     "jshint": "0.7.1",
     "mocha": "1.2.1",
-    "ndoc": "1.0.7",
     "nodelint": "0.6.1",
     "nomnom": "1.5.2",
     "underscore": "1.3.3",
