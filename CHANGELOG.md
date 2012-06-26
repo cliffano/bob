@@ -1,4 +1,7 @@
-### 0.4.4 (SNAPSHOT)
+### 0.4.5 (SNAPSHOT)
+* Temp remove ndoc due to node v0.8.0 build incompatibility issue
+
+### 0.4.4
 * Set max node version to < 0.9.0
 
 ### 0.4.3
