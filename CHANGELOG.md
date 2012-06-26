@@ -1,5 +1,5 @@
 ### 0.4.4 (SNAPSHOT)
-*
+* Set max node version to < 0.9.0
 
 ### 0.4.3
 * Add mocha test option
