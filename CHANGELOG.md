@@ -1,5 +1,6 @@
 ### 0.4.5 (SNAPSHOT)
 * Temp remove ndoc due to node v0.8.0 build incompatibility issue
+* Upgrade jscheckstyle to v0.0.6 
 
 ### 0.4.4
 * Set max node version to < 0.9.0
