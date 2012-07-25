@@ -1,4 +1,7 @@
-### 0.4.6 (SNAPSHOT)
+### 0.4.7 (SNAPSHOT)
+*
+
+### 0.4.6
 * Upgrade jscheckstyle to v0.0.6 
 
 ### 0.4.5
