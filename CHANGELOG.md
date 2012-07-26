@@ -1,4 +1,7 @@
-### 0.4.7 (SNAPSHOT)
+### 0.4.8 (SNAPSHOT)
+*
+
+### 0.4.7
 * Modify package target to exclude only build and run directories on current directory.
 
 ### 0.4.6
