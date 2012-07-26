@@ -1,5 +1,5 @@
 ### 0.4.7 (SNAPSHOT)
-*
+* Modify package target to exclude only build and run directories on current directory.
 
 ### 0.4.6
 * Upgrade jscheckstyle to v0.0.6 
