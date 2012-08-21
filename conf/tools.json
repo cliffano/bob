@@ -73,9 +73,9 @@
         "bin": "${bob}/node_modules/vows/bin/vows",
         "opts": {
           "human": "--silent --cover-plain",
-          "robot": "--silent --cover-xml"
+          "robot": "--silent --cover-html"
         },
-        "files": ".bob/instrumented/test/"
+        "files": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
       }
     },
     "overrides": {
