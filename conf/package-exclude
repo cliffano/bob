@@ -1,8 +1,7 @@
+.bob
 .design
 .DS_Store
 .git
 .gitignore
 .svn
 .svnignore
-./build
-./run
