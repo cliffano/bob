@@ -1,114 +1,107 @@
 SHELL := /bin/bash
-FULLNAME = $(NAME)-$(VERSION)
-BUILD_DIR = $(APP_DIR)/build
-REPORT_DIR = $(BUILD_DIR)/report
-ARTIFACT_DIR = $(BUILD_DIR)/artifact
-STAGE_DIR = $(BUILD_DIR)/stage
-RUN_DIR = $(APP_DIR)/run
 
-exec_report =         \
+exec_report =       \
 	mkdir -p $1;      \
 	set -eo pipefail; \
 	$2 2>&1 | tee $3; \
 
-exec_sum =                                \
+exec_sum =                              \
 	$1sum $2 | awk '{print $$1}' > $2.$1; \
 
 init:
-	@echo "Bob shall build."
-	mkdir -p $(BUILD_DIR) $(RUN_DIR)/logs $(RUN_DIR)/pids
+	cd ${app}
 
-dep: 
+dep: init
 	npm install .
-	
-tools: 
-	npm install -g expresso@0.9.2 jscheckstyle@0.0.4 jshint@0.5.7 ndoc@1.0.7 nodelint@0.5.2 http://nodeload.github.com/cloudhead/vows/tarball/master
 
-clean:
-	rm -rf $(BUILD_DIR) $(RUN_DIR) $(APP_DIR)/nohup.* $(APP_DIR)/*.log
+rmdep: init
+	rm -rf node_modules
+	
+tools:
+	npm install -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x vows@0.x
+
+rmtools:
+	npm rm -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x vows@0.x
+
+clean: init
+	rm -rf .bob nohup.* *.log
 
 lint: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_LINT_BIN) $(BOB_LINT_FILES) $(BOB_LINT_OPTS),$(REPORT_DIR)/lint.out)
+	$(call exec_report,.bob/report,${lint_bin} ${lint_opts} ${lint_files},.bob/report/lint.out)
 
 style: init
-	$(call exec_report, $(REPORT_DIR), $(BOB_DIR)/$(BOB_STYLE_BIN) $(BOB_STYLE_OPTS) $(BOB_STYLE_FILES), $(REPORT_DIR)/style.out)
+	$(call exec_report,.bob/report,${style_bin} ${style_opts} ${style_files},.bob/report/style.out)
 
 test: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_TEST_BIN) $(BOB_TEST_OPTS) $(BOB_TEST_FILES),$(REPORT_DIR)/test.out)
+	$(call exec_report,.bob/report,${test_bin} ${test_opts} ${test_files},.bob/report/test.out)
 
 test-npm:
 	npm test
 
-coverage: init
-	mkdir -p $(STAGE_DIR)
-	$(BOB_DIR)/$(BOB_COVERAGE_BIN) lib $(STAGE_DIR)/lib
-	cp -r test $(STAGE_DIR)
-	ln -s $(APP_DIR)/package.json $(STAGE_DIR)/package.json
-	ln -s $(APP_DIR)/node_modules $(STAGE_DIR)/node_modules
-	cd $(STAGE_DIR); $(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_COVERAGE_TESTBIN) $(BOB_COVERAGE_OPTS) $(BOB_COVERAGE_FILES),$(REPORT_DIR)/coverage.out)
+instrument-jscoverage: init
+	mkdir -p .bob/instrumented/
+	${bob}/node_modules/expresso/deps/jscoverage/node-jscoverage lib .bob/instrumented/lib
+	cp -r test .bob/instrumented
+	ln -s ${app}/package.json .bob/instrumented/lib/package.json
+	ln -s ${app}/node_modules .bob/instrumented/lib/node_modules
 
-doc: init
-	$(call exec_report,$(REPORT_DIR),$(BOB_DIR)/$(BOB_DOC_BIN) $(BOB_DOC_FILES) $(BOB_DOC_OPTS),$(REPORT_DIR)/doc.out)
+coverage: ${coverage_dep}
+	$(call exec_report,.bob/report,${coverage_bin} ${coverage_opts} ${coverage_files},.bob/report/coverage.out)
 
-build: clean style lint test
+package: init
+	mkdir -p .bob/artifact/${name}-${version}
+	rsync -av --exclude-from=${bob}/conf/package-exclude ${src}/ .bob/artifact/${name}-${version}
+	cd .bob/artifact/; tar -X ${bob}/conf/package-exclude -cvzf ${name}-${version}.tar.gz ${name}-${version}/
+	$(call exec_sum,md5,.bob/artifact/${name}-${version}.tar.gz)
+	$(call exec_sum,sha1,.bob/artifact/${name}-${version}.tar.gz)
 
-versionup:
-	charlotte versionup
+deploy: package
+	$(call exec_report,.bob/report,${deploy_bin} ${deploy_opts} ${deploy_files},.bob/report/deploy.out)
 
-versionup-minor:
-	charlotte versionup-minor
-	
-versionup-major:
-	charlotte versionup-major
-
-template:
-	charlotte template
-	
 stop:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js stop
-	
+	NODE_ENV=${NODE_ENV} node ${name}.js stop
+  
 stop-npm:
 	npm stop
 
 start:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js start
-	
+	NODE_ENV=${NODE_ENV} node ${name}.js start
+  
 start-npm:
 	npm start
 
 restart:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js restart
+	NODE_ENV=${NODE_ENV} node ${name}.js restart
 
 restart-npm:
 	npm restart
 
 status:
-	NODE_ENV=$(NODE_ENV) node $(NAME).js status
+	NODE_ENV=${NODE_ENV} node ${name}.js status
+
+doc: init
+	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
+
+publish: {publish_dep}
+
+publish-ivy: init
+	cp conf/ivy.xml .bob/artifact/ivy.xml
+	bob _template
+	$(call exec_sum,md5,.bob/artifact/ivy.xml)
+	$(call exec_sum,sha1,.bob/artifact/ivy.xml)
+	TODO-package-scp
+
+publish-npm: init
+	npm publish
+
+versionup:
+	bob _versionup
+
+versionup-minor:
+	bob _versionup-minor
+
+versionup-major:
+	bob _versionup-major
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`
-
-package: init
-	mkdir -p $(ARTIFACT_DIR)/$(FULLNAME)
-	rsync -av $(BOB_SRC_DIR)/ $(ARTIFACT_DIR)/$(FULLNAME)
-	cd $(ARTIFACT_DIR); tar -X $(BOB_DIR)/conf/packageexclude.txt -cvzf $(FULLNAME).tar.gz $(FULLNAME)/
-	rm -rf $(ARTIFACT_DIR)/$(FULLNAME)
-	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
-	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(FULLNAME).tar.gz)
-
-package-meta:
-	cd $(BOB_PACKAGEMETA_DIR); cp $(BOB_PACKAGEMETA_FILE) $(ARTIFACT_DIR)/
-	$(call exec_sum,md5,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
-	$(call exec_sum,sha1,$(ARTIFACT_DIR)/$(BOB_PACKAGEMETA_FILE))
-
-deploy: package
-	$(BOB_DEPLOY_BIN) $(BOB_DEPLOY_OPTS) $(BOB_DEPLOY_FILES)
-
-ssh-unpack: deploy
-	$(BOB_SSH_BINOPTSARGS) 'cd $(BOB_DEPLOY_DIR); gunzip *.tar.gz; tar -xvf *.tar; rm *.tar;'
-
-ssh-restart: ssh-unpack
-	$(BOB_SSH_BINOPTSARGS) 'source ~/.bash_profile; cd $(BOB_DEPLOY_DIR)/$(FULLNAME); nohup node $(NAME).js start;'
-
-ssh-mkdir:
-	$(BOB_SSH_BINOPTSARGS) 'mkdir -p $(BOB_DEPLOY_DIR);'
