@@ -1,5 +1,13 @@
-### 0.4.8 (SNAPSHOT)
-*
+### 0.5.0 (SNAPSHOT)
+* Change default test tool from vows to mocha
+* Add rmdep and rmtools targets
+* Make is executed with --silent to declutter output
+* Add -vb/--verbose opt to display make output
+* Replace build with .bob as Bob-generated build directory
+* Init target no longer creates run directory
+* package target now uses src, instead of src.dir, in package.json
+* Add publish target
+* Add ivy target, replacing a combination of template + package-meta + ssh-mkdir targets
 
 ### 0.4.7
 * Modify package target to exclude only build and run directories on current directory.
