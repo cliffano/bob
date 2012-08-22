@@ -62,7 +62,7 @@ publish: ${publish_dep}
 
 publish-ivy: init
 	mkdir -p .bob/artifact/
-	cp conf/ivy.xml .bob/artifact/ivy.xml
+	cp ivy.xml .bob/artifact/ivy.xml
 	bob _template
 	$(call exec_sum,md5,.bob/artifact/ivy.xml)
 	$(call exec_sum,sha1,.bob/artifact/ivy.xml)
