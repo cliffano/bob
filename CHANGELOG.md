@@ -1,5 +1,6 @@
 ### 0.5.1 (SNAPSHOT)
 * Change publish-ivy target to use ivy.xml instead of conf/ivy.xml
+* Fix package.json node_modules location in instrument-jscoverage target
 
 ### 0.5.0
 * Change default test tool from vows to mocha
