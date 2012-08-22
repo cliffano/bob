@@ -108,20 +108,20 @@
       }
     }
   },
-  "deploy": {
+  "send": {
     "default": "scp",
     "types": {
       "scp": {
         "bin": "scp",
-        "opts": "-i ${deploy_key} -P ${deploy_port}",
-        "files": ".bob/artifact/${name}-${version}.tar.gz ${deploy_user}@${deploy_host}:${deploy_dir}",
+        "opts": "-i ${send_key} -P ${send_port} -r",
+        "files": ".bob/artifact/* ${send_user}@${send_host}:${send_dir}",
         "port": 22,
         "dir": "."
       },
       "ftp": {
         "bin": "ncftpput",
-        "opts": "-f ${deploy_key} -P ${deploy_port} -u ${deploy_user}",
-        "files": "${deploy_dir} .bob/artifact/${name}-${version}.tar.gz",
+        "opts": "-f ${send_key} -P ${send_port} -u ${send_user} -R",
+        "files": "${send_dir} .bob/artifact/*",
         "port": 21,
         "dir": "/"
       }

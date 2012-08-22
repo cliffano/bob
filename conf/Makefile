@@ -55,8 +55,8 @@ package: init
 	$(call exec_sum,md5,.bob/artifact/${name}-${version}.tar.gz)
 	$(call exec_sum,sha1,.bob/artifact/${name}-${version}.tar.gz)
 
-deploy: package
-	$(call exec_report,.bob/report,${deploy_bin} ${deploy_opts} ${deploy_files},.bob/report/deploy.out)
+send: init
+	$(call exec_report,.bob/report,${send_bin} ${send_opts} ${send_files},.bob/report/send.out)
 
 stop:
 	NODE_ENV=${NODE_ENV} node ${name}.js stop
@@ -82,14 +82,17 @@ status:
 doc: init
 	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
 
-publish: {publish_dep}
+publish: ${publish_dep}
 
 publish-ivy: init
+	mkdir -p .bob/artifact/
 	cp conf/ivy.xml .bob/artifact/ivy.xml
 	bob _template
 	$(call exec_sum,md5,.bob/artifact/ivy.xml)
 	$(call exec_sum,sha1,.bob/artifact/ivy.xml)
-	TODO-package-scp
+	rm -rf .bob/artifact/${name}-${version}
+	ssh -i ${publish_key} -p ${publish_port} ${publish_user}@${publish_host} 'mkdir -p ${publish_dir}'
+	scp -i ${publish_key} -P ${publish_port} -r .bob/artifact/* ${publish_user}@${publish_host}:${publish_dir}
 
 publish-npm: init
 	npm publish
