@@ -48,12 +48,30 @@ instrument-jscoverage: init
 coverage: ${coverage_dep}
 	$(call exec_report,.bob/report,${coverage_bin} ${coverage_opts} ${coverage_files},.bob/report/coverage.out)
 
+doc: init
+	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
+
 package: init
 	mkdir -p .bob/artifact/${name}-${version}
 	rsync -av --exclude-from=${bob}/conf/package-exclude ${src}/ .bob/artifact/${name}-${version}
 	cd .bob/artifact/; tar -X ${bob}/conf/package-exclude -cvzf ${name}-${version}.tar.gz ${name}-${version}/
 	$(call exec_sum,md5,.bob/artifact/${name}-${version}.tar.gz)
 	$(call exec_sum,sha1,.bob/artifact/${name}-${version}.tar.gz)
+
+publish: ${publish_dep}
+
+publish-ivy: init
+	mkdir -p .bob/artifact/
+	cp conf/ivy.xml .bob/artifact/ivy.xml
+	bob _template
+	$(call exec_sum,md5,.bob/artifact/ivy.xml)
+	$(call exec_sum,sha1,.bob/artifact/ivy.xml)
+	rm -rf .bob/artifact/${name}-${version}
+	ssh -i ${publish_key} -p ${publish_port} ${publish_user}@${publish_host} 'mkdir -p ${publish_dir}'
+	scp -i ${publish_key} -P ${publish_port} -r .bob/artifact/* ${publish_user}@${publish_host}:${publish_dir}
+
+publish-npm: init
+	npm publish
 
 send: init
 	$(call exec_report,.bob/report,${send_bin} ${send_opts} ${send_files},.bob/report/send.out)
@@ -78,24 +96,6 @@ restart-npm:
 
 status:
 	NODE_ENV=${NODE_ENV} node ${name}.js status
-
-doc: init
-	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
-
-publish: ${publish_dep}
-
-publish-ivy: init
-	mkdir -p .bob/artifact/
-	cp conf/ivy.xml .bob/artifact/ivy.xml
-	bob _template
-	$(call exec_sum,md5,.bob/artifact/ivy.xml)
-	$(call exec_sum,sha1,.bob/artifact/ivy.xml)
-	rm -rf .bob/artifact/${name}-${version}
-	ssh -i ${publish_key} -p ${publish_port} ${publish_user}@${publish_host} 'mkdir -p ${publish_dir}'
-	scp -i ${publish_key} -P ${publish_port} -r .bob/artifact/* ${publish_user}@${publish_host}:${publish_dir}
-
-publish-npm: init
-	npm publish
 
 versionup:
 	bob _versionup
