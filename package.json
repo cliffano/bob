@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "bagofholding": "0.0.13",
+    "dateformat": "1.0.2-1.2.3",
     "dox": "0.x",
     "expresso": "0.x",
     "jscheckstyle": "0.x",
