@@ -1,4 +1,7 @@
-### 0.5.0 (SNAPSHOT)
+### 0.5.1 (SNAPSHOT)
+* Change publish-ivy target to use ivy.xml instead of conf/ivy.xml
+
+### 0.5.0
 * Change default test tool from vows to mocha
 * Add rmdep and rmtools targets
 * Make is executed with --silent to declutter output
@@ -10,7 +13,7 @@
 * Add ivy target, replacing a combination of template + package-meta + ssh-mkdir targets
 
 ### 0.4.7
-* Modify package target to exclude only build and run directories on current directory.
+* Modify package target to exclude only build and run directories on current directory
 
 ### 0.4.6
 * Upgrade jscheckstyle to v0.0.6 
