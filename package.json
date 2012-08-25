@@ -4,10 +4,9 @@
   "keywords": [
     "build",
     "lint",
-    "checkstyle",
     "test",
     "coverage",
-    "deploy",
+    "publish",
     "make"
   ],
   "version": "0.5.1",
