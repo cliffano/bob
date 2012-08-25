@@ -3,7 +3,7 @@ Bob [![http://travis-ci.org/cliffano/bob](https://secure.travis-ci.org/cliffano/
 
 Convention-based build tool for Node.js projects.
 
-This is handy for building (linting, testing the code, checking test code coverage, generating documentation, packaging artifact, etc) a Node.js project, with minimal-or-zero configuration, by following common convention.
+This is handy for building (linting, testing the code, checking test code coverage, generating documentation, packaging artifact, etc) a Node.js project, with a minimal-or-zero configuration, by following a set of common convention.
 
 There are two Bob modes, human and robot. By default Bob runs in human mode, generating output in human-readable format (e.g. test result in a plain text list). When robot mode is used, Bob will generate output in machine-parsable format (e.g. test result in XML), which is handy when you're using a continuous integration server that consumes XML files for rendering reports and charts.
 
