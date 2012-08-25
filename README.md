@@ -3,9 +3,9 @@ Bob [![http://travis-ci.org/cliffano/bob](https://secure.travis-ci.org/cliffano/
 
 Convention-based build tool for Node.js projects.
 
-This is handy for building (linting, testing the code, checking test code coverage, generating documentation, packaging artifact, etc) a Node.js project, with close-to-zero configuration, by following a certain project convention.
+This is handy for building (linting, testing the code, checking test code coverage, generating documentation, packaging artifact, etc) a Node.js project, with minimal-or-zero configuration, by following common convention.
 
-There are 2 Bob modes, 'human' and 'robot'. By default Bob runs in human mode, generating output in human-readable format (e.g. test result in a list). When 'robot' mode is used, Bob will generate machine-parseable format (e.g. test result in XML), which is handy when you're using a continuous integration server that consumes XML files for rendering reports and charts.
+There are two Bob modes, human and robot. By default Bob runs in human mode, generating output in human-readable format (e.g. test result in a plain text list). When robot mode is used, Bob will generate output in machine-parsable format (e.g. test result in XML), which is handy when you're using a continuous integration server that consumes XML files for rendering reports and charts.
 
 Bob works on OS X and *nix, requires Cygwin on Windows.
 
@@ -17,7 +17,7 @@ Installation
 Project Convention
 ------------------
 
-A project must have:
+A project must contain:
 
 * package.json file, with at least name and version info
 * lib/ directory, containing *.js source files
@@ -32,12 +32,12 @@ Run Bob from project directory:
     bob target1 target2 target3 ...
 
 Run Bob in robot mode:
-(if unspecified, BOB_MODE defaults to 'human')
+(if unspecified, BOB_MODE defaults to human)
 
     BOB_MODE=robot bob lint test
 
 Run Bob with specific environment:
-(if unspecified, NODE_ENV defaults to 'development')
+(if unspecified, NODE_ENV defaults to development)
 
     NODE_ENV=production bob start
     
@@ -53,13 +53,13 @@ Targets
   </tr>
   <tr>
     <td>dep</td>
-    <td>Install dependencies specified in package.json file.</td>
+    <td>Install dependencies specified in package.json file by executing <code>npm install .</code> .</td>
     <td>-</td>
     <td>-</td>
   </tr>
   <tr>
     <td>rmdep</td>
-    <td>Remove dependencies.</td>
+    <td>Remove dependencies in node_modules directory.</td>
     <td>-</td>
     <td>-</td>
   </tr>
@@ -71,7 +71,7 @@ Targets
   </tr>
   <tr>
     <td>rmtools</td>
-    <td>Remove global installation of the tools.</td>
+    <td>Remove global installation of those tools.</td>
     <td>-</td>
     <td>-</td>
   </tr>
@@ -96,12 +96,12 @@ Targets
   <tr>
     <td>test</td>
     <td>Execute *.js test files in test/ directory.</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cloudhead/vows">vows</a>. If <code>{scripts.test}</code> is configured, then <code>npm test</code> will be executed instead.</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cloudhead/vows">vows</a>. If <code>{scripts.test}</code> is configured in package.json, then <code>npm test</code> will be executed instead.</td>
     <td>bin, opts, files</td>
   </tr>
   <tr>
     <td>coverage</td>
-    <td>Check test code coverage.</td>
+    <td>Check code coverage.</td>
     <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cloudhead/vows">vows</a></td>
     <td>bin, opts, files</td>
   </tr>
@@ -133,19 +133,19 @@ Targets
   </tr>
   <tr>
     <td>stop</td>
-    <td>Stop the app by executing <code>node {name}.js stop</code> . If <code>{scripts.stop}</code> is configured, then <code>npm stop</code> will be executed instead.</td>
+    <td>Stop the app by executing <code>node {name}.js stop</code> . If <code>scripts.stop</code> is configured in package.json, then <code>npm stop</code> will be executed instead.</td>
     <td>-</td>
     <td>-</td>
   </tr>
   <tr>
     <td>start</td>
-    <td>Start the app by executing <code>node {name}.js start</code> . If <code>{scripts.start}</code> is configured, then <code>npm start</code> will be executed instead.</td>
+    <td>Start the app by executing <code>node {name}.js start</code> . If <code>scripts.start</code> is configured in package.json, then <code>npm start</code> will be executed instead.</td>
     <td>-</td>
     <td>-</td>
   </tr>
   <tr>
     <td>restart</td>
-    <td>Restart the app by executing <code>node {name}.js restart</code>  . If <code>{scripts.restart}</code> is configured, then <code>npm restart</code> will be executed instead.</td>
+    <td>Restart the app by executing <code>node {name}.js restart</code>  . If <code>scripts.restart</code> is configured in package.json, then <code>npm restart</code> will be executed instead.</td>
     <td>-</td>
     <td>-</td>
   </tr>
@@ -184,9 +184,9 @@ Targets
 Config
 ------
 
-To override the default setting, create a .bob.json file in the project directory (same level as package.json). Target type and parameters can be overridden, here are some examples:
+To override the default setting, create .bob.json file in project directory (same level as package.json file). Target type and parameters can be overridden, here are some examples:
 
-To use nodelint instead of the default jshint when running bob lint:
+To use nodelint instead of the default jshint when running `bob lint`:
 
     {
       "lint": {
