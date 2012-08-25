@@ -1,4 +1,7 @@
-### 0.5.1 (SNAPSHOT)
+### 0.5.2 (SNAPSHOT)
+* Add --verbose opt to display make output
+
+### 0.5.1
 * Change publish-ivy target to use ivy.xml instead of conf/ivy.xml
 * Fix package.json node_modules location in instrument-jscoverage target
 
@@ -6,7 +9,6 @@
 * Change default test tool from vows to mocha
 * Add rmdep and rmtools targets
 * Make is executed with --silent to declutter output
-* Add -vb/--verbose opt to display make output
 * Replace build with .bob as Bob-generated build directory
 * Init target no longer creates run directory
 * package target now uses src, instead of src.dir, in package.json
