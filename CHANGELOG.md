@@ -1,4 +1,7 @@
-### 0.5.2 (SNAPSHOT)
+### 0.5.3 (SNAPSHOT)
+*
+
+### 0.5.2
 * Add --verbose opt to display make arguments and shell commands
 
 ### 0.5.1
