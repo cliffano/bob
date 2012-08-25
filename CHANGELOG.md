@@ -1,5 +1,5 @@
 ### 0.5.2 (SNAPSHOT)
-* Add --verbose opt to display make output
+* Add --verbose opt to display make arguments and shell commands
 
 ### 0.5.1
 * Change publish-ivy target to use ivy.xml instead of conf/ivy.xml

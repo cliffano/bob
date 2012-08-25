@@ -98,7 +98,7 @@ describe('cli', function () {
       checks.bob_build_targets.length.should.equal(1);
       checks.bob_build_targets[0].should.equal('lint');
       checks.bob_build_mode.should.equal('robot');
-      checks.bob_build_verbose.should.equal(true);
+      checks.bob_build_verbose.should.equal(false);
     });
 
     it('should pass public targets, mode and verbosity, to bob build function when there are multiple public targets', function () {
@@ -112,7 +112,25 @@ describe('cli', function () {
       checks.bob_build_targets[1].should.equal('style');
       checks.bob_build_targets[2].should.equal('test');
       checks.bob_build_mode.should.equal('robot');
+      checks.bob_build_verbose.should.equal(false);
+    });
+
+    it('should set verbosity to true when --verbose flag is set', function () {
+      mocks.process_argv = ['node', 'bob', '--verbose', 'lint', 'style', 'test'];
+      mocks.process_env = { BOB_MODE: 'robot' };
+      mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
+      cli = create(checks, mocks);
+      cli.exec();
       checks.bob_build_verbose.should.equal(true);
+    });
+
+    it('should set verbosity to false when --verbose flag is not set', function () {
+      mocks.process_argv = ['node', 'bob', 'lint', 'style', 'test'];
+      mocks.process_env = { BOB_MODE: 'robot' };
+      mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
+      cli = create(checks, mocks);
+      cli.exec();
+      checks.bob_build_verbose.should.equal(false);
     });
 
     it('should log failure message and exit code when public command passes an error', function () {

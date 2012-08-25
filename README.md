@@ -29,12 +29,17 @@ Usage
 Run Bob from project directory:
 (same level as package.json file)
 
-    bob target1 target2 target3 ...
+    bob clean lint test coverage ...
 
 Run Bob in robot mode:
 (if unspecified, BOB_MODE defaults to human)
 
-    BOB_MODE=robot bob lint test
+    BOB_MODE=robot bob clean lint test coverage
+
+Run Bob with verbose output:
+(display make arguments and shell commands)
+
+    BOB_MODE=robot bob --verbose clean lint test coverage
 
 Run Bob with specific environment:
 (if unspecified, NODE_ENV defaults to development)
