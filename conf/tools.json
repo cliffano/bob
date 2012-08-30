@@ -44,6 +44,14 @@
         },
         "files": "test/"
       },
+      "nodeunit": {
+        "bin": "${bob}/node_modules/nodeunit/bin/nodeunit",
+        "opts": {
+          "human": "",
+          "robot": "--reporter junit --output .bob/report/test/"
+        },
+        "files": "test/"
+      },
       "vows": {
         "bin": "${bob}/node_modules/vows/bin/vows",
         "opts": {

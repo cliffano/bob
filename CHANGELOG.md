@@ -1,6 +1,7 @@
 ### 0.5.3 (SNAPSHOT)
 * Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
 * Add alias target support
+* Add nodeunit type to test target
 
 ### 0.5.2
 * Add --verbose opt to display make arguments and shell commands

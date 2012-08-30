@@ -18,7 +18,7 @@ rmdep: init
 	rm -rf node_modules
 	
 tools:
-	npm install -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x vows@0.x
+	npm install -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x nodeunit@0.x vows@0.x
 
 rmtools:
 	npm rm -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x vows@0.x

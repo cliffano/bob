@@ -100,8 +100,8 @@ Targets
   </tr>
   <tr>
     <td>test</td>
-    <td>Execute *.js test files in test/ directory.</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cloudhead/vows">vows</a>. If <code>{scripts.test}</code> is configured in package.json, then <code>npm test</code> will be executed instead.</td>
+    <td>Execute *.js test files in test/ directory. If <code>{scripts.test}</code> is configured in package.json, then <code>npm test</code> will be executed instead.</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://github.com/cloudhead/vows">vows</a>.</td>
     <td>bin, opts, files</td>
   </tr>
   <tr>
