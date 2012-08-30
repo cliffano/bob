@@ -39,6 +39,7 @@ test-npm:
 	npm test
 
 instrument-jscoverage: init
+	rm -rf .bob/instrumented/
 	mkdir -p .bob/instrumented/
 	${bob}/node_modules/expresso/deps/jscoverage/node-jscoverage lib .bob/instrumented/lib
 	cp -r test .bob/instrumented

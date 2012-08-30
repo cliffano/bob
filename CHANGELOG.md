@@ -1,5 +1,5 @@
 ### 0.5.3 (SNAPSHOT)
-*
+* Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
 
 ### 0.5.2
 * Add --verbose opt to display make arguments and shell commands
