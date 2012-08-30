@@ -1,4 +1,7 @@
-### 0.5.3 (SNAPSHOT)
+### 0.5.4 (SNAPSHOT)
+*
+
+### 0.5.3
 * Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
 * Add alias target support
 * Add nodeunit type to test target
