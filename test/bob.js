@@ -63,6 +63,26 @@ describe('bob', function () {
       checks.make_exec_targets[1].should.equal('lint');
     });
 
+    it('should expand alias target when an alias is configured in custom .bob.json', function () {
+      bob = new (create(checks, mocks))(
+        '/app/bob',
+        {},
+        { somealias1: ' clean  lint', somealias2: ' test coverage ' },
+        { name: 'someapp', version: '1.2.3', scripts: { test: 'vows test/' } });
+      bob.build(['foo', 'somealias1', 'bar', 'somealias2', 'send'], 'robot', true, function () {
+      });
+      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_verbose.should.equal(true);
+      checks.make_exec_targets.length.should.equal(7);
+      checks.make_exec_targets[0].should.equal('foo');
+      checks.make_exec_targets[1].should.equal('clean');
+      checks.make_exec_targets[2].should.equal('lint');
+      checks.make_exec_targets[3].should.equal('bar');
+      checks.make_exec_targets[4].should.equal('test');
+      checks.make_exec_targets[5].should.equal('coverage');
+      checks.make_exec_targets[6].should.equal('send');
+    });
+
     it('should override target when override property exists in custom .bob.json', function () {
       bob = new (create(checks, mocks))(
         '/app/bob',

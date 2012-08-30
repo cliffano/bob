@@ -208,6 +208,12 @@ To use nodelint instead of the default jshint, and to lint the files in src dire
       }
     }
 
+To add an alias target (called build) which executes clean lint test coverage targets:
+
+    {
+      "build": "clean lint test coverage"
+    }
+
 Continuous Integration
 ----------------------
 
