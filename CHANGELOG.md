@@ -1,4 +1,7 @@
-### 0.5.4 (SNAPSHOT)
+### 0.5.5 (SNAPSHOT)
+*
+
+### 0.5.4
 * Add test-integration target 
 
 ### 0.5.3
