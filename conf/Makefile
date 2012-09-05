@@ -35,6 +35,9 @@ style: init
 test: init
 	$(call exec_report,.bob/report,${test_bin} ${test_opts} ${test_files},.bob/report/test.out)
 
+test-integration: init
+	$(call exec_report,.bob/report,${test-integration_bin} ${test-integration_opts} ${test-integration_files},.bob/report/test-integration.out)
+
 test-npm:
 	npm test
 
