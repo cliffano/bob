@@ -67,6 +67,19 @@
       }
     }
   },
+  "test-integration": {
+    "default": "mocha",
+    "types": {
+      "mocha": {
+        "bin": "${bob}/node_modules/mocha/bin/mocha",
+        "opts": {
+          "human": "--reporter spec",
+          "robot": "--reporter xunit"
+        },
+        "files": "test-integration/"
+      }
+    }
+  },
   "coverage": {
     "default": "mocha",
     "types": {
