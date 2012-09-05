@@ -110,6 +110,12 @@ Targets
     <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cloudhead/vows">vows</a></td>
     <td>bin, opts, files</td>
   </tr>
+  <tr>
+    <td>test-integration<sup>experimental</sup></td>
+    <td>Execute *.js integration test files in test-integration/ directory.</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default).</td>
+    <td>bin, opts, files</td>
+  </tr>
   <!--
   <tr>
     <td>doc</td>

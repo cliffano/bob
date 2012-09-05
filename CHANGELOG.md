@@ -1,5 +1,5 @@
 ### 0.5.4 (SNAPSHOT)
-*
+* Add test-integration target 
 
 ### 0.5.3
 * Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
