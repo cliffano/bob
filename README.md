@@ -101,7 +101,7 @@ Targets
   <tr>
     <td>test</td>
     <td>Execute *.js test files in test/ directory. If <code>{scripts.test}</code> is configured in package.json, then <code>npm test</code> will be executed instead.</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://github.com/cloudhead/vows">vows</a>.</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://github.com/cloudhead/vows">vows</a></td>
     <td>bin, opts, files</td>
   </tr>
   <tr>
@@ -113,7 +113,7 @@ Targets
   <tr>
     <td>test-integration<sup>experimental</sup></td>
     <td>Execute *.js integration test files in test-integration/ directory.</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default).</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default)</td>
     <td>bin, opts, files</td>
   </tr>
   <!--
