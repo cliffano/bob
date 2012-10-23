@@ -55,6 +55,9 @@ coverage: ${coverage_dep}
 doc: init
 	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
 
+depgraph: init
+	$(call exec_report,.bob/report,${depgraph_bin} ${depgraph_opts} ${depgraph_files},.bob/report/depgraph.out)
+
 package: init
 	mkdir -p .bob/artifact/${name}-${version}
 	rsync -av --exclude-from=${bob}/conf/package-exclude ${src}/ .bob/artifact/${name}-${version}

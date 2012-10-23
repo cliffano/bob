@@ -38,6 +38,7 @@
     "expresso": "0.x",
     "jscheckstyle": "0.x",
     "jshint": "0.x",
+    "madge": "0.0.2",
     "mocha": "1.x",
     "nodelint": "0.x",
     "nodeunit": "0.x",
@@ -51,7 +52,7 @@
   },
   "scripts": {},
   "engines": {
-    "node": ">= 0.4.0"
+    "node": ">= 0.6.0"
   },
   "licenses": [
     {

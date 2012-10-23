@@ -118,6 +118,19 @@
       }
     }
   },
+  "depgraph": {
+    "default": "madge",
+    "types": {
+      "madge": {
+        "bin": "${bob}/node_modules/madge/bin/madge",
+        "opts": {
+          "human": "--summary",
+          "robot": "--dot"
+        },
+        "files": "lib/ test/"
+      }
+    }
+  },
   "publish": {
     "default": "npm",
     "types": {
