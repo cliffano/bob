@@ -7,7 +7,7 @@ This is handy for building (linting, testing the code, checking test code covera
 
 There are two Bob modes, human and robot. By default Bob runs in human mode, generating output in human-readable format (e.g. test result in a plain text list). When robot mode is used, Bob will generate output in machine-parsable format (e.g. test result in XML), which is handy when you're using a continuous integration server that consumes XML files for rendering reports and charts.
 
-Bob works on OS X and *nix, requires Cygwin on Windows.
+Bob works where ever you can run make.
 
 Installation
 ------------
