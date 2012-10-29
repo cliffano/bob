@@ -38,6 +38,9 @@ test: init
 test-integration: init
 	$(call exec_report,.bob/report,${test-integration_bin} ${test-integration_opts} ${test-integration_files},.bob/report/test-integration.out)
 
+test-acceptance: init
+	$(call exec_report,.bob/report,${test-acceptance_bin} ${test-acceptance_opts} ${test-acceptance_files},.bob/report/test-acceptance.out)
+
 test-npm:
 	npm test
 

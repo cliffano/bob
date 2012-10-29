@@ -116,6 +116,12 @@ Targets
     <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default)</td>
     <td>bin, opts, files</td>
   </tr>
+  <tr>
+    <td>test-acceptance<sup>experimental</sup></td>
+    <td>Execute *.js acceptance test files in test-acceptance/ directory.</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default)</td>
+    <td>bin, opts, files</td>
+  </tr>
   <!--
   <tr>
     <td>doc</td>

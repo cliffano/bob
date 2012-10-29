@@ -1,6 +1,7 @@
 ### 0.5.5 (SNAPSHOT)
 * Add depgraph target using madge as default type
 * Increase node engine min version to >= 0.6.0
+* Add test-acceptance target
 
 ### 0.5.4
 * Add test-integration target 
