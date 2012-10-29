@@ -124,14 +124,12 @@ Targets
     <td>bin, opts, files</td>
   </tr>
   -->
-  <!--
   <tr>
     <td>depgraph</td>
     <td>Generate module dependencies graph.</td>
     <td><a href="http://github.com/pahen/node-madge">madge</a> (default)</td>
     <td>bin, opts, files</td>
   </tr>
-  -->
   <tr>
     <td>package</td>
     <td>Create a .tar.gz package file in .bob/artifact/ directory, along with md5 and sha1 checksums of the artifact file.</td>
