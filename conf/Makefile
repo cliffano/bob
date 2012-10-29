@@ -57,6 +57,7 @@ doc: init
 
 depgraph: init
 	$(call exec_report,.bob/report,${depgraph_bin} ${depgraph_opts} ${depgraph_files},.bob/report/depgraph.out)
+	echo "Created module dependencies graph: .bob/report/depgraph.png"
 
 package: init
 	mkdir -p .bob/artifact/${name}-${version}
