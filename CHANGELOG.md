@@ -1,4 +1,7 @@
-### 0.5.6 (SNAPSHOT)
+### 0.5.7 (SNAPSHOT)
+*
+
+### 0.5.6
 * Add validate target
 
 ### 0.5.5
