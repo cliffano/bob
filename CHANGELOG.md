@@ -1,5 +1,5 @@
 ### 0.5.6 (SNAPSHOT)
-*
+* Add validate target
 
 ### 0.5.5
 * Add depgraph target using madge as default type

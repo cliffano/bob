@@ -18,16 +18,19 @@ rmdep: init
 	rm -rf node_modules
 	
 tools:
-	npm install -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x nodeunit@0.x vows@0.x
+	npm install -g dox@0.x esprima@1.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x nodeunit@0.x vows@0.x
 
 rmtools:
-	npm rm -g dox@0.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x vows@0.x
+	npm rm -g dox@0.x esprima@1.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x vows@0.x
 
 clean: init
 	rm -rf .bob nohup.* *.log
 
 lint: init
 	$(call exec_report,.bob/report,${lint_bin} ${lint_opts} ${lint_files},.bob/report/lint.out)
+
+validate: init
+	$(call exec_report,.bob/report,${validate_bin} ${validate_opts} ${validate_files},.bob/report/validate.out)
 
 style: init
 	$(call exec_report,.bob/report,${style_bin} ${style_opts} ${style_files},.bob/report/style.out)
