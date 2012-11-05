@@ -1,5 +1,6 @@
 ### 0.5.7 (SNAPSHOT)
-*
+* Move esvalidate from validate target to lint target's type
+* Remove validate target
 
 ### 0.5.6
 * Add validate target

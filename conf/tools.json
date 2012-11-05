@@ -17,12 +17,7 @@
           "robot": "--reporter=xml"
         },
         "files": "lib/ test/"
-      }
-    }
-  },
-  "validate": {
-    "default": "esvalidate",
-    "types": {
+      },
       "esvalidate": {
         "bin": "${bob}/node_modules/esprima/bin/esvalidate.js",
         "opts": {
@@ -32,7 +27,7 @@
         "files": "`find lib -name \"*.js\" | tr \"\\r\\n\" \" \"` `find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
       }
     }
-  },  
+  },
   "style": {
     "default": "jscheckstyle",
     "types": {

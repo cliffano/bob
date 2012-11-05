@@ -29,9 +29,6 @@ clean: init
 lint: init
 	$(call exec_report,.bob/report,${lint_bin} ${lint_opts} ${lint_files},.bob/report/lint.out)
 
-validate: init
-	$(call exec_report,.bob/report,${validate_bin} ${validate_opts} ${validate_files},.bob/report/validate.out)
-
 style: init
 	$(call exec_report,.bob/report,${style_bin} ${style_opts} ${style_files},.bob/report/style.out)
 

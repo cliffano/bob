@@ -89,19 +89,13 @@ Targets
   <tr>
     <td>lint</td>
     <td>Lint *.js files in lib/ and test/ directories.</td>
-    <td><a href="http://github.com/jshint/node-jshint">jshint</a> (default), <a href="http://github.com/tav/nodelint">nodelint</a></td>
+    <td><a href="http://github.com/jshint/node-jshint">jshint</a> (default), <a href="http://github.com/tav/nodelint">nodelint</a>, <a href="http://github.com/ariya/esprima">esvalidate</a></td>
     <td>bin, opts, files</td>
   </tr>
   <tr>
     <td>style</td>
     <td>Run style checker against *.js files in lib/ directory.</td>
     <td><a href="http://github.com/nomiddlename/jscheckstyle">jscheckstyle</a> (default)</td>
-    <td>bin, opts, files</td>
-  </tr>
-  <tr>
-    <td>validate</td>
-    <td>Run syntax validator against *.js files in lib/ and test/ directories.</td>
-    <td><a href="http://github.com/ariya/esprima">esvalidate</a> (default)</td>
     <td>bin, opts, files</td>
   </tr>
   <tr>
