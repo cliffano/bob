@@ -1,4 +1,7 @@
-### 0.5.7 (SNAPSHOT)
+### 0.5.8 (SNAPSHOT)
+*
+
+### 0.5.7
 * Move esvalidate from validate target to lint target's type
 * Remove validate target
 * Colourise SUCCESS/FAILURE status
