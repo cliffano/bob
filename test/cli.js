@@ -8,7 +8,6 @@ var _ = require('underscore'),
 describe('cli', function () {
 
   function create(checks, mocks) {
-    checks.bob_template_calls_count = 0;
     return sandbox.require('../lib/cli', {
       locals: {
         __dirname: '/app/bob/lib'
@@ -29,17 +28,15 @@ describe('cli', function () {
           checks.bob_custom = custom;
           checks.bob_pkg = pkg;
           return {
-            build: function (targets, mode, verbose, cb) {
-              checks.bob_build_targets = targets;
-              checks.bob_build_mode = mode;
-              checks.bob_build_verbose = verbose;
-              cb(mocks.bob_build_err, mocks.bob_build_result);
+            external: function (targets, mode, verbose, cb) {
+              checks.bob_external_targets = targets;
+              checks.bob_external_mode = mode;
+              checks.bob_external_verbose = verbose;
+              cb(mocks.bob_external_err, mocks.bob_external_result);
             },
-            versionUp: function (type) {
-              checks.bob_versionUp_type = type;
-            },
-            template: function () {
-              checks.bob_template_calls_count++;
+            internal: function (target, opts) {
+              checks.bob_internal_target = target;
+              checks.bob_internal_opts = opts;
             }
           };
         }
@@ -69,7 +66,7 @@ describe('cli', function () {
       cli.exec();
       
       // not passed to bob build
-      should.not.exist(checks.bob_build_targets);
+      should.not.exist(checks.bob_external_targets);
 
       // private commands are parsed
       _.keys(checks.bag_cli_parse_commands).length.should.equal(4);
@@ -80,13 +77,15 @@ describe('cli', function () {
 
       // private commands delegate to bob
       checks.bag_cli_parse_commands._versionup.action();
-      should.not.exist(checks.bob_versionUp_type);
+      checks.bob_internal_target.should.equal('versionup');
+      should.not.exist(checks.bob_internal_opts);
       checks.bag_cli_parse_commands['_versionup-minor'].action();
-      checks.bob_versionUp_type.should.equal('minor');
+      checks.bob_internal_target.should.equal('versionup');
+      checks.bob_internal_opts.type.should.equal('minor');
       checks.bag_cli_parse_commands['_versionup-major'].action();
-      checks.bob_versionUp_type.should.equal('major');
+      checks.bob_internal_target.should.equal('versionup');
+      checks.bob_internal_opts.type.should.equal('major');
       checks.bag_cli_parse_commands._template.action();
-      checks.bob_template_calls_count.should.equal(1);
     });
 
     it('should pass public targets, mode and verbosity, to bob build function when there is only a single public target', function () {
@@ -95,10 +94,10 @@ describe('cli', function () {
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
       cli = create(checks, mocks);
       cli.exec();
-      checks.bob_build_targets.length.should.equal(1);
-      checks.bob_build_targets[0].should.equal('lint');
-      checks.bob_build_mode.should.equal('robot');
-      checks.bob_build_verbose.should.equal(false);
+      checks.bob_external_targets.length.should.equal(1);
+      checks.bob_external_targets[0].should.equal('lint');
+      checks.bob_external_mode.should.equal('robot');
+      checks.bob_external_verbose.should.equal(false);
     });
 
     it('should pass public targets, mode and verbosity, to bob build function when there are multiple public targets', function () {
@@ -107,12 +106,12 @@ describe('cli', function () {
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
       cli = create(checks, mocks);
       cli.exec();
-      checks.bob_build_targets.length.should.equal(3);
-      checks.bob_build_targets[0].should.equal('lint');
-      checks.bob_build_targets[1].should.equal('style');
-      checks.bob_build_targets[2].should.equal('test');
-      checks.bob_build_mode.should.equal('robot');
-      checks.bob_build_verbose.should.equal(false);
+      checks.bob_external_targets.length.should.equal(3);
+      checks.bob_external_targets[0].should.equal('lint');
+      checks.bob_external_targets[1].should.equal('style');
+      checks.bob_external_targets[2].should.equal('test');
+      checks.bob_external_mode.should.equal('robot');
+      checks.bob_external_verbose.should.equal(false);
     });
 
     it('should set verbosity to true when --verbose flag is set', function () {
@@ -121,7 +120,7 @@ describe('cli', function () {
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
       cli = create(checks, mocks);
       cli.exec();
-      checks.bob_build_verbose.should.equal(true);
+      checks.bob_external_verbose.should.equal(true);
     });
 
     it('should set verbosity to false when --verbose flag is not set', function () {
@@ -130,30 +129,30 @@ describe('cli', function () {
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
       cli = create(checks, mocks);
       cli.exec();
-      checks.bob_build_verbose.should.equal(false);
+      checks.bob_external_verbose.should.equal(false);
     });
 
     it('should log failure message and exit code when public command passes an error', function () {
-      mocks.bob_build_err = new Error('someerror');
-      mocks.bob_build_result = 1;
+      mocks.bob_external_err = new Error('someerror');
+      mocks.bob_external_result = 1;
       mocks.process_argv = ['node', 'bob', 'lint'];
       mocks.process_env = { BOB_MODE: 'robot' };
       cli = create(checks, mocks);
       cli.exec();
-      checks.bob_build_targets.length.should.equal(1);
-      checks.bob_build_targets[0].should.equal('lint');
+      checks.bob_external_targets.length.should.equal(1);
+      checks.bob_external_targets[0].should.equal('lint');
       checks.console_error_messages.length.should.equal(1);
       checks.console_error_messages[0].should.equal('FAILURE | exit code: 1');
     });
 
     it('should log success message and exit code when public command passes no error', function () {
-      mocks.bob_build_result = 0;
+      mocks.bob_external_result = 0;
       mocks.process_argv = ['node', 'bob', 'lint'];
       mocks.process_env = { BOB_MODE: 'robot' };
       cli = create(checks, mocks);
       cli.exec();
-      checks.bob_build_targets.length.should.equal(1);
-      checks.bob_build_targets[0].should.equal('lint');
+      checks.bob_external_targets.length.should.equal(1);
+      checks.bob_external_targets[0].should.equal('lint');
       checks.console_log_messages.length.should.equal(1);
       checks.console_log_messages[0].should.equal('SUCCESS | exit code: 0');
     });
