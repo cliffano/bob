@@ -158,6 +158,13 @@ describe('bob', function () {
       checks.exec_opts._bob.custom.foo.should.equal('somecustomvalue');
       checks.exec_opts._bob.pkg.bar.should.equal('somepackagevalue');
     });
+
+    it('should handle undefined internal opts', function () {
+      bob = new (create(checks, mocks))('somedir', {}, { foo: 'somecustomvalue' }, { bar: 'somepackagevalue' });
+      bob.internal('blah', undefined);
+      checks.exec_opts._bob.custom.foo.should.equal('somecustomvalue');
+      checks.exec_opts._bob.pkg.bar.should.equal('somepackagevalue');
+    });
   });
 });
  
