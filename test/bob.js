@@ -23,8 +23,9 @@ describe('bob', function () {
           };
         },
         './targets/blah': {
-          exec: function (opts) {
+          exec: function (opts, cb) {
             checks.exec_opts = opts;
+            checks.exec_cb = cb;
           }
         }
       },
@@ -153,17 +154,19 @@ describe('bob', function () {
 
     it('should use the correct target and pass opts', function () {
       bob = new (create(checks, mocks))('somedir', {}, { foo: 'somecustomvalue' }, { bar: 'somepackagevalue' });
-      bob.internal('blah', { targetopt: 'targetvalue' });
+      bob.internal('blah', { targetopt: 'targetvalue' }, function () {});
       checks.exec_opts.targetopt.should.equal('targetvalue');
       checks.exec_opts._bob.custom.foo.should.equal('somecustomvalue');
       checks.exec_opts._bob.pkg.bar.should.equal('somepackagevalue');
+      (typeof checks.exec_cb).should.equal('function');
     });
 
     it('should handle undefined internal opts', function () {
       bob = new (create(checks, mocks))('somedir', {}, { foo: 'somecustomvalue' }, { bar: 'somepackagevalue' });
-      bob.internal('blah', undefined);
+      bob.internal('blah', undefined, function () {});
       checks.exec_opts._bob.custom.foo.should.equal('somecustomvalue');
       checks.exec_opts._bob.pkg.bar.should.equal('somepackagevalue');
+      (typeof checks.exec_cb).should.equal('function');
     });
   });
 });

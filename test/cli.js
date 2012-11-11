@@ -18,7 +18,8 @@ describe('cli', function () {
             parse: function (commands, dirname) {
               checks.bag_cli_parse_commands = commands;
               checks.bag_cli_parse_dirname = dirname;
-            }
+            },
+            exit: bag.cli.exit
           }
         },
         fs: bag.mock.fs(checks, mocks),
@@ -34,9 +35,10 @@ describe('cli', function () {
               checks.bob_external_verbose = verbose;
               cb(mocks.bob_external_err, mocks.bob_external_result);
             },
-            internal: function (target, opts) {
+            internal: function (target, opts, cb) {
               checks.bob_internal_target = target;
               checks.bob_internal_opts = opts;
+              checks.bob_internal_cb = cb;
             }
           };
         }
@@ -64,7 +66,7 @@ describe('cli', function () {
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
       cli = create(checks, mocks);
       cli.exec();
-      
+
       // not passed to bob build
       should.not.exist(checks.bob_external_targets);
 
@@ -79,16 +81,22 @@ describe('cli', function () {
       // internal targets delegate to bob
       checks.bag_cli_parse_commands._updep.action();
       checks.bob_internal_target.should.equal('updep');
+      (typeof checks.bob_internal_cb).should.equal('function');
       checks.bag_cli_parse_commands._versionup.action();
       checks.bob_internal_target.should.equal('versionup');
-      should.not.exist(checks.bob_internal_opts);
+      should.not.exist(checks.bob_internal_opts.type);
+      (typeof checks.bob_internal_cb).should.equal('function');
       checks.bag_cli_parse_commands['_versionup-minor'].action();
       checks.bob_internal_target.should.equal('versionup');
       checks.bob_internal_opts.type.should.equal('minor');
+      (typeof checks.bob_internal_cb).should.equal('function');
       checks.bag_cli_parse_commands['_versionup-major'].action();
       checks.bob_internal_target.should.equal('versionup');
       checks.bob_internal_opts.type.should.equal('major');
+      (typeof checks.bob_internal_cb).should.equal('function');
       checks.bag_cli_parse_commands._template.action();
+      checks.bob_internal_target.should.equal('template');
+      (typeof checks.bob_internal_cb).should.equal('function');
     });
 
     it('should pass external targets, mode and verbosity, to bob build function when there is only a single public target', function () {
