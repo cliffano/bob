@@ -1,4 +1,7 @@
-### 0.5.8 (SNAPSHOT)
+### 0.5.9 (SNAPSHOT)
+*
+
+### 0.5.8
 * Add updep target
 
 ### 0.5.7
