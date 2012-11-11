@@ -69,6 +69,12 @@ Targets
     <td>-</td>
   </tr>
   <tr>
+    <td>updep</td>
+    <td>Upgrade all dependencies to latest version. Only use this if you want exact dependencies.</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
     <td>tools</td>
     <td>Global install the tools used by Bob (e.g. jshint, nodelint, mocha, vows, etc).</td>
     <td>-</td>

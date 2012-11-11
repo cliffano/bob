@@ -1,5 +1,5 @@
 ### 0.5.8 (SNAPSHOT)
-*
+* Add updep target
 
 ### 0.5.7
 * Move esvalidate from validate target to lint target's type

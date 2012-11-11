@@ -58,7 +58,7 @@ describe('cli', function () {
 
   describe('exec', function () {
 
-    it('should pass private commands to bob functions', function () {
+    it('should pass internal targets to bob functions', function () {
       mocks.process_argv = ['node', 'bob', '_versionup'];
       mocks.process_env = { BOB_MODE: 'robot' };
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
@@ -69,13 +69,16 @@ describe('cli', function () {
       should.not.exist(checks.bob_external_targets);
 
       // private commands are parsed
-      _.keys(checks.bag_cli_parse_commands).length.should.equal(4);
-      _.keys(checks.bag_cli_parse_commands)[0].should.equal('_versionup');
-      _.keys(checks.bag_cli_parse_commands)[1].should.equal('_versionup-minor');
-      _.keys(checks.bag_cli_parse_commands)[2].should.equal('_versionup-major');
-      _.keys(checks.bag_cli_parse_commands)[3].should.equal('_template');
+      _.keys(checks.bag_cli_parse_commands).length.should.equal(5);
+      _.keys(checks.bag_cli_parse_commands)[0].should.equal('_updep');
+      _.keys(checks.bag_cli_parse_commands)[1].should.equal('_versionup');
+      _.keys(checks.bag_cli_parse_commands)[2].should.equal('_versionup-minor');
+      _.keys(checks.bag_cli_parse_commands)[3].should.equal('_versionup-major');
+      _.keys(checks.bag_cli_parse_commands)[4].should.equal('_template');
 
-      // private commands delegate to bob
+      // internal targets delegate to bob
+      checks.bag_cli_parse_commands._updep.action();
+      checks.bob_internal_target.should.equal('updep');
       checks.bag_cli_parse_commands._versionup.action();
       checks.bob_internal_target.should.equal('versionup');
       should.not.exist(checks.bob_internal_opts);
@@ -88,7 +91,7 @@ describe('cli', function () {
       checks.bag_cli_parse_commands._template.action();
     });
 
-    it('should pass public targets, mode and verbosity, to bob build function when there is only a single public target', function () {
+    it('should pass external targets, mode and verbosity, to bob build function when there is only a single public target', function () {
       mocks.process_argv = ['node', 'bob', 'lint'];
       mocks.process_env = { BOB_MODE: 'robot' };
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
@@ -100,7 +103,7 @@ describe('cli', function () {
       checks.bob_external_verbose.should.equal(false);
     });
 
-    it('should pass public targets, mode and verbosity, to bob build function when there are multiple public targets', function () {
+    it('should pass external targets, mode and verbosity, to bob build function when there are multiple public targets', function () {
       mocks.process_argv = ['node', 'bob', 'lint', 'style', 'test'];
       mocks.process_env = { BOB_MODE: 'robot' };
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
