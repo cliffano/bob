@@ -47,7 +47,7 @@
       "mocha": {
         "bin": "${bob}/node_modules/mocha/bin/mocha",
         "opts": {
-          "human": "--reporter spec",
+          "human": "--colors --reporter spec",
           "robot": "--reporter xunit"
         },
         "files": "test/"
