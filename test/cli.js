@@ -1,5 +1,6 @@
 var _ = require('underscore'),
   bag = require('bagofholding'),
+  p = require('path'),
   sandbox = require('sandboxed-module'),
   should = require('should'),
   checks, mocks,
@@ -168,7 +169,9 @@ describe('cli', function () {
       checks.console_log_messages[0].should.equal('SUCCESS | exit code: 0');
     });
 
-    it('should pass custom and pkg configs when .bob.json and package.json files exist in current directory', function () {
+    it('should pass empty custom and pkg configs when .bob.json and package.json files exist in current directory', function () {
+      mocks['fs_existsSync_/curr/dir/package.json'] = true;
+      mocks['fs_existsSync_/curr/dir/.bob.json'] = true;
       mocks.process_argv = ['node', 'bob', 'lint'];
       mocks.process_env = { BOB_MODE: 'robot' };
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
@@ -181,7 +184,59 @@ describe('cli', function () {
       checks.bob_custom.test.type.should.equal('vows');
     });
 
+    it('should not set custom and pkg configs when .bob.json and package.json do not exist', function () {
+      mocks['fs_existsSync_/curr/dir/package.json'] = false;
+      mocks['fs_existsSync_/curr/dir/.bob.json'] = false;
+      mocks.process_argv = ['node', 'bob', 'lint'];
+      mocks.process_env = { BOB_MODE: 'robot' };
+      mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
+      cli = create(checks, mocks);
+      cli.exec();
+      should.not.exist(checks.bob_pkg);
+      should.not.exist(checks.bob_custom);
+    });
+
+    it('should throw error when .bob.json contains invalid JSON', function () {
+      mocks['fs_existsSync_/curr/dir/package.json'] = true;
+      mocks['fs_existsSync_/curr/dir/.bob.json'] = true;
+      mocks.process_argv = ['node', 'bob', 'lint'];
+      mocks.process_env = { BOB_MODE: 'robot' };
+      mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
+      mocks['fs_readFileSync_/curr/dir/package.json'] = '{ "name": "someapp", "version": "1.2.3" }';
+      mocks['fs_readFileSync_/curr/dir/.bob.json'] = '{{{{ "test": { "type": "vows" } }';
+      cli = create(checks, mocks);
+      try {
+        cli.exec();
+      } catch (e) {
+        e.type.should.equal('unexpected_token');
+        e.message.should.equal('Unexpected token {');
+      }
+      checks.console_error_messages.length.should.equal(1);
+      checks.console_error_messages[0].should.equal('Invalid JSON file - /curr/dir/.bob.json');
+    });
+
+    it('should throw error when package.json contains invalid JSON', function () {
+      mocks['fs_existsSync_/curr/dir/package.json'] = true;
+      mocks['fs_existsSync_/curr/dir/.bob.json'] = true;
+      mocks.process_argv = ['node', 'bob', 'lint'];
+      mocks.process_env = { BOB_MODE: 'robot' };
+      mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
+      mocks['fs_readFileSync_/curr/dir/package.json'] = '{{{{ "name": "someapp", "version": "1.2.3" }';
+      mocks['fs_readFileSync_/curr/dir/.bob.json'] = '{ "test": { "type": "vows" } }';
+      cli = create(checks, mocks);
+      try {
+        cli.exec();
+      } catch (e) {
+        e.type.should.equal('unexpected_token');
+        e.message.should.equal('Unexpected token {');
+      }
+      checks.console_error_messages.length.should.equal(1);
+      checks.console_error_messages[0].should.equal('Invalid JSON file - /curr/dir/package.json');
+    });
+
     it('should pass empty custom config when there is no .bob.json file in current directory', function () {
+      mocks['fs_existsSync_/curr/dir/package.json'] = true;
+      mocks['fs_existsSync_/curr/dir/.bob.json'] = false; 
       mocks.process_argv = ['node', 'bob', 'lint'];
       mocks.process_env = { BOB_MODE: 'robot' };
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';
@@ -194,6 +249,8 @@ describe('cli', function () {
     });
 
     it('should pass empty pkg config when there is no package.json file in current directory', function () {
+      mocks['fs_existsSync_/curr/dir/package.json'] = false;
+      mocks['fs_existsSync_/curr/dir/.bob.json'] = true; 
       mocks.process_argv = ['node', 'bob', 'lint'];
       mocks.process_env = { BOB_MODE: 'robot' };
       mocks['fs_readFileSync_/app/bob/package.json'] = '{ "name": "thebob", "version": "1.2.3" }';

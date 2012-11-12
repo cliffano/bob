@@ -1,5 +1,5 @@
 ### 0.5.9 (SNAPSHOT)
-*
+* Add invalid package.json and .bob.json error handling.
 
 ### 0.5.8
 * Add updep target
