@@ -16,20 +16,22 @@ describe('updep', function () {
             cb(mocks.fs_writeFile_error);
           }
         },
-        request: function (url, cb) {
-          if (url === 'https://registry.npmjs.org/foo/latest') {
+        request: function (opts, cb) {
+          opts.method.should.equal('GET');
+          checks.request_proxy = opts.proxy;
+          if (opts.uri === 'https://registry.npmjs.org/foo/latest') {
             cb(null, {
               statusCode: 200,
               body: '{ "name": "foo", "version": "8.8.8" }'
             });
-          } else if (url === 'https://registry.npmjs.org/bar/latest') {
+          } else if (opts.uri === 'https://registry.npmjs.org/bar/latest') {
             cb(null, {
               statusCode: 200,
               body: '{ "name": "bar", "version": "9.9.9" }'
             });
-          } else if (url === 'https://registry.npmjs.org/someerror/latest') {
+          } else if (opts.uri === 'https://registry.npmjs.org/someerror/latest') {
             cb(new Error('Some connection error'));
-          } else if (url === 'https://registry.npmjs.org/someunexpectedstatuscode/latest') {
+          } else if (opts.uri === 'https://registry.npmjs.org/someunexpectedstatuscode/latest') {
             cb(null, {
               statusCode: 503,
               body: 'Some unexpected status body'
@@ -51,7 +53,8 @@ describe('updep', function () {
   beforeEach(function () {
     checks = {};
     mocks = {
-      process_cwd: '/curr/dir'
+      process_cwd: '/curr/dir',
+      process_env: {}
     };
   });
 
@@ -105,6 +108,29 @@ describe('updep', function () {
       checks.console_log_messages.length.should.equal(2);
       checks.console_log_messages[0].should.equal('nonexistent1 - not found');
       checks.console_log_messages[1].should.equal('nonexistent2 - not found');
+    });
+
+    it('should set request proxy opt when http_proxy env variable is set', function (done) {
+      mocks.process_env.http_proxy = 'http://someproxy';
+      updep = create(checks, mocks);
+      updep.exec({
+          _bob: {
+          }
+        }, function (err, result) {
+          done();
+        });
+      checks.request_proxy.should.equal('http://someproxy');
+    });
+
+    it('should not set request proxy opt when http_proxy env variable is not set', function (done) {
+      updep = create(checks, mocks);
+      updep.exec({
+          _bob: {
+          }
+        }, function (err, result) {
+          done();
+        });
+      should.not.exist(checks.request_proxy);
     });
 
     it('should pass error message when connecting to registry results in an error', function (done) {
