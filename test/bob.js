@@ -39,7 +39,8 @@ describe('bob', function () {
   beforeEach(function () {
     checks = {};
     mocks = {
-      process_cwd: '/curr/dir'
+      process_cwd: '/curr/dir',
+      process_env: {}
     };
   });
 
@@ -167,6 +168,13 @@ describe('bob', function () {
       checks.exec_opts._bob.custom.foo.should.equal('somecustomvalue');
       checks.exec_opts._bob.pkg.bar.should.equal('somepackagevalue');
       (typeof checks.exec_cb).should.equal('function');
+    });
+
+    it('should set proxy to Bob otps when http_proxy env variable is set', function () {
+      mocks.process_env.http_proxy = 'http://someproxy';
+      bob = new (create(checks, mocks))('somedir', {}, { foo: 'somecustomvalue' }, { bar: 'somepackagevalue' });
+      bob.internal('blah', undefined, function () {});
+      checks.exec_opts._bob.proxy.should.equal('http://someproxy');
     });
   });
 });
