@@ -1,5 +1,6 @@
 ### 0.5.10 (SNAPSHOT)
 * Add proxy support to updep target
+* Add cucumber type to test-acceptance target
 
 ### 0.5.9
 * Add invalid package.json and .bob.json error handling.
