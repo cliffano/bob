@@ -49,8 +49,7 @@
     "nodeunit": "0.x",
     "request": "2.12.0",
     "underscore": "1.3.3",
-    "vows": "0.x",
-    "zombie": "2.0.0-alpha8"
+    "vows": "0.x"
   },
   "devDependencies": {
     "mocha": "1.3.2",
