@@ -7,7 +7,8 @@
     "test",
     "coverage",
     "publish",
-    "make"
+    "make",
+    "deploy"
   ],
   "version": "0.5.10",
   "homepage": "http://github.com/cliffano/bob",
