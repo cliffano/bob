@@ -1,4 +1,7 @@
-### 0.5.10 (SNAPSHOT)
+### 0.5.11 (SNAPSHOT)
+*
+
+### 0.5.10
 * Add proxy support to updep target
 * Add cucumber type to test-acceptance target
 
