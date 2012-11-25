@@ -112,6 +112,7 @@ describe('bob', function () {
       });
       checks.make_file.should.equal('/app/bob/conf/Makefile');
       checks.make_verbose.should.equal(true);
+      checks.make_exec_params.lint_type.should.equal('jshint');
       checks.make_exec_params.lint_bin.should.equal('/usr/bin/jshint');
       checks.make_exec_targets.length.should.equal(2);
       checks.make_exec_targets[0].should.equal('clean');
@@ -128,6 +129,7 @@ describe('bob', function () {
       });
       checks.make_file.should.equal('/app/bob/conf/Makefile');
       checks.make_verbose.should.equal(true);
+      checks.make_exec_params.lint_type.should.equal('nodelint');
       checks.make_exec_params.lint_bin.should.equal('/usr/local/bin/nodelint');
       checks.make_exec_targets.length.should.equal(2);
       checks.make_exec_targets[0].should.equal('clean');

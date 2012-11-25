@@ -1,5 +1,5 @@
 ### 0.5.11 (SNAPSHOT)
-*
+* Add type support to package target, available types: tar.gz (default) and zip
 
 ### 0.5.10
 * Add proxy support to updep target

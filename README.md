@@ -144,9 +144,9 @@ Targets
   </tr>
   <tr>
     <td>package</td>
-    <td>Create a .tar.gz package file in .bob/artifact/ directory, along with md5 and sha1 checksums of the artifact file.</td>
-    <td>-</td>
-    <td>src</td>
+    <td>Create a package file in .bob/artifact/ directory, along with md5 and sha1 checksums of the artifact file.</td>
+    <td>tar.gz (default), zip</td>
+    <td>src, bin, opts, files</td>
   </tr>
   <tr>
     <td>publish</td>

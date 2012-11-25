@@ -157,6 +157,21 @@
       }
     }
   },
+  "package": {
+    "default": "tar.gz",
+    "types": {
+      "tar.gz": {
+        "bin": "tar",
+        "opts": "-X ${bob}/conf/package-exclude -cvzf",
+        "files": "${name}-${version}/"
+      },
+      "zip": {
+        "bin": "zip",
+        "opts": "-x ${bob}/conf/package-exclude -r",
+        "files": "${name}-${version}/"
+      }
+    }
+  },
   "publish": {
     "default": "npm",
     "types": {
