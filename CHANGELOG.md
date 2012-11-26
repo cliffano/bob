@@ -1,4 +1,7 @@
-### 0.5.11 (SNAPSHOT)
+### 0.5.12 (SNAPSHOT)
+*
+
+### 0.5.11
 * Add type support to package target, available types: tar.gz (default) and zip
 
 ### 0.5.10
