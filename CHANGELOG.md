@@ -1,5 +1,5 @@
 ### 0.5.12 (SNAPSHOT)
-*
+* Fix package zip type opts to make it work on RHEL other than Ubuntu and OS X
 
 ### 0.5.11
 * Add type support to package target, available types: tar.gz (default) and zip

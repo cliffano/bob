@@ -68,7 +68,7 @@ depgraph: init
 package: init
 	mkdir -p .bob/artifact/${name}-${version}
 	rsync -av --exclude-from=${bob}/conf/package-exclude ${src}/ .bob/artifact/${name}-${version}
-	cd .bob/artifact/; ${package_bin} ${package_opts} ${name}-${version}.${package_type} ${package_files}
+	cd .bob/artifact/; ${package_bin} ${package_opts}
 	$(call exec_sum,md5,.bob/artifact/${name}-${version}.${package_type})
 	$(call exec_sum,sha1,.bob/artifact/${name}-${version}.${package_type})
 
