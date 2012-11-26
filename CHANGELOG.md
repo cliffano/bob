@@ -1,4 +1,7 @@
-### 0.5.12 (SNAPSHOT)
+### 0.5.13 (SNAPSHOT)
+*
+
+### 0.5.12
 * Fix package zip type opts to make it work on RHEL other than Ubuntu and OS X
 
 ### 0.5.11
