@@ -1,78 +1,78 @@
-var bag = require('bagofholding'),
-  sandbox = require('sandboxed-module'),
-  should = require('should'),
-  checks, mocks,
-  template;
+var should = require('should'),
+  sinon = require('sinon'),
+  sinonmocha = require('sinon-mocha'),
+  template = require('../../lib/targets/template'),
+  fs = require('fs'), mockFs;
+
+sinonmocha.enhance(sinon);
+sinon.useFakeTimers(new Date(2000, 0, 1).getTime());
 
 describe('template', function () {
 
-  function create(checks, mocks) {
-    return sandbox.require('../../lib/targets/template', {
-      requires: {
-        fs: {
-          readFileSync: function (file, encoding) {
-            checks.fs_readFileSync_file = file;
-            checks.fs_readFileSync_encoding = encoding;
-            return mocks.fs_readFileSync_somefile;
-          },
-          writeFile: function (file, data, cb) {
-            checks.fs_writeFile_file = file;
-            checks.fs_writeFile_data = data;
-            cb(mocks.fs_writeFile_error);
-          }
-        }
-      },
-      globals: {
-        console: bag.mock.console(checks),
-        process: bag.mock.process(checks, mocks),
-        Date: function () {
-          return new Date(2000, 0, 1);
-        }
-      }
-    });
-  }
-
-  beforeEach(function () {
-    checks = {};
-    mocks = {
-      process_cwd: '/curr/dir'
-    };
-  });
-
   describe('exec', function () {
 
+    beforeEach(function () {
+      mockFs = sinon.mock(fs);
+    });
+
+    afterEach(function () {
+      mockFs.verify();
+    });
+
     it('should not do anything when custom config does not contain template setting', function (done) {
-      template = create(checks, mocks);
+
+      mockFs.expects('readFileSync').never();
+
       template.exec({ _bob: { custom: {}, pkg: {}}}, function (err, result) {
         done();
       });
-      should.not.exist(checks.fs_readFileSync_file);
-      should.not.exist(checks.fs_writeFile_file);
     });
 
-    it('should write applied template to filesystem when template is configured', function (done) {
-      mocks.fs_readFileSync_somefile = 'The date is {now(\'dd-mm-yyyy\')}. The version is {version} .';
-      template = create(checks, mocks);
-      template.exec({ _bob: { custom: { template: ['somefile'] }, pkg: { version: '1.2.3' }}}, function (err) {
-        done();
-      });
-      checks.fs_readFileSync_file.should.equal('somefile');
-      checks.fs_readFileSync_encoding.should.equal('utf-8');
-      checks.fs_writeFile_file.should.equal('somefile');
-      checks.fs_writeFile_data.should.equal('The date is 01-01-2000. The version is 1.2.3 .');
+    it('should write applied template to filesystem when template is configured', function () {
+    
+      var cb = function (err) {};
+
+      mockFs
+        .expects('readFileSync')
+        .once()
+        .withArgs('somefile', 'utf-8')
+        .returns('The date is {now(\'dd-mm-yyyy\')}. The version is {version} .');
+      
+      mockFs
+        .expects('writeFile')
+        .once()
+        .withArgs('somefile', 'The date is 01-01-2000. The version is 1.2.3 .', cb);
+
+      template.exec({ _bob: { custom: { template: ['somefile'] }, pkg: { version: '1.2.3' }}}, cb);
     });
 
-    it('should pass error to callback when an error occured while writing a file', function (done) {
-      mocks.fs_writeFile_error = new Error('Some write error');
-      mocks.fs_readFileSync_somefile = 'The date is {now(\'dd-mm-yyyy\')}. The version is {version} .';
-      template = create(checks, mocks);
-      template.exec({ _bob: { custom: { template: ['somefile'] }, pkg: { version: '1.2.3' }}}, function (err) {
-        checks.console_error_messages.push(err.message);
-        done();
-      });
-      checks.console_error_messages.length.should.equal(1);
-      checks.console_error_messages[0].should.equal('Some write error');
+    it('should write applied template to filesystem when there are multiple templates', function () {
+    
+      var cb = function (err) {};
+
+      mockFs
+        .expects('readFileSync')
+        .once()
+        .withArgs('somefile', 'utf-8')
+        .returns('The date is {now(\'dd-mm-yyyy\')}. The version is {version} .');
+
+      mockFs
+        .expects('readFileSync')
+        .once()
+        .withArgs('otherfile', 'utf-8')
+        .returns('Hello World');
+
+      mockFs
+        .expects('writeFile')
+        .once()
+        .withArgs('somefile', 'The date is 01-01-2000. The version is 1.2.3 .', cb);
+
+      mockFs
+        .expects('writeFile')
+        .once()
+        .withArgs('otherfile', 'Hello World', cb);
+
+      template.exec({ _bob: { custom: { template: ['somefile', 'otherfile'] }, pkg: { version: '1.2.3' }}}, cb);
     });
   });
-});
- 
+}); 
