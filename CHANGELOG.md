@@ -1,5 +1,6 @@
 ### 0.5.13 (SNAPSHOT)
 * Add tar type to package target
+* Fix mocha type test* to run all tests in subdirectories
 
 ### 0.5.12
 * Fix package zip type opts to make it work on RHEL other than Ubuntu and OS X
