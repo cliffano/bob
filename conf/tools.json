@@ -127,11 +127,6 @@
         },
         "files": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
       }
-    },
-    "overrides": {
-      "pkg": {
-        "test-npm": "scripts.test"
-      }
     }
   },
   "doc": {
@@ -201,11 +196,6 @@
         "files": "${send_dir} .bob/artifact/*",
         "port": 21,
         "dir": "/"
-      }
-    },
-    "overrides": {
-      "pkg": {
-        "test-npm": "scripts.test"
       }
     }
   },
