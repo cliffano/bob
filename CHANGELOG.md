@@ -1,4 +1,7 @@
-### 0.5.14 (SNAPSHOT)
+### 0.5.15-pre
+*
+
+### 0.5.14
 * Add complexity target, with complexity-report as default type, and jscheckstyle as optional type
 * Remove style target
 
