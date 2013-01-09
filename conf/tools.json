@@ -28,19 +28,6 @@
       }
     }
   },
-  "style": {
-    "default": "jscheckstyle",
-    "types": {
-      "jscheckstyle": {
-        "bin": "${bob}/node_modules/jscheckstyle/bin/jscheckstyle",
-        "opts": {
-          "human": "--violations",
-          "robot": "--checkstyle"
-        },
-        "files": "lib/"
-      }
-    }
-  },
   "test": {
     "default": "mocha",
     "types": {
@@ -134,6 +121,27 @@
           "robot": "--silent --cover-html"
         },
         "files": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      }
+    }
+  },
+  "complexity": {
+    "default": "complexity-report",
+    "types": {
+      "complexity-report": {
+        "bin": "${bob}/node_modules/complexity-report/src/cli.js",
+        "opts": {
+          "human": "--format plain --maxcc 5",
+          "robot": "--format xml --maxcc 5"
+        },
+        "files": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      },
+      "jscheckstyle": {
+        "bin": "${bob}/node_modules/jscheckstyle/bin/jscheckstyle",
+        "opts": {
+          "human": "--violations",
+          "robot": "--checkstyle"
+        },
+        "files": "lib/"
       }
     }
   },

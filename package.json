@@ -38,6 +38,7 @@
     "buster": "0.6.12",
     "buster-istanbul": "0.1.7",
     "colors": "0.6.0-1",
+    "complexity-report": "0.6.1",
     "cucumber": "0.3.0",
     "dateformat": "1.0.2-1.2.3",
     "dox": "0.x",

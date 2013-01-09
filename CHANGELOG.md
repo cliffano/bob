@@ -1,5 +1,6 @@
 ### 0.5.14 (SNAPSHOT)
-*
+* Add complexity target, with complexity-report as default type, and jscheckstyle as optional type
+* Remove style target
 
 ### 0.5.13
 * Add tar type to package target

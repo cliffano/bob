@@ -32,9 +32,6 @@ clean: init
 lint: init
 	$(call exec_report,.bob/report,${lint_bin} ${lint_opts} ${lint_files},.bob/report/lint.out)
 
-style: init
-	$(call exec_report,.bob/report,${style_bin} ${style_opts} ${style_files},.bob/report/style.out)
-
 test: init
 	$(call exec_report,.bob/report,${test_bin} ${test_opts} ${test_files},.bob/report/test.out)
 
@@ -57,6 +54,9 @@ instrument-jscoverage: init
 
 coverage: ${coverage_dep}
 	$(call exec_report,.bob/report,${coverage_bin} ${coverage_opts} ${coverage_files},.bob/report/coverage.out)
+
+complexity: init
+	$(call exec_report,.bob/report,${complexity_bin} ${complexity_opts} ${complexity_files},.bob/report/complexity.out)
 
 doc: init
 	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
