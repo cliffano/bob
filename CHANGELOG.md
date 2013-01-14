@@ -1,5 +1,5 @@
 ### 0.5.15-pre
-*
+* Add buster type to test-integration target
 
 ### 0.5.14
 * Add complexity target, with complexity-report as default type, and jscheckstyle as optional type
