@@ -6,5 +6,11 @@ module.exports.unit = {
   ],
   tests: [
     'test/**/*.js'
-  ]
+  ],
+  extensions: [
+    require('buster-istanbul')
+  ],
+  'buster-istanbul': {
+    outputDirectory: '.bob/report/coverage'
+  }
 };

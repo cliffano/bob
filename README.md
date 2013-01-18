@@ -113,7 +113,7 @@ Targets
   <tr>
     <td>coverage</td>
     <td>Check code coverage.</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cloudhead/vows">vows</a></td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/kates/buster-istanbul">buster-istanbul</a>, <a href="http://github.com/cloudhead/vows">vows</a></td>
     <td>bin, opts, files</td>
   </tr>
   <tr>

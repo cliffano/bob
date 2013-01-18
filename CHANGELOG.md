@@ -1,5 +1,5 @@
 ### 0.5.16-pre
-*
+* Add buster-istanbul type to coverage target
 
 ### 0.5.15
 * Add buster type to test-integration target

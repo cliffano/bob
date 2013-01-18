@@ -115,6 +115,14 @@
   "coverage": {
     "default": "mocha",
     "types": {
+      "buster-istanbul": {
+        "bin": "${bob}/node_modules/buster/bin/buster",
+        "opts": {
+          "human": "",
+          "robot": ""
+        },
+        "files": "test --config ${bob}/conf/buster-coverage.js"
+      },
       "mocha": {
         "dep": "instrument-jscoverage",
         "bin": "${bob}/node_modules/mocha/bin/mocha",
