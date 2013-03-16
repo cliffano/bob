@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "async": "0.2.6",
-    "bagofholding": "0.1.2",
+    "bagofholding": "0.0.15",
     "buster": "0.6.12",
     "buster-istanbul": "0.1.7",
     "colors": "0.6.0-1",
