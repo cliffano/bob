@@ -116,7 +116,7 @@
     "default": "mocha",
     "types": {
       "buster-istanbul": {
-        "bin": "${bob}/node_modules/buster/bin/buster",
+        "bin": "${bob}/node_modules/buster/bin/buster-test",
         "opts": {
           "human": "",
           "robot": ""
