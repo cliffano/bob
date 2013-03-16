@@ -1,5 +1,5 @@
 ### 0.5.17-pre
-*
+* Fix buster test command check error.
 
 ### 0.5.16
 * Add buster-istanbul type to coverage target
