@@ -3,7 +3,7 @@
     "default": "jshint",
     "types": {
       "jshint": {
-        "bin": "${bob}/node_modules/jshint/bin/hint",
+        "bin": "${bob}/node_modules/jshint/bin/jshint",
         "opts": {
           "human": "",
           "robot": "--jslint-reporter"
