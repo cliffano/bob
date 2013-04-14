@@ -1,4 +1,7 @@
-### 0.5.18-pre
+### 0.5.19-pre
+*
+
+### 0.5.18
 * Use dox-foundation as default doc target type
 * Use plato as default complexity target type
 * Remove expresso due to installation taking more than 1 minute, mocha and vows coverage types (with instrument-jscoverage dep) require global installation of expresso manually to get node-jscoverage binary
