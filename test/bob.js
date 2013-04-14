@@ -1,3 +1,4 @@
+/*
 var bag = require('bagofholding'),
   _jscov = require('../lib/bob'),
   sandbox = require('sandboxed-module'),
@@ -180,4 +181,4 @@ describe('bob', function () {
     });
   });
 });
- 
+*/
