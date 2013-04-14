@@ -1,6 +1,6 @@
 {
   "default": "mocha",
-  "tools": {
+  "types": {
     "cucumber": {
       "bin": "${bob}/node_modules/cucumber/bin/cucumber.js",
       "opts": {

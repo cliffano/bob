@@ -1,6 +1,6 @@
 {
   "default": "complexity-report",
-  "tools": {
+  "types": {
     "complexity-report": {
       "bin": "${bob}/node_modules/complexity-report/src/cli.js",
       "opts": {

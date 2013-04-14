@@ -1,6 +1,6 @@
 {
   "default": "scp",
-  "tools": {
+  "types": {
     "scp": {
       "bin": "scp",
       "opts": "-i ${send_key} -P ${send_port} -r",

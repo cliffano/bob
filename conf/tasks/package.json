@@ -1,6 +1,6 @@
 {
   "default": "tar.gz",
-  "tools": {
+  "types": {
     "tar.gz": {
       "bin": "tar",
       "opts": "-X ${bob}/conf/package-exclude -cvzf ${name}-${version}.${package_type} ${name}-${version}/"

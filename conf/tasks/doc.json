@@ -1,6 +1,6 @@
 {
   "default": "dox",
-  "tools": {
+  "types": {
     "dox": {
       "bin": "${bob}/node_modules/dox/bin/dox",
       "opts": {

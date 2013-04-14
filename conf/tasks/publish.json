@@ -1,6 +1,6 @@
 {
   "default": "npm",
-  "tools": {
+  "types": {
     "npm": {
       "dep": "publish-npm"
     },

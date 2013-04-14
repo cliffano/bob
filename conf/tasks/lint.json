@@ -1,6 +1,6 @@
 {
   "default": "jshint",
-  "tools": {
+  "types": {
     "jshint": {
       "bin": "${bob}/node_modules/jshint/bin/jshint",
       "opts": {

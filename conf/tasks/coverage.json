@@ -1,6 +1,6 @@
 {
   "default": "mocha",
-  "tools": {
+  "types": {
     "buster-istanbul": {
       "bin": "${bob}/node_modules/buster/bin/buster-test",
       "opts": {
