@@ -54,7 +54,7 @@ describe('bob', function () {
         { name: 'someapp', version: '1.2.3' });
       bob.external(['clean', 'lint'], 'robot', true, function () {
       });
-      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_file.should.equal('/app/bob/bin/Makefile');
       checks.make_verbose.should.equal(true);
       checks.make_exec_params.app.should.equal('/curr/dir');
       checks.make_exec_params.bob.should.equal('/app/bob');
@@ -75,7 +75,7 @@ describe('bob', function () {
         { name: 'someapp', version: '1.2.3', scripts: { test: 'vows test/' } });
       bob.external(['foo', 'somealias1', 'bar', 'somealias2', 'send'], 'robot', true, function () {
       });
-      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_file.should.equal('/app/bob/bin/Makefile');
       checks.make_verbose.should.equal(true);
       checks.make_exec_targets.length.should.equal(7);
       checks.make_exec_targets[0].should.equal('foo');
@@ -95,7 +95,7 @@ describe('bob', function () {
         { name: 'someapp', version: '1.2.3', scripts: { test: 'vows test/' } });
       bob.external(['clean', 'test'], 'robot', true, function () {
       });
-      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_file.should.equal('/app/bob/bin/Makefile');
       checks.make_verbose.should.equal(true);
       checks.make_exec_targets.length.should.equal(2);
       checks.make_exec_targets[0].should.equal('clean');
@@ -110,7 +110,7 @@ describe('bob', function () {
         { name: 'someapp', version: '1.2.3' });
       bob.external(['clean', 'lint'], 'robot', true, function () {
       });
-      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_file.should.equal('/app/bob/bin/Makefile');
       checks.make_verbose.should.equal(true);
       checks.make_exec_params.lint_type.should.equal('jshint');
       checks.make_exec_params.lint_bin.should.equal('/usr/bin/jshint');
@@ -127,7 +127,7 @@ describe('bob', function () {
         { name: 'someapp', version: '1.2.3' });
       bob.external(['clean', 'lint'], 'robot', true, function () {
       });
-      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_file.should.equal('/app/bob/bin/Makefile');
       checks.make_verbose.should.equal(true);
       checks.make_exec_params.lint_type.should.equal('nodelint');
       checks.make_exec_params.lint_bin.should.equal('/usr/local/bin/nodelint');
@@ -144,7 +144,7 @@ describe('bob', function () {
         { name: 'someapp', version: '1.2.3' });
       bob.external(['clean', 'lint'], 'robot', true, function () {
       });
-      checks.make_file.should.equal('/app/bob/conf/Makefile');
+      checks.make_file.should.equal('/app/bob/bin/Makefile');
       checks.make_verbose.should.equal(true);
       checks.make_exec_params.lint_bin.should.equal('/x/y/z');
       checks.make_exec_targets.length.should.equal(2);
