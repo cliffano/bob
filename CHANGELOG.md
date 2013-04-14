@@ -1,5 +1,6 @@
 ### 0.5.18-pre
-* 
+* Use dox-foundation as default doc target
+
 ### 0.5.17
 * Fix buster test command check error.
 

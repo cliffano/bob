@@ -128,14 +128,12 @@ Targets
     <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cucumber/cucumber-js">cucumber</a></td>
     <td>bin, opts, files</td>
   </tr>
-  <!--
   <tr>
     <td>doc</td>
     <td>Generate code documentation.</td>
-    <td></a></td>
+    <td><a href="http://github.com/punkave/dox-foundation">dox-foundation</a> (default)</td>
     <td>bin, opts, files</td>
   </tr>
-  -->
   <tr>
     <td>depgraph</td>
     <td>Generate module dependencies graph.</td>

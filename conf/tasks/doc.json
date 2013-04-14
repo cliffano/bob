@@ -1,13 +1,13 @@
 {
-  "default": "dox",
+  "default": "dox-foundation",
   "types": {
-    "dox": {
-      "bin": "${bob}/node_modules/dox/bin/dox",
+    "dox-foundation": {
+      "bin": "${bob}/node_modules/dox-foundation/bin/dox-foundation",
       "opts": {
-        "human": "",
-        "robot": ""
+        "human": "--source lib --target .bob/report/doc",
+        "robot": "--source lib --target .bob/report/doc"
       },
-      "files": "lib/"
+      "files": ""
     }
   }
 }
