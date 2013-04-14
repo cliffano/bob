@@ -1,0 +1,15 @@
+{
+  "build": "clean lint complexity test doc",
+  "lint": {
+    "type": "jshint"
+  },
+  "complexity": {
+    "type": "plato"
+  },
+  "test": {
+    "type": "mocha"
+  },
+  "doc": {
+    "type": "dox-foundation"
+  }
+}
