@@ -101,7 +101,7 @@ Targets
   <tr>
     <td>complexity</td>
     <td>Run code complexity checker against *.js files in lib/ directory.</td>
-    <td><a href="http://github.com/philbooth/complexityReport.js">complexity-report</a> (default), <a href="http://github.com/nomiddlename/jscheckstyle">jscheckstyle</a></td>
+    <td><a href="http://github.com/jsoverson/plato">plato</a> (default), <a href="http://github.com/nomiddlename/jscheckstyle">jscheckstyle</a></td>
     <td>bin, opts, files</td>
   </tr>
   <tr>

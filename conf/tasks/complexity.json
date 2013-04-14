@@ -1,13 +1,13 @@
 {
-  "default": "complexity-report",
+  "default": "plato",
   "types": {
-    "complexity-report": {
-      "bin": "${bob}/node_modules/complexity-report/src/cli.js",
+    "plato": {
+      "bin": "${bob}/node_modules/plato/bin/plato",
       "opts": {
-        "human": "--format plain --maxcc 5",
-        "robot": "--format xml --maxcc 5"
+        "human": "--quiet --recurse --dir .bob/report/complexity",
+        "robot": "--quiet --recurse --dir .bob/report/complexity"
       },
-      "files": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      "files": "lib"
     },
     "jscheckstyle": {
       "bin": "${bob}/node_modules/jscheckstyle/bin/jscheckstyle",

@@ -1,5 +1,6 @@
 ### 0.5.18-pre
-* Use dox-foundation as default doc target
+* Use dox-foundation as default doc target type
+* Use plato as default complexity target type
 
 ### 0.5.17
 * Fix buster test command check error.
