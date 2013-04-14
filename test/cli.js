@@ -1,3 +1,4 @@
+/*
 var _ = require('underscore'),
   bag = require('bagofholding'),
   p = require('path'),
@@ -262,4 +263,4 @@ describe('cli', function () {
     });
   });
 });
- 
+*/
