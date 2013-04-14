@@ -1,0 +1,13 @@
+{
+  "default": "dox",
+  "tools": {
+    "dox": {
+      "bin": "${bob}/node_modules/dox/bin/dox",
+      "opts": {
+        "human": "",
+        "robot": ""
+      },
+      "files": "lib/"
+    }
+  }
+}

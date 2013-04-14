@@ -1,0 +1,28 @@
+{
+  "default": "mocha",
+  "tools": {
+    "buster-istanbul": {
+      "bin": "${bob}/node_modules/buster/bin/buster-test",
+      "opts": {
+        "human": "",
+        "robot": ""
+      },
+      "files": "test --config ${bob}/conf/buster-coverage.js"
+    },
+    "mocha": {
+      "dep": "instrument-jscoverage",
+      "bin": "${bob}/node_modules/mocha/bin/mocha",
+      "opts": "--reporter html-cov",
+      "files": ".bob/instrumented/test/"
+    },
+    "vows": {
+      "dep": "instrument-jscoverage",
+      "bin": "${bob}/node_modules/vows/bin/vows",
+      "opts": {
+        "human": "--silent --cover-plain",
+        "robot": "--silent --cover-html"
+      },
+      "files": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+    }
+  }
+}

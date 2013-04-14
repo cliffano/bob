@@ -1,0 +1,21 @@
+{
+  "default": "complexity-report",
+  "tools": {
+    "complexity-report": {
+      "bin": "${bob}/node_modules/complexity-report/src/cli.js",
+      "opts": {
+        "human": "--format plain --maxcc 5",
+        "robot": "--format xml --maxcc 5"
+      },
+      "files": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+    },
+    "jscheckstyle": {
+      "bin": "${bob}/node_modules/jscheckstyle/bin/jscheckstyle",
+      "opts": {
+        "human": "--violations",
+        "robot": "--checkstyle"
+      },
+      "files": "lib/"
+    }
+  }
+}

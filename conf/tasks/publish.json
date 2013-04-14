@@ -1,0 +1,11 @@
+{
+  "default": "npm",
+  "tools": {
+    "npm": {
+      "dep": "publish-npm"
+    },
+    "ivy": {
+      "dep": "publish-ivy"
+    }
+  }
+}

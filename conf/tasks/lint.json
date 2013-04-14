@@ -1,0 +1,29 @@
+{
+  "default": "jshint",
+  "tools": {
+    "jshint": {
+      "bin": "${bob}/node_modules/jshint/bin/jshint",
+      "opts": {
+        "human": "",
+        "robot": "--jslint-reporter"
+      },
+      "files": "lib/ test/"
+    },
+    "nodelint": {
+      "bin": "${bob}/node_modules/nodelint/nodelint",
+      "opts": {
+        "human": "",
+        "robot": "--reporter=xml"
+      },
+      "files": "lib/ test/"
+    },
+    "esvalidate": {
+      "bin": "${bob}/node_modules/esprima/bin/esvalidate.js",
+      "opts": {
+        "human": "",
+        "robot": "--format=junit"
+      },
+      "files": "`find lib -name \"*.js\" | tr \"\\r\\n\" \" \"` `find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+    }
+  }
+}

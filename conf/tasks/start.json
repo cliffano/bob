@@ -1,0 +1,7 @@
+{
+  "overrides": {
+    "pkg": {
+      "start-npm": "scripts.start"
+    }
+  }
+}

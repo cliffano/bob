@@ -1,0 +1,21 @@
+{
+  "default": "mocha",
+  "tools": {
+    "cucumber": {
+      "bin": "${bob}/node_modules/cucumber/bin/cucumber.js",
+      "opts": {
+        "human": "--format pretty",
+        "robot": "--format json"
+      },
+      "files": "test-acceptance/"
+    },
+    "mocha": {
+      "bin": "${bob}/node_modules/mocha/bin/mocha",
+      "opts": {
+        "human": "--reporter spec --recursive",
+        "robot": "--reporter xunit --recursive"
+      },
+      "files": "test-acceptance/"
+    }
+  }
+}
