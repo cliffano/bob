@@ -19,12 +19,6 @@ rmdep: init
 
 updep:
 	bob _updep
-	
-tools:
-	npm install -g cucumber@0.3.0 dox@0.x esprima@1.x expresso@0.x jscheckstyle@0.x jshint@0.x mocha@1.x nodelint@0.x nodeunit@0.x vows@0.x
-
-rmtools:
-	npm rm -g cucumber dox esprima expresso jscheckstyle jshint mocha nodelint nodeunit vows
 
 clean: init
 	rm -rf .bob nohup.* *.log
@@ -47,7 +41,7 @@ test-npm:
 instrument-jscoverage: init
 	rm -rf .bob/instrumented/
 	mkdir -p .bob/instrumented/
-	${bob}/node_modules/expresso/deps/jscoverage/node-jscoverage lib .bob/instrumented/lib
+	node-jscoverage lib .bob/instrumented/lib
 	cp -r test .bob/instrumented
 	ln -s ${app}/package.json .bob/instrumented/package.json
 	ln -s ${app}/node_modules .bob/instrumented/node_modules

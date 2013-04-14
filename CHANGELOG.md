@@ -1,6 +1,7 @@
 ### 0.5.18-pre
 * Use dox-foundation as default doc target type
 * Use plato as default complexity target type
+* Remove expresso due to installation taking more than 1 minute, mocha and vows coverage types (with instrument-jscoverage dep) require global installation of expresso manually to get node-jscoverage binary
 
 ### 0.5.17
 * Fix buster test command check error.
