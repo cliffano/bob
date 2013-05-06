@@ -46,6 +46,14 @@ instrument-jscoverage: init
 	ln -s ${app}/package.json .bob/instrumented/package.json
 	ln -s ${app}/node_modules .bob/instrumented/node_modules
 
+instrument-istanbul: init
+	rm -rf .bob/instrumented/
+	mkdir -p .bob/instrumented/
+	node ${bob}/node_modules/istanbul/lib/cli.js instrument --output .bob/instrumented/lib lib
+	cp -r test .bob/instrumented
+	ln -s ${app}/package.json .bob/instrumented/package.json
+	ln -s ${app}/node_modules .bob/instrumented/node_modules
+	
 coverage: ${coverage_dep}
 	$(call exec_report,.bob/report,${coverage_bin} ${coverage_opts} ${coverage_files},.bob/report/coverage.out)
 
