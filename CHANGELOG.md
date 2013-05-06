@@ -1,3 +1,6 @@
+### 0.5.20-pre
+*
+
 ### 0.5.19-pre
 * Add mocha-istanbul type to coverage target
 
