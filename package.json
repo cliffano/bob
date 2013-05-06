@@ -43,18 +43,18 @@
     "dateformat": "1.0.6-1.2.3",
     "dox-foundation": "0.4.8",
     "esprima": "1.0.2",
+    "istanbul": "0.1.34",
     "jscheckstyle": "0.0.8",
     "jshint": "1.1.0",
     "madge": "0.1.4",
     "mocha": "1.8.2",
+    "mocha-istanbul": "0.2.0",
     "nodelint": "0.6.2",
     "nodeunit": "0.7.4",
     "plato": "0.5.0",
     "request": "2.16.2",
     "underscore": "1.4.4",
-    "vows": "0.7.0",
-    "mocha-istanbul": "~0.2.0",
-    "istanbul": "~0.1.34"
+    "vows": "0.7.0"
   },
   "devDependencies": {
     "mocha": "1.8.2",
