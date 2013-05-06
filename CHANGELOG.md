@@ -1,5 +1,5 @@
 ### 0.5.19-pre
-*
+* Add mocha-istanbul type to coverage target
 
 ### 0.5.18
 * Use dox-foundation as default doc target type
@@ -7,7 +7,7 @@
 * Remove expresso due to installation taking more than 1 minute, mocha and vows coverage types (with instrument-jscoverage dep) require global installation of expresso manually to get node-jscoverage binary
 
 ### 0.5.17
-* Fix buster test command check error.
+* Fix buster test command check error
 
 ### 0.5.16
 * Add buster-istanbul type to coverage target
