@@ -1,4 +1,7 @@
-### 0.5.20-pre
+### 0.5.21-pre
+*
+
+### 0.5.20
 * Add report output directory to mocha-istanbul coverage target
 * Fix mocha-istanbul to work with files in test subdirectories
 
