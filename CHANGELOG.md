@@ -1,4 +1,7 @@
-### 0.5.21-pre
+### 0.5.22-pre
+*
+
+### 0.5.21
 * Add report generation to mocha-istanbul coverage target for human mode
 
 ### 0.5.20
