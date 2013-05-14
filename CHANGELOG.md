@@ -1,5 +1,5 @@
 ### 0.5.21-pre
-*
+* Add report generation to mocha-istanbul coverage target for human mode
 
 ### 0.5.20
 * Add report output directory to mocha-istanbul coverage target
