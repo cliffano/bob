@@ -1,5 +1,5 @@
 ### 0.5.22-pre
-*
+* Add test-performance target
 
 ### 0.5.21
 * Add report generation to mocha-istanbul coverage target for human mode

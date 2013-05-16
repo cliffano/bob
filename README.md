@@ -123,6 +123,12 @@ Targets
     <td>bin, opts, files</td>
   </tr>
   <tr>
+    <td>test-performance<sup>experimental</sup></td>
+    <td>Execute performance test files in test-performance/ directory.</td>
+    <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default)</td>
+    <td>bin, opts, files</td>
+  </tr>
+  <tr>
     <td>test-acceptance<sup>experimental</sup></td>
     <td>Execute acceptance test files in test-acceptance/ directory.</td>
     <td><a href="http://github.com/visionmedia/mocha">mocha</a> (default), <a href="http://github.com/cucumber/cucumber-js">cucumber</a></td>
