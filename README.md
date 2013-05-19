@@ -1,5 +1,6 @@
 Bob [![http://travis-ci.org/cliffano/bob](https://secure.travis-ci.org/cliffano/bob.png?branch=master)](http://travis-ci.org/cliffano/bob)
 ---
+<img align="right" src="https://raw.github.com/cliffano/bob/master/avatar.jpg" alt="Avatar"/>
 
 Convention-based build tool for Node.js projects.
 
