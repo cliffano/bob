@@ -1,4 +1,7 @@
-### 0.5.23-pre
+### 0.5.24-pre
+*
+
+### 0.5.23
 * Add html to mocha-istanbul reporters
 
 ### 0.5.22
