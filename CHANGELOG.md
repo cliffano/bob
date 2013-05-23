@@ -1,4 +1,7 @@
-### 0.5.24-pre
+### 0.5.25-pre
+*
+
+### 0.5.24
 * Upgrade tools to latest greatest
 
 ### 0.5.23
