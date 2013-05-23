@@ -1,5 +1,5 @@
 ### 0.5.24-pre
-*
+* Upgrade tools to latest greatest
 
 ### 0.5.23
 * Add html to mocha-istanbul reporters
