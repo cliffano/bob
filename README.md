@@ -192,19 +192,7 @@ Targets
   <tr>
     <td>versionup</td>
     <td>Upgrade patch version number in package.json file.</td>
-    <td>-</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>versionup-minor</td>
-    <td>Upgrade minor version number in package.json file.</td>
-    <td>-</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>versionup-major</td>
-    <td>Upgrade major version number in package.json file.</td>
-    <td>-</td>
+    <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a> (default)</td>
     <td>-</td>
   </tr>
   <tr>

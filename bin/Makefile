@@ -117,13 +117,7 @@ status:
 	NODE_ENV=${NODE_ENV} node ${name}.js status
 
 versionup:
-	bob _versionup
-
-versionup-minor:
-	bob _versionup-minor
-
-versionup-major:
-	bob _versionup-major
+	$(call exec_report,.bob/report,${versionup_bin} ${versionup_opts} ${versionup_files},.bob/report/versionup.out)
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`

@@ -1,0 +1,10 @@
+{
+  "default": "pkjutil",
+  "types": {
+    "pkjutil": {
+      "bin": "${bob}/node_modules/pkjutil/bin/pkjutil",
+      "opts": "--file ${app}/package.json",
+      "files": "upgrade-version"
+    }
+  }
+}

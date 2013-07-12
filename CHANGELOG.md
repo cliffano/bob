@@ -1,5 +1,6 @@
 ### 0.5.25-pre
 * Change updep target to use pkjutil
+* Change versionup target to use pkjutil, remove versionup-minor and versionup-major targets (to be replaced with versionup and major/minor type arg)
 
 ### 0.5.24
 * Upgrade tools to latest greatest
