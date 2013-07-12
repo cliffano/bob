@@ -18,7 +18,7 @@ rmdep: init
 	rm -rf node_modules
 
 updep:
-	bob _updep
+	$(call exec_report,.bob/report,${updep_bin} ${updep_opts} ${updep_files},.bob/report/updep.out)
 
 clean: init
 	rm -rf .bob nohup.* *.log

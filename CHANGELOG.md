@@ -1,5 +1,5 @@
 ### 0.5.25-pre
-*
+* Change updep target to use pkjutil
 
 ### 0.5.24
 * Upgrade tools to latest greatest

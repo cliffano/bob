@@ -72,7 +72,7 @@ Targets
   <tr>
     <td>updep</td>
     <td>Upgrade all dependencies to latest version. Only use this if you want exact dependencies.</td>
-    <td>-</td>
+    <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a> (default)</td>
     <td>-</td>
   </tr>
   <tr>

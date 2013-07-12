@@ -51,6 +51,7 @@
     "mocha-istanbul": "https://github.com/chobomuffin/mocha-istanbul/tarball/master",
     "nodelint": "0.6.2",
     "nodeunit": "0.8.0",
+    "pkjutil": "0.0.1",
     "plato": "0.5.0",
     "request": "2.21.0",
     "underscore": "1.4.4",
