@@ -4,7 +4,7 @@
     "pkjutil": {
       "bin": "${bob}/node_modules/pkjutil/bin/pkjutil",
       "opts": "--file ${app}/package.json",
-      "files": "upgrade-dependencies"
+      "args": "upgrade-dependencies"
     }
   }
 }

@@ -18,25 +18,25 @@ rmdep: init
 	rm -rf node_modules
 
 updep:
-	$(call exec_report,.bob/report,${updep_bin} ${updep_opts} ${updep_files},.bob/report/updep.out)
+	$(call exec_report,.bob/report,${updep_bin} ${updep_opts} ${updep_args},.bob/report/updep.out)
 
 clean: init
 	rm -rf .bob nohup.* *.log
 
 lint: init
-	$(call exec_report,.bob/report,${lint_bin} ${lint_opts} ${lint_files},.bob/report/lint.out)
+	$(call exec_report,.bob/report,${lint_bin} ${lint_opts} ${lint_args},.bob/report/lint.out)
 
 test: init
-	$(call exec_report,.bob/report,${test_bin} ${test_opts} ${test_files},.bob/report/test.out)
+	$(call exec_report,.bob/report,${test_bin} ${test_opts} ${test_args},.bob/report/test.out)
 
 test-integration: init
-	$(call exec_report,.bob/report,${test-integration_bin} ${test-integration_opts} ${test-integration_files},.bob/report/test-integration.out)
+	$(call exec_report,.bob/report,${test-integration_bin} ${test-integration_opts} ${test-integration_args},.bob/report/test-integration.out)
 
 test-performance: init
-	$(call exec_report,.bob/report,${test-performance_bin} ${test-performance_opts} ${test-performance_files},.bob/report/test-performance.out)
+	$(call exec_report,.bob/report,${test-performance_bin} ${test-performance_opts} ${test-performance_args},.bob/report/test-performance.out)
 
 test-acceptance: init
-	$(call exec_report,.bob/report,${test-acceptance_bin} ${test-acceptance_opts} ${test-acceptance_files},.bob/report/test-acceptance.out)
+	$(call exec_report,.bob/report,${test-acceptance_bin} ${test-acceptance_opts} ${test-acceptance_args},.bob/report/test-acceptance.out)
 
 test-npm:
 	npm test
@@ -58,16 +58,16 @@ instrument-istanbul: init
 	ln -s ${app}/node_modules .bob/instrumented/node_modules
 	
 coverage: ${coverage_dep}
-	$(call exec_report,.bob/report,${coverage_bin} ${coverage_opts} ${coverage_files},.bob/report/coverage.out)
+	$(call exec_report,.bob/report,${coverage_bin} ${coverage_opts} ${coverage_args},.bob/report/coverage.out)
 
 complexity: init
-	$(call exec_report,.bob/report,${complexity_bin} ${complexity_opts} ${complexity_files},.bob/report/complexity.out)
+	$(call exec_report,.bob/report,${complexity_bin} ${complexity_opts} ${complexity_args},.bob/report/complexity.out)
 
 doc: init
-	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_files},.bob/report/doc.out)
+	$(call exec_report,.bob/report,${doc_bin} ${doc_opts} ${doc_args},.bob/report/doc.out)
 
 depgraph: init
-	$(call exec_report,.bob/report,${depgraph_bin} ${depgraph_opts} ${depgraph_files},.bob/report/depgraph.out)
+	$(call exec_report,.bob/report,${depgraph_bin} ${depgraph_opts} ${depgraph_args},.bob/report/depgraph.out)
 	echo "Created module dependencies graph: .bob/report/depgraph.png"
 
 package: init
@@ -93,7 +93,7 @@ publish-npm: init
 	npm publish
 
 send: init
-	$(call exec_report,.bob/report,${send_bin} ${send_opts} ${send_files},.bob/report/send.out)
+	$(call exec_report,.bob/report,${send_bin} ${send_opts} ${send_args},.bob/report/send.out)
 
 stop:
 	NODE_ENV=${NODE_ENV} node ${name}.js stop
@@ -117,7 +117,7 @@ status:
 	NODE_ENV=${NODE_ENV} node ${name}.js status
 
 versionup:
-	$(call exec_report,.bob/report,${versionup_bin} ${versionup_opts} ${versionup_files},.bob/report/versionup.out)
+	$(call exec_report,.bob/report,${versionup_bin} ${versionup_opts} ${versionup_args},.bob/report/versionup.out)
 
 nuke:
 	kill -9 `ps -ef | sed -n '/node'""'/{/grep/!p;}' | awk '{print $$2}'`

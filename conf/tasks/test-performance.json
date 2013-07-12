@@ -7,7 +7,7 @@
         "human": "--reporter spec --recursive",
         "robot": "--reporter xunit --recursive"
       },
-      "files": "test-performance/"
+      "args": "test-performance/"
     }
   }
 }

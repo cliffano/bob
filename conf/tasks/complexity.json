@@ -7,7 +7,7 @@
         "human": "--quiet --recurse --dir .bob/report/complexity",
         "robot": "--quiet --recurse --dir .bob/report/complexity"
       },
-      "files": "lib"
+      "args": "lib"
     },
     "jscheckstyle": {
       "bin": "${bob}/node_modules/jscheckstyle/bin/jscheckstyle",
@@ -15,7 +15,7 @@
         "human": "--violations",
         "robot": "--checkstyle"
       },
-      "files": "lib/"
+      "args": "lib/"
     }
   }
 }

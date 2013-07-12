@@ -7,7 +7,7 @@
         "human": "--source lib --target .bob/report/doc",
         "robot": "--source lib --target .bob/report/doc"
       },
-      "files": ""
+      "args": ""
     }
   }
 }

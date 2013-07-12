@@ -7,7 +7,7 @@
         "human": "--format pretty",
         "robot": "--format json"
       },
-      "files": "test-acceptance/"
+      "args": "test-acceptance/"
     },
     "mocha": {
       "bin": "${bob}/node_modules/mocha/bin/mocha",
@@ -15,7 +15,7 @@
         "human": "--reporter spec --recursive",
         "robot": "--reporter xunit --recursive"
       },
-      "files": "test-acceptance/"
+      "args": "test-acceptance/"
     }
   }
 }

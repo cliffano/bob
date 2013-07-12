@@ -7,7 +7,7 @@
         "human": "",
         "robot": ""
       },
-      "files": "test --config ${bob}/conf/buster-coverage.js"
+      "args": "test --config ${bob}/conf/buster-coverage.js"
     },
     "mocha-istanbul": {
       "dep": "instrument-istanbul",
@@ -19,13 +19,13 @@
         "human": "--color --reporter mocha-istanbul",
         "robot": "--reporter mocha-istanbul"
       },
-      "files": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      "args": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     },
     "mocha": {
       "dep": "instrument-jscoverage",
       "bin": "${bob}/node_modules/mocha/bin/mocha",
       "opts": "--reporter html-cov",
-      "files": ".bob/instrumented/test/"
+      "args": ".bob/instrumented/test/"
     },
     "vows": {
       "dep": "instrument-jscoverage",
@@ -34,7 +34,7 @@
         "human": "--silent --cover-plain",
         "robot": "--silent --cover-html"
       },
-      "files": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      "args": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     }
   }
 }

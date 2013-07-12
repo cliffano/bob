@@ -7,7 +7,7 @@
         "human": "",
         "robot": ""
       },
-      "files": "test --config ${bob}/conf/buster-test.js"
+      "args": "test --config ${bob}/conf/buster-test.js"
     },
     "mocha": {
       "bin": "${bob}/node_modules/mocha/bin/mocha",
@@ -15,7 +15,7 @@
         "human": "--colors --reporter spec --recursive",
         "robot": "--reporter xunit --recursive"
       },
-      "files": "test/"
+      "args": "test/"
     },
     "nodeunit": {
       "bin": "${bob}/node_modules/nodeunit/bin/nodeunit",
@@ -23,7 +23,7 @@
         "human": "",
         "robot": "--reporter junit --output .bob/report/test/"
       },
-      "files": "test/"
+      "args": "test/"
     },
     "vows": {
       "bin": "${bob}/node_modules/vows/bin/vows",
@@ -31,7 +31,7 @@
         "human": "--spec",
         "robot": "--xunit"
       },
-      "files": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      "args": "`find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     }
   },
   "overrides": {
