@@ -1,6 +1,6 @@
 {
   "name": "bob",
-  "description": "Convention-based build tool for Node.js projects.",
+  "description": "Convention-based build tool for node.js projects.",
   "keywords": [
     "build",
     "lint",
@@ -10,7 +10,7 @@
     "make",
     "deploy"
   ],
-  "version": "0.5.25",
+  "version": "0.6.0",
   "homepage": "http://github.com/cliffano/bob",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
   "contributors": [
@@ -58,14 +58,11 @@
     "vows": "0.7.0"
   },
   "devDependencies": {
-    "sandboxed-module": "0.2.0",
-    "should": "1.2.2",
-    "sinon": "1.7.2",
-    "sinon-mocha": "0.0.3"
+    "buster": "~1.6.2"
   },
   "scripts": {},
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">= 0.8.0"
   },
   "licenses": [
     {
