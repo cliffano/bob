@@ -1,6 +1,13 @@
-Bob [![http://travis-ci.org/cliffano/bob](https://secure.travis-ci.org/cliffano/bob.png?branch=master)](http://travis-ci.org/cliffano/bob)
----
 <img align="right" src="https://raw.github.com/cliffano/bob/master/avatar.jpg" alt="Avatar"/>
+
+[![Build Status](https://secure.travis-ci.org/cliffano/bob.png?branch=master)](http://travis-ci.org/cliffano/bob)
+[![Dependencies Status](https://david-dm.org/cliffano/bob.png)](http://david-dm.org/cliffano/bob)
+[![Published Version](https://badge.fury.io/js/bob.png)](http://badge.fury.io/js/bob)
+<br/>
+[![npm Badge](https://nodei.co/npm/bob.png)](http://npmjs.org/package/bob)
+
+Bob
+---
 
 Convention-based build tool for Node.js projects.
 
