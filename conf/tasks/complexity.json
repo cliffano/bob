@@ -2,7 +2,7 @@
   "default": "plato",
   "types": {
     "plato": {
-      "bin": "${bob}/node_modules/plato/bin/plato",
+      "bin": "{bob}/node_modules/plato/bin/plato",
       "opts": {
         "human": "--quiet --recurse --dir .bob/report/complexity",
         "robot": "--quiet --recurse --dir .bob/report/complexity"
@@ -10,7 +10,7 @@
       "args": "lib"
     },
     "jscheckstyle": {
-      "bin": "${bob}/node_modules/jscheckstyle/bin/jscheckstyle",
+      "bin": "{bob}/node_modules/jscheckstyle/bin/jscheckstyle",
       "opts": {
         "human": "--violations",
         "robot": "--checkstyle"

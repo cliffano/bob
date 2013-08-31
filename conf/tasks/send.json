@@ -3,15 +3,15 @@
   "types": {
     "scp": {
       "bin": "scp",
-      "opts": "-i ${send_key} -P ${send_port} -r",
-      "args": ".bob/artifact/* ${send_user}@${send_host}:${send_dir}",
+      "opts": "-i {send_key} -P {send_port} -r",
+      "args": ".bob/artifact/* {send_user}@{send_host}:{send_dir}",
       "port": 22,
       "dir": "."
     },
     "ftp": {
       "bin": "ncftpput",
-      "opts": "-f ${send_key} -P ${send_port} -u ${send_user} -R",
-      "args": "${send_dir} .bob/artifact/*",
+      "opts": "-f {send_key} -P {send_port} -u {send_user} -R",
+      "args": "{send_dir} .bob/artifact/*",
       "port": 21,
       "dir": "/"
     }

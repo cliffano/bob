@@ -2,7 +2,7 @@
   "default": "madge",
   "types": {
     "madge": {
-      "bin": "${bob}/node_modules/madge/bin/madge",
+      "bin": "{bob}/node_modules/madge/bin/madge",
       "opts": "--image .bob/report/depgraph.png",
       "args": "lib/"
     }

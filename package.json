@@ -33,32 +33,33 @@
     "test": "./test"
   },
   "dependencies": {
-    "async": "0.2.8",
-    "bagofholding": "0.0.15",
-    "buster": "0.6.12",
-    "buster-istanbul": "0.1.7",
-    "colors": "0.6.0-1",
-    "complexity-report": "0.10.3",
-    "cucumber": "0.3.0",
-    "dateformat": "1.0.6-1.2.3",
-    "dox-foundation": "0.4.8",
-    "esprima": "1.0.3",
-    "istanbul": "0.1.35",
-    "jscheckstyle": "0.0.9",
-    "jshint": "2.1.2",
-    "madge": "0.1.4",
-    "mocha": "1.10.0",
+    "async": "~0.2.9",
+    "bagofcli": "~0.0.5",
+    "canihaz": "~1.0.0",
+    "colors": "~0.6.2",
+    "dox-foundation": "~0.4.8",
+    "jazz": "~0.0.18",
+    "jshint": "~2.1.10",
+    "madge": "~0.1.4",
+    "mkdirp": "~0.3.5",
+    "mocha": "~1.12.1",
     "mocha-istanbul": "https://github.com/chobomuffin/mocha-istanbul/tarball/master",
-    "nodelint": "0.6.2",
-    "nodeunit": "0.8.0",
-    "pkjutil": "0.0.1",
-    "plato": "0.5.0",
-    "request": "2.21.0",
-    "underscore": "1.4.4",
-    "vows": "0.7.0"
+    "plato": "~0.6.1"
+  },
+  "optDependencies": {
+    "buster": "~0.6.12",
+    "buster-istanbul": "~0.1.10",
+    "cucumber": "~0.3.1",
+    "complexity-report": "~0.10.4",
+    "esvalidate": "~0.0.2",
+    "jscheckstyle": "~0.0.9",
+    "nodelint": "~0.6.2",
+    "nodeunit": "~0.8.1",
+    "pkjutil": "~0.0.3",
+    "vows": "~0.7.0"
   },
   "devDependencies": {
-    "buster": "~1.6.2"
+    "buster": "~0.6.12"
   },
   "scripts": {},
   "engines": {

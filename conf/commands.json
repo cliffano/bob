@@ -1,0 +1,13 @@
+{
+  "options": [
+    { "arg": "--quiet", "desc": "Hide command output" }
+  ],
+  "commands": {
+    "lint": {
+      "desc": "Lint *.js files in lib/ and test/ directories"
+    },
+    "test": {
+      "desc": "Execute unit test files in test/ directory"
+    }
+  }
+}

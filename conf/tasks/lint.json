@@ -2,7 +2,7 @@
   "default": "jshint",
   "types": {
     "jshint": {
-      "bin": "${bob}/node_modules/jshint/bin/jshint",
+      "bin": "{bob}/node_modules/jshint/bin/jshint",
       "opts": {
         "human": "",
         "robot": "--jslint-reporter"
@@ -10,7 +10,7 @@
       "args": "lib/ test/"
     },
     "nodelint": {
-      "bin": "${bob}/node_modules/nodelint/nodelint",
+      "bin": "{bob}/node_modules/nodelint/nodelint",
       "opts": {
         "human": "",
         "robot": "--reporter=xml"
@@ -18,7 +18,7 @@
       "args": "lib/ test/"
     },
     "esvalidate": {
-      "bin": "${bob}/node_modules/esprima/bin/esvalidate.js",
+      "bin": "{bob}/node_modules/esprima/bin/esvalidate.js",
       "opts": {
         "human": "",
         "robot": "--format=junit"

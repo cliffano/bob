@@ -2,7 +2,7 @@
   "default": "mocha",
   "types": {
     "mocha": {
-      "bin": "${bob}/node_modules/mocha/bin/mocha",
+      "bin": "{bob}/node_modules/mocha/bin/mocha",
       "opts": {
         "human": "--reporter spec --recursive",
         "robot": "--reporter xunit --recursive"

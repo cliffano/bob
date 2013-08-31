@@ -2,7 +2,7 @@
   "default": "dox-foundation",
   "types": {
     "dox-foundation": {
-      "bin": "${bob}/node_modules/dox-foundation/bin/dox-foundation",
+      "bin": "{bob}/node_modules/dox-foundation/bin/dox-foundation",
       "opts": {
         "human": "--source lib --target .bob/report/doc",
         "robot": "--source lib --target .bob/report/doc"

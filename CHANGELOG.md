@@ -1,5 +1,9 @@
 ### 0.6.0
-* 
+* Remove dependency to Make and makefile
+* Support multiple task types
+* Only pre-install Bob core and default task type modules
+* Lazy install non-default task type modules
+* Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
 
 ### 0.5.25
 * Change updep target to use pkjutil
