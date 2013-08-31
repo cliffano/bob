@@ -59,7 +59,6 @@
     "vows": "~0.7.0"
   },
   "devDependencies": {
-    "buster": "~0.6.12"
   },
   "scripts": {},
   "engines": {
