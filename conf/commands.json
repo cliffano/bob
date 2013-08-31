@@ -3,11 +3,71 @@
     { "arg": "--quiet", "desc": "Hide command output" }
   ],
   "commands": {
+    "clean": {
+      "desc": "Delete .bob directory"
+    },
+    "complexity": {
+      "desc": "Run code complexity checker against *.js files in lib/ directory"
+    },
+    "coverage": {
+      "desc": "Check code coverage"
+    },
+    "dep": {
+      "desc": "Install dependencies specified in package.json"
+    },
+    "depgraph": {
+      "desc": "Generate module dependencies graph"
+    },
+    "doc": {
+      "desc": "Generate code documentation"
+    },
     "lint": {
       "desc": "Lint *.js files in lib/ and test/ directories"
     },
+    "nuke": {
+      "desc": "Kill all processes with command containing the string 'node'"
+    },
+    "package": {
+      "desc": "Create an artifact file in .bob/artifact/ directory, along with its checksums"
+    },
+    "publish": {
+      "desc": "Publish artifact file to a repository"
+    },
+    "restart": {
+      "desc": "Restart application"
+    },
+    "rmdep": {
+      "desc": "Remove dependencies in node_modules directory"
+    },
+    "send": {
+      "desc": "Send artifact file to a remote server"
+    },
+    "start": {
+      "desc": "Start application"
+    },
+    "status": {
+      "desc": "Status application"
+    },
+    "stop": {
+      "desc": "Stop application"
+    },
     "test": {
       "desc": "Execute unit test files in test/ directory"
+    },
+    "test-acceptance": {
+      "desc": "Execute acceptance unit test files in test-acceptance/ directory"
+    },
+    "test-integration": {
+      "desc": "Execute integration unit test files in test-integration/ directory"
+    },
+    "test-performance": {
+      "desc": "Execute unit test files in test-performance/ directory"
+    },
+    "updep": {
+      "desc": "Upgrade all dependencies to latest version"
+    },
+    "versionup": {
+      "desc": "Upgrade patch version number in package.json file"
     }
   }
 }
