@@ -16,14 +16,6 @@
         "robot": "--reporter=xml"
       },
       "args": "lib/ test/"
-    },
-    "esvalidate": {
-      "bin": "{bob}/node_modules/esprima/bin/esvalidate.js",
-      "opts": {
-        "human": "",
-        "robot": "--format=junit"
-      },
-      "args": "`find lib -name \"*.js\" | tr \"\\r\\n\" \" \"` `find test -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     }
   }
 }

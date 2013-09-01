@@ -4,6 +4,7 @@
 * Only pre-install Bob core and default task type modules
 * Lazy install non-default task type modules
 * Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
+* Drop esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
 
 ### 0.5.25
 * Change updep target to use pkjutil
