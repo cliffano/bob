@@ -3,16 +3,13 @@
   "types": {
     "buster": {
       "bin": "{bob}/node_modules/buster/bin/buster-test",
-      "opts": {
-        "human": "",
-        "robot": ""
-      },
+      "opts": "",
       "args": "test --config {bob}/conf/buster-test-integration.js"
     },
     "mocha": {
       "bin": "{bob}/node_modules/mocha/bin/mocha",
       "opts": {
-        "human": "--reporter spec --recursive",
+        "human": "--colors --reporter spec --recursive",
         "robot": "--reporter xunit --recursive"
       },
       "args": "test-integration/"

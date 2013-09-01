@@ -4,7 +4,7 @@
     "mocha": {
       "bin": "{bob}/node_modules/mocha/bin/mocha",
       "opts": {
-        "human": "--reporter spec --recursive",
+        "human": "--colors --reporter spec --recursive",
         "robot": "--reporter xunit --recursive"
       },
       "args": "test-performance/"
