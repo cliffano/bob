@@ -3,10 +3,7 @@
   "types": {
     "plato": {
       "bin": "{bob}/node_modules/plato/bin/plato",
-      "opts": {
-        "human": "--quiet --recurse --dir .bob/report/complexity",
-        "robot": "--quiet --recurse --dir .bob/report/complexity"
-      },
+      "opts": "--recurse --dir .bob/report/complexity/plato",
       "args": "lib"
     },
     "jscheckstyle": {
