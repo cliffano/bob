@@ -3,10 +3,7 @@
   "types": {
     "dox-foundation": {
       "bin": "{bob}/node_modules/dox-foundation/bin/dox-foundation",
-      "opts": {
-        "human": "--source lib --target .bob/report/doc",
-        "robot": "--source lib --target .bob/report/doc"
-      },
+      "opts": "--source lib --target .bob/report/doc/dox-foundation/",
       "args": ""
     }
   }
