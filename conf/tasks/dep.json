@@ -1,0 +1,10 @@
+{
+  "default": "npm",
+  "types": {
+    "npm": {
+      "bin": "npm",
+      "opts": "",
+      "args": "install"
+    }
+  }
+}
