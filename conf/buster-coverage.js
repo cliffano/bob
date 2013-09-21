@@ -11,6 +11,6 @@ module.exports.unit = {
     require('buster-istanbul')
   ],
   'buster-istanbul': {
-    outputDirectory: '.bob/report/coverage'
+    outputDirectory: '.bob/report/coverage/buster-istanbul/'
   }
 };
