@@ -1,5 +1,5 @@
 {
-  "default": "mocha",
+  "default": "mocha-istanbul",
   "types": {
     "buster-istanbul": {
       "bin": "{bob}/node_modules/buster/bin/buster-test",

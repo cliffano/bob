@@ -5,6 +5,7 @@
 * Lazy install non-default task type modules
 * Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
 * Drop esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
+* Use mocha-istanbul as default coverage target type
 
 ### 0.5.25
 * Change updep target to use pkjutil
