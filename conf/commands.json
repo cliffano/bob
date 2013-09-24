@@ -37,7 +37,7 @@
       "desc": "Restart application"
     },
     "rmdep": {
-      "desc": "Remove dependencies in node_modules directory"
+      "desc": "Remove node_modules directory"
     },
     "send": {
       "desc": "Send artifact file to a remote server"
