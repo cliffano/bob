@@ -1,7 +1,10 @@
 {
-  "overrides": {
-    "pkg": {
-      "stop-npm": "scripts.stop"
+  "default": "npm",
+  "types": {
+    "npm": {
+      "bin": "npm",
+      "opts": "",
+      "args": "stop"
     }
   }
 }

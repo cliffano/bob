@@ -1,7 +1,10 @@
 {
-  "overrides": {
-    "pkg": {
-      "start-npm": "scripts.start"
+  "default": "npm",
+  "types": {
+    "npm": {
+      "bin": "npm",
+      "opts": "",
+      "args": "start"
     }
   }
 }

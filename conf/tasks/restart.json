@@ -1,7 +1,10 @@
 {
-  "overrides": {
-    "pkg": {
-      "restart-npm": "scripts.restart"
+  "default": "npm",
+  "types": {
+    "npm": {
+      "bin": "npm",
+      "opts": "",
+      "args": "restart"
     }
   }
 }
