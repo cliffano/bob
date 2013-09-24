@@ -6,6 +6,7 @@
 * Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
 * Drop esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
 * Use mocha-istanbul as default coverage target type
+* Drop publish ivy type (it was a nice experiment, but we all know better by now)
 
 ### 0.5.25
 * Change updep target to use pkjutil

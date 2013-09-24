@@ -2,10 +2,9 @@
   "default": "npm",
   "types": {
     "npm": {
-      "dep": "publish-npm"
-    },
-    "ivy": {
-      "dep": "publish-ivy"
+      "bin": "npm",
+      "opts": "",
+      "args": "publish"
     }
   }
 }
