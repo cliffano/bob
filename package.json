@@ -44,7 +44,8 @@
     "mkdirp": "~0.3.5",
     "mocha": "~1.12.1",
     "mocha-istanbul": "https://github.com/chobomuffin/mocha-istanbul/tarball/master",
-    "plato": "~0.6.1"
+    "plato": "~0.6.1",
+    "rimraf": "~2.2.2"
   },
   "optDependencies": {
     "buster": "~0.6.12",

@@ -1,0 +1,10 @@
+{
+  "default": "rimraf",
+  "types": {
+    "rimraf": {
+      "bin": "{bob}/node_modules/rimraf/bin.js",
+      "opts": "",
+      "args": ".bob"
+    }
+  }
+}
