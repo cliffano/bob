@@ -44,6 +44,7 @@
     "mkdirp": "~0.3.5",
     "mocha": "~1.12.1",
     "mocha-istanbul": "https://github.com/chobomuffin/mocha-istanbul/tarball/master",
+    "pkjutil": "~0.0.3",
     "plato": "~0.6.1",
     "rimraf": "~2.2.2",
     "tar.gz": "~0.1.1"
@@ -57,7 +58,6 @@
     "jscheckstyle": "~0.0.9",
     "nodelint": "~0.6.2",
     "nodeunit": "~0.8.1",
-    "pkjutil": "~0.0.3",
     "vows": "~0.7.0"
   },
   "devDependencies": {

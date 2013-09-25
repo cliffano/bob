@@ -8,6 +8,7 @@
 * Use mocha-istanbul as default coverage target type
 * Drop publish ivy type (it was a nice experiment, but we all know better by now)
 * Drop package tar and zip types (will re-add when there's a cross-platform tar and zip cli for node)
+* Add test npm type
 
 ### 0.5.25
 * Change updep target to use pkjutil

@@ -25,6 +25,11 @@
       },
       "args": "test/"
     },
+    "npm": {
+      "bin": "npm",
+      "opts": "",
+      "args": "test"
+    },
     "vows": {
       "bin": "{bob}/node_modules/vows/bin/vows",
       "opts": {
@@ -32,11 +37,6 @@
         "robot": "--xunit"
       },
       "args": "test/*.js"
-    }
-  },
-  "overrides": {
-    "pkg": {
-      "test-npm": "scripts.test"
     }
   }
 }
