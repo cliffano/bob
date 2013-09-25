@@ -5,14 +5,6 @@
       "bin": "{bob}/node_modules/tar.gz/bin/targz",
       "opts": "-c {app}",
       "args": ".bob/artifact/{name}-{version}.tar.gz"
-    },
-    "tar": {
-      "bin": "tar",
-      "opts": "-X {bob}/conf/package-exclude -cvf {name}-{version}.{package_type} {name}-{version}/"
-    },
-    "zip": {
-      "bin": "zip",
-      "opts": "{name}-{version}.{package_type} -r {name}-{version}/ -x {bob}/conf/package-exclude"
     }
   }
 }

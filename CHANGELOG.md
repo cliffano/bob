@@ -7,6 +7,7 @@
 * Drop esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
 * Use mocha-istanbul as default coverage target type
 * Drop publish ivy type (it was a nice experiment, but we all know better by now)
+* Drop package tar and zip types (will re-add when there's a cross-platform tar and zip cli for node)
 
 ### 0.5.25
 * Change updep target to use pkjutil
