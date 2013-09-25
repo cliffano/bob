@@ -2,8 +2,9 @@
   "default": "tar.gz",
   "types": {
     "tar.gz": {
-      "bin": "tar",
-      "opts": "-X {bob}/conf/package-exclude -cvzf {name}-{version}.{package_type} {name}-{version}/"
+      "bin": "{bob}/node_modules/tar.gz/bin/targz",
+      "opts": "-c {app}",
+      "args": ".bob/artifact/{name}-{version}.tar.gz"
     },
     "tar": {
       "bin": "tar",
