@@ -3,5 +3,5 @@ node_js:
   - "0.11"
   - "0.10"
   - 0.8
-before_install: "npm install -g bob --loglevel error"
+before_install: "npm link --loglevel error"
 script: "bob clean lint test coverage doc"
