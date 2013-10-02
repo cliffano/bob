@@ -20,6 +20,7 @@
   "bin": {
     "bob": "./bin/bob"
   },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "http://github.com/cliffano/bob.git"

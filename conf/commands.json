@@ -28,7 +28,7 @@
       "desc": "Kill all processes with command containing the string 'node'"
     },
     "package": {
-      "desc": "Create an artifact file in .bob/artifact/ directory, along with its checksums"
+      "desc": "Create an artifact file in .bob/artifact/ directory"
     },
     "publish": {
       "desc": "Publish artifact file to a repository"
@@ -55,13 +55,13 @@
       "desc": "Execute unit test files in test/ directory"
     },
     "test-acceptance": {
-      "desc": "Execute acceptance unit test files in test-acceptance/ directory"
+      "desc": "Execute acceptance test files in test-acceptance/ directory"
     },
     "test-integration": {
-      "desc": "Execute integration unit test files in test-integration/ directory"
+      "desc": "Execute integration test files in test-integration/ directory"
     },
     "test-performance": {
-      "desc": "Execute unit test files in test-performance/ directory"
+      "desc": "Execute performance test files in test-performance/ directory"
     },
     "updep": {
       "desc": "Upgrade all dependencies to latest version"
