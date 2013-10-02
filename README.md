@@ -11,11 +11,13 @@ Bob
 
 Convention-based build tool for node.js projects.
 
-This is handy for building (linting, testing the code, checking test code coverage, generating documentation, packaging artifact, etc) a Node.js project, with a minimal-or-zero configuration, by following a set of common convention.
+Bob provides a set of build-related tasks that work cross-platform and simple to use by following a few convention.
 
-There are two Bob modes, human and robot. By default Bob runs in human mode, generating output in human-readable format (e.g. test result in a plain text list). When robot mode is used, Bob will generate output in machine-parsable format (e.g. test result in XML), which is handy when you're using a continuous integration server that consumes XML files for rendering reports and charts.
+It works with zero configuration and allows minimal customisation when you don't want to use the default type of a particular task.
 
-Since v0.6.0, Bob aims to be cross-platform. Please let me know if something is not.
+It only installs the default tools, while alternative tools will be lazy-installed as required. 
+
+It doesn't have plugins. It uses various CLI tools and configure their usage in task configuration files.
 
 Installation
 ------------
@@ -38,7 +40,7 @@ Run Bob: (from your project directory, where package.json is located)
 
     bob clean lint test coverage
 
-Run Bob in robot mode:
+Run Bob in robot mode: (generate machine-parsable output when possible)
 
     BOB_MODE=robot bob clean lint test coverage
 
@@ -55,8 +57,8 @@ In alphabetical order.
   <tr>
     <th>Task</th>
     <th>Description</th>
-    <th>Default</th>
-    <th>Alternative</th>
+    <th>Default Type</th>
+    <th>Alternative Type(s)</th>
   </tr>
   <tr>
     <td>clean</td>
@@ -206,7 +208,7 @@ To use nodelint instead of default jshint when running `bob lint`:
       }
     }
 
-To add an alias taask (called build) which executes clean lint test coverage tasks:
+To add an alias task (called build) which executes clean lint test coverage tasks:
 
     {
       "build": "clean lint test coverage"
