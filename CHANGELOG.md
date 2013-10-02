@@ -4,11 +4,12 @@
 * Only pre-install Bob core and default task type modules
 * Lazy install non-default task type modules
 * Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
-* Drop esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
-* Use mocha-istanbul as default coverage target type
-* Drop publish ivy type (it was a nice experiment, but we all know better by now)
-* Drop package tar and zip types (will re-add when there's a cross-platform tar and zip cli for node)
+* Remove esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
+* Use mocha-istanbul as default coverage task type
+* Remove publish ivy type (it was a nice experiment, but we all know better by now)
+* Remove package tar and zip types (will re-add when there's a cross-platform tar and zip cli for node)
 * Add test npm type
+* Remove (jscoverage-related) coverage mocha and vows task types since they are not cross-platform
 
 ### 0.5.25
 * Change updep target to use pkjutil

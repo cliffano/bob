@@ -20,21 +20,6 @@
         "robot": "--reporter mocha-istanbul"
       },
       "args": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
-    },
-    "mocha": {
-      "dep": "instrument-jscoverage",
-      "bin": "{bob}/node_modules/mocha/bin/mocha",
-      "opts": "--reporter html-cov",
-      "args": ".bob/instrumented/test/"
-    },
-    "vows": {
-      "dep": "instrument-jscoverage",
-      "bin": "{bob}/node_modules/vows/bin/vows",
-      "opts": {
-        "human": "--silent --cover-plain",
-        "robot": "--silent --cover-html"
-      },
-      "args": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
     }
   }
 }
