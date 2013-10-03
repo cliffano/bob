@@ -77,7 +77,6 @@ In alphabetical order.
     <td>Check code coverage</td>
     <td><a href="http://github.com/arikon/mocha-istanbul">mocha-istanbul</a></td>
     <td><a href="http://github.com/kates/buster-istanbul">buster-istanbul</a></td>
-    <td>bin, opts, files</td>
   </tr>
   <tr>
     <td>dep</td>
@@ -104,7 +103,7 @@ In alphabetical order.
     <td><a href="http://github.com/tav/nodelint">nodelint</a></td>
   </tr>
   <tr>
-    <td>nuke (TODO)</td>
+    <td>nuke <sup>TODO</sup></td>
     <td>Kill all processes with command containing the string 'node'</td>
     <td>-</td>
     <td>-</td>
@@ -134,7 +133,7 @@ In alphabetical order.
     <td>-</td>
   </tr>
   <tr>
-    <td>send (TODO)</td>
+    <td>send <sup>TODO</sup></td>
     <td>Send artifact file to a remote server.</td>
     <td>scp</td>
     <td>ftp</td>
@@ -164,7 +163,7 @@ In alphabetical order.
     <td><a href="http://github.com/busterjs/buster">buster</a>, <a href="http://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://github.com/cloudhead/vows">vows</a></td>
   </tr>
   <tr>
-    <td>test-acceptance<sup>experimental</sup></td>
+    <td>test-acceptance</td>
     <td>Execute acceptance test files in test-acceptance/ directory</td>
     <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>
     <td><a href="http://github.com/cucumber/cucumber-js">cucumber</a></td>
@@ -184,7 +183,7 @@ In alphabetical order.
   <tr>
     <td>updep</td>
     <td>Upgrade all dependencies to latest version</td>
-    <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a> (default)</td>
+    <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a></td>
     <td>-</td>
   </tr>
   <tr>
