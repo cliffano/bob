@@ -11,6 +11,7 @@
 * Add test npm type
 * Remove (jscoverage-related) coverage mocha and vows task types since they are not cross-platform
 * Remove tools and rmtools tasks, no longer needed since Bob now lazy installs non-default types
+* Add test-integration cmdt type
 
 ### 0.5.25
 * Change updep target to use pkjutil

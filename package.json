@@ -53,6 +53,7 @@
   "optDependencies": {
     "buster": "~0.6.12",
     "buster-istanbul": "~0.1.10",
+    "cmdt": "~0.0.5",
     "cucumber": "~0.3.1",
     "complexity-report": "~0.10.4",
     "esvalidate": "~0.0.2",

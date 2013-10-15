@@ -6,6 +6,11 @@
       "opts": "",
       "args": "test --config {bob}/conf/buster-test-integration.js"
     },
+    "cmdt": {
+      "bin": "{bob}/node_modules/cmdt/bin/cmdt",
+      "opts": "",
+      "args": "run test-integration/"
+    },
     "mocha": {
       "bin": "{bob}/node_modules/mocha/bin/mocha",
       "opts": {
