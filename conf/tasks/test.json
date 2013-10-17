@@ -4,10 +4,10 @@
     "buster": {
       "bin": "{bob}/node_modules/buster/bin/buster-test",
       "opts": {
-        "human": "",
-        "robot": ""
+        "human": "--reporter specification",
+        "robot": "--reporter xml"
       },
-      "args": "test --config {bob}/conf/buster-test.js"
+      "args": "--config {bob}/conf/buster-test.js test"
     },
     "mocha": {
       "bin": "{bob}/node_modules/mocha/bin/mocha",

@@ -1,6 +1,8 @@
 var buster = require('buster'),
   config = require('../lib/config'),
-  fs = require('fs');
+  fs = require('fs'),
+  referee = require('referee'),
+  assert = referee.assert;
 
 buster.testCase('testconfig - load', {
   setUp: function () {

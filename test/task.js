@@ -1,6 +1,8 @@
 var buster = require('buster'),
   fs = require('fs'),
-  task = require('../lib/task');
+  task = require('../lib/task'),
+  referee = require('referee'),
+  assert = referee.assert;
 
 buster.testCase('testtask - load', {
   setUp: function () {

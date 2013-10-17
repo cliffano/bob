@@ -51,8 +51,8 @@
     "tar.gz": "~0.1.1"
   },
   "optDependencies": {
-    "buster": "~0.6.12",
     "buster-istanbul": "~0.1.10",
+    "buster": "~0.7.6",
     "cmdt": "~0.0.5",
     "cucumber": "~0.3.1",
     "complexity-report": "~0.10.4",
@@ -63,6 +63,7 @@
     "vows": "~0.7.0"
   },
   "devDependencies": {
+    "referee": "~1.0.1"
   },
   "scripts": {},
   "engines": {
