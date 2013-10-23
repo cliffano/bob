@@ -1,3 +1,6 @@
+### 0.6.1-pre
+*
+
 ### 0.6.0
 * Remove dependency to Make and makefile
 * Support multiple task types
