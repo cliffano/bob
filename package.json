@@ -6,9 +6,7 @@
     "lint",
     "test",
     "coverage",
-    "publish",
-    "make",
-    "deploy"
+    "publish"
   ],
   "version": "0.6.0",
   "homepage": "http://github.com/cliffano/bob",
