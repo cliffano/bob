@@ -172,7 +172,7 @@ In alphabetical order.
     <td>test-integration</td>
     <td>Execute integration test files in test-integration/ directory</td>
     <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>
-    <td><a href="http://github.com/busterjs/buster">buster</a></td>
+    <td><a href="http://github.com/busterjs/buster">buster</a>, <a href="http://github.com/cliffano/cmdt">cmdt</a></td>
   </tr>
   <tr>
     <td>test-performance</td>
