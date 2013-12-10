@@ -42,6 +42,9 @@
     "send": {
       "desc": "Send artifact file to a remote server"
     },
+    "site": {
+      "desc": "Generate web site"
+    },
     "start": {
       "desc": "Start application"
     },

@@ -8,12 +8,10 @@
       "port": 22,
       "dir": "."
     },
-    "ftp": {
-      "bin": "ncftpput",
-      "opts": "-f {send_key} -P {send_port} -u {send_user} -R",
-      "args": "{send_dir} .bob/artifact/*",
-      "port": 21,
-      "dir": "/"
+    "sendman": {
+      "bin": "{bob}/node_modules/sendman/bin/sendman",
+      "opts": "",
+      "args": "send"
     }
   }
 }

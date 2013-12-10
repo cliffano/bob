@@ -136,7 +136,13 @@ In alphabetical order.
     <td>send <sup>TODO</sup></td>
     <td>Send artifact file to a remote server.</td>
     <td>scp</td>
-    <td>ftp</td>
+    <td><a href="https://github.com/cliffano/sendman">sendman</a></td>
+  </tr>
+  <tr>
+    <td>site <sup>TODO</sup></td>
+    <td>Generate web site.</td>
+    <td>?</td>
+    <td><a href="https://github.com/cliffano/ae86">ae86</a></td>
   </tr>
   <tr>
     <td>start</td>

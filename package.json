@@ -49,6 +49,7 @@
     "tar.gz": "~0.1.1"
   },
   "optDependencies": {
+    "ae86": "~0.0.10",
     "buster-istanbul": "~0.1.10",
     "buster": "~0.7.6",
     "cmdt": "~0.0.5",
@@ -58,6 +59,7 @@
     "jscheckstyle": "~0.0.9",
     "nodelint": "~0.6.2",
     "nodeunit": "~0.8.1",
+    "sendman": "~0.0.1",
     "vows": "~0.7.0"
   },
   "devDependencies": {
