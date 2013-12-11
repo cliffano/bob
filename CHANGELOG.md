@@ -2,6 +2,7 @@
 * Add opts debug and base dir to test-integration cmdt type, base dir is set to .bob/stage/cmdt-*
 * Add site command with ae86 type
 * Replace send ftp type with sendman
+* Fix random tasks execution sequence
 
 ### 0.6.0
 * Remove dependency to Make and makefile
