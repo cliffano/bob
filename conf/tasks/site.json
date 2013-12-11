@@ -1,0 +1,10 @@
+{
+  "default": "ae86",
+  "types": {
+    "ae86": {
+      "bin": "{bob}/node_modules/ae86/bin/ae86",
+      "opts": "--out-dir {app}/.bob/report/site/ae86/",
+      "args": "gen"
+    }
+  }
+}
