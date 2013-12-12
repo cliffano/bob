@@ -1,4 +1,4 @@
-### 0.6.1-pre
+### 0.6.2-pre
 * Add opts debug and base dir to test-integration cmdt type, base dir is set to .bob/stage/cmdt-*
 * Add site command with ae86 type
 * Replace send ftp type with sendman
