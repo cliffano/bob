@@ -27,7 +27,7 @@ buster.testCase('testconfig - load', {
   },
   'should not pass specified task in config object when task does not exist': function (done) {
     this.mockFs.expects('exists').withArgs('somedir/.bob.json').callsArgWith(1, true);
-    this.mockFs.expects('readFile').withArgs('somedir/.bob.json').callsArgWith(1, null, '{ "sometask": "foobar" }');
+    this.mockFs.expects('readFile').withArgs('somedir/.bob.json').callsArgWith(1, null, '{ "sometask": "foobar", "someothertask": "otherfoobar" }');
     config.load(['sometask'], 'somedir', function (err, result) {
       assert.isNull(err);
       assert.equals(result, { sometask: 'foobar' });
