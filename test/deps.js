@@ -24,7 +24,7 @@ buster.testCase('testdeps - install', {
         assert.equals(depNames, 'kaiju');
         cb();
       };
-    }
+    };
     var installed = ['buster'];
     this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);
     deps.install([ 'buster', 'kaiju', 'npm' ], { canihaz: mockCanihaz, dir: 'somedir' }, function (err) {

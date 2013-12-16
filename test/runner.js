@@ -93,14 +93,14 @@ buster.testCase('testrunner - execSeries', {
     var opts = {
       cwd: 'somedir',
       mkdirp: mockMkdirp
-    }
+    };
     runner.exec = function (command, opts, cb) {
       assert.equals();
       assert.equals(opts.task, 'test');
       assert.equals(opts.type, 'buster');
       assert.equals(opts.dir, 'somedir');
       cb();
-    }
+    };
     runner.execSeries(commands, opts, done);
   },
   'should pass error when an error occurs while executing command': function (done) {
@@ -114,7 +114,7 @@ buster.testCase('testrunner - execSeries', {
     var opts = {
       cwd: 'somedir',
       mkdirp: mockMkdirp
-    }
+    };
     runner.execSeries(commands, opts, function (err) {
       assert.equals(err.message, 'someerror');
       done();
