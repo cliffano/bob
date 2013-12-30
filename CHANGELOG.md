@@ -1,5 +1,6 @@
 ### 0.6.3-pre
-* Fix deps installation attempting to install previously installed modules.
+* Fix deps installation attempting to install previously installed modules
+* Change depgraph madge generated graph from madge.png to madge/graph.png
 
 ### 0.6.2
 * Add opts debug and base dir to test-integration cmdt type, base dir is set to .bob/stage/cmdt-*
