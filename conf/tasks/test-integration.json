@@ -8,7 +8,7 @@
     },
     "cmdt": {
       "bin": "{bob}/node_modules/cmdt/bin/cmdt",
-      "opts": "--debug --base-dir .bob/stage/",
+      "opts": "--debug --base-dir .bob/test-integration/",
       "args": "run test-integration/"
     },
     "mocha": {

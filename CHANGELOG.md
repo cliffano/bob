@@ -2,6 +2,7 @@
 * Fix deps installation attempting to install previously installed modules
 * Change depgraph madge generated graph from madge.png to madge/graph.png
 * Change report base directory from .bob/report/<task>/<type>/ to .bob/<task>/<type>/
+* Change test-integration cmdt base directory to .bob/test-integration
 
 ### 0.6.2
 * Add opts debug and base dir to test-integration cmdt type, base dir is set to .bob/stage/cmdt-*
