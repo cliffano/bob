@@ -82,26 +82,52 @@ buster.testCase('testrunner - exec', {
 });
 
 buster.testCase('testrunner - execSeries', {
-  'should execute commands when there is no error': function (done) {
+  setUp: function () {
+    this.mockChild = this.mock(child);
+    this.mockConsole = this.mock(console);
+    this.mockFs = this.mock(fs);
+    this.mockProcessStderr = this.mock(process.stderr);
+    this.mockProcessStdout = this.mock(process.stdout);
+  },
+  'should execute commands when there is no error': function () {
+    this.mockProcessStderr.expects('write').once().withExactArgs('somedata');
+    this.mockProcessStdout.expects('write').once().withExactArgs('somedata');
+    var mockStream = {
+      write: function (data) {
+        assert.equals(data, 'somedata');
+      }
+    };
+    var mockChildProcess = {
+      stderr: {
+        on: function (event, cb) {
+          assert.equals(event, 'data');
+          cb('somedata');
+        }
+      },
+      stdout: {
+        on: function (event, cb) {
+          assert.equals(event, 'data');
+          cb('somedata');
+        }
+      }
+    };
+    this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
+    this.mockChild.expects('exec').withArgs('somecommand').returns(mockChildProcess);
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/report/test/buster.out').returns(mockStream);
     var mockMkdirp = function (dir, cb) {
       assert.equals(dir, 'somedir/.bob/report/test');
       cb();
     };
     var commands = [
-      { meta: { task: 'test', type: 'buster' }}
+      { meta: { task: 'test', type: 'buster' }, exec: 'somecommand'}
     ];
     var opts = {
       cwd: 'somedir',
       mkdirp: mockMkdirp
     };
-    runner.exec = function (command, opts, cb) {
-      assert.equals();
-      assert.equals(opts.task, 'test');
-      assert.equals(opts.type, 'buster');
-      assert.equals(opts.dir, 'somedir');
-      cb();
-    };
-    runner.execSeries(commands, opts, done);
+    runner.execSeries(commands, opts, function (err) {
+      done();
+    });
   },
   'should pass error when an error occurs while executing command': function (done) {
     var mockMkdirp = function (dir, cb) {
