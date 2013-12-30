@@ -12,8 +12,8 @@
     "mocha-istanbul": {
       "dep": "instrument-istanbul",
       "bin": {
-        "human" : "ISTANBUL_REPORT_DIR={app}/.bob/report/coverage ISTANBUL_REPORTERS=text,text-summary,html {bob}/node_modules/mocha/bin/mocha",
-        "robot" : "ISTANBUL_REPORT_DIR={app}/.bob/report/coverage ISTANBUL_REPORTERS=lcovonly,html {bob}/node_modules/mocha/bin/mocha"
+        "human" : "ISTANBUL_REPORT_DIR={app}/.bob/coverage ISTANBUL_REPORTERS=text,text-summary,html {bob}/node_modules/mocha/bin/mocha",
+        "robot" : "ISTANBUL_REPORT_DIR={app}/.bob/coverage ISTANBUL_REPORTERS=lcovonly,html {bob}/node_modules/mocha/bin/mocha"
       },
       "opts": {
         "human": "--color --reporter mocha-istanbul",

@@ -113,9 +113,9 @@ buster.testCase('testrunner - execSeries', {
     };
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
     this.mockChild.expects('exec').withArgs('somecommand').returns(mockChildProcess);
-    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/report/test/buster.out').returns(mockStream);
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.out').returns(mockStream);
     var mockMkdirp = function (dir, cb) {
-      assert.equals(dir, 'somedir/.bob/report/test');
+      assert.equals(dir, 'somedir/.bob/test');
       cb();
     };
     var commands = [
@@ -131,7 +131,7 @@ buster.testCase('testrunner - execSeries', {
   },
   'should pass error when an error occurs while executing command': function (done) {
     var mockMkdirp = function (dir, cb) {
-      assert.equals(dir, 'somedir/.bob/report/test');
+      assert.equals(dir, 'somedir/.bob/test');
       cb(new Error('someerror'));
     };
     var commands = [

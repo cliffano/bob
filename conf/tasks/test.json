@@ -21,7 +21,7 @@
       "bin": "{bob}/node_modules/nodeunit/bin/nodeunit",
       "opts": {
         "human": "",
-        "robot": "--reporter junit --output .bob/report/test/"
+        "robot": "--reporter junit --output .bob/test/"
       },
       "args": "test/"
     },
