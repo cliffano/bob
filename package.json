@@ -32,42 +32,41 @@
     "test": "./test"
   },
   "dependencies": {
-    "async": "~0.2.9",
+    "async": "~0.2.10",
     "bagofcli": "~0.0.8",
     "canihaz": "~1.0.1",
     "colors": "~0.6.2",
     "dox-foundation": "~0.5.6",
     "jazz": "~0.0.18",
-    "jshint": "~2.4.1",
-    "madge": "~0.1.7",
+    "jshint": "~2.4.4",
+    "madge": "~0.1.9",
     "mkdirp": "~0.3.5",
-    "mocha": "~1.17.0",
+    "mocha": "~1.18.0",
     "mocha-istanbul": "0.2.0",
     "pkjutil": "~0.0.6",
-    "plato": "~0.6.2",
-    "rimraf": "~2.2.5",
+    "plato": "~1.0.1",
+    "rimraf": "~2.2.6",
     "tar.gz": "~0.1.1"
   },
   "optDependencies": {
     "ae86": "~0.0.10",
     "buster-istanbul": "~0.1.10",
-    "buster": "~0.7.6",
-    "cmdt": "~0.0.5",
-    "cucumber": "~0.3.1",
-    "complexity-report": "~0.10.4",
+    "buster": "~0.7.8",
+    "cmdt": "~0.1.0",
+    "complexity-report": "~1.0.2",
     "esvalidate": "~0.0.2",
     "jscheckstyle": "~0.0.9",
     "nodelint": "~0.6.2",
-    "nodeunit": "~0.8.1",
-    "sendman": "~0.0.1",
+    "nodeunit": "~0.8.6",
+    "sendman": "~0.0.3",
     "vows": "~0.7.0"
   },
   "devDependencies": {
-    "referee": "~1.0.1"
+    "referee": "~1.0.2"
   },
   "scripts": {},
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "licenses": [
     {
