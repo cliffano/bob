@@ -1,4 +1,4 @@
-### 0.6.3-pre
+### 0.7.0-pre
 * Fix deps installation attempting to install previously installed modules
 * Change depgraph madge generated graph from madge.png to madge/graph.png
 * Change report base directory from .bob/report/<task>/<type>/ to .bob/<task>/<type>/
