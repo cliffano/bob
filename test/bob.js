@@ -123,7 +123,7 @@ buster.testCase('testbob - commands', {
       bobTasks: { lint: { default: 'jshint', types: { jshint: { bin: '{bob}/node_modules/jshint/bin/jshint', opts: { human: '', robot: '--jslint-reporter' }, args: 'lib/ test/'} } } }
     };
     bob._commands(taskNames, settings, function (err, results) {
-      assert.equals(err, null);
+      assert.equals(err, undefined);
       assert.equals(results[0].exec, '/node_modules/jshint/bin/jshint --jslint-reporter lib/ test/');
       assert.equals(results[0].meta.task, 'lint');
       assert.equals(results[0].meta.type, 'jshint');

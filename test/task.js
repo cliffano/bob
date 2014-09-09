@@ -23,7 +23,7 @@ buster.testCase('testtask - load', {
     this.mockFs.expects('readFile').withArgs('somedir/someexistingtask1.json').callsArgWith(1, null, '{ "name": "existing1" }');
     this.mockFs.expects('readFile').withArgs('somedir/someexistingtask2.json').callsArgWith(1, null, '{ "name": "existing2" }');
     task.load(['someexistingtask1', 'someexistingtask2'], 'somedir', function (err, results) {
-      assert.equals(err, null);
+      assert.equals(err, undefined);
       assert.equals(results.someexistingtask1.name, 'existing1');
       assert.equals(results.someexistingtask2.name, 'existing2');
       done();
