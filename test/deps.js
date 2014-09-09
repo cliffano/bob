@@ -32,6 +32,22 @@ buster.testCase('testdeps - install', {
       done();
     });    
   },
+  'should only install each module once': function (done) {
+    this.mockConsole.expects('log').once().withExactArgs('[deps] Installing modules: %s (might take a while, once-off only)', 'kaiju');
+    var mockCanihaz = function (opts) {
+      assert.equals(opts.key, 'optDependencies');
+      return function (depNames, cb) {
+        assert.equals(depNames, 'kaiju');
+        cb();
+      };
+    };
+    var installed = ['buster'];
+    this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);
+    deps.install([ 'kaiju', 'kaiju', 'kaiju', 'kaiju', 'kaiju' ], { canihaz: mockCanihaz, dir: 'somedir' }, function (err) {
+      assert.equals(err, undefined);
+      done();
+    });    
+  },
   'should not do anything when all modules are already installed': function (done) {
     var installed = ['buster', 'kaiju'];
     this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);

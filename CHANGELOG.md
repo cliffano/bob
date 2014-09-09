@@ -1,5 +1,5 @@
 ### 0.7.1-pre
-*
+* Ensure optDependencies is only installed once per module
 
 ### 0.7.0
 * Fix deps installation attempting to install previously installed modules
