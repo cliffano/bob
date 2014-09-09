@@ -1,5 +1,11 @@
 language: node_js
 node_js:
+  - "0.11"
   - "0.10"
-before_install: "npm link --loglevel error"
-script: "bob clean lint test coverage doc"
+before_install:
+  - npm update -g npm
+  - npm link --loglevel error
+  - npm install -g coveralls --loglevel error
+script:
+  - bob build
+  - cat .bob/coverage/buster-istanbul/lcov.info | coveralls
