@@ -1,4 +1,7 @@
-### 0.7.1-pre
+### 0.7.2
+*
+
+### 0.7.1
 * Ensure optDependencies is only installed once per module
 
 ### 0.7.0
