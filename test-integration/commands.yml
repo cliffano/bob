@@ -1,0 +1,7 @@
+- params:
+    bob: ../../../../../bin/bob
+
+- description: Command help should display help information
+  command: '{bob} --help'
+  exitcode: 0
+  output: 'Usage: bob'
