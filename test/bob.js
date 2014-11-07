@@ -1,5 +1,5 @@
 var Bob = require('../lib/bob'),
-  buster = require('buster'),
+  buster = require('buster-node'),
   config = require('../lib/config'),
   deps = require('../lib/deps'),
   referee = require('referee'),
@@ -115,6 +115,9 @@ buster.testCase('testbob - init', {
 });
 
 buster.testCase('testbob - commands', {
+  setUp: function () {
+    this.mock({});
+  },
   'should construct commands and pass them to callback': function () {
     var bob = new Bob({ bobMode: 'robot' });
     var taskNames = [ 'lint' ];
@@ -132,6 +135,9 @@ buster.testCase('testbob - commands', {
 });
 
 buster.testCase('testbob - taskTypeNames', {
+  setUp: function () {
+    this.mock({});
+  },
   'should get task type from app config when available': function () {
     var settings = {
       appConfig: {

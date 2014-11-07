@@ -1,5 +1,5 @@
 var Bob = new require('../lib/bob'),
-  buster = require('buster'),
+  buster = require('buster-node'),
   _cli = require('bagofcli'),
   cli = require('../lib/cli'),
   colors = require('colors'),

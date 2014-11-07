@@ -1,4 +1,4 @@
-var buster = require('buster'),
+var buster = require('buster-node'),
   deps = require('../lib/deps'),
   fs = require('fs'),
   referee = require('referee'),

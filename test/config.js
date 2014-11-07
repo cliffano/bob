@@ -1,4 +1,4 @@
-var buster = require('buster'),
+var buster = require('buster-node'),
   config = require('../lib/config'),
   fs = require('fs'),
   referee = require('referee'),
