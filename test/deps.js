@@ -1,6 +1,7 @@
 var buster = require('buster-node'),
   deps = require('../lib/deps'),
   fs = require('fs'),
+  proxyquire = require('proxyquire'),
   referee = require('referee'),
   assert = referee.assert;
 
@@ -25,9 +26,10 @@ buster.testCase('testdeps - install', {
         cb();
       };
     };
+    var deps = proxyquire('../lib/deps', { canihaz: mockCanihaz });
     var installed = ['buster'];
     this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);
-    deps.install([ 'buster', 'kaiju', 'npm' ], { canihaz: mockCanihaz, dir: 'somedir' }, function (err) {
+    deps.install([ 'buster', 'kaiju', 'npm' ], { dir: 'somedir' }, function (err) {
       assert.equals(err, undefined);
       done();
     });    
@@ -41,9 +43,10 @@ buster.testCase('testdeps - install', {
         cb();
       };
     };
+    var deps = proxyquire('../lib/deps', { canihaz: mockCanihaz });
     var installed = ['buster'];
     this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);
-    deps.install([ 'kaiju', 'kaiju', 'kaiju', 'kaiju', 'kaiju' ], { canihaz: mockCanihaz, dir: 'somedir' }, function (err) {
+    deps.install([ 'kaiju', 'kaiju', 'kaiju', 'kaiju', 'kaiju' ], { dir: 'somedir' }, function (err) {
       assert.equals(err, undefined);
       done();
     });    

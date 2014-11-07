@@ -1,6 +1,7 @@
 var buster = require('buster-node'),
   child = require('child_process'),
   fs = require('fs'),
+  proxyquire = require('proxyquire'),
   referee = require('referee'),
   runner = require('../lib/runner'),
   assert = referee.assert;
@@ -122,9 +123,9 @@ buster.testCase('testrunner - execSeries', {
       { meta: { task: 'test', type: 'buster' }, exec: 'somecommand'}
     ];
     var opts = {
-      cwd: 'somedir',
-      mkdirp: mockMkdirp
+      cwd: 'somedir'
     };
+    var runner = proxyquire('../lib/runner', { mkdirp: mockMkdirp });
     runner.execSeries(commands, opts, function (err) {
       done();
     });
@@ -138,9 +139,9 @@ buster.testCase('testrunner - execSeries', {
       { meta: { task: 'test', type: 'buster' }}
     ];
     var opts = {
-      cwd: 'somedir',
-      mkdirp: mockMkdirp
+      cwd: 'somedir'
     };
+    var runner = proxyquire('../lib/runner', { mkdirp: mockMkdirp });
     runner.execSeries(commands, opts, function (err) {
       assert.equals(err.message, 'someerror');
       done();
