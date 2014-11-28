@@ -236,3 +236,8 @@ Configure Bob in a Jenkins job with shell script build step:
 
     npm install -g bob
     bob clean lint test coverage
+
+Colophon
+--------
+
+[Developer's Guide](http://cliffano.github.io/developers_guide.html#nodejs)
