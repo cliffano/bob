@@ -143,7 +143,7 @@ In alphabetical order.
     <td>site <sup>TODO</sup></td>
     <td>Generate web site.</td>
     <td>?</td>
-    <td><a href="https://github.com/cliffano/ae86">ae86</a></td>
+    <td><a href="https://github.com/cliffano/bob">bob</a></td>
   </tr>
   <tr>
     <td>start</td>
@@ -241,3 +241,11 @@ Colophon
 --------
 
 [Developer's Guide](http://cliffano.github.io/developers_guide.html#nodejs)
+
+Build reports:
+
+* [Code complexity report](http://cliffano.github.io/bob/bob/complexity/plato/index.html)
+* [Unit tests report](http://cliffano.github.io/bob/bob/test/buster.out)
+* [Test coverage report](http://cliffano.github.io/bob/bob/coverage/buster-istanbul/lcov-report/lib/index.html)
+* [Integration tests report](http://cliffano.github.io/bob/bob/test-integration/cmdt.out)
+* [API Documentation](http://cliffano.github.io/bob/bob/doc/dox-foundation/index.html)
