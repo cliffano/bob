@@ -1,5 +1,5 @@
 ### 0.7.2
-*
+* Update tools to latest
 
 ### 0.7.1
 * Ensure optDependencies is only installed once per module
