@@ -1,11 +1,13 @@
+sudo: false
 language: node_js
 node_js:
   - "0.11"
   - "0.10"
+  - "0.12"
+  - iojs
 before_install:
   - npm update -g npm
-  - npm link --loglevel error
-  - npm install -g coveralls --loglevel error
+  - npm install -g bob coveralls --loglevel error
 script:
   - bob build
   - cat .bob/coverage/buster-istanbul/lcov.info | coveralls
