@@ -1,7 +1,7 @@
 <img align="right" src="https://raw.github.com/cliffano/bob/master/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://secure.travis-ci.org/cliffano/bob.png?branch=master)](http://travis-ci.org/cliffano/bob)
-[![Dependencies Status](https://david-dm.org/cliffano/bob.png)](http://david-dm.org/cliffano/bob)
+[![Build Status](https://img.shields.io/travis/cliffano/bob.svg)](http://travis-ci.org/cliffano/bob)
+[![Dependencies Status](https://img.shields.io/david/cliffano/bob.svg)](http://david-dm.org/cliffano/bob)
 [![Coverage Status](https://coveralls.io/repos/cliffano/bob/badge.png?branch=master)](https://coveralls.io/r/cliffano/bob?branch=master)
 [![Published Version](https://badge.fury.io/js/bob.png)](http://badge.fury.io/js/bob)
 <br/>
