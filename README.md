@@ -2,8 +2,8 @@
 
 [![Build Status](https://img.shields.io/travis/cliffano/bob.svg)](http://travis-ci.org/cliffano/bob)
 [![Dependencies Status](https://img.shields.io/david/cliffano/bob.svg)](http://david-dm.org/cliffano/bob)
-[![Coverage Status](https://coveralls.io/repos/cliffano/bob/badge.png?branch=master)](https://coveralls.io/r/cliffano/bob?branch=master)
-[![Published Version](https://badge.fury.io/js/bob.png)](http://badge.fury.io/js/bob)
+[![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=master)
+[![Published Version](https://img.shields.io/npm/v/bob.svg)](http://www.npmjs.com/package/bob)
 <br/>
 [![npm Badge](https://nodei.co/npm/bob.png)](http://npmjs.org/package/bob)
 
