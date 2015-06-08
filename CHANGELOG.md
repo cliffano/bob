@@ -1,5 +1,5 @@
 ### 0.7.3-pre
-*
+* Add gh-pages-cli to site tool
 
 ### 0.7.2
 * Update tools to latest

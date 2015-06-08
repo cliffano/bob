@@ -55,6 +55,7 @@
     "cmdt": "^0.1.3",
     "complexity-report": "^1.4.0",
     "esvalidate": "^0.1.3",
+    "gh-pages-cli": "^0.2.0",
     "jscheckstyle": "^0.0.9",
     "nodelint": "^0.6.2",
     "nodeunit": "^0.9.1",

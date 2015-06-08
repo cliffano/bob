@@ -140,10 +140,10 @@ In alphabetical order.
     <td><a href="https://github.com/cliffano/sendman">sendman</a></td>
   </tr>
   <tr>
-    <td>site <sup>TODO</sup></td>
+    <td>site</td>
     <td>Generate web site.</td>
-    <td>?</td>
-    <td><a href="https://github.com/cliffano/bob">bob</a></td>
+    <td><a href="https://github.com/cliffano/ae86">ae86</a></td>
+    <td><a href="https://github.com/tschaub/gh-pages">gh-pages-cli</a></td>
   </tr>
   <tr>
     <td>start</td>
