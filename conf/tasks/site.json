@@ -6,9 +6,9 @@
       "opts": "--out-dir {app}/.bob/site/ae86/",
       "args": "gen"
     },
-    "gh-pages-cli": {
-      "bin": "{bob}/node_modules/gh-pages-cli/bin/gh-pages",
-      "opts": "gh-pages --dist {app}/.bob --branch gh-pages",
+    "buildbranch": {
+      "bin": "{bob}/node_modules/buildbranch/src/bin.js",
+      "opts": "gh-pages .bob",
       "args": ""
     }
   }

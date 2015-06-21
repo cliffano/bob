@@ -143,7 +143,7 @@ In alphabetical order.
     <td>site</td>
     <td>Generate web site.</td>
     <td><a href="https://github.com/cliffano/ae86">ae86</a></td>
-    <td><a href="https://github.com/tschaub/gh-pages">gh-pages-cli</a></td>
+    <td><a href="https://github.com/nfroidure/buildbranch">buildbranch</a></td>
   </tr>
   <tr>
     <td>start</td>
