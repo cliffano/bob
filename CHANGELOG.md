@@ -1,5 +1,6 @@
 ### 0.7.3-pre
 * Add gh-pages-cli to site tool
+* Add tmp temporary directory to template params
 
 ### 0.7.2
 * Update tools to latest
