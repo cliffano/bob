@@ -1,5 +1,5 @@
 ### 0.7.4-pre
-*
+* Increase child process max buffer to 1000Kb
 
 ### 0.7.3
 * Add buildbranch to site tool
@@ -116,7 +116,7 @@
 * Add test-acceptance target
 
 ### 0.5.4
-* Add test-integration target 
+* Add test-integration target
 
 ### 0.5.3
 * Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
@@ -144,7 +144,7 @@
 * Modify package target to exclude only build and run directories on current directory
 
 ### 0.4.6
-* Upgrade jscheckstyle to v0.0.6 
+* Upgrade jscheckstyle to v0.0.6
 
 ### 0.4.5
 * Temp remove ndoc due to node v0.8.0 build incompatibility issue
@@ -167,7 +167,7 @@
 * Rename deploy-unpack to ssh-unpack, deploy-restart to ssh-restart
 * Add shh-mkdir target to create remote directory to deploy to
 
-### 0.3.4 
+### 0.3.4
 * Fix package.json and node_modules symlink in build/stage for coverage target
 
 ### 0.3.3
@@ -202,7 +202,7 @@
 * Replace node-runforcover with good ol' node-jscoverage
 
 ### 0.2.9
-* Make coverage target work by using cliffano/vows with cliffano/node-runforcover 
+* Make coverage target work by using cliffano/vows with cliffano/node-runforcover
 * Add function support to template target, starting with now(format) function
 * Rename lint target to lintstrict, hint to lint, checkstyle to style
 * Add build target which calls style, lint, and test targets
