@@ -1,4 +1,7 @@
-### 0.7.4-pre
+### 0.7.5-pre
+*
+
+### 0.7.4
 * Increase child process max buffer to 1000Kb
 
 ### 0.7.3
