@@ -41,7 +41,7 @@
     "jshint": "^2.9.1-rc1",
     "madge": "^0.5.2",
     "mkdirp": "^0.5.1",
-    "mocha": "^2.3.3",
+    "mocha": "^2.3.4",
     "mocha-istanbul": "0.2.0",
     "pkjutil": "^0.1.3",
     "plato": "^1.5.0",
