@@ -10,5 +10,5 @@ before_install:
   - npm update -g npm
   - npm install -g bob coveralls --loglevel error
 script:
-  - bob build
+  - DEBUG=canihaz bob build
   - cat .bob/coverage/buster-istanbul/lcov.info | coveralls
