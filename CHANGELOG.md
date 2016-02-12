@@ -1,3 +1,6 @@
+### 0.7.6
+*
+
 ### 0.7.5
 * Dependencies upgrade, latest tool reports
 
