@@ -1,5 +1,6 @@
 ### 0.7.6
-*
+* Set min node engine to >= 4.0.0
+* Dependencies upgrade
 
 ### 0.7.5
 * Dependencies upgrade, latest tool reports
