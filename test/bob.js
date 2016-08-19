@@ -105,7 +105,6 @@ buster.testCase('testbob - init', {
       task2: { default: 'type2' }
     };
     this.mockTask.expects('load').once().withArgs(['task1', 'task2'], '/somebobdir/conf/tasks').callsArgWith(2, new Error('someerror'));
-    this.mockConfig.expects('load').once().withArgs(['task1', 'task2'], '/someappdir').callsArgWith(2, null, mockAppConfig);
     var bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
     bob._init(['task1', 'task2'], function (err) {
       assert.equals(err.message, 'someerror');
