@@ -16,7 +16,7 @@ Bob provides a set of build-related tasks that work cross-platform and simple to
 
 It works with zero configuration and allows minimal customisation when you don't want to use the default type of a particular task.
 
-It only installs the default tools, while alternative tools will be lazy-installed as required. 
+It only installs the default tools, while alternative tools will be lazy-installed as required.
 
 It doesn't have plugins. It uses various CLI tools and configure their usage in task configuration files.
 
@@ -36,7 +36,7 @@ A project must have:
 
 Usage
 -----
-    
+
 Run Bob: (from your project directory, where package.json is located)
 
     bob clean lint test coverage
@@ -48,7 +48,7 @@ Run Bob in robot mode: (generate machine-parsable output when possible)
 Run Bob quietly: (only lists tasks, without each task's output)
 
     bob --quiet clean lint test coverage
-    
+
 Tasks
 -----
 
@@ -249,3 +249,7 @@ Build reports:
 * [Test coverage report](http://cliffano.github.io/bob/coverage/buster-istanbul/lcov-report/lib/index.html)
 * [Integration tests report](http://cliffano.github.io/bob/test-integration/cmdt.out)
 * [API Documentation](http://cliffano.github.io/bob/doc/dox-foundation/index.html)
+
+Videos:
+
+* [Evolution of bob (Gource Vizualisation)](https://www.youtube.com/watch?v=xc-qqky2a1w) by Landon Wilkins
