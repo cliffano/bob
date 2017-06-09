@@ -40,6 +40,7 @@
     "jsdoc": "^3.4.3",
     "jshint": "^2.9.3",
     "madge": "^1.0.0",
+    "minami": "^1.2.3",
     "mkdirp": "^0.5.1",
     "mocha": "^3.0.2",
     "mocha-istanbul": "^0.3.0",

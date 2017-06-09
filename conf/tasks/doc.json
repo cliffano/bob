@@ -3,7 +3,7 @@
   "types": {
     "jsdoc": {
       "bin": "{bob}/node_modules/jsdoc/jsdoc.js",
-      "opts": "--destination .bob/doc/jsdoc/",
+      "opts": "--destination .bob/doc/jsdoc/ --template {bob}/node_modules/minami",
       "args": "lib"
     },
     "dox-foundation": {
