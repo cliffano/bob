@@ -1,5 +1,6 @@
 ### 0.7.7
-*
+* Add jsdoc doc task type
+* Change default doc task type from dox-foundation to jsdoc
 
 ### 0.7.6
 * Set min node engine to >= 4.0.0

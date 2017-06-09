@@ -94,8 +94,8 @@ In alphabetical order.
   <tr>
     <td>doc</td>
     <td>Generate code documentation</td>
+    <td><a href="http://github.com/jsdoc/jsdoc3">jsdoc</a></td>
     <td><a href="http://github.com/punkave/dox-foundation">dox-foundation</a></td>
-    <td>-</td>
   </tr>
   <tr>
     <td>lint</td>
@@ -248,7 +248,7 @@ Build reports:
 * [Unit tests report](http://cliffano.github.io/bob/test/buster.out)
 * [Test coverage report](http://cliffano.github.io/bob/coverage/buster-istanbul/lcov-report/lib/index.html)
 * [Integration tests report](http://cliffano.github.io/bob/test-integration/cmdt.out)
-* [API Documentation](http://cliffano.github.io/bob/doc/dox-foundation/index.html)
+* [API Documentation](http://cliffano.github.io/bob/doc/jsdoc/index.html)
 
 Videos:
 
