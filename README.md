@@ -94,7 +94,7 @@ In alphabetical order.
   <tr>
     <td>doc</td>
     <td>Generate code documentation</td>
-    <td><a href="http://github.com/jsdoc/jsdoc3">jsdoc</a></td>
+    <td><a href="http://github.com/jsdoc3/jsdoc">jsdoc</a></td>
     <td><a href="http://github.com/punkave/dox-foundation">dox-foundation</a></td>
   </tr>
   <tr>
