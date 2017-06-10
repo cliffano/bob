@@ -26,13 +26,13 @@ buster.testCase('testdeps - install', {
         cb();
       };
     };
-    var deps = proxyquire('../lib/deps', { canihaz: mockCanihaz });
+    var deps = proxyquire('../lib/deps', { 'canihaz-pakkunbot': mockCanihaz });
     var installed = ['buster'];
     this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);
     deps.install([ 'buster', 'kaiju', 'npm' ], { dir: 'somedir' }, function (err) {
       assert.equals(err, undefined);
       done();
-    });    
+    });
   },
   'should only install each module once': function (done) {
     this.mockConsole.expects('log').once().withExactArgs('[deps] Installing modules: %s (might take a while, once-off only)', 'kaiju');
@@ -43,13 +43,13 @@ buster.testCase('testdeps - install', {
         cb();
       };
     };
-    var deps = proxyquire('../lib/deps', { canihaz: mockCanihaz });
+    var deps = proxyquire('../lib/deps', { 'canihaz-pakkunbot': mockCanihaz });
     var installed = ['buster'];
     this.mockFs.expects('readdir').once().withArgs('somedir/node_modules').callsArgWith(1, null, installed);
     deps.install([ 'kaiju', 'kaiju', 'kaiju', 'kaiju', 'kaiju' ], { dir: 'somedir' }, function (err) {
       assert.equals(err, undefined);
       done();
-    });    
+    });
   },
   'should not do anything when all modules are already installed': function (done) {
     var installed = ['buster', 'kaiju'];

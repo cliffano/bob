@@ -34,7 +34,7 @@
   "dependencies": {
     "async": "^2.0.1",
     "bagofcli": "^0.2.5",
-    "canihaz": "^1.0.1",
+    "canihaz-pakkunbot": "^1.0.1",
     "colors": "^1.1.2",
     "jazz": "^0.0.18",
     "jsdoc": "^3.4.3",
