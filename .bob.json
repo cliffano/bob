@@ -16,7 +16,7 @@
     "type": "buster-istanbul"
   },
   "doc": {
-    "type": "jsdoc"
+    "type": "dox-foundation"
   },
   "site": {
     "type": "buildbranch"

@@ -248,7 +248,7 @@ Build reports:
 * [Unit tests report](http://cliffano.github.io/bob/test/buster.out)
 * [Test coverage report](http://cliffano.github.io/bob/coverage/buster-istanbul/lcov-report/lib/index.html)
 * [Integration tests report](http://cliffano.github.io/bob/test-integration/cmdt.out)
-* [API Documentation](http://cliffano.github.io/bob/doc/jsdoc/index.html)
+* [API Documentation](http://cliffano.github.io/bob/doc/dox-foundation/index.html)
 
 Videos:
 
