@@ -1,273 +1,426 @@
-### Unreleased
-* Change default doc task type to jsdoc
-* Add eslint as lint task type and set as default
 
-### 1.0.1
-* Dependencies upgrade
+# Changelog
+All notable changes to this project will be documented in this file.
 
-### 1.0.0
-* Add jsdoc doc task type
-* Change default doc task type from dox-foundation to jsdoc
-* Replace canihaz with canihaz-pakkunbot
-* Force canihaz location to Bob directory
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### 0.7.6
-* Set min node engine to >= 4.0.0
-* Dependencies upgrade
+## [Unreleased]
 
-### 0.7.5
-* Dependencies upgrade, latest tool reports
+### Added
+- Add eslint as lint task type and set as default
 
-### 0.7.4
-* Increase child process max buffer to 1000Kb
+### Changed
+- Change default doc task type to jsdoc
 
-### 0.7.3
-* Add buildbranch to site tool
-* Add tmp temporary directory to template params
+## [v1.0.1] - 2019-04-13
 
-### 0.7.2
-* Update tools to latest
+### Changed
+- Dependencies upgrade
 
-### 0.7.1
-* Ensure optDependencies is only installed once per module
+## [v1.0.0] - 2017-06-10
 
-### 0.7.0
-* Fix deps installation attempting to install previously installed modules
-* Change depgraph madge generated graph from madge.png to madge/graph.png
-* Change report base directory from .bob/report/<task>/<type>/ to .bob/<task>/<type>/
-* Change test-integration cmdt base directory to .bob/test-integration
-* Change min node engine to >=v0.10.0
+### Added
+- Add jsdoc doc task type
 
-### 0.6.2
-* Add opts debug and base dir to test-integration cmdt type, base dir is set to .bob/stage/cmdt-*
-* Add site command with ae86 type
-* Replace send ftp type with sendman
-* Fix random tasks execution sequence
+### Changed
+- Change default doc task type from dox-foundation to jsdoc
+- Replace canihaz with canihaz-pakkunbot
+- Force canihaz location to Bob directory
 
-### 0.6.0
-* Remove dependency to Make and makefile
-* Support multiple task types
-* Only pre-install Bob core and default task type modules
-* Lazy install non-default task type modules
-* Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
-* Remove esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
-* Use mocha-istanbul as default coverage task type
-* Remove publish ivy type (it was a nice experiment, but we all know better by now)
-* Remove package tar and zip types (will re-add when there's a cross-platform tar and zip cli for node)
-* Add test npm type
-* Remove (jscoverage-related) coverage mocha and vows task types since they are not cross-platform
-* Remove tools and rmtools tasks, no longer needed since Bob now lazy installs non-default types
-* Add test-integration cmdt type
+## [v0.7.6] - 2016-08-19
 
-### 0.5.25
-* Change updep target to use pkjutil
-* Change versionup target to use pkjutil, remove versionup-minor and versionup-major targets (to be replaced with versionup and major/minor type arg)
+### Changed
+- Set min node engine to >= 4.0.0
+- Dependencies upgrade
 
-### 0.5.24
-* Upgrade tools to latest greatest
+## [v0.7.5] - 2016-02-12
 
-### 0.5.23
-* Add html to mocha-istanbul reporters
+### Changed
+- Dependencies upgrade, latest tool reports
 
-### 0.5.22
-* Add test-performance target
+## [v0.7.4] - 2015-11-14
 
-### 0.5.21
-* Add report generation to mocha-istanbul coverage target for human mode
+### Changed
+- Increase child process max buffer to 1000Kb
 
-### 0.5.20
-* Add report output directory to mocha-istanbul coverage target
-* Fix mocha-istanbul to work with files in test subdirectories
+## [v0.7.3] - 2015-06-21
 
-### 0.5.19
-* Add mocha-istanbul type to coverage target
+### Added
+- Add buildbranch to site tool
+- Add tmp temporary directory to template params
 
-### 0.5.18
-* Use dox-foundation as default doc target type
-* Use plato as default complexity target type
-* Remove expresso due to installation taking more than 1 minute, mocha and vows coverage types (with instrument-jscoverage dep) require global installation of expresso manually to get node-jscoverage binary
+## [v0.7.2] - 2015-01-15
 
-### 0.5.17
-* Fix buster test command check error
+### Changed
+- Update tools to latest
 
-### 0.5.16
-* Add buster-istanbul type to coverage target
+## [v0.7.1] - 2014-09-10
 
-### 0.5.15
-* Add buster type to test-integration target
+### Changed
+- Ensure optDependencies is only installed once per module
 
-### 0.5.14
-* Add complexity target, with complexity-report as default type, and jscheckstyle as optional type
-* Remove style target
+## [v0.7.0] - 2014-03-18
 
-### 0.5.13
-* Add tar type to package target
-* Fix mocha type test* to run all tests in subdirectories
-* Add buster test option
+### Changed
+- Change depgraph madge generated graph from madge.png to madge/graph.png
+- Change report base directory from .bob/report/<task>/<type>/ to .bob/<task>/<type>/
+- Change test-integration cmdt base directory to .bob/test-integration
+- Change min node engine to >=v0.10.0
 
-### 0.5.12
-* Fix package zip type opts to make it work on RHEL other than Ubuntu and OS X
+## [v0.6.2] - 2013-12-12
 
-### 0.5.11
-* Add type support to package target, available types: tar.gz (default) and zip
+### Added
+- Add opts debug and base dir to test-integration cmdt type, base dir is set to .bob/stage/cmdt-*
+- Add site command with ae86 type
 
-### 0.5.10
-* Add proxy support to updep target
-* Add cucumber type to test-acceptance target
+### Changed
+- Replace send ftp type with sendman
 
-### 0.5.9
-* Add invalid package.json and .bob.json error handling.
-* Fix mocha's coloured text output in human mode
+## [v0.6.0] - 2013-10-23
 
-### 0.5.8
-* Add updep target
+### Added
+- Add test npm type
+- Add test-integration cmdt type
 
-### 0.5.7
-* Move esvalidate from validate target to lint target's type
-* Remove validate target
-* Colourise SUCCESS/FAILURE status
+### Changed
+- Support multiple task types
+- Only pre-install Bob core and default task type modules
+- Lazy install non-default task type modules
+- Replace .bob/report/<task>.out files with .bob/report/<task>/<type>.out files
+- Use mocha-istanbul as default coverage task type
 
-### 0.5.6
-* Add validate target
+### Removed
+- Remove dependency to Make and makefile
+- Remove esvalidate lint type due to its CLI not accepting dir args (need to avoid usage of *nix-specific find command)
+- Remove publish ivy type (it was a nice experiment, but we all know better by now)
+- Remove package tar and zip types (will re-add when there's a cross-platform tar and zip cli for node)
+- Remove (jscoverage-related) coverage mocha and vows task types since they are not cross-platform
+- Remove tools and rmtools tasks, no longer needed since Bob now lazy installs non-default types
 
-### 0.5.5
-* Add depgraph target using madge as default type
-* Increase node engine min version to >= 0.6.0
-* Add test-acceptance target
+## [v0.5.9] - 2012-11-12
 
-### 0.5.4
-* Add test-integration target
+### Added
+- Add invalid package.json and .bob.json error handling.
 
-### 0.5.3
-* Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
-* Add alias target support
-* Add nodeunit type to test target
+## [v0.5.8] - 2012-11-11
 
-### 0.5.2
-* Add --verbose opt to display make arguments and shell commands
+### Added
+- Add updep target
 
-### 0.5.1
-* Change publish-ivy target to use ivy.xml instead of conf/ivy.xml
-* Fix package.json node_modules location in instrument-jscoverage target
+## [v0.5.7] - 2012-11-07
 
-### 0.5.0
-* Change default test tool from vows to mocha
-* Add rmdep and rmtools targets
-* Make is executed with --silent to declutter output
-* Replace build with .bob as Bob-generated build directory
-* Init target no longer creates run directory
-* package target now uses src, instead of src.dir, in package.json
-* Add publish target
-* Add ivy target, replacing a combination of template + package-meta + ssh-mkdir targets
+### Changed
+- Colourise SUCCESS/FAILURE status
 
-### 0.4.7
-* Modify package target to exclude only build and run directories on current directory
+### Removed
+- Move esvalidate from validate target to lint target's type
+- Remove validate target
 
-### 0.4.6
-* Upgrade jscheckstyle to v0.0.6
+## [v0.5.6] - 2012-10-30
 
-### 0.4.5
-* Temp remove ndoc due to node v0.8.0 build incompatibility issue
+### Added
+- Add validate target
 
-### 0.4.4
-* Set max node version to < 0.9.0
+## [v0.5.5] - 2012-10-30
 
-### 0.4.3
-* Add mocha test option
+### Added
+- Add depgraph target using madge as default type
+- Add test-acceptance target
 
-### 0.4.2
-* Fix broken ssh-* targets
+### Changed
+- Increase node engine min version to >= 0.6.0
 
-### 0.4.1
-* Fix broken template target
+## [v0.5.4] - 2012-09-05
 
-### 0.4.0
-* Re-add scripts.test override
-* Add .bob.json configuration file support
-* Rename deploy-unpack to ssh-unpack, deploy-restart to ssh-restart
-* Add shh-mkdir target to create remote directory to deploy to
+### Added
+- Add test-integration target
 
-### 0.3.4
-* Fix package.json and node_modules symlink in build/stage for coverage target
+## [v0.5.3] - 2012-08-30
 
-### 0.3.3
-* Fix config value handling when dsv is x.y.z with undefined x.y but z exists
-* Add doc target, using ndoc as default doc tool
-* Replace jquery object extend with valentine's
+### Added
+- Add alias target support
+- Add nodeunit type to test target
 
-### 0.3.2
-* Send target no longer creates base directory
-* Add ftp type support for deploy target
-* Remove send target, add deploy-unpack target
-* Change vows dependency to cloudhead/vows master now that --cover-xml pull request is merged
+### Changed
+- Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
 
-### 0.3.1
-* Coverage target no longer requires global node-jscoverage
+## [v0.5.25] - unknown
 
-### 0.3.0
-* Move tools dependency to local to simplify installation
-* Tools target is now optional and only a handy convenience for executing tools against a single file
-* bob -v now returns Bob version, not make version
-* Template config now uses an array of template file names, previously it was an object with template file name as key and array of parameters as value.
-* Introduce task type, this provides flexibility for having task type specific target execution.
-* lintstrict target is replaced with lint target having bob.lint.type: nodelint
-* scripts.test no longer overrides test target, this is to allow Bob usage on Travis
+### Changed
+- Change updep target to use pkjutil
+- Change versionup target to use pkjutil, remove versionup-minor and versionup-major targets (to be replaced with versionup and major/minor type arg)
 
-### 0.2.11
-* Remove empty line from output display
-* Display build SUCCESS/FAILURE message based on exit code
-* Robot mode coverage now generates xml report, while html report is now generated on any mode
+## [v0.5.24] - 2013-05-23
 
-### 0.2.10
-* Replace node-runforcover with good ol' node-jscoverage
+### Changed
+- Upgrade tools to latest greatest
 
-### 0.2.9
-* Make coverage target work by using cliffano/vows with cliffano/node-runforcover
-* Add function support to template target, starting with now(format) function
-* Rename lint target to lintstrict, hint to lint, checkstyle to style
-* Add build target which calls style, lint, and test targets
+## [v0.5.23] - 2013-05-21
 
-### 0.2.7
-* Switch main app file back to {name}.js (apology for the flip-flop)
-* Fix versionup-minor and versionup-major to reset lower-priority numbers to 0
+### Added
+- Add html to mocha-istanbul reporters
 
-### 0.2.6
-* Fix robot mode nodelint to generate xml report
-* Add package-meta target
-* Add md5 and sha1 hash for package and package-meta
-* Add versionup, versionup-minor, versionup-major targets
-* Add template target
-* Add custom user and key for deploy target
-* Add send target, sends all files in {artifact.dir}
-* Deploy target now depends on send target, then unpacks the main .tar.gz artifact
-* Add variable support in configuration values
+## [v0.5.22] - 2013-05-16
 
-### 0.2.5
-* Fix exit code for checkstyle, hint, lint, test tasks
-* Honour npm scripts.test|stop|start|restart if exists in place of test, stop, start, restart tasks
+### Added
+- Add test-performance target
 
-### 0.2.4
-* Fix custom source dir config
-* Change main app file to {name}-app.js
+## [v0.5.21] - 2013-05-14
 
-### 0.2.3
-* Use underscore extend to merge config files
-* Package artifact includes name-version base directory
+### Added
+- Add report generation to mocha-istanbul coverage target for human mode
 
-### 0.2.2
-* Text and coverage tests *.js files in test/ dir and subdirs by default
-* Stream child process output
+## [v0.5.20] - 2013-05-09
 
-### 0.2.1
-* Add mode support (BOB_MODE=robot FTW!)
+### Added
+- Add report output directory to mocha-istanbul coverage target
 
-### 0.2.0
-* Add checkstyle, coverage, dep, hint, nuke targets
-* Replace Cake with plain Makefile
-* Replace ghibli.sh with plain node * start|stop|restart|status
+## [v0.5.2] - 2012-08-25
 
-### 0.1.0
-* Replace ShellScript + Make + Python with CoffeeScript + Cake
+### Added
+- Add --verbose opt to display make arguments and shell commands
 
-### 0.0.1
-* Initial version
+## [v0.5.19] - 2013-05-06
+
+### Added
+- Add mocha-istanbul type to coverage target
+
+## [v0.5.18] - 2013-04-14
+
+### Changed
+- Use dox-foundation as default doc target type
+- Use plato as default complexity target type
+
+### Removed
+- Remove expresso due to installation taking more than 1 minute, mocha and vows coverage types (with instrument-jscoverage dep) require global installation of expresso manually to get node-jscoverage binary
+
+## [v0.5.17] - 2013-03-16
+
+## [v0.5.16] - 2013-01-18
+
+### Added
+- Add buster-istanbul type to coverage target
+
+## [v0.5.15] - 2013-01-14
+
+### Added
+- Add buster type to test-integration target
+
+## [v0.5.14] - 2013-01-09
+
+### Added
+- Add complexity target, with complexity-report as default type, and jscheckstyle as optional type
+
+### Removed
+- Remove style target
+
+## [v0.5.13] - 2013-01-04
+
+### Added
+- Add tar type to package target
+- Add buster test option
+
+## [v0.5.12] - 2012-11-26
+
+## [v0.5.11] - 2012-11-26
+
+### Added
+- Add type support to package target, available types: tar.gz (default) and zip
+
+## [v0.5.10] - 2012-11-23
+
+### Added
+- Add proxy support to updep target
+- Add cucumber type to test-acceptance target
+
+## [v0.5.1] - unknown
+
+### Changed
+- Change publish-ivy target to use ivy.xml instead of conf/ivy.xml
+
+## [v0.5.0] - 2012-08-22
+
+### Added
+- Add rmdep and rmtools targets
+- Add publish target
+- Add ivy target, replacing a combination of template + package-meta + ssh-mkdir targets
+
+### Changed
+- Change default test tool from vows to mocha
+- Make is executed with --silent to declutter output
+- Replace build with .bob as Bob-generated build directory
+- Init target no longer creates run directory
+- package target now uses src, instead of src.dir, in package.json
+
+## [v0.4.7] - unknown
+
+### Changed
+- Modify package target to exclude only build and run directories on current directory
+
+## [v0.4.6] - 2012-07-25
+
+### Changed
+- Upgrade jscheckstyle to v0.0.6
+
+## [v0.4.5] - 2012-06-26
+
+### Changed
+- Temp remove ndoc due to node v0.8.0 build incompatibility issue
+
+## [v0.4.4] - unknown
+
+### Changed
+- Set max node version to < 0.9.0
+
+## [v0.4.3] - 2012-05-10
+
+### Added
+- Add mocha test option
+
+## [v0.4.2] - 2012-03-25
+
+## [v0.4.1] - 2012-02-27
+
+## [v0.4.0] - 2012-02-27
+
+### Added
+- Add .bob.json configuration file support
+- Add shh-mkdir target to create remote directory to deploy to
+
+### Changed
+- Re-add scripts.test override
+- Rename deploy-unpack to ssh-unpack, deploy-restart to ssh-restart
+
+## [v0.3.4] - 2012-02-25
+
+## [v0.3.3] - 2012-02-24
+
+### Added
+- Add doc target, using ndoc as default doc tool
+
+### Changed
+- Replace jquery object extend with valentine's
+
+## [v0.3.2] - 2012-02-08
+
+### Added
+- Add ftp type support for deploy target
+
+### Changed
+- Send target no longer creates base directory
+- Change vows dependency to cloudhead/vows master now that --cover-xml pull request is merged
+
+### Removed
+- Remove send target, add deploy-unpack target
+
+## [v0.3.1] - 2012-02-01
+
+### Changed
+- Coverage target no longer requires global node-jscoverage
+
+## [v0.3.0] - 2012-01-30
+
+### Added
+- Introduce task type, this provides flexibility for having task type specific target execution.
+
+### Changed
+- Tools target is now optional and only a handy convenience for executing tools against a single file
+- bob -v now returns Bob version, not make version
+- Template config now uses an array of template file names, previously it was an object with template file name as key and array of parameters as value.
+- lintstrict target is replaced with lint target having bob.lint.type: nodelint
+- scripts.test no longer overrides test target, this is to allow Bob usage on Travis
+
+### Removed
+- Move tools dependency to local to simplify installation
+
+## [v0.2.9] - 2011-10-27
+
+### Added
+- Add function support to template target, starting with now(format) function
+- Add build target which calls style, lint, and test targets
+
+### Changed
+- Make coverage target work by using cliffano/vows with cliffano/node-runforcover
+- Rename lint target to lintstrict, hint to lint, checkstyle to style
+
+## [v0.2.7] - 2011-10-20
+
+### Changed
+- Switch main app file back to {name}.js (apology for the flip-flop)
+
+## [v0.2.6] - 2011-10-19
+
+### Added
+- Add package-meta target
+- Add md5 and sha1 hash for package and package-meta
+- Add versionup, versionup-minor, versionup-major targets
+- Add template target
+- Add custom user and key for deploy target
+- Add send target, sends all files in {artifact.dir}
+- Add variable support in configuration values
+
+### Changed
+- Deploy target now depends on send target, then unpacks the main .tar.gz artifact
+
+## [v0.2.5] - 2011-10-12
+
+### Changed
+- Honour npm scripts.test|stop|start|restart if exists in place of test, stop, start, restart tasks
+
+## [v0.2.4] - 2011-09-27
+
+### Changed
+- Change main app file to {name}-app.js
+
+## [v0.2.3] - 2011-09-26
+
+### Changed
+- Use underscore extend to merge config files
+- Package artifact includes name-version base directory
+
+## [v0.2.2] - 2011-09-23
+
+### Changed
+- Text and coverage tests *.js files in test/ dir and subdirs by default
+- Stream child process output
+
+## [v0.2.11] - unknown
+
+### Changed
+- Display build SUCCESS/FAILURE message based on exit code
+- Robot mode coverage now generates xml report, while html report is now generated on any mode
+
+### Removed
+- Remove empty line from output display
+
+## [v0.2.10] - 2011-11-23
+
+### Changed
+- Replace node-runforcover with good ol' node-jscoverage
+
+## [v0.2.1] - 2011-09-20
+
+### Added
+- Add mode support (BOB_MODE=robot FTW!)
+
+## [v0.2.0] - 2011-09-19
+
+### Added
+- Add checkstyle, coverage, dep, hint, nuke targets
+
+### Changed
+- Replace Cake with plain Makefile
+- Replace ghibli.sh with plain node * start|stop|restart|status
+
+## [v0.1.0] - 2011-08-19
+
+### Changed
+- Replace ShellScript + Make + Python with CoffeeScript + Cake
+
+## [v0.0.1] - 2011-06-18
+
+### Added
+- Initial version
+
+
