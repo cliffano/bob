@@ -1,5 +1,6 @@
 ### Unreleased
-* Changed default doc task type to jsdoc
+* Change default doc task type to jsdoc
+* Add eslint as lint task type and set as default
 
 ### 1.0.1
 * Dependencies upgrade

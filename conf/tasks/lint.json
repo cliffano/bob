@@ -1,8 +1,16 @@
 {
-  "default": "jshint",
+  "default": "eslint",
   "types": {
+    "eslint": {
+      "bin": "{bob}/node_modules/.bin/eslint",
+      "opts": {
+        "human": "",
+        "robot": ""
+      },
+      "args": "lib/ test/"
+    },
     "jshint": {
-      "bin": "{bob}/node_modules/jshint/bin/jshint",
+      "bin": "{bob}/node_modules/.bin/jshint",
       "opts": {
         "human": "",
         "robot": "--jslint-reporter"
@@ -10,7 +18,7 @@
       "args": "lib/ test/"
     },
     "nodelint": {
-      "bin": "{bob}/node_modules/nodelint/nodelint",
+      "bin": "{bob}/node_modules/.bin/nodelint",
       "opts": {
         "human": "",
         "robot": "--reporter=xml"
