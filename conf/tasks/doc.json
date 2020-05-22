@@ -1,5 +1,5 @@
 {
-  "default": "dox-foundation",
+  "default": "jsdoc",
   "types": {
     "jsdoc": {
       "bin": "{bob}/node_modules/jsdoc/jsdoc.js",

@@ -1,3 +1,6 @@
+### Unreleased
+* Changed default doc task type to jsdoc
+
 ### 1.0.1
 * Dependencies upgrade
 
