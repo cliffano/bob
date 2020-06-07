@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add eslint as lint task type and set as default
 
 ### Changed
+- Change module type to ESM
 - Change default doc task type to jsdoc
 - Change bob build to use eslint and mocha
 

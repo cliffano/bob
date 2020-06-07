@@ -1,5 +1,6 @@
 {
   "name": "bob",
+  "type": "module",
   "description": "Convention-based build tool for node.js projects.",
   "keywords": [
     "build",
@@ -14,7 +15,7 @@
   "contributors": [
     "All contributors (https://github.com/cliffano/bob/graphs/contributors)"
   ],
-  "main": "./lib/bob",
+  "main": "./lib/bob.js",
   "bin": {
     "bob": "./bin/bob"
   },
@@ -33,21 +34,21 @@
   },
   "dependencies": {
     "async": "^3.2.0",
-    "bagofcli": "^2.0.1",
+    "bagofcli": "^2.0.2",
     "buster": "^0.7.18",
     "buster-istanbul": "^0.1.15",
-    "canihaz-pakkunbot": "^1.0.1",
+    "canihaz-pakkunbot": "^1.1.0",
     "cmdt": "^1.0.0",
     "colors": "^1.4.0",
     "dox-foundation": "^0.5.6",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "jazz": "^0.0.18",
     "jsdoc": "^3.6.4",
     "jshint": "^2.11.1",
     "madge": "^3.9.0",
     "minami": "^1.2.3",
     "mkdirp": "^1.0.4",
-    "mocha": "^7.1.2",
+    "mocha": "^7.2.0",
     "mocha-istanbul": "^0.3.0",
     "pkjutil": "^1.0.1",
     "plato": "^1.7.0",
@@ -70,9 +71,10 @@
     "vows": "^0.8.2"
   },
   "devDependencies": {
-    "buster-node": "^0.7.1",
+    "mocha": "^7.2.0",
     "proxyquire": "^2.1.0",
-    "referee": "^1.2.0"
+    "sinon": "^9.0.2",
+    "@sinonjs/referee": "^5.0.1"
   },
   "scripts": {},
   "engines": {
