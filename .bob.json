@@ -1,7 +1,7 @@
 {
   "build": "clean lint complexity test coverage test-integration doc",
   "lint": {
-    "type": "jshint"
+    "type": "eslint"
   },
   "complexity": {
     "type": "plato"
