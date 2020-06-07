@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Change default doc task type to jsdoc
+- Change bob build to use eslint and mocha
 
 ## [v1.0.1] - 2019-04-13
 

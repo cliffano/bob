@@ -7,7 +7,7 @@
     "type": "plato"
   },
   "test": {
-    "type": "buster"
+    "type": "mocha"
   },
   "test-integration": {
     "type": "cmdt"
