@@ -1,40 +1,55 @@
-var buster = require('buster-node'),
-  child = require('child_process'),
-  fs = require('fs'),
-  proxyquire = require('proxyquire'),
-  referee = require('referee'),
-  runner = require('../lib/runner'),
-  assert = referee.assert;
+import child from 'child_process';
+import fs from 'fs';
+import mkdirp from 'mkdirp';
+import sinon from 'sinon';
+import runner from '../lib/runner.js';
+import referee from '@sinonjs/referee';
 
-buster.testCase('testrunner - exec', {
-  setUp: function () {
-    this.mockChild = this.mock(child);
-    this.mockConsole = this.mock(console);
-    this.mockFs = this.mock(fs);
-    this.mockProcessStderr = this.mock(process.stderr);
-    this.mockProcessStdout = this.mock(process.stdout);
-  },
-  'should write data to stream': function () {
+describe('testrunner - exec', function() {
+
+  beforeEach(function () {
+    this.mockChild = sinon.mock(child);
+    this.mockConsole = sinon.mock(console);
+    this.mockFs = sinon.mock(fs);
+    this.mockProcessStderr = sinon.mock(process.stderr);
+    this.mockProcessStdout = sinon.mock(process.stdout);
+  });
+
+  afterEach(function () {
+    this.mockChild.verify();
+    this.mockChild.restore();
+    this.mockConsole.verify();
+    this.mockConsole.restore();
+    this.mockFs.verify();
+    this.mockFs.restore();
+    this.mockProcessStderr.verify();
+    this.mockProcessStderr.restore();
+    this.mockProcessStdout.verify();
+    this.mockProcessStdout.restore();
+  });
+
+  it('should write data to stream', function () {
     this.mockProcessStderr.expects('write').once().withExactArgs('somedata');
     this.mockProcessStdout.expects('write').once().withExactArgs('somedata');
+    this.mockProcessStdout.expects('write').once().withArgs(sinon.match.string); // allow mocha test title display
 
     var mockChildProcess = {
       stderr: {
         on: function (event, cb) {
-          assert.equals(event, 'data');
+          referee.assert.equals(event, 'data');
           cb('somedata');
         }
       },
       stdout: {
         on: function (event, cb) {
-          assert.equals(event, 'data');
+          referee.assert.equals(event, 'data');
           cb('somedata');
         }
       }
     };
     var mockStream = {
       write: function (data) {
-        assert.equals(data, 'somedata');
+        referee.assert.equals(data, 'somedata');
       }
     };
 
@@ -46,28 +61,30 @@ buster.testCase('testrunner - exec', {
     this.mockFs.expects('createWriteStream').withExactArgs('somedir/jshint.out').returns(mockStream);
 
     runner.exec('somecommand', opts, cb);
-  },
-  'should not write stderr and stdout data when in quiet mode': function () {
+  });
+
+  it('should not write stderr and stdout data when in quiet mode', function () {
     this.mockProcessStderr.expects('write').never().withExactArgs('somedata');
     this.mockProcessStdout.expects('write').never().withExactArgs('somedata');
+    this.mockProcessStdout.expects('write').once().withArgs(sinon.match.string); // allow mocha test title display
 
     var mockChildProcess = {
       stderr: {
         on: function (event, cb) {
-          assert.equals(event, 'data');
+          referee.assert.equals(event, 'data');
           cb('somedata');
         }
       },
       stdout: {
         on: function (event, cb) {
-          assert.equals(event, 'data');
+          referee.assert.equals(event, 'data');
           cb('somedata');
         }
       }
     };
     var mockStream = {
       write: function (data) {
-        assert.equals(data, 'somedata');
+        referee.assert.equals(data, 'somedata');
       }
     };
 
@@ -79,35 +96,54 @@ buster.testCase('testrunner - exec', {
     this.mockFs.expects('createWriteStream').withExactArgs('somedir/jshint.out').returns(mockStream);
 
     runner.exec('somecommand', opts, cb);
-  }
+  });
 });
 
-buster.testCase('testrunner - execSeries', {
-  setUp: function () {
-    this.mockChild = this.mock(child);
-    this.mockConsole = this.mock(console);
-    this.mockFs = this.mock(fs);
-    this.mockProcessStderr = this.mock(process.stderr);
-    this.mockProcessStdout = this.mock(process.stdout);
-  },
-  'should execute commands when there is no error': function () {
+describe('testrunner - execSeries', function() {
+
+  beforeEach(function () {
+    this.mockChild = sinon.mock(child);
+    this.mockConsole = sinon.mock(console);
+    this.mockFs = sinon.mock(fs);
+    this.mockMkdirp = sinon.mock(mkdirp);
+    this.mockProcessStderr = sinon.mock(process.stderr);
+    this.mockProcessStdout = sinon.mock(process.stdout);
+  });
+
+  afterEach(function () {
+    this.mockChild.verify();
+    this.mockChild.restore();
+    this.mockConsole.verify();
+    this.mockConsole.restore();
+    this.mockFs.verify();
+    this.mockFs.restore();
+    this.mockMkdirp.verify();
+    this.mockMkdirp.restore();
+    this.mockProcessStderr.verify();
+    this.mockProcessStderr.restore();
+    this.mockProcessStdout.verify();
+    this.mockProcessStdout.restore();
+  });
+
+  it('should execute commands when there is no error', function () {
     this.mockProcessStderr.expects('write').once().withExactArgs('somedata');
     this.mockProcessStdout.expects('write').once().withExactArgs('somedata');
+    this.mockProcessStdout.expects('write').once().withArgs(sinon.match.string); // allow mocha test title display
     var mockStream = {
       write: function (data) {
-        assert.equals(data, 'somedata');
+        referee.assert.equals(data, 'somedata');
       }
     };
     var mockChildProcess = {
       stderr: {
         on: function (event, cb) {
-          assert.equals(event, 'data');
+          referee.assert.equals(event, 'data');
           cb('somedata');
         }
       },
       stdout: {
         on: function (event, cb) {
-          assert.equals(event, 'data');
+          referee.assert.equals(event, 'data');
           cb('somedata');
         }
       }
@@ -115,36 +151,38 @@ buster.testCase('testrunner - execSeries', {
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
     this.mockChild.expects('exec').withArgs('somecommand').returns(mockChildProcess);
     this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.out').returns(mockStream);
-    var mockMkdirp = function (dir, cb) {
-      assert.equals(dir, 'somedir/.bob/test');
-      cb();
-    };
     var commands = [
       { meta: { task: 'test', type: 'buster' }, exec: 'somecommand'}
     ];
     var opts = {
       cwd: 'somedir'
     };
-    var runner = proxyquire('../lib/runner', { mkdirp: mockMkdirp });
+    this.mockMkdirp.expects('sync').withExactArgs('somedir/.bob/test');
     runner.execSeries(commands, opts, function (err) {
       done();
     });
-  },
-  'should pass error when an error occurs while executing command': function (done) {
-    var mockMkdirp = function (dir, cb) {
-      assert.equals(dir, 'somedir/.bob/test');
-      cb(new Error('someerror'));
-    };
+  });
+
+  it('should pass error when an error occurs while executing command', function (done) {
     var commands = [
-      { meta: { task: 'test', type: 'buster' }}
+      {
+        meta: { task: 'test', type: 'buster' },
+        exec: 'somecommand'
+      }
     ];
     var opts = {
-      cwd: 'somedir'
+      cwd: 'somedir',
+      task: 'test',
+      type: 'buster',
+      dir: 'somedir/.bob/test'
     };
-    var runner = proxyquire('../lib/runner', { mkdirp: mockMkdirp });
+    this.mockMkdirp.expects('sync').withExactArgs('somedir/.bob/test');
+    this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
+    this.mockChild.expects('exec').withArgs('somecommand', opts, sinon.match.func).callsArgWith(2, new Error('someerror'));
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.out');
     runner.execSeries(commands, opts, function (err) {
-      assert.equals(err.message, 'someerror');
+      referee.assert.equals(err.message, 'someerror');
       done();
     });
-  }
+  });
 });

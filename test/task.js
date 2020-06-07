@@ -1,32 +1,39 @@
-var buster = require('buster-node'),
-  fs = require('fs'),
-  task = require('../lib/task'),
-  referee = require('referee'),
-  assert = referee.assert;
+import fs from 'fs';
+import sinon from 'sinon';
+import task from '../lib/task.js';
+import referee from '@sinonjs/referee';
 
-buster.testCase('testtask - load', {
-  setUp: function () {
-    this.mockFs = this.mock(fs);
-  },
-  'should pass error to callback when one of the task files do not exist': function (done) {
-    this.mockFs.expects('exists').withArgs('somedir/someexistingtask.json').callsArgWith(1, true);
-    this.mockFs.expects('exists').withArgs('somedir/someinexistingtask.json').callsArgWith(1, false);
+describe('testtask - load', function() {
+
+  beforeEach(function () {
+    this.mockFs = sinon.mock(fs);
+  });
+
+  afterEach(function () {
+    this.mockFs.verify();
+    this.mockFs.restore();
+  });
+
+  it('should pass error to callback when one of the task files do not exist', function (done) {
+    this.mockFs.expects('access').withArgs('somedir/someexistingtask.json', fs.constants.F_OK, sinon.match.func).callsArgWith(2);
+    this.mockFs.expects('access').withArgs('somedir/someinexistingtask.json', fs.constants.F_OK, sinon.match.func).callsArgWith(2, new Error('someerror'));
     this.mockFs.expects('readFile').withArgs('somedir/someexistingtask.json').callsArgWith(1, null, '{ "name": "existing" }');
     task.load(['someexistingtask', 'someinexistingtask'], 'somedir', function (err, results) {
-      assert.equals(err.message, 'Unknown command: someinexistingtask, use --help for more info');
+      referee.assert.equals(err.message, 'Unknown command: someinexistingtask, use --help for more info');
       done();
     });
-  },
-  'should pass results to callback when all task files exist': function (done) {
-    this.mockFs.expects('exists').withArgs('somedir/someexistingtask1.json').callsArgWith(1, true);
-    this.mockFs.expects('exists').withArgs('somedir/someexistingtask2.json').callsArgWith(1, true);
+  });
+
+  it('should pass results to callback when all task files exist', function (done) {
+    this.mockFs.expects('access').withArgs('somedir/someexistingtask1.json', fs.constants.F_OK, sinon.match.func).callsArgWith(2);
+    this.mockFs.expects('access').withArgs('somedir/someexistingtask2.json', fs.constants.F_OK, sinon.match.func).callsArgWith(2);
     this.mockFs.expects('readFile').withArgs('somedir/someexistingtask1.json').callsArgWith(1, null, '{ "name": "existing1" }');
     this.mockFs.expects('readFile').withArgs('somedir/someexistingtask2.json').callsArgWith(1, null, '{ "name": "existing2" }');
     task.load(['someexistingtask1', 'someexistingtask2'], 'somedir', function (err, results) {
-      assert.equals(err, null);
-      assert.equals(results.someexistingtask1.name, 'existing1');
-      assert.equals(results.someexistingtask2.name, 'existing2');
+      referee.assert.equals(err, null);
+      referee.assert.equals(results.someexistingtask1.name, 'existing1');
+      referee.assert.equals(results.someexistingtask2.name, 'existing2');
       done();
     });
-  }
+  });
 });
