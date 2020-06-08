@@ -20,7 +20,7 @@ describe('testbob - build', function() {
 
   it('should construct commands and pass them to series', function (done) {
     this.mockRunner.expects('execSeries').withArgs(['command1', 'command2']).callsArgWith(2, null, 'someresult');
-    var bob = new Bob({});
+    const bob = new Bob({});
     bob._init = function (taskNames, cb) {
       cb(null, 'somesettings');
     };
@@ -35,7 +35,7 @@ describe('testbob - build', function() {
   });
   
   it('should pass error to callback when initialisation causes error', function (done) {
-    var bob = new Bob({});
+    const bob = new Bob({});
     bob._init = function (taskNames, cb) {
       cb(new Error('someerror'));
     };
@@ -50,7 +50,7 @@ describe('testbob - build', function() {
   });
   
   it('should pass error to callback when constructing commands causes error', function (done) {
-    var bob = new Bob({});
+    const bob = new Bob({});
     bob._init = function (taskNames, cb) {
       cb(null, 'somesettings');
     };
@@ -83,34 +83,34 @@ describe('testbob - init', function() {
   });
 
   it('should load task, load config, and install dependencies', function (done) {
-    var mockAppConfig = {
+    const mockAppConfig = {
       task1: { type: 'type1'},
       task2: { type: 'type2'}
     };
-    var mockBobTasks = {
+    const mockBobTasks = {
       task1: { default: 'type1' },
       task2: { default: 'type2' }
     };
     this.mockTask.expects('load').once().withArgs(['task1', 'task2'], '/somebobdir/conf/tasks').callsArgWith(2, null, mockBobTasks);
     this.mockConfig.expects('load').once().withArgs(['task1', 'task2'], '/someappdir').callsArgWith(2, null, mockAppConfig);
     this.mockDeps.expects('install').once().withArgs(['type1', 'type2'], { dir: '/somebobdir' }).callsArgWith(2);
-    var bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
+    const bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
     bob._init(['task1', 'task2'], done);
   });
 
   it('should pass error to callback when dependencies installation causes an error', function (done) {
-    var mockAppConfig = {
+    const mockAppConfig = {
       task1: { type: 'type1'},
       task2: { type: 'type2'}
     };
-    var mockBobTasks = {
+    const mockBobTasks = {
       task1: { default: 'type1' },
       task2: { default: 'type2' }
     };
     this.mockTask.expects('load').once().withArgs(['task1', 'task2'], '/somebobdir/conf/tasks').callsArgWith(2, null, mockBobTasks);
     this.mockConfig.expects('load').once().withArgs(['task1', 'task2'], '/someappdir').callsArgWith(2, null, mockAppConfig);
     this.mockDeps.expects('install').once().withArgs(['type1', 'type2'], { dir: '/somebobdir' }).callsArgWith(2, new Error('someerror'));
-    var bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
+    const bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
     bob._init(['task1', 'task2'], function (err) {
       referee.assert.equals(err.message, 'someerror');
       done();
@@ -119,7 +119,7 @@ describe('testbob - init', function() {
 
   it('should pass error to callback when task loading causes an error', function (done) {
     this.mockTask.expects('load').once().withArgs(['task1', 'task2'], '/somebobdir/conf/tasks').callsArgWith(2, new Error('someerror'));
-    var bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
+    const bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
     bob._init(['task1', 'task2'], function (err) {
       referee.assert.equals(err.message, 'someerror');
       done();
@@ -130,9 +130,9 @@ describe('testbob - init', function() {
 describe('testbob - commands', function () {
 
   it('should construct commands and pass them to callback', function () {
-    var bob = new Bob({ bobMode: 'robot' });
-    var taskNames = [ 'lint' ];
-    var settings = {
+    const bob = new Bob({ bobMode: 'robot' });
+    const taskNames = [ 'lint' ];
+    const settings = {
       appConfig: { lint: { type: 'jshint' } },
       bobTasks: { lint: { default: 'jshint', types: { jshint: { bin: '{bob}/node_modules/jshint/bin/jshint', opts: { human: '', robot: '--jslint-reporter' }, args: 'lib/ test/'} } } }
     };
@@ -148,25 +148,25 @@ describe('testbob - commands', function () {
 describe('testbob - taskTypeNames', function () {
 
   it('should get task type from app config when available', function () {
-    var settings = {
+    const settings = {
       appConfig: {
         task1: { type: ['type1'] }
       }
     };
-    var bob = new Bob({});
-    var taskTypeNames = bob._taskTypeNames('task1', settings);
+    const bob = new Bob({});
+    const taskTypeNames = bob._taskTypeNames('task1', settings);
     referee.assert.equals(taskTypeNames, ['type1']);
   });
 
   it('should get task type from bob tasks when app config is not available', function () {
-    var settings = {
+    const settings = {
       appConfig: {},
       bobTasks: {
         task1: { default: 'type1' }
       }
     };
-    var bob = new Bob({});
-    var taskTypeNames = bob._taskTypeNames('task1', settings);
+    const bob = new Bob({});
+    const taskTypeNames = bob._taskTypeNames('task1', settings);
     referee.assert.equals(taskTypeNames, ['type1']);
   });
 });
