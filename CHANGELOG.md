@@ -110,54 +110,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove (jscoverage-related) coverage mocha and vows task types since they are not cross-platform
 - Remove tools and rmtools tasks, no longer needed since Bob now lazy installs non-default types
 
-## [v0.5.9] - 2012-11-12
-
-### Added
-- Add invalid package.json and .bob.json error handling.
-
-## [v0.5.8] - 2012-11-11
-
-### Added
-- Add updep target
-
-## [v0.5.7] - 2012-11-07
-
-### Changed
-- Colourise SUCCESS/FAILURE status
-
-### Removed
-- Move esvalidate from validate target to lint target's type
-- Remove validate target
-
-## [v0.5.6] - 2012-10-30
-
-### Added
-- Add validate target
-
-## [v0.5.5] - 2012-10-30
-
-### Added
-- Add depgraph target using madge as default type
-- Add test-acceptance target
-
-### Changed
-- Increase node engine min version to >= 0.6.0
-
-## [v0.5.4] - 2012-09-05
-
-### Added
-- Add test-integration target
-
-## [v0.5.3] - 2012-08-30
-
-### Added
-- Add alias target support
-- Add nodeunit type to test target
-
-### Changed
-- Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
-
-## [v0.5.25] - unknown
+## [v0.5.25] - 2013-08-28
 
 ### Changed
 - Change updep target to use pkjutil
@@ -187,11 +140,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add report output directory to mocha-istanbul coverage target
-
-## [v0.5.2] - 2012-08-25
-
-### Added
-- Add --verbose opt to display make arguments and shell commands
 
 ## [v0.5.19] - 2013-05-06
 
@@ -246,7 +194,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add proxy support to updep target
 - Add cucumber type to test-acceptance target
 
-## [v0.5.1] - unknown
+## [v0.5.9] - 2012-11-12
+
+### Added
+- Add invalid package.json and .bob.json error handling.
+
+## [v0.5.8] - 2012-11-11
+
+### Added
+- Add updep target
+
+## [v0.5.7] - 2012-11-07
+
+### Changed
+- Colourise SUCCESS/FAILURE status
+
+### Removed
+- Move esvalidate from validate target to lint target's type
+- Remove validate target
+
+## [v0.5.6] - 2012-10-30
+
+### Added
+- Add validate target
+
+## [v0.5.5] - 2012-10-30
+
+### Added
+- Add depgraph target using madge as default type
+- Add test-acceptance target
+
+### Changed
+- Increase node engine min version to >= 0.6.0
+
+## [v0.5.4] - 2012-09-05
+
+### Added
+- Add test-integration target
+
+## [v0.5.3] - 2012-08-30
+
+### Added
+- Add alias target support
+- Add nodeunit type to test target
+
+### Changed
+- Modify jscoverage-based coverage target to always reinstrument, to allow multiple coverage target calls without clean
+
+## [v0.5.2] - 2012-08-25
+
+### Added
+- Add --verbose opt to display make arguments and shell commands
+
+## [v0.5.1] - 2012-08-25
 
 ### Changed
 - Change publish-ivy target to use ivy.xml instead of conf/ivy.xml
@@ -265,7 +265,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Init target no longer creates run directory
 - package target now uses src, instead of src.dir, in package.json
 
-## [v0.4.7] - unknown
+## [v0.4.7] - 2012-07-26
 
 ### Changed
 - Modify package target to exclude only build and run directories on current directory
@@ -280,7 +280,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Temp remove ndoc due to node v0.8.0 build incompatibility issue
 
-## [v0.4.4] - unknown
+## [v0.4.4] - 2012-06-26
 
 ### Changed
 - Set max node version to < 0.9.0
@@ -346,6 +346,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Move tools dependency to local to simplify installation
 
+## [v0.2.11] - 2011-11-23
+
+### Changed
+- Display build SUCCESS/FAILURE message based on exit code
+- Robot mode coverage now generates xml report, while html report is now generated on any mode
+
+### Removed
+- Remove empty line from output display
+
+## [v0.2.10] - 2011-11-23
+
+### Changed
+- Replace node-runforcover with good ol' node-jscoverage
+
 ## [v0.2.9] - 2011-10-27
 
 ### Added
@@ -396,20 +410,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Text and coverage tests *.js files in test/ dir and subdirs by default
 - Stream child process output
-
-## [v0.2.11] - unknown
-
-### Changed
-- Display build SUCCESS/FAILURE message based on exit code
-- Robot mode coverage now generates xml report, while html report is now generated on any mode
-
-### Removed
-- Remove empty line from output display
-
-## [v0.2.10] - 2011-11-23
-
-### Changed
-- Replace node-runforcover with good ol' node-jscoverage
 
 ## [v0.2.1] - 2011-09-20
 
