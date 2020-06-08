@@ -1,6 +1,7 @@
 <img align="right" src="https://raw.github.com/cliffano/bob/master/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://img.shields.io/travis/cliffano/bob.svg)](http://travis-ci.org/cliffano/bob)
+[![Build Status](https://github.com/cliffano/bob/workflows/CI/badge.svg)](https://github.com/cliffano/bob/actions?query=workflow%3ACI)
+[![Vulnerabilities Status](https://snyk.io/test/github/cliffano/bob/badge.svg)](https://snyk.io/test/github/cliffano/bob)
 [![Dependencies Status](https://img.shields.io/david/cliffano/bob.svg)](http://david-dm.org/cliffano/bob)
 [![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=master)
 [![Published Version](https://img.shields.io/npm/v/bob.svg)](http://www.npmjs.com/package/bob)
