@@ -5,14 +5,6 @@
       "bin": "{bob}/node_modules/plato/bin/plato",
       "opts": "--recurse --dir .bob/complexity/plato",
       "args": "lib"
-    },
-    "jscheckstyle": {
-      "bin": "{bob}/node_modules/jscheckstyle/bin/jscheckstyle",
-      "opts": {
-        "human": "--violations",
-        "robot": "--checkstyle"
-      },
-      "args": "lib/"
     }
   }
 }
