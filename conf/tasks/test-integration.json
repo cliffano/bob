@@ -1,11 +1,6 @@
 {
   "default": "mocha",
   "types": {
-    "buster": {
-      "bin": "{bob}/node_modules/buster/bin/buster-test",
-      "opts": "",
-      "args": "test --config {bob}/conf/buster-test-integration.js"
-    },
     "cmdt": {
       "bin": "{bob}/node_modules/cmdt/bin/cmdt",
       "opts": "--debug --base-dir .bob/test-integration/",
