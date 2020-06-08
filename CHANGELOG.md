@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Remove buster-istanbul and mocha-istanbul coverage types
 - Remove buster, nodeunit, and vows test types
-- Remove start and stop tasks
+- Remove start, stopm and restart tasks
 - Remove jscheckstyle complexity type
 - Remove dox-foundation doc type
 - Remove jshint and nodelint lint types
