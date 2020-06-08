@@ -1,25 +1,13 @@
 {
-  "default": "mocha-istanbul",
+  "default": "c8",
   "types": {
-    "buster-istanbul": {
-      "bin": "{bob}/node_modules/buster/bin/buster-test",
+    "c8": {
+      "bin": "{bob}/node_modules/.bin/c8",
       "opts": {
-        "human": "",
-        "robot": ""
+        "human": "--reporter text --reporter lcovonly --reports-dir .bob/coverage/c8/ bob test",
+        "robot": "--reporter html --reporter lcovonly --reports-dir .bob/coverage/c8/ bob test"
       },
-      "args": "test --config {bob}/conf/buster-coverage.js"
-    },
-    "mocha-istanbul": {
-      "dep": "instrument-istanbul",
-      "bin": {
-        "human" : "ISTANBUL_REPORT_DIR={app}/.bob/coverage ISTANBUL_REPORTERS=text,text-summary,html {bob}/node_modules/mocha/bin/mocha",
-        "robot" : "ISTANBUL_REPORT_DIR={app}/.bob/coverage ISTANBUL_REPORTERS=lcovonly,html {bob}/node_modules/mocha/bin/mocha"
-      },
-      "opts": {
-        "human": "--color --reporter mocha-istanbul",
-        "robot": "--reporter mocha-istanbul"
-      },
-      "args": "`find .bob/instrumented/test/ -name \"*.js\" | tr \"\\r\\n\" \" \"`"
+      "args": ""
     }
   }
 }

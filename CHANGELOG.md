@@ -9,11 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add eslint as lint task type and set as default
+- Add c8 as coverage tasks type and set as default
 
 ### Changed
 - Change module type to ESM
 - Change default doc task type to jsdoc
 - Change bob build to use eslint and mocha
+
+### Removed
+- Remove buster-istanbul and mocha-istanbul coverage types
 
 ## [v1.0.1] - 2019-04-13
 
