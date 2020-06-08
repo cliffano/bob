@@ -1,0 +1,16 @@
+{
+  "tagFormat": "v{version}",
+  "resources": [
+    {
+      "path": "package.json",
+      "type": "json",
+      "params": {
+        "property": "version"
+      }
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "keep-a-changelog"
+    }
+  ]
+}
