@@ -16,7 +16,7 @@
     "type": "c8"
   },
   "doc": {
-    "type": "dox-foundation"
+    "type": "jsdoc"
   },
   "site": {
     "type": "buildbranch"
