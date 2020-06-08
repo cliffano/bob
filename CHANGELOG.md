@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove buster, nodeunit, and vows test types
 - Remove start and stop tasks
 - Remove jscheckstyle complexity type
+- Remove dox-foundation doc type
 
 ## [v1.0.1] - 2019-04-13
 

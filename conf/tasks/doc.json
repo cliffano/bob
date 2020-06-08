@@ -5,11 +5,6 @@
       "bin": "{bob}/node_modules/jsdoc/jsdoc.js",
       "opts": "--destination .bob/doc/jsdoc/ --template {bob}/node_modules/minami",
       "args": "lib"
-    },
-    "dox-foundation": {
-      "bin": "{bob}/node_modules/dox-foundation/bin/dox-foundation",
-      "opts": "--source lib --target .bob/doc/dox-foundation/",
-      "args": ""
     }
   }
 }
