@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove start and stop tasks
 - Remove jscheckstyle complexity type
 - Remove dox-foundation doc type
+- Remove jshint and nodelint lint types
 
 ## [v1.0.1] - 2019-04-13
 

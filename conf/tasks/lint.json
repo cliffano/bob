@@ -8,22 +8,6 @@
         "robot": ""
       },
       "args": "lib/ test/"
-    },
-    "jshint": {
-      "bin": "{bob}/node_modules/.bin/jshint",
-      "opts": {
-        "human": "",
-        "robot": "--jslint-reporter"
-      },
-      "args": "lib/ test/"
-    },
-    "nodelint": {
-      "bin": "{bob}/node_modules/.bin/nodelint",
-      "opts": {
-        "human": "",
-        "robot": "--reporter=xml"
-      },
-      "args": "lib/ test/"
     }
   }
 }
