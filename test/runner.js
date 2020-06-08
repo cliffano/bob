@@ -1,3 +1,5 @@
+"use strict"
+/* eslint no-unused-vars: 0 */
 import child from 'child_process';
 import fs from 'fs';
 import mkdirp from 'mkdirp';
@@ -125,7 +127,7 @@ describe('testrunner - execSeries', function() {
     this.mockProcessStdout.restore();
   });
 
-  it('should execute commands when there is no error', function () {
+  it('should execute commands when there is no error', function (done) {
     this.mockProcessStderr.expects('write').once().withExactArgs('somedata');
     this.mockProcessStdout.expects('write').once().withExactArgs('somedata');
     this.mockProcessStdout.expects('write').once().withArgs(sinon.match.string); // allow mocha test title display
@@ -149,7 +151,7 @@ describe('testrunner - execSeries', function() {
       }
     };
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
-    this.mockChild.expects('exec').withArgs('somecommand').returns(mockChildProcess);
+    this.mockChild.expects('exec').withArgs('somecommand', sinon.match.object, sinon.match.func).returns(mockChildProcess).callsArgWith(2);
     this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.out').returns(mockStream);
     var commands = [
       { meta: { task: 'test', type: 'buster' }, exec: 'somecommand'}
