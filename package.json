@@ -64,7 +64,7 @@
   },
   "scripts": {},
   "engines": {
-    "node": "'>= 4.0.0'"
+    "node": "'>= 13.0.0'"
   },
   "licenses": [
     {

@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change module type to ESM
 - Change default doc task type to jsdoc
 - Change bob build to use eslint and mocha
+- Set min node engine to >= 13.0.0
 
 ### Removed
 - Remove buster-istanbul and mocha-istanbul coverage types
