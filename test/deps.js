@@ -1,3 +1,4 @@
+"use strict"
 import canihaz from 'canihaz-pakkunbot';
 import deps from '../lib/deps.js';
 import fs from 'fs';

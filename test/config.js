@@ -1,3 +1,4 @@
+"use strict"
 import config from '../lib/config.js';
 import fs from 'fs';
 import sinon from 'sinon';

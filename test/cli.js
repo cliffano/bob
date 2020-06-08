@@ -1,3 +1,4 @@
+"use strict"
 import Bob from '../lib/bob.js';
 import bagofcli from 'bagofcli';
 import cli from '../lib/cli.js';

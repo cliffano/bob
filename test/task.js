@@ -1,3 +1,5 @@
+"use strict"
+/* eslint no-unused-vars: 0 */
 import fs from 'fs';
 import sinon from 'sinon';
 import task from '../lib/task.js';
