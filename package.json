@@ -17,7 +17,7 @@
   ],
   "main": "./lib/bob.js",
   "bin": {
-    "bob": "./bin/bob"
+    "bob": "./bin/bob.js"
   },
   "preferGlobal": true,
   "repository": {

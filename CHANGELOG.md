@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- Fix unknown file extension error on bin entry point
+
 ## 2.0.0 - 2020-06-08
 ### Added
 - Add eslint as lint task type and set as default

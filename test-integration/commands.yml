@@ -1,5 +1,5 @@
 - params:
-    bob: ../../../../../bin/bob
+    bob: ../../../../../bin/bob.js
 
 - description: Command help should display help information
   command: '{bob} --help'
