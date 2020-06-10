@@ -2,12 +2,12 @@
   "default": "ae86",
   "types": {
     "ae86": {
-      "bin": "{bob}/node_modules/ae86/bin/ae86",
+      "bin": "{bob}/node_modules/.bin/ae86",
       "opts": "--out-dir {app}/.bob/site/ae86/",
       "args": "gen"
     },
     "buildbranch": {
-      "bin": "{bob}/node_modules/buildbranch/src/bin.js",
+      "bin": "{bob}/node_modules/.bin/buildbranch",
       "opts": "gh-pages .bob",
       "args": ""
     }
