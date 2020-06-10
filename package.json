@@ -65,10 +65,5 @@
   "engines": {
     "node": "'>= 13.0.0'"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/cliffano/bob/raw/master/LICENSE"
-    }
-  ]
+  "license": "MIT"
 }
