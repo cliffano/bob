@@ -2,7 +2,7 @@
   "default": "plato",
   "types": {
     "plato": {
-      "bin": "{bob}/node_modules/plato/bin/plato",
+      "bin": "{bob}/node_modules/.bin/plato",
       "opts": "--recurse --dir .bob/complexity/plato",
       "args": "lib"
     }

@@ -2,10 +2,10 @@
   "default": "mocha",
   "types": {
     "mocha": {
-      "bin": "{bob}/node_modules/mocha/bin/mocha",
+      "bin": "{bob}/node_modules/.bin/mocha",
       "opts": {
         "human": "--colors --reporter spec --recursive",
-        "robot": "--reporter xunit --recursive"
+        "robot": "--reporter spec --recursive"
       },
       "args": "test/"
     },
