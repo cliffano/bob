@@ -4,7 +4,7 @@
     "c8": {
       "bin": "{bob}/node_modules/.bin/c8",
       "opts": {
-        "human": "--reporter text --reports-dir .bob/coverage/c8/",
+        "human": "--reporter text --reporter html --reporter lcovonly --reports-dir .bob/coverage/c8/",
         "robot": "--reporter html --reporter lcovonly --reports-dir .bob/coverage/c8/"
       },
       "args": "bob test"

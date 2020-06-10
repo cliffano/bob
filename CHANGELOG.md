@@ -7,11 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add html reporter to coverage c8 human mode
+
 ### Changed
 - Replace Travis CI with GitHub Actions
-
-### Removed
-- Remove lcovonly reporter for coverage c8 human mode
 
 ## 2.0.1 - 2020-06-08
 ### Fixed
