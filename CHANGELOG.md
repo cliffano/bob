@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Replace Travis CI with GitHub Actions
 
+### Removed
+- Remove lcovonly reporter for coverage c8 human mode
+
 ## 2.0.1 - 2020-06-08
 ### Fixed
 - Fix unknown file extension error on bin entry point
