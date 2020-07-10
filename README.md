@@ -246,9 +246,9 @@ Colophon
 Build reports:
 
 * [Code complexity report](http://cliffano.github.io/bob/complexity/plato/index.html)
-* [Unit tests report](http://cliffano.github.io/bob/test/mocha.out)
+* [Unit tests report](http://cliffano.github.io/bob/test/mocha.txt)
 * [Test coverage report](http://cliffano.github.io/bob/coverage/c8/index.html)
-* [Integration tests report](http://cliffano.github.io/bob/test-integration/cmdt.out)
+* [Integration tests report](http://cliffano.github.io/bob/test-integration/cmdt.txt)
 * [API Documentation](http://cliffano.github.io/bob/doc/jsdoc/index.html)
 
 Videos:

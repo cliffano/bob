@@ -60,7 +60,7 @@ describe('testrunner - exec', function() {
 
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'lint'.cyan, 'somecommand');
     this.mockChild.expects('exec').withExactArgs('somecommand', opts, cb).returns(mockChildProcess);
-    this.mockFs.expects('createWriteStream').withExactArgs('somedir/jshint.out').returns(mockStream);
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/jshint.txt').returns(mockStream);
 
     runner.exec('somecommand', opts, cb);
   });
@@ -95,7 +95,7 @@ describe('testrunner - exec', function() {
 
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'lint'.cyan, 'somecommand');
     this.mockChild.expects('exec').withExactArgs('somecommand', opts, cb).returns(mockChildProcess);
-    this.mockFs.expects('createWriteStream').withExactArgs('somedir/jshint.out').returns(mockStream);
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/jshint.txt').returns(mockStream);
 
     runner.exec('somecommand', opts, cb);
   });
@@ -152,7 +152,7 @@ describe('testrunner - execSeries', function() {
     };
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
     this.mockChild.expects('exec').withArgs('somecommand', sinon.match.object, sinon.match.func).returns(mockChildProcess).callsArgWith(2);
-    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.out').returns(mockStream);
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.txt').returns(mockStream);
     const commands = [
       { meta: { task: 'test', type: 'buster' }, exec: 'somecommand'}
     ];
@@ -181,7 +181,7 @@ describe('testrunner - execSeries', function() {
     this.mockMkdirp.expects('sync').withExactArgs('somedir/.bob/test');
     this.mockConsole.expects('log').withExactArgs('%s | %s', 'test'.cyan, 'somecommand');
     this.mockChild.expects('exec').withArgs('somecommand', opts, sinon.match.func).callsArgWith(2, new Error('someerror'));
-    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.out');
+    this.mockFs.expects('createWriteStream').withExactArgs('somedir/.bob/test/buster.txt');
     runner.execSeries(commands, opts, function (err) {
       referee.assert.equals(err.message, 'someerror');
       done();
