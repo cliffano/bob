@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - lib/bob.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>lib/bob.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">74.87</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">150</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">35.83</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.07</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;
+import async from &#039;async&#039;;
+import config from &#039;./config.js&#039;;
+import deps from &#039;./deps.js&#039;;
+import jazz from &#039;jazz&#039;;
+import p from &#039;path&#039;;
+import runner from &#039;./runner.js&#039;;
+import task from &#039;./task.js&#039;;
+import util from &#039;util&#039;;
+
+class Bob {
+
+    /**
+   * Constructor for initialising Bob.
+   *
+   * @param {Object} opts: optional
+   * - appDir: directory where the userland application calls Bob from
+   * - bobDir: directory where Bob&#039;s installation is located
+   * - appName: name of the userland application (retrieved from its package.json)
+   * - appVersion: version value of the userland application (retrieved from its package.json)
+   * - bobMode: either `human` or `robot`, when you are a robot - you have to declare yourself :-]
+   * - quiet: when true, only display task name and command, but without the command output
+   */
+  constructor(opts) {
+    this.opts = opts;
+  }
+
+  /**
+   * Bob is goin&#039; to work!
+   * Execute specified tasks
+   *
+   * @param {Array} taskNames: an array of task names
+   * @param {Function} cb: standard cb(err, result) callback
+   */
+  build(taskNames, cb) {
+    const EXEC_OPTS = {
+      cwd: this.opts.appDir,
+      quiet: this.opts.quiet,
+      maxBuffer: this.opts.maxBufferInKb * 1024
+    };
+    const self = this;
+
+    this._init(taskNames, (err, settings) =&gt; {
+      if (err) { cb(err); } else {
+        self._commands(taskNames, settings, (err, commands) =&gt; {
+          if (err) { cb(err); } else {
+            runner.execSeries(commands, EXEC_OPTS, cb);
+          }
+        });
+      }
+    });
+  }
+
+  /**
+   * Load Bob task files and application config file, and install optional dependencies, all in parallel.
+   *
+   * @param {Array} taskNames: an array of task names
+   * @param {Function} cb: standard cb(err, result) callback
+   */
+  _init(taskNames, cb) {
+    const self = this;
+
+    function loadTask(cb) {
+      task.load(taskNames, p.join(self.opts.bobDir, &#039;conf&#039;, &#039;tasks&#039;), cb);
+    }
+    function loadConfig(cb) {
+      config.load(taskNames, self.opts.appDir, cb);
+    }
+    function installDeps(err, settings) {
+      if (err) { cb(err); } else {
+        let taskTypeNames = [];
+        taskNames.forEach((taskName) =&gt; {
+          taskTypeNames = taskTypeNames.concat(self._taskTypeNames(taskName, settings));
+        });
+        deps.install(taskTypeNames, { dir: self.opts.bobDir }, (err) =&gt; {
+          cb(err, settings);
+        });
+      }
+    }
+    async.parallel({ bobTasks: loadTask, appConfig: loadConfig }, installDeps);
+  }
+
+  /**
+   * Prepare commands to execute.
+   *
+   * @param {Array} taskNames: an array of task names
+   * @param {Object} settings: tasks and application configs
+   * @param {Function} cb: standard cb(err, result) callback
+   */
+  _commands(taskNames, settings, cb) {
+    const TPL_PARAMS = {
+      app: this.opts.appDir,
+      bob: this.opts.bobDir,
+      name: this.opts.appName,
+      tmp: this.opts.tmpDir,
+      version: this.opts.appVersion
+    };
+    const bobTasks = settings.bobTasks,
+      bobMode = this.opts.bobMode,
+      self = this;
+    let commands = [];
+
+    taskNames.forEach((taskName) =&gt; {
+
+      self._taskTypeNames(taskName, settings).forEach((taskTypeName) =&gt; {
+        let taskType = bobTasks[taskName].types[taskTypeName];
+        Object.keys(taskType).forEach((key) =&gt; {
+          if (typeof taskType[key] === &#039;object&#039;) {
+            taskType[key] = taskType[key][bobMode];
+          }
+        });
+        commands.push({
+          format: util.format(&#039;%s %s %s&#039;, taskType.bin, taskType.opts, taskType.args),
+          meta: {
+            task: taskName,
+            type: taskTypeName
+          }
+        });
+      });
+    });
+
+    let jobs = [];
+    commands.forEach((command) =&gt; {
+      jobs.push((cb) =&gt; {
+        jazz.compile(command.format).process(TPL_PARAMS, (result) =&gt; {
+          command.exec = result;
+          delete command.format;
+          cb(null, command);
+        });
+      });
+    });
+    async.parallel(jobs, cb);
+  }
+
+  _taskTypeNames(taskName, settings) {
+    // NOTE: allow multiple types in application config
+    let taskTypeNames =
+      (settings.appConfig[taskName] &amp;&amp; settings.appConfig[taskName].type) ?
+      settings.appConfig[taskName].type :
+      settings.bobTasks[taskName].default;
+    if (!Array.isArray(taskTypeNames)) {
+      taskTypeNames = [taskTypeNames];
+    }
+    return taskTypeNames;
+  }
+}
+
+export {
+  Bob as default
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

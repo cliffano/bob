@@ -1,0 +1,7 @@
+removed 2 packages and audited 645 packages in 3.152s
+
+35 packages are looking for funding
+  run `npm fund` for details
+
+found 37 vulnerabilities (29 low, 8 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
