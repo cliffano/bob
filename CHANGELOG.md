@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Replace .bob/report/<task>/<type>.out and .bob/report/<task>/<type>.txt files
+- Upgrade ae86 to 2.0.0
 
 ## 2.1.0 - 2020-06-12
 ### Added
