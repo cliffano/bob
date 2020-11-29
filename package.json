@@ -17,7 +17,7 @@
   ],
   "main": "./lib/bob.js",
   "bin": {
-    "bob": "./bin/bob.js"
+    "bob": "bin/bob.js"
   },
   "preferGlobal": true,
   "repository": {
@@ -59,12 +59,12 @@
     "sendman": "^1.0.1"
   },
   "devDependencies": {
-    "sinon": "^9.0.3",
-    "@sinonjs/referee": "^6.0.1"
+    "@sinonjs/referee": "^6.0.1",
+    "sinon": "^9.0.3"
   },
   "scripts": {},
   "engines": {
-    "node": "'>= 13.0.0'"
+    "node": "'>= 14.0.0'"
   },
   "license": "MIT"
 }
