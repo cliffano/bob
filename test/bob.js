@@ -143,6 +143,21 @@ describe('testbob - commands', function () {
       referee.assert.equals(results[0].meta.type, 'jshint');
     });
   });
+
+  it('should construct commands with pre and post opts and pass them to callback', function () {
+    const bob = new Bob({ bobMode: 'robot' });
+    const taskNames = [ 'lint' ];
+    const settings = {
+      appConfig: { lint: { type: 'jshint' } },
+      bobTasks: { lint: { default: 'jshint', types: { jshint: { bin: '{bob}/node_modules/jshint/bin/jshint', postOpts: { human: '', robot: '--jslint-reporter' }, args: 'lib/ test/'} } } }
+    };
+    bob._commands(taskNames, settings, function (err, results) {
+      referee.assert.equals(err, null);
+      referee.assert.equals(results[0].exec, '/node_modules/jshint/bin/jshint lib/ test/ --jslint-reporter');
+      referee.assert.equals(results[0].meta.task, 'lint');
+      referee.assert.equals(results[0].meta.type, 'jshint');
+    });
+  });
 });
 
 describe('testbob - taskTypeNames', function () {

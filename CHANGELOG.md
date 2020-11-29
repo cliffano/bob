@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add new task property postOpts
+- Add new task property preOpts as alias of task property opts
+
 ## 2.2.0 - 2020-09-26
 ### Changed
 - Replace .bob/report/<task>/<type>.out and .bob/report/<task>/<type>.txt files
