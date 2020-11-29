@@ -3,7 +3,7 @@
   "types": {
     "ae86": {
       "bin": "{bob}/node_modules/.bin/ae86",
-      "opts": "--out-dir {app}/.bob/site/ae86/",
+      "postOpts": "--out-dir {app}/.bob/site/ae86/",
       "args": "gen"
     },
     "buildbranch": {
