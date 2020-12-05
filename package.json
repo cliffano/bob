@@ -37,7 +37,6 @@
     "bagofcli": "^2.0.2",
     "buildbranch": "^2.0.1",
     "c8": "^7.3.1",
-    "canihaz-pakkunbot": "^1.1.0",
     "cmdt": "^1.0.0",
     "colors": "^1.4.0",
     "eslint": "^7.9.0",
@@ -51,12 +50,6 @@
     "plato": "^1.7.0",
     "rimraf": "^3.0.2",
     "tar.gz": "^1.0.7"
-  },
-  "optDependencies": {
-    "ae86": "^2.0.0",
-    "buildbranch": "^2.0.1",
-    "cmdt": "^1.0.0",
-    "sendman": "^1.0.1"
   },
   "devDependencies": {
     "@sinonjs/referee": "^6.0.1",

@@ -1,7 +1,6 @@
 "use strict"
 import Bob from '../lib/bob.js';
 import config from '../lib/config.js';
-import deps from '../lib/deps.js';
 import runner from '../lib/runner.js';
 import task from '../lib/task.js';
 import sinon from 'sinon';
@@ -69,15 +68,12 @@ describe('testbob - init', function() {
 
   beforeEach(function () {
     this.mockConfig = sinon.mock(config);
-    this.mockDeps = sinon.mock(deps);
     this.mockTask = sinon.mock(task);
   });
 
   afterEach(function () {
     this.mockConfig.verify();
     this.mockConfig.restore();
-    this.mockDeps.verify();
-    this.mockDeps.restore();
     this.mockTask.verify();
     this.mockTask.restore();
   });
@@ -93,28 +89,8 @@ describe('testbob - init', function() {
     };
     this.mockTask.expects('load').once().withArgs(['task1', 'task2'], '/somebobdir/conf/tasks').callsArgWith(2, null, mockBobTasks);
     this.mockConfig.expects('load').once().withArgs(['task1', 'task2'], '/someappdir').callsArgWith(2, null, mockAppConfig);
-    this.mockDeps.expects('install').once().withArgs(['type1', 'type2'], { dir: '/somebobdir' }).callsArgWith(2);
     const bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
     bob._init(['task1', 'task2'], done);
-  });
-
-  it('should pass error to callback when dependencies installation causes an error', function (done) {
-    const mockAppConfig = {
-      task1: { type: 'type1'},
-      task2: { type: 'type2'}
-    };
-    const mockBobTasks = {
-      task1: { default: 'type1' },
-      task2: { default: 'type2' }
-    };
-    this.mockTask.expects('load').once().withArgs(['task1', 'task2'], '/somebobdir/conf/tasks').callsArgWith(2, null, mockBobTasks);
-    this.mockConfig.expects('load').once().withArgs(['task1', 'task2'], '/someappdir').callsArgWith(2, null, mockAppConfig);
-    this.mockDeps.expects('install').once().withArgs(['type1', 'type2'], { dir: '/somebobdir' }).callsArgWith(2, new Error('someerror'));
-    const bob = new Bob({ bobDir: '/somebobdir', appDir: '/someappdir' });
-    bob._init(['task1', 'task2'], function (err) {
-      referee.assert.equals(err.message, 'someerror');
-      done();
-    });
   });
 
   it('should pass error to callback when task loading causes an error', function (done) {

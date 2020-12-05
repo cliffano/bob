@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Removed
+- Remove optional dependencies support
+
 ## 2.3.0 - 2020-11-29
 ### Added
 - Add new task property postOpts
