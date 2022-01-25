@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for lib/cli.js</title>
+    <title>Code coverage report for runner.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">lib</a> cli.js</h1>
+        <h1><a href="index.html">All files</a> runner.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>82/82</span>
+                <span class='fraction'>73/73</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>82/82</span>
+                <span class='fraction'>73/73</span>
             </div>
         
             
@@ -54,6 +54,12 @@
         <p class="quiet">
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
     <div class='status-line high'></div>
     <pre><table class="coverage">
@@ -129,89 +135,58 @@
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -219,83 +194,87 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">"use strict"
-import Bob from './bob.js';
-import cli from 'bagofcli';
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">"use strict"
+import async from 'async';
+import child from 'child_process';
 import fs from 'fs';
-import os from 'os';
+import mkdirp from 'mkdirp';
 import p from 'path';
 &nbsp;
-const APP_DIR = process.cwd(),
-  DIRNAME = p.dirname(import.meta.url).replace('file://', ''),
-  BOB_DIR = p.join(DIRNAME, '..');
+/**
+ * Execute a single command.
+ *
+ * @param {String} command: the command to execute
+ * @param {Object} opts:
+ *   - cwd: base directory where the commands should be executed from
+ *   - quiet: don't display command output if quiet
+ *   - task: Bob task name, used to create output directory
+ *   - type: Bob task type name, used to create output directory
+ *   - dir: report directory where process output will be written into a file
+ * @param {Function} cb: standard cb(err, result) callback
+ */
+function exec(command, opts, cb) {
 &nbsp;
-function _exec() {
+  console.log('%s | %s', opts.task.cyan, command);
 &nbsp;
-  const commandAndFirstTaskArg = arguments[0],
-    remainingTasksArg = arguments[1] || [],
-    quiet = commandAndFirstTaskArg.parent &amp;&amp; commandAndFirstTaskArg.parent.quiet,
-    tasks = [commandAndFirstTaskArg._name].concat(remainingTasksArg),
-    pkgFile = p.join(APP_DIR, 'package.json'),
-    pkg = JSON.parse(fs.readFileSync(pkgFile)),
-    bob = new Bob({
-      appDir: APP_DIR,
-      appName: pkg.name,
-      appVersion: pkg.version,
-      bobDir: BOB_DIR,
-      bobMode: process.env.BOB_MODE || 'human',
-      maxBufferInKb: 1000,
-      tmpDir: p.join(os.tmpdir(), '.bob', pkg.name),
-      quiet: quiet
-    });
+  const cproc = child.exec(command, opts, cb),
+    wstream = fs.createWriteStream(p.join(opts.dir, opts.type + '.txt'));
 &nbsp;
-  function errorCb(err) {
-    if (err.code &amp;&amp; !isNaN(err.code)) {
-      console.error('%s | exit code %d', 'FAILURE'.red, err.code);
-      process.exit(err.code);
-    } else {
-      console.error('%s | %s', 'ERROR'.red, err.message);
+  cproc.stdout.on('data', (data) =&gt; {
+    if (!opts.quiet) {
+      process.stdout.write(data);
     }
-  }
+    wstream.write(data);
+  });
 &nbsp;
-  function successCb() {
-    console.log('%s | exit code 0', 'SUCCESS'.green);
-  }
-&nbsp;
-  bob.build(tasks, cli.exitCb(errorCb, successCb));
+  cproc.stderr.on('data', (data) =&gt; {
+    if (!opts.quiet) {
+      process.stderr.write(data);
+    }
+    wstream.write(data);
+  });
 }
 &nbsp;
 /**
- * Execute Bob CLI.
+ * Execute multiple commands in series.
+ *
+ * @param {Array} commands: an array of commands, each command contains:
+ *   - exec: executable command line, to be executed on shell
+ *   - meta: command metadata, task and type
+ * @param {Object} opts:
+ *   - cwd: base directory where the commands should be executed from
+ *   - quiet: don't display command output if quiet
+ * @param {Function} cb: standard cb(err, result) callback
  */
-function exec() {
+function execSeries(commands, opts, cb) {
 &nbsp;
-  const commandFile = p.join(BOB_DIR, 'conf', 'commands.json'),
-    commands = Object.keys(JSON.parse(fs.readFileSync(commandFile)).commands),
-    configFile = p.join(APP_DIR, '.bob.json'),
-    config = fs.existsSync(configFile) ? JSON.parse(fs.readFileSync(configFile)) : {},
-    actions = { commands: {} };
-&nbsp;
-  // replace aliases with tasks
-  let argv = process.argv.slice(0, 2);
-  process.argv.slice(2, process.argv.length).forEach((arg) =&gt; {
-    if (Object.keys(config).indexOf(arg) !== -1 &amp;&amp; commands.indexOf(arg) === -1) {
-      argv = argv.concat(config[arg].split(' '));
-    } else {
-      argv.push(arg);
-    }
-  });
-  process.argv = argv;
-&nbsp;
-  commands.forEach((command) =&gt; {
-    actions.commands[command] = { action: _exec };
-  });
-&nbsp;
-  cli.command(DIRNAME, actions);
+  function _exec(command, cb) {
+    const dir = p.join(opts.cwd, '.bob', command.meta.task);
+    mkdirp.sync(dir);
+    opts.task = command.meta.task;
+    opts.type = command.meta.type;
+    opts.dir = dir;
+    exec(command.exec, opts, cb);
+  }
+  async.eachSeries(commands, _exec, cb);
 }
 &nbsp;
 const exports = {
-  exec: exec
+  exec: exec,
+  execSeries: execSeries
 };
 &nbsp;
 export {
@@ -306,18 +285,17 @@ export {
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
-                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jul 11 2020 08:36:49 GMT+1000 (Australian Eastern Standard Time)
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at Tue Jan 25 2022 12:53:02 GMT+0000 (Coordinated Universal Time)
             </div>
-        </div>
-        <script src="../prettify.js"></script>
+        <script src="prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
     </body>
 </html>
     
