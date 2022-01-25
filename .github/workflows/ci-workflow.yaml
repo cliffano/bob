@@ -5,8 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
-        node: [ '14', '15' ]
+        node: [ '16', '17' ]
     name: node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
@@ -15,3 +16,11 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm install -g bob
       - run: bob build
+      - uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: .bob/coverage/c8/lcov.info
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .bob

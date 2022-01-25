@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Upgrade depts to latest
+- Add GH Actions release-* and publish-*
 
 ### Fixed
 - Fix broken cli unit tests

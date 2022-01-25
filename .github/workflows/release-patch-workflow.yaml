@@ -1,0 +1,22 @@
+---
+name: Release Patch
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - run: git config --global user.email "pakkun@cliffano.com"
+      - run: git config --global user.name "pakkunbot"
+      - run: npm install -g rtk
+      - run: rtk release --release-increment-type patch
+      - uses: ad-m/github-push-action@master
+        with:
+          tags: true
+          github_token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
