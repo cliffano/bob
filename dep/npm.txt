@@ -5,7 +5,7 @@ npm WARN old lockfile
 npm WARN old lockfile This is a one-time fix-up, please be patient...
 npm WARN old lockfile 
 npm WARN EBADENGINE Unsupported engine {
-npm WARN EBADENGINE   package: 'bob@2.6.0',
+npm WARN EBADENGINE   package: 'bob@2.6.1-pre.0',
 npm WARN EBADENGINE   required: { node: "'>= 16.0.0'" },
 npm WARN EBADENGINE   current: { node: 'v16.13.2', npm: '8.1.2' }
 npm WARN EBADENGINE }
@@ -23,7 +23,7 @@ npm WARN deprecated request@2.88.2: request has been deprecated, see https://git
 npm WARN deprecated wrench@1.5.9: wrench.js is deprecated! You should check out fs-extra (https://github.com/jprichardson/node-fs-extra) for any operations you were using wrench for. Thanks for all the usage over the years.
 npm WARN deprecated tar@2.2.2: This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.
 
-added 657 packages, and audited 658 packages in 12s
+added 657 packages, and audited 658 packages in 11s
 
 96 packages are looking for funding
   run `npm fund` for details

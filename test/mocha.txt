@@ -1,42 +1,42 @@
 
 [0m[0m
 [0m  testbob - build[0m
-  [32m  ✓[0m[90m should construct commands and pass them to series[0m
-  [32m  ✓[0m[90m should pass error to callback when initialisation causes error[0m
-  [32m  ✓[0m[90m should pass error to callback when constructing commands causes error[0m
+  [32m  [32m✔[39m[0m[90m should construct commands and pass them to series[0m
+  [32m  [32m✔[39m[0m[90m should pass error to callback when initialisation causes error[0m
+  [32m  [32m✔[39m[0m[90m should pass error to callback when constructing commands causes error[0m
 
 [0m  testbob - init[0m
-  [32m  ✓[0m[90m should load task, load config, and install dependencies[0m
-  [32m  ✓[0m[90m should pass error to callback when task loading causes an error[0m
+  [32m  [32m✔[39m[0m[90m should load task, load config, and install dependencies[0m
+  [32m  [32m✔[39m[0m[90m should pass error to callback when task loading causes an error[0m
 
 [0m  testbob - commands[0m
-  [32m  ✓[0m[90m should construct commands and pass them to callback[0m
-  [32m  ✓[0m[90m should construct commands with pre and post opts and pass them to callback[0m
+  [32m  [32m✔[39m[0m[90m should construct commands and pass them to callback[0m
+  [32m  [32m✔[39m[0m[90m should construct commands with pre and post opts and pass them to callback[0m
 
 [0m  testbob - taskTypeNames[0m
-  [32m  ✓[0m[90m should get task type from app config when available[0m
-  [32m  ✓[0m[90m should get task type from bob tasks when app config is not available[0m
+  [32m  [32m✔[39m[0m[90m should get task type from app config when available[0m
+  [32m  [32m✔[39m[0m[90m should get task type from bob tasks when app config is not available[0m
 
 [0m  testcli - exec[0m
-  [32m  ✓[0m[90m should contain commands with actions[0m
-  [32m  ✓[0m[90m should log error message when an error occured and there is no error code[0m
-  [32m  ✓[0m[90m should log failure message when an error occured with exit code[0m
+  [32m  [32m✔[39m[0m[90m should contain commands with actions[0m
+  [32m  [32m✔[39m[0m[90m should log error message when an error occured and there is no error code[0m
+  [32m  [32m✔[39m[0m[90m should log failure message when an error occured with exit code[0m
 
 [0m  testconfig - load[0m
-  [32m  ✓[0m[90m should pass empty object when config file does not exist[0m
-  [32m  ✓[0m[90m should pass specified task in config object when config file exists[0m
-  [32m  ✓[0m[90m should not pass specified task in config object when task does not exist[0m
-  [32m  ✓[0m[90m should pass error when an error occurs while reading config file[0m
+  [32m  [32m✔[39m[0m[90m should pass empty object when config file does not exist[0m
+  [32m  [32m✔[39m[0m[90m should pass specified task in config object when config file exists[0m
+  [32m  [32m✔[39m[0m[90m should not pass specified task in config object when task does not exist[0m
+  [32m  [32m✔[39m[0m[90m should pass error when an error occurs while reading config file[0m
 
 [0m  testrunner - exec[0m
 
 [0m  testrunner - execSeries[0m
-  [32m  ✓[0m[90m should pass error when an error occurs while executing command[0m
+  [32m  [32m✔[39m[0m[90m should pass error when an error occurs while executing command[0m
 
 [0m  testtask - load[0m
-  [32m  ✓[0m[90m should pass error to callback when one of the task files do not exist[0m
-  [32m  ✓[0m[90m should pass results to callback when all task files exist[0m
+  [32m  [32m✔[39m[0m[90m should pass error to callback when one of the task files do not exist[0m
+  [32m  [32m✔[39m[0m[90m should pass results to callback when all task files exist[0m
 
 
-[92m [0m[32m 22 passing[0m[90m (49ms)[0m
+[92m [0m[32m 22 passing[0m[90m (44ms)[0m
 
