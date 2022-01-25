@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade depts to latest
+
 ## 2.5.0 - 2020-12-05
 ### Fixed
 - Fix missing site ae86 dependency
