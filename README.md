@@ -6,7 +6,6 @@
 [![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=master)
 [![Published Version](https://img.shields.io/npm/v/bob.svg)](http://www.npmjs.com/package/bob)
 <br/>
-[![npm Badge](https://nodei.co/npm/bob.png)](http://npmjs.org/package/bob)
 
 Bob
 ---
