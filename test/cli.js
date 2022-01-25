@@ -57,9 +57,9 @@ describe('testcli - exec', function() {
     });
 
     // twice because this test is against cli.js while using real cli.js
-    this.mockFs.expects('readFileSync').once().withExactArgs(p.join(process.cwd(), '../bob/conf/commands.json')).returns(JSON.stringify(this.commandsJson));
-    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), '../bob/.bob.json')).returns(JSON.stringify(this.bobJson));
-    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), '../bob/package.json')).returns(JSON.stringify(this.packageJson));
+    this.mockFs.expects('readFileSync').once().withExactArgs(p.join(process.cwd(), './conf/commands.json')).returns(JSON.stringify(this.commandsJson));
+    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), './.bob.json')).returns(JSON.stringify(this.bobJson));
+    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), './package.json')).returns(JSON.stringify(this.packageJson));
 
     referee.assert.equals(1, 1);
     cli.exec();
@@ -83,9 +83,9 @@ describe('testcli - exec', function() {
     });
 
     // twice because this test is against cli.js while using real cli.js
-    this.mockFs.expects('readFileSync').once().withExactArgs(p.join(process.cwd(), '../bob/conf/commands.json')).returns(JSON.stringify(this.commandsJson));
-    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), '../bob/.bob.json')).returns(JSON.stringify(this.bobJson));
-    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), '../bob/package.json')).returns(JSON.stringify(this.packageJson));
+    this.mockFs.expects('readFileSync').once().withExactArgs(p.join(process.cwd(), './conf/commands.json')).returns(JSON.stringify(this.commandsJson));
+    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), './.bob.json')).returns(JSON.stringify(this.bobJson));
+    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), './package.json')).returns(JSON.stringify(this.packageJson));
 
     referee.assert.equals(1, 1);
     cli.exec();
@@ -113,9 +113,9 @@ describe('testcli - exec', function() {
     });
 
     // twice because this test is against cli.js while using real cli.js
-    this.mockFs.expects('readFileSync').once().withExactArgs(p.join(process.cwd(), '../bob/conf/commands.json')).returns(JSON.stringify(this.commandsJson));
-    this.mockFs.expects('existsSync').withExactArgs(p.join(process.cwd(), '../bob/.bob.json')).returns(false);
-    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), '../bob/package.json')).returns(JSON.stringify(this.packageJson));
+    this.mockFs.expects('readFileSync').once().withExactArgs(p.join(process.cwd(), './conf/commands.json')).returns(JSON.stringify(this.commandsJson));
+    this.mockFs.expects('existsSync').withExactArgs(p.join(process.cwd(), './.bob.json')).returns(false);
+    this.mockFs.expects('readFileSync').withExactArgs(p.join(process.cwd(), './package.json')).returns(JSON.stringify(this.packageJson));
 
     referee.assert.equals(1, 1);
     cli.exec();
