@@ -7,12 +7,12 @@ npm WARN old lockfile
 npm WARN EBADENGINE Unsupported engine {
 npm WARN EBADENGINE   package: 'bob@2.5.1-pre.0',
 npm WARN EBADENGINE   required: { node: "'>= 16.0.0'" },
-npm WARN EBADENGINE   current: { node: 'v16.13.2', npm: '8.1.2' }
+npm WARN EBADENGINE   current: { node: 'v17.4.0', npm: '8.3.1' }
 npm WARN EBADENGINE }
 npm WARN EBADENGINE Unsupported engine {
 npm WARN EBADENGINE   package: 'pkjutil@1.0.1',
 npm WARN EBADENGINE   required: { node: "'>= 4.0.0'" },
-npm WARN EBADENGINE   current: { node: 'v16.13.2', npm: '8.1.2' }
+npm WARN EBADENGINE   current: { node: 'v17.4.0', npm: '8.3.1' }
 npm WARN EBADENGINE }
 npm WARN deprecated flatten@1.0.3: flatten is deprecated in favor of utility frameworks such as lodash.
 npm WARN deprecated tar.gz@1.0.7: ⚠️  WARNING ⚠️ tar.gz module has been deprecated and your application is vulnerable. Please use tar module instead: https://npmjs.com/tar
