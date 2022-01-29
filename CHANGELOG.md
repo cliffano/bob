@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade deps to latest
+
 ## 2.6.0 - 2022-01-25
 ### Changed
-- Upgrade depts to latest
+- Upgrade deps to latest
 - Add GH Actions release-* and publish-*
 
 ### Fixed
