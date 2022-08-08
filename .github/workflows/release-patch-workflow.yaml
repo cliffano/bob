@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16'
-      - run: git config --global user.email "pakkun@cliffano.com"
+      - run: git config --global user.email "blah+pakkun@cliffano.com"
       - run: git config --global user.name "pakkunbot"
       - run: npm install -g rtk
       - run: rtk release --release-increment-type patch
