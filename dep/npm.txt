@@ -1,12 +1,12 @@
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'bob@2.7.1-pre.0',
 npm warn EBADENGINE   required: { node: "'>= 18.0.0'" },
-npm warn EBADENGINE   current: { node: 'v20.17.0', npm: '10.8.2' }
+npm warn EBADENGINE   current: { node: 'v22.9.0', npm: '10.8.3' }
 npm warn EBADENGINE }
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'pkjutil@1.0.1',
 npm warn EBADENGINE   required: { node: "'>= 4.0.0'" },
-npm warn EBADENGINE   current: { node: 'v20.17.0', npm: '10.8.2' }
+npm warn EBADENGINE   current: { node: 'v22.9.0', npm: '10.8.3' }
 npm warn EBADENGINE }
 
 up to date, audited 715 packages in 1s
