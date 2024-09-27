@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change rimraf task bin path to node_modules/.bin/
 - Modify coverage test binary to use local bin
 
+### Fixed
+- Fix broken deps badge by switching to shields.io
+
 ### Removed
 - Remove CodeQL analysis GH workflow
 
