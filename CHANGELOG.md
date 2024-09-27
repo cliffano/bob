@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add jsdoc-minami dependency
+
 ### Changed
 - Switch release workflow to use release-action
 - Upgrade all workflows versions
+- Update ESLint config to eslint.config.js
+- Change rimraf task bin path to node_modules/.bin/
+- Modify coverage test binary to use local bin
 
 ### Removed
 - Remove CodeQL analysis GH workflow
