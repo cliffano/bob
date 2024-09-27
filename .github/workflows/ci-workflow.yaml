@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm link
-      - run: /opt/hostedtoolcache/node/$(node --version)/x64/bin/bob build
+      - run: /opt/hostedtoolcache/node/$(node --version | cut -c2-)/x64/bin/bob build
       - uses: coverallsapp/github-action@v2.3.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
