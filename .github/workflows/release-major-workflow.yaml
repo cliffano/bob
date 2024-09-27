@@ -3,20 +3,9 @@ name: Release Major
 on: [workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: cliffano/release-action@v1.0.0
         with:
-          token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16'
-      - run: git config --global user.email "blah+pakkun@cliffano.com"
-      - run: git config --global user.name "pakkunbot"
-      - run: npm install -g rtk
-      - run: rtk release --release-increment-type major
-      - uses: ad-m/github-push-action@master
-        with:
-          tags: true
+          release_type: 'major'
           github_token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-          branch: ${{ github.ref }}

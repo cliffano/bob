@@ -3,12 +3,12 @@ name: Upgrade Dependencies
 on: [workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
           node-version: '16'
       - run: git config --global user.email "blah+pakkun@cliffano.com"
@@ -16,7 +16,7 @@ jobs:
       - run: npm install -g bob
       - run: bob updep build
       - run: git commit -am "Upgrade dependencies to latest"
-      - uses: ad-m/github-push-action@master
+      - uses: ad-m/github-push-action@v0.8.0
         with:
           tags: true
           github_token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
