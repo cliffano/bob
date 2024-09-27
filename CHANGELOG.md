@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add jsdoc-minami dependency
 
 ### Changed
+- Set min node engine to >= 18.0.0
 - Switch release workflow to use release-action
 - Upgrade all workflows versions
 - Update ESLint config to eslint.config.js
