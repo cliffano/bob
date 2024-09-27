@@ -1,4 +1,4 @@
-test | /opt/hostedtoolcache/node/17.9.1/x64/lib/node_modules/bob/node_modules/.bin/mocha --colors --reporter spec --recursive test/
+test | /opt/hostedtoolcache/node/18.20.4/x64/lib/node_modules/bob/node_modules/.bin/mocha --colors --reporter spec --recursive test/
 
 [0m[0m
 [0m  testbob - build[0m
