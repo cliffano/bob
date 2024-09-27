@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 import Bob from '../lib/bob.js';
 import bagofcli from 'bagofcli';
 import cli from '../lib/cli.js';
@@ -37,7 +37,7 @@ describe('testcli - exec', function() {
     this.mockProcess.verify();
     this.mockProcess.restore();
   });
-    
+
   it('should contain commands with actions', function () {
     this.mockConsole.expects('log').withExactArgs('%s | exit code 0', 'SUCCESS'.green);
     this.mockProcess.expects('exit').withExactArgs(0);

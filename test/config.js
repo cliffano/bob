@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 import config from '../lib/config.js';
 import fs from 'fs';
 import sinon from 'sinon';
@@ -14,7 +14,7 @@ describe('testconfig - load', function() {
     this.mockFs.verify();
     this.mockFs.restore();
   });
-  
+
   it('should pass empty object when config file does not exist', function (done) {
     this.mockFs.expects('exists').withArgs('somedir/.bob.json').callsArgWith(1, false);
     config.load([], 'somedir', function (err, result) {
@@ -23,7 +23,7 @@ describe('testconfig - load', function() {
       done();
     });
   });
-  
+
   it('should pass specified task in config object when config file exists', function (done) {
     this.mockFs.expects('exists').withArgs('somedir/.bob.json').callsArgWith(1, true);
     this.mockFs.expects('readFile').withArgs('somedir/.bob.json').callsArgWith(1, null, '{ "sometask": "foobar" }');

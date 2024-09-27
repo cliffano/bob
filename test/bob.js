@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 import Bob from '../lib/bob.js';
 import config from '../lib/config.js';
 import runner from '../lib/runner.js';
@@ -32,7 +32,7 @@ describe('testbob - build', function() {
       done();
     });
   });
-  
+
   it('should pass error to callback when initialisation causes error', function (done) {
     const bob = new Bob({});
     bob._init = function (taskNames, cb) {
@@ -47,7 +47,7 @@ describe('testbob - build', function() {
       done();
     });
   });
-  
+
   it('should pass error to callback when constructing commands causes error', function (done) {
     const bob = new Bob({});
     bob._init = function (taskNames, cb) {
