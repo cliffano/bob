@@ -1,3 +1,5 @@
+(node:1873) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
 
 [0m[0m
 [0m  testbob - build[0m
@@ -38,5 +40,5 @@
   [32m  [32m✔[39m[0m[90m should pass results to callback when all task files exist[0m
 
 
-[92m [0m[32m 22 passing[0m[90m (40ms)[0m
+[92m [0m[32m 22 passing[0m[90m (38ms)[0m
 
