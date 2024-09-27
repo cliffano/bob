@@ -2,7 +2,7 @@
   "default": "rimraf",
   "types": {
     "rimraf": {
-      "bin": "{bob}/node_modules/rimraf/bin.js",
+      "bin": "{bob}/node_modules/.bin/rimraf",
       "opts": "",
       "args": ".bob"
     }
