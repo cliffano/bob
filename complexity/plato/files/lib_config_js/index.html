@@ -89,7 +89,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
 import fs from &#039;fs&#039;;
 import p from &#039;path&#039;;
 
@@ -103,7 +103,7 @@ import p from &#039;path&#039;;
  */
 function load(taskNames, dir, cb) {
   const file = p.join(dir, &#039;.bob.json&#039;);
-  // TODO: add validation 
+  // TODO: add validation
   fs.exists(file, (exists) =&gt; {
     if (exists) {
       fs.readFile(file, (err, data) =&gt; {

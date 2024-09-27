@@ -89,7 +89,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
 import async from &#039;async&#039;;
 import fs from &#039;fs&#039;;
 import p from &#039;path&#039;;
@@ -104,7 +104,7 @@ import util from &#039;util&#039;;
  * @param {Function} cb: standard cb(err, result) callback
  */
 function load(taskNames, dir, cb) {
-  
+
   const jobs = {};
 
   taskNames.forEach((taskName) =&gt; {
@@ -120,7 +120,7 @@ function load(taskNames, dir, cb) {
       });
     };
   });
-  
+
   function parse(err, results) {
     if (!err) {
       Object.keys(results).forEach((taskName) =&gt; {
