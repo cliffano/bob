@@ -33,7 +33,7 @@
     "test": "./test"
   },
   "dependencies": {
-    "ae86": "^3.0.0",
+    "ae86": "^3.1.0",
     "async": "^3.2.6",
     "bagofcli": "^2.4.1",
     "buildbranch": "^2.0.1",
