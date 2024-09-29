@@ -9,7 +9,7 @@
     "coverage",
     "publish"
   ],
-  "version": "3.1.0",
+  "version": "3.1.1-pre.0",
   "homepage": "http://github.com/cliffano/bob",
   "author": "Cliffano Subagio <blah@cliffano.com> (http://blog.cliffano.com)",
   "contributors": [
