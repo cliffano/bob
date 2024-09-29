@@ -2,7 +2,7 @@
 /* eslint no-unused-vars: 0 */
 import child from 'child_process';
 import fs from 'fs';
-import mkdirp from 'mkdirp';
+import { mkdirp } from 'mkdirp';
 import sinon from 'sinon';
 import runner from '../lib/runner.js';
 import referee from '@sinonjs/referee';
