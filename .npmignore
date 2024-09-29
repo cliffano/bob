@@ -1,7 +1,7 @@
 .bob
 .bob.json
 .DS_Store
-.eslintrc.yml
+eslint.config.js
 .git
 .github
 .gitignore
