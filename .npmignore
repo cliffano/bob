@@ -8,6 +8,7 @@ eslint.config.js
 .npmignore
 .rtk.json
 avatar.jpg
+core
 node_modules
 *.log
 screenshots
