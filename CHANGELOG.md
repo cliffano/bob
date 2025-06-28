@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- Fix ENOTEMPTY error when running clean task #48
+
 ## 3.1.0 - 2024-09-29
 ### Changed
 - Upgrade AE86 to 3.1.0

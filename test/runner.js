@@ -187,4 +187,41 @@ describe('testrunner - execSeries', function() {
       done();
     });
   });
+
+  it('should use tmp dir when task is clean', function (done) {
+    this.mockProcessStderr.expects('write').once().withExactArgs('somedata');
+    const mockStream = {
+      write: function (data) {
+        referee.assert.equals(data, 'somedata');
+      }
+    };
+    const mockChildProcess = {
+      stderr: {
+        on: function (event, cb) {
+          referee.assert.equals(event, 'data');
+          cb('somedata');
+        }
+      },
+      stdout: {
+        on: function (event, cb) {
+          referee.assert.equals(event, 'data');
+          cb('somedata');
+        }
+      }
+    };
+    this.mockConsole.expects('log').withExactArgs('%s | %s', 'clean'.cyan, 'somecommand');
+    this.mockChild.expects('exec').withArgs('somecommand', sinon.match.object, sinon.match.func).returns(mockChildProcess).callsArgWith(2);
+    this.mockFs.expects('createWriteStream').withExactArgs('sometmpdir/.bob/clean/rimraf.txt').returns(mockStream);
+    const commands = [
+      { meta: { task: 'clean', type: 'rimraf' }, exec: 'somecommand'}
+    ];
+    const opts = {
+      cwd: 'somedir',
+      tmp: 'sometmpdir'
+    };
+    this.mockMkdirp.expects('sync').withExactArgs('sometmpdir/.bob/clean');
+    runner.execSeries(commands, opts, function (err) {
+      done();
+    });
+  });
 });

@@ -4,7 +4,7 @@
     "eslint": {
       "bin": "{bob}/node_modules/.bin/eslint",
       "opts": {
-        "human": "",
+        "human": "--config eslint.config.js",
         "robot": ""
       },
       "args": "lib/ test/"
