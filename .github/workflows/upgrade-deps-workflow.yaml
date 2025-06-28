@@ -3,11 +3,12 @@ name: Upgrade Dependencies
 on: [workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
+          set-safe-directory: ${{ github.workspace }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
