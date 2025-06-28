@@ -5,15 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
-
+## 4.0.0 - 2025-06-28
 ### Changed
 - Set min node engine to >= 20.0.0
-- Clean task writes runner data to tmp dir #48
+- Clean task writes runner data to tmp dir [#48]
 - Upgrade GH workflows to use Ubuntu 24.04 and latest actions
 
 ### Fixed
-- Fix ENOTEMPTY error when running clean task #48
+- Fix ENOTEMPTY error when running clean task [#48]
 
 ## 3.1.0 - 2024-09-29
 ### Changed
