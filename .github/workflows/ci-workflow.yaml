@@ -12,8 +12,6 @@ jobs:
     name: node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          set-safe-directory: ${{ github.workspace }}
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
@@ -22,9 +20,9 @@ jobs:
       - run: /opt/hostedtoolcache/node/$(node --version | cut -c2-)/x64/bin/bob build
       - uses: coverallsapp/github-action@v2.3.0
         with:
-          github-token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: .bob/coverage/c8/lcov.info
       - uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .bob
