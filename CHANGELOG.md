@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Set min node engine to >= 20.0.0
+- Clean task writes runner data to tmp dir #48
 
 ### Fixed
 - Fix ENOTEMPTY error when running clean task #48
