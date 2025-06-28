@@ -1,7 +1,41 @@
+---
+# Unlike Bob consumer repos, Bob integration testing itself should 
+# be executed from base because the commands need Bob's package.json
 - params:
-    bob: ../../../../../bin/bob.js
+    bob:  bin/bob.js
+    base: ../../../../../
 
 - description: Command help should display help information
-  command: '{bob} --help'
+  command: 'cd {base} && {bob} --help'
   exitcode: 0
   output: 'Usage: bob'
+
+- description: Command lint should work without errors
+  command: 'cd {base} && {bob} lint'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
+- description: Command test should work without errors
+  command: 'cd {base} && {bob} test'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
+# # This integration test is disabled because we're testing to remove
+# # Bob's own .bob directory while Bob's integration test is attempting to
+# # write .bob/test-integration/ directory.
+# # It's included here for reference of the expectation out of such test.
+# # If you need to run this, please include 'test-integration'
+# - description: Command clean should work without errors
+#   command: 'cd {base} && {bob} clean'
+#   exitcode: 0
+#   output: 'SUCCESS.*exit code 0'
+
+- description: Command coverage should work without errors
+  command: 'cd {base} && {bob} coverage'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
+- description: Command doc should work without errors
+  command: 'cd {base} && {bob} doc'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
