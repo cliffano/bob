@@ -1,15 +1,15 @@
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'bob@3.1.1-pre.0',
 npm warn EBADENGINE   required: { node: "'>= 20.0.0'" },
-npm warn EBADENGINE   current: { node: 'v22.16.0', npm: '10.9.2' }
+npm warn EBADENGINE   current: { node: 'v24.3.0', npm: '11.4.2' }
 npm warn EBADENGINE }
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'pkjutil@1.0.1',
 npm warn EBADENGINE   required: { node: "'>= 4.0.0'" },
-npm warn EBADENGINE   current: { node: 'v22.16.0', npm: '10.9.2' }
+npm warn EBADENGINE   current: { node: 'v24.3.0', npm: '11.4.2' }
 npm warn EBADENGINE }
 
-up to date, audited 707 packages in 922ms
+up to date, audited 707 packages in 901ms
 
 113 packages are looking for funding
   run `npm fund` for details
