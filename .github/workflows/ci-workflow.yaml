@@ -20,7 +20,7 @@ jobs:
       - run: /opt/hostedtoolcache/node/$(node --version | cut -c2-)/x64/bin/bob build
       - uses: coverallsapp/github-action@v2.3.6
         with:
-          github-token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: .bob/coverage/c8/lcov.info
       - uses: peaceiris/actions-gh-pages@v4
         with:
