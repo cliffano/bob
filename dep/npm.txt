@@ -1,20 +1,50 @@
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'bob@3.1.1-pre.0',
 npm warn EBADENGINE   required: { node: "'>= 18.0.0'" },
-npm warn EBADENGINE   current: { node: 'v22.16.0', npm: '10.9.2' }
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'jackspeak@4.0.2',
+npm warn EBADENGINE   required: { node: '20 || >=22' },
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'lru-cache@11.0.1',
+npm warn EBADENGINE   required: { node: '20 || >=22' },
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'path-scurry@2.0.0',
+npm warn EBADENGINE   required: { node: '20 || >=22' },
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
 npm warn EBADENGINE }
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'pkjutil@1.0.1',
 npm warn EBADENGINE   required: { node: "'>= 4.0.0'" },
-npm warn EBADENGINE   current: { node: 'v22.16.0', npm: '10.9.2' }
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'rimraf@6.0.1',
+npm warn EBADENGINE   required: { node: '20 || >=22' },
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'glob@11.0.0',
+npm warn EBADENGINE   required: { node: '20 || >=22' },
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'minimatch@10.0.1',
+npm warn EBADENGINE   required: { node: '20 || >=22' },
+npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
 npm warn EBADENGINE }
 
-up to date, audited 714 packages in 998ms
+up to date, audited 707 packages in 1s
 
-111 packages are looking for funding
+113 packages are looking for funding
   run `npm fund` for details
 
-33 vulnerabilities (3 low, 13 moderate, 14 high, 3 critical)
+31 vulnerabilities (2 low, 13 moderate, 13 high, 3 critical)
 
 To address issues that do not require attention, run:
   npm audit fix
