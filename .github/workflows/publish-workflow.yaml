@@ -10,7 +10,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-          set-safe-directory: ${{ github.workspace }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
