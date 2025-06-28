@@ -223,12 +223,15 @@ To add an alias task (called build) which executes clean lint test coverage task
 Continuous Integration
 ----------------------
 
-### Travis CI
+### GitHub Workflow
 
-Configure Bob in .travis.yml file:
+Configure Bob in GitHub workflow YAML file:
 
-    before_install: "npm install -g bob"
-    script: "bob clean lint test coverage"
+    jobs:
+      build:
+        steps:
+          - run: npm install -g bob
+          - run: bob clean lint test coverage
 
 ### Jenkins CI
 
@@ -236,6 +239,13 @@ Configure Bob in a Jenkins job with shell script build step:
 
     npm install -g bob
     bob clean lint test coverage
+
+### Travis CI
+
+Configure Bob in .travis.yml file:
+
+    before_install: "npm install -g bob"
+    script: "bob clean lint test coverage"
 
 Colophon
 --------
