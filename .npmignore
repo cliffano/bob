@@ -1,7 +1,6 @@
 .bob
 .bob.json
 .DS_Store
-eslint.config.js
 .git
 .github
 .gitignore
@@ -9,6 +8,7 @@ eslint.config.js
 .rtk.json
 avatar.jpg
 core
+eslint.config.js
 node_modules
 *.log
 screenshots
