@@ -1,14 +1,12 @@
-<img align="right" src="https://raw.github.com/cliffano/bob/main/avatar.jpg" alt="Avatar"/>
+![Avatar](avatar.jpg)
 
 [![Build Status](https://github.com/cliffano/bob/workflows/CI/badge.svg)](https://github.com/cliffano/bob/actions?query=workflow%3ACI)
 [![Security Status](https://snyk.io/test/github/cliffano/bob/badge.svg)](https://snyk.io/test/github/cliffano/bob)
 [![Dependencies Status](https://img.shields.io/librariesio/release/npm/bob)](https://libraries.io/npm/bob)
 [![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=main)
 [![Published Version](https://img.shields.io/npm/v/bob.svg)](http://www.npmjs.com/package/bob)
-<br/>
 
-Bob
----
+# Bob
 
 Convention-based build tool for node.js projects.
 
@@ -20,13 +18,11 @@ It only installs the default tools, while alternative tools will be lazy-install
 
 It doesn't have plugins. It uses various CLI tools and configure their usage in task configuration files.
 
-Installation
-------------
+## Installation
 
     npm install -g bob
 
-Project Convention
-------------------
+## Project Convention
 
 A project must have:
 
@@ -34,8 +30,7 @@ A project must have:
 * lib/ directory, where you put your source code
 * test/ directory, where you put your test code
 
-Usage
------
+## Usage
 
 Run Bob: (from your project directory, where package.json is located)
 
@@ -49,118 +44,30 @@ Run Bob quietly: (only lists tasks, without each task's output)
 
     bob --quiet clean lint test coverage
 
-Tasks
------
+## Tasks
 
 In alphabetical order.
 
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Description</th>
-    <th>Default Type</th>
-    <th>Alternative Type(s)</th>
-  </tr>
-  <tr>
-    <td>clean</td>
-    <td>Delete .bob directory</td>
-    <td><a href="https://github.com/isaacs/rimraf">rimraf</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>complexity</td>
-    <td>Run code complexity checker against *.js files in lib/ directory</td>
-    <td><a href="http://github.com/jsoverson/plato">plato</a></td>
-    <td><a href="http://github.com/nomiddlename/jscheckstyle">jscheckstyle</a></td>
-  </tr>
-  <tr>
-    <td>coverage</td>
-    <td>Check code coverage</td>
-    <td><a href="http://github.com/arikon/mocha-istanbul">mocha-istanbul</a></td>
-    <td><a href="http://github.com/kates/buster-istanbul">buster-istanbul</a></td>
-  </tr>
-  <tr>
-    <td>dep</td>
-    <td>Install dependencies specified in package.json</td>
-    <td>npm</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>depgraph</td>
-    <td>Generate module dependencies graph</td>
-    <td><a href="http://github.com/pahen/node-madge">madge</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>doc</td>
-    <td>Generate code documentation</td>
-    <td><a href="http://github.com/jsdoc3/jsdoc">jsdoc</a></td>
-    <td><a href="http://github.com/punkave/dox-foundation">dox-foundation</a></td>
-  </tr>
-  <tr>
-    <td>lint</td>
-    <td>Lint *.js files in lib/ and test/ directories</td>
-    <td><a href="http://github.com/jshint/node-jshint">jshint</a></td>
-    <td><a href="http://github.com/tav/nodelint">nodelint</a></td>
-  </tr>
-  <tr>
-    <td>package</td>
-    <td>Create an artifact file in .bob/artifact/ directory</td>
-    <td><a href="https://github.com/cranic/node-tar.gz">tar.gz</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>publish</td>
-    <td>Publish artifact file to a repository</td>
-    <td><a href="http://www.npmjs.org">npm</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>rmdep</td>
-    <td>Remove node_modules directory.</td>
-    <td><a href="https://github.com/isaacs/rimraf">rimraf</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>site</td>
-    <td>Generate web site.</td>
-    <td><a href="https://github.com/cliffano/ae86">ae86</a></td>
-    <td><a href="https://github.com/nfroidure/buildbranch">buildbranch</a></td>
-  </tr>
-  <tr>
-    <td>style</td>
-    <td>Style the code</td>
-    <td><a href="https://prettier.io">prettier</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>test</td>
-    <td>Execute unit test files in test/ directory</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>
-    <td><a href="http://github.com/busterjs/buster">buster</a>, <a href="http://github.com/caolan/nodeunit">nodeunit</a>, <a href="http://github.com/cloudhead/vows">vows</a></td>
-  </tr>
-  <tr>
-    <td>test-acceptance</td>
-    <td>Execute acceptance test files in test-acceptance/ directory</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>
-    <td><a href="http://github.com/cucumber/cucumber-js">cucumber</a></td>
-  </tr>
-  <tr>
-    <td>test-integration</td>
-    <td>Execute integration test files in test-integration/ directory</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>
-    <td><a href="http://github.com/busterjs/buster">buster</a>, <a href="http://github.com/cliffano/cmdt">cmdt</a></td>
-  </tr>
-  <tr>
-    <td>updep</td>
-    <td>Upgrade all dependencies to latest version</td>
-    <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a></td>
-    <td>-</td>
-  </tr>
-</table>
+| Task | Description | Default Type | Alternative Type(s) |
+| --- | --- | --- | --- |
+| clean | Delete .bob directory | [rimraf](https://github.com/isaacs/rimraf) | - |
+| complexity | Run code complexity checker against *.js files in lib/ directory | [plato](http://github.com/jsoverson/plato) | [jscheckstyle](http://github.com/nomiddlename/jscheckstyle) |
+| coverage | Check code coverage | [mocha-istanbul](http://github.com/arikon/mocha-istanbul) | [buster-istanbul](http://github.com/kates/buster-istanbul) |
+| dep | Install dependencies specified in package.json | npm | - |
+| depgraph | Generate module dependencies graph | [madge](http://github.com/pahen/node-madge) | - |
+| doc | Generate code documentation | [jsdoc](http://github.com/jsdoc3/jsdoc) | [dox-foundation](http://github.com/punkave/dox-foundation) |
+| lint | Lint *.js files in lib/ and test/ directories | [jshint](http://github.com/jshint/node-jshint) | [nodelint](http://github.com/tav/nodelint) |
+| package | Create an artifact file in .bob/artifact/ directory | [tar.gz](https://github.com/cranic/node-tar.gz) | - |
+| publish | Publish artifact file to a repository | [npm](http://www.npmjs.org) | - |
+| rmdep | Remove node_modules directory. | [rimraf](https://github.com/isaacs/rimraf) | - |
+| site | Generate web site. | [ae86](https://github.com/cliffano/ae86) | [buildbranch](https://github.com/nfroidure/buildbranch) |
+| style | Style the code | [prettier](https://prettier.io) | - |
+| test | Execute unit test files in test/ directory | [mocha](http://github.com/visionmedia/mocha) | [buster](http://github.com/busterjs/buster), [nodeunit](http://github.com/caolan/nodeunit), [vows](http://github.com/cloudhead/vows) |
+| test-acceptance | Execute acceptance test files in test-acceptance/ directory | [mocha](http://github.com/visionmedia/mocha) | [cucumber](http://github.com/cucumber/cucumber-js) |
+| test-integration | Execute integration test files in test-integration/ directory | [mocha](http://github.com/visionmedia/mocha) | [buster](http://github.com/busterjs/buster), [cmdt](http://github.com/cliffano/cmdt) |
+| updep | Upgrade all dependencies to latest version | [pkjutil](http://github.com/cliffano/pkjutil) | - |
 
-Config
-------
+## Config
 
 To customise Bob for your project, create a .bob.json file in your project directory, where package.json is located.
 
@@ -178,8 +85,7 @@ To add an alias task (called build) which executes clean lint test coverage task
       "build": "clean lint test coverage"
     }
 
-Continuous Integration
-----------------------
+## Continuous Integration
 
 ### GitHub Workflow
 
@@ -198,15 +104,7 @@ Configure Bob in a Jenkins job with shell script build step:
     npm install -g bob
     bob clean lint test coverage
 
-### Travis CI
-
-Configure Bob in .travis.yml file:
-
-    before_install: "npm install -g bob"
-    script: "bob clean lint test coverage"
-
-Colophon
---------
+## Colophon
 
 [Developer's Guide](https://cliffano.github.io/developers_guide.html#nodejs)
 
