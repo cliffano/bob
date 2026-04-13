@@ -49,10 +49,13 @@
       "desc": "Start application"
     },
     "status": {
-      "desc": "Status application"
+      "desc": "Show application status"
     },
     "stop": {
       "desc": "Stop application"
+    },
+    "style": {
+      "desc": "Style the code"
     },
     "test": {
       "desc": "Execute unit test files in test/ directory"

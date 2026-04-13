@@ -164,6 +164,12 @@ In alphabetical order.
     <td>-</td>
   </tr>
   <tr>
+    <td>style</td>
+    <td>Style the code</td>
+    <td><a href="https://prettier.io">prettier</a></td>
+    <td>-</td>
+  </tr>
+  <tr>
     <td>test</td>
     <td>Execute unit test files in test/ directory</td>
     <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>

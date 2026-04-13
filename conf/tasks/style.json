@@ -1,0 +1,10 @@
+{
+  "default": "prettier",
+  "types": {
+    "prettier": {
+      "bin": "{bob}/node_modules/.bin/prettier",
+      "opts": "--write",
+      "args": "lib/ test/"
+    }
+  }
+}
