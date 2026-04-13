@@ -24,35 +24,17 @@
     "lint": {
       "desc": "Lint *.js files in lib/ and test/ directories"
     },
-    "nuke": {
-      "desc": "Kill all processes with command containing the string 'node'"
-    },
     "package": {
       "desc": "Create an artifact file in .bob/artifact/ directory"
     },
     "publish": {
       "desc": "Publish artifact file to a repository"
     },
-    "restart": {
-      "desc": "Restart application"
-    },
     "rmdep": {
       "desc": "Remove node_modules directory"
     },
-    "send": {
-      "desc": "Send artifact file to a remote server"
-    },
     "site": {
       "desc": "Generate web site"
-    },
-    "start": {
-      "desc": "Start application"
-    },
-    "status": {
-      "desc": "Show application status"
-    },
-    "stop": {
-      "desc": "Stop application"
     },
     "style": {
       "desc": "Style the code"
@@ -66,14 +48,8 @@
     "test-integration": {
       "desc": "Execute integration test files in test-integration/ directory"
     },
-    "test-performance": {
-      "desc": "Execute performance test files in test-performance/ directory"
-    },
     "updep": {
       "desc": "Upgrade all dependencies to latest version"
-    },
-    "versionup": {
-      "desc": "Upgrade patch version number in package.json file"
     }
   }
 }

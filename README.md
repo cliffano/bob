@@ -104,12 +104,6 @@ In alphabetical order.
     <td><a href="http://github.com/tav/nodelint">nodelint</a></td>
   </tr>
   <tr>
-    <td>nuke <sup>TODO</sup></td>
-    <td>Kill all processes with command containing the string 'node'</td>
-    <td>-</td>
-    <td>-</td>
-  </tr>
-  <tr>
     <td>package</td>
     <td>Create an artifact file in .bob/artifact/ directory</td>
     <td><a href="https://github.com/cranic/node-tar.gz">tar.gz</a></td>
@@ -122,46 +116,16 @@ In alphabetical order.
     <td>-</td>
   </tr>
   <tr>
-    <td>restart</td>
-    <td>Restart application</td>
-    <td><a href="http://www.npmjs.org">npm</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
     <td>rmdep</td>
     <td>Remove node_modules directory.</td>
     <td><a href="https://github.com/isaacs/rimraf">rimraf</a></td>
     <td>-</td>
   </tr>
   <tr>
-    <td>send <sup>TODO</sup></td>
-    <td>Send artifact file to a remote server.</td>
-    <td>scp</td>
-    <td><a href="https://github.com/cliffano/sendman">sendman</a></td>
-  </tr>
-  <tr>
     <td>site</td>
     <td>Generate web site.</td>
     <td><a href="https://github.com/cliffano/ae86">ae86</a></td>
     <td><a href="https://github.com/nfroidure/buildbranch">buildbranch</a></td>
-  </tr>
-  <tr>
-    <td>start</td>
-    <td>Start application</td>
-    <td><a href="http://www.npmjs.org">npm</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>Status application</td>
-    <td><a href="http://www.npmjs.org">npm</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>stop</td>
-    <td>Stop application</td>
-    <td><a href="http://www.npmjs.org">npm</a></td>
-    <td>-</td>
   </tr>
   <tr>
     <td>style</td>
@@ -188,20 +152,8 @@ In alphabetical order.
     <td><a href="http://github.com/busterjs/buster">buster</a>, <a href="http://github.com/cliffano/cmdt">cmdt</a></td>
   </tr>
   <tr>
-    <td>test-performance</td>
-    <td>Execute performance test files in test-performance/ directory</td>
-    <td><a href="http://github.com/visionmedia/mocha">mocha</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
     <td>updep</td>
     <td>Upgrade all dependencies to latest version</td>
-    <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>versionup</td>
-    <td>Upgrade patch version number in package.json file</td>
     <td><a href="http://github.com/cliffano/pkjutil">pkjutil</a></td>
     <td>-</td>
   </tr>
