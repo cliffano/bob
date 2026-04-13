@@ -30,6 +30,11 @@
 #   exitcode: 0
 #   output: 'SUCCESS.*exit code 0'
 
+- description: Command dep should work without errors
+  command: 'cd {base} && {bob} dep'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
 - description: Command coverage should work without errors
   command: 'cd {base} && {bob} coverage'
   exitcode: 0
