@@ -10,16 +10,6 @@
   exitcode: 0
   output: 'Usage: bob'
 
-- description: Command lint should work without errors
-  command: 'cd {base} && {bob} lint'
-  exitcode: 0
-  output: 'SUCCESS.*exit code 0'
-
-- description: Command test should work without errors
-  command: 'cd {base} && {bob} test'
-  exitcode: 0
-  output: 'SUCCESS.*exit code 0'
-
 # # This integration test is disabled because we're testing to remove
 # # Bob's own .bob directory while Bob's integration test is attempting to
 # # write .bob/test-integration/ directory.
@@ -35,8 +25,28 @@
   exitcode: 0
   output: 'SUCCESS.*exit code 0'
 
+- description: Command lint should work without errors
+  command: 'cd {base} && {bob} lint'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
+- description: Command complexity should work without errors
+  command: 'cd {base} && {bob} complexity'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
+- description: Command test should work without errors
+  command: 'cd {base} && {bob} test'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
 - description: Command coverage should work without errors
   command: 'cd {base} && {bob} coverage'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
+- description: Command test-integration should work without errors
+  command: 'cd {base} && {bob} test'
   exitcode: 0
   output: 'SUCCESS.*exit code 0'
 
