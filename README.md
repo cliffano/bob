@@ -1,9 +1,9 @@
-<img align="right" src="https://raw.github.com/cliffano/bob/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/cliffano/bob/main/avatar.jpg" alt="Avatar"/>
 
 [![Build Status](https://github.com/cliffano/bob/workflows/CI/badge.svg)](https://github.com/cliffano/bob/actions?query=workflow%3ACI)
 [![Security Status](https://snyk.io/test/github/cliffano/bob/badge.svg)](https://snyk.io/test/github/cliffano/bob)
 [![Dependencies Status](https://img.shields.io/librariesio/release/npm/bob)](https://libraries.io/npm/bob)
-[![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=main)
 [![Published Version](https://img.shields.io/npm/v/bob.svg)](http://www.npmjs.com/package/bob)
 <br/>
 
