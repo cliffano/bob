@@ -1,8 +1,4 @@
-(node:2504) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
 test | /home/runner/work/bob/bob/node_modules/.bin/mocha --colors --reporter spec --recursive test/
-(node:2523) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
 
 [0m[0m
 [0m  testbob - build[0m
