@@ -33,30 +33,30 @@
     "test": "./test"
   },
   "dependencies": {
-    "ae86": "^3.1.0",
+    "ae86": "^4.0.0",
     "async": "^3.2.6",
-    "bagofcli": "^2.4.1",
+    "bagofcli": "^2.5.0",
     "buildbranch": "^2.0.1",
-    "c8": "^10.1.3",
+    "c8": "^11.0.0",
     "cmdt": "^1.0.0",
     "colors": "^1.4.0",
-    "eslint": "^9.30.0",
+    "eslint": "^10.2.0",
     "@haixing_hu/jsdoc-minami": "^1.5.1",
     "jazz": "^0.0.18",
-    "jsdoc": "^4.0.4",
+    "jsdoc": "^4.0.5",
     "madge": "^8.0.0",
     "minami": "^1.2.3",
     "mkdirp": "^3.0.1",
-    "mocha": "^11.7.1",
+    "mocha": "^11.7.5",
     "pkjutil": "^1.0.1",
     "plato": "^1.7.0",
     "prettier": "^3.8.2",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.3",
     "tar.gz": "^1.0.7"
   },
   "devDependencies": {
-    "@sinonjs/referee": "^11.0.1",
-    "sinon": "^21.0.0"
+    "@sinonjs/referee": "^11.0.2",
+    "sinon": "^21.1.2"
   },
   "scripts": {},
   "engines": {
