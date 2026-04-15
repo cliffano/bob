@@ -33,6 +33,7 @@
     "test": "./test"
   },
   "dependencies": {
+    "@haixing_hu/jsdoc-minami": "^1.5.1",
     "ae86": "^4.0.0",
     "async": "^3.2.6",
     "bagofcli": "^2.5.0",
@@ -41,7 +42,6 @@
     "cmdt": "^1.0.0",
     "colors": "^1.4.0",
     "eslint": "^10.2.0",
-    "@haixing_hu/jsdoc-minami": "^1.5.1",
     "jazz": "^0.0.18",
     "jsdoc": "^4.0.5",
     "madge": "^8.0.0",

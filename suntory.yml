@@ -1,0 +1,13 @@
+---
+package_name: bob
+author: Cliffano Subagio
+generator:
+  component: node-lib
+  inputs:
+    project_id: bob
+    project_name: Bob
+    project_desc: Convention-based build tool for node.js projects
+    author_name: Cliffano Subagio
+    author_email: cliffano@gmail.com
+    github_id: cliffano
+    github_repo: bob

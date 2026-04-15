@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Set min node engine to >= 22.0.0
+- Switch build to Suntory Makefile
 
 ### Removed
 - Remove start, stop, status, restart, nuke, send, test-performance, versionup commands
