@@ -1,6 +1,6 @@
-Using directory: .bob/test-integration/cmdt-1776262514497-2637
+Using directory: .bob/test-integration/cmdt-1776262513397-2615
 
-test-integration/commands.yml (node:2637) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
+test-integration/commands.yml (node:2615) Warning: Accessing non-existent property 'padLevels' of module exports inside circular dependency
 (Use `node --trace-warnings ...` to show where the warning was created)
 .........
 9 tests, 9 successes, 0 failure
