@@ -39,6 +39,7 @@ clean:
 
 # Retrieve the Pyhon package dependencies
 deps:
+	npm install .
 	npm link
 	bob dep
 
