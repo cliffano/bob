@@ -25,6 +25,11 @@
   exitcode: 0
   output: 'SUCCESS.*exit code 0'
 
+- description: Command style should work without errors
+  command: 'cd {base} && {bob} style'
+  exitcode: 0
+  output: 'SUCCESS.*exit code 0'
+
 - description: Command lint should work without errors
   command: 'cd {base} && {bob} lint'
   exitcode: 0
