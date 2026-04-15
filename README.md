@@ -51,20 +51,20 @@ In alphabetical order.
 | Task | Description | Default Type | Alternative Type(s) |
 | --- | --- | --- | --- |
 | clean | Delete .bob directory | [rimraf](https://github.com/isaacs/rimraf) | - |
-| complexity | Run code complexity checker against *.js files in lib/ directory | [plato](http://github.com/jsoverson/plato) | [jscheckstyle](http://github.com/nomiddlename/jscheckstyle) |
-| coverage | Check code coverage | [mocha-istanbul](http://github.com/arikon/mocha-istanbul) | [buster-istanbul](http://github.com/kates/buster-istanbul) |
+| complexity | Run code complexity checker against *.js files in lib/ directory | [plato](http://github.com/jsoverson/plato) | - |
+| coverage | Check code coverage | [c8](https://github.com/bcoe/c8) | - |
 | dep | Install dependencies specified in package.json | npm | - |
 | depgraph | Generate module dependencies graph | [madge](http://github.com/pahen/node-madge) | - |
-| doc | Generate code documentation | [jsdoc](http://github.com/jsdoc3/jsdoc) | [dox-foundation](http://github.com/punkave/dox-foundation) |
-| lint | Lint *.js files in lib/ and test/ directories | [jshint](http://github.com/jshint/node-jshint) | [nodelint](http://github.com/tav/nodelint) |
+| doc | Generate code documentation | [jsdoc](http://github.com/jsdoc3/jsdoc) | - |
+| lint | Lint *.js files in lib/ and test/ directories | [eslint](https://eslint.org) | - |
 | package | Create an artifact file in .bob/artifact/ directory | [tar.gz](https://github.com/cranic/node-tar.gz) | - |
 | publish | Publish artifact file to a repository | [npm](http://www.npmjs.org) | - |
 | rmdep | Remove node_modules directory. | [rimraf](https://github.com/isaacs/rimraf) | - |
 | site | Generate web site. | [ae86](https://github.com/cliffano/ae86) | [buildbranch](https://github.com/nfroidure/buildbranch) |
 | style | Style the code | [prettier](https://prettier.io) | - |
-| test | Execute unit test files in test/ directory | [mocha](http://github.com/visionmedia/mocha) | [buster](http://github.com/busterjs/buster), [nodeunit](http://github.com/caolan/nodeunit), [vows](http://github.com/cloudhead/vows) |
-| test-acceptance | Execute acceptance test files in test-acceptance/ directory | [mocha](http://github.com/visionmedia/mocha) | [cucumber](http://github.com/cucumber/cucumber-js) |
-| test-integration | Execute integration test files in test-integration/ directory | [mocha](http://github.com/visionmedia/mocha) | [buster](http://github.com/busterjs/buster), [cmdt](http://github.com/cliffano/cmdt) |
+| test | Execute unit test files in test/ directory | [mocha](https://mochajs.org/) | [npm](http://www.npmjs.org) |
+| test-acceptance | Execute acceptance test files in test-acceptance/ directory | [mocha](https://mochajs.org/) | [cucumber](http://github.com/cucumber/cucumber-js) |
+| test-integration | Execute integration test files in test-integration/ directory | [mocha](https://mochajs.org/) | [cmdt](http://github.com/cliffano/cmdt) |
 | updep | Upgrade all dependencies to latest version | [pkjutil](http://github.com/cliffano/pkjutil) | - |
 
 ## Config
