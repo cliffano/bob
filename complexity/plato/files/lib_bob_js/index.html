@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">142</p>
+      <p class="stat">147</p>
     </div>
   </div>
   <div class="row historical">
@@ -90,16 +90,15 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
-import async from &#039;async&#039;;
-import config from &#039;./config.js&#039;;
-import jazz from &#039;jazz&#039;;
-import p from &#039;path&#039;;
-import runner from &#039;./runner.js&#039;;
-import task from &#039;./task.js&#039;;
-import util from &#039;util&#039;;
+import async from &quot;async&quot;;
+import config from &quot;./config.js&quot;;
+import jazz from &quot;jazz&quot;;
+import p from &quot;path&quot;;
+import runner from &quot;./runner.js&quot;;
+import task from &quot;./task.js&quot;;
+import util from &quot;util&quot;;
 
 class Bob {
-
   /**
    * Constructor for initialising Bob.
    *
@@ -127,14 +126,18 @@ class Bob {
       cwd: this.opts.appDir,
       tmp: this.opts.tmpDir,
       quiet: this.opts.quiet,
-      maxBuffer: this.opts.maxBufferInKb * 1024
+      maxBuffer: this.opts.maxBufferInKb * 1024,
     };
     const self = this;
 
     this._init(taskNames, (err, settings) =&gt; {
-      if (err) { cb(err); } else {
+      if (err) {
+        cb(err);
+      } else {
         self._commands(taskNames, settings, (err, commands) =&gt; {
-          if (err) { cb(err); } else {
+          if (err) {
+            cb(err);
+          } else {
             runner.execSeries(commands, EXEC_OPTS, cb);
           }
         });
@@ -152,7 +155,7 @@ class Bob {
     const self = this;
 
     function loadTask(cb) {
-      task.load(taskNames, p.join(self.opts.bobDir, &#039;conf&#039;, &#039;tasks&#039;), cb);
+      task.load(taskNames, p.join(self.opts.bobDir, &quot;conf&quot;, &quot;tasks&quot;), cb);
     }
     function loadConfig(cb) {
       config.load(taskNames, self.opts.appDir, cb);
@@ -173,7 +176,7 @@ class Bob {
       bob: this.opts.bobDir,
       name: this.opts.appName,
       tmp: this.opts.tmpDir,
-      version: this.opts.appVersion
+      version: this.opts.appVersion,
     };
     const bobTasks = settings.bobTasks,
       bobMode = this.opts.bobMode,
@@ -181,23 +184,27 @@ class Bob {
     const commands = [];
 
     taskNames.forEach((taskName) =&gt; {
-
       self._taskTypeNames(taskName, settings).forEach((taskTypeName) =&gt; {
         const taskType = bobTasks[taskName].types[taskTypeName];
         Object.keys(taskType).forEach((key) =&gt; {
-          if (typeof taskType[key] === &#039;object&#039;) {
+          if (typeof taskType[key] === &quot;object&quot;) {
             taskType[key] = taskType[key][bobMode];
           }
         });
         taskType.preOpts = taskType.preOpts || taskType.opts;
         // strip undefined and null from command elements
-        const elems = [taskType.bin, taskType.preOpts, taskType.args, taskType.postOpts].filter(elem =&gt; elem);
+        const elems = [
+          taskType.bin,
+          taskType.preOpts,
+          taskType.args,
+          taskType.postOpts,
+        ].filter((elem) =&gt; elem);
         commands.push({
-          format: util.format(elems.join(&#039; &#039;)),
+          format: util.format(elems.join(&quot; &quot;)),
           meta: {
             task: taskName,
-            type: taskTypeName
-          }
+            type: taskTypeName,
+          },
         });
       });
     });
@@ -218,9 +225,9 @@ class Bob {
   _taskTypeNames(taskName, settings) {
     // NOTE: allow multiple types in application config
     let taskTypeNames =
-      (settings.appConfig[taskName] &amp;&amp; settings.appConfig[taskName].type) ?
-      settings.appConfig[taskName].type :
-      settings.bobTasks[taskName].default;
+      settings.appConfig[taskName] &amp;&amp; settings.appConfig[taskName].type
+        ? settings.appConfig[taskName].type
+        : settings.bobTasks[taskName].default;
     if (!Array.isArray(taskTypeNames)) {
       taskTypeNames = [taskTypeNames];
     }
@@ -228,9 +235,7 @@ class Bob {
   }
 }
 
-export {
-  Bob as default
-};</textarea>
+export { Bob as default };</textarea>
   </div>
 </div>
 

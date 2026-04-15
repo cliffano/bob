@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>142/142</span>
+                <span class='fraction'>147/147</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>142/142</span>
+                <span class='fraction'>147/147</span>
             </div>
         
             
@@ -205,8 +205,12 @@
 <a name='L140'></a><a href='#L140'>140</a>
 <a name='L141'></a><a href='#L141'>141</a>
 <a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -249,8 +253,12 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -284,7 +292,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -330,6 +337,11 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -342,22 +354,19 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
-import async from 'async';
-import config from './config.js';
-import jazz from 'jazz';
-import p from 'path';
-import runner from './runner.js';
-import task from './task.js';
-import util from 'util';
+import async from "async";
+import config from "./config.js";
+import jazz from "jazz";
+import p from "path";
+import runner from "./runner.js";
+import task from "./task.js";
+import util from "util";
 &nbsp;
 class Bob {
-&nbsp;
   /**
    * Constructor for initialising Bob.
    *
@@ -385,14 +394,18 @@ class Bob {
       cwd: this.opts.appDir,
       tmp: this.opts.tmpDir,
       quiet: this.opts.quiet,
-      maxBuffer: this.opts.maxBufferInKb * 1024
+      maxBuffer: this.opts.maxBufferInKb * 1024,
     };
     const self = this;
 &nbsp;
     this._init(taskNames, (err, settings) =&gt; {
-      if (err) { cb(err); } else {
+      if (err) {
+        cb(err);
+      } else {
         self._commands(taskNames, settings, (err, commands) =&gt; {
-          if (err) { cb(err); } else {
+          if (err) {
+            cb(err);
+          } else {
             runner.execSeries(commands, EXEC_OPTS, cb);
           }
         });
@@ -410,7 +423,7 @@ class Bob {
     const self = this;
 &nbsp;
     function loadTask(cb) {
-      task.load(taskNames, p.join(self.opts.bobDir, 'conf', 'tasks'), cb);
+      task.load(taskNames, p.join(self.opts.bobDir, "conf", "tasks"), cb);
     }
     function loadConfig(cb) {
       config.load(taskNames, self.opts.appDir, cb);
@@ -431,7 +444,7 @@ class Bob {
       bob: this.opts.bobDir,
       name: this.opts.appName,
       tmp: this.opts.tmpDir,
-      version: this.opts.appVersion
+      version: this.opts.appVersion,
     };
     const bobTasks = settings.bobTasks,
       bobMode = this.opts.bobMode,
@@ -439,23 +452,27 @@ class Bob {
     const commands = [];
 &nbsp;
     taskNames.forEach((taskName) =&gt; {
-&nbsp;
       self._taskTypeNames(taskName, settings).forEach((taskTypeName) =&gt; {
         const taskType = bobTasks[taskName].types[taskTypeName];
         Object.keys(taskType).forEach((key) =&gt; {
-          if (typeof taskType[key] === 'object') {
+          if (typeof taskType[key] === "object") {
             taskType[key] = taskType[key][bobMode];
           }
         });
         taskType.preOpts = taskType.preOpts || taskType.opts;
         // strip undefined and null from command elements
-        const elems = [taskType.bin, taskType.preOpts, taskType.args, taskType.postOpts].filter(elem =&gt; elem);
+        const elems = [
+          taskType.bin,
+          taskType.preOpts,
+          taskType.args,
+          taskType.postOpts,
+        ].filter((elem) =&gt; elem);
         commands.push({
-          format: util.format(elems.join(' ')),
+          format: util.format(elems.join(" ")),
           meta: {
             task: taskName,
-            type: taskTypeName
-          }
+            type: taskTypeName,
+          },
         });
       });
     });
@@ -476,9 +493,9 @@ class Bob {
   _taskTypeNames(taskName, settings) {
     // NOTE: allow multiple types in application config
     let taskTypeNames =
-      (settings.appConfig[taskName] &amp;&amp; settings.appConfig[taskName].type) ?
-      settings.appConfig[taskName].type :
-      settings.bobTasks[taskName].default;
+      settings.appConfig[taskName] &amp;&amp; settings.appConfig[taskName].type
+        ? settings.appConfig[taskName].type
+        : settings.bobTasks[taskName].default;
     if (!Array.isArray(taskTypeNames)) {
       taskTypeNames = [taskTypeNames];
     }
@@ -486,9 +503,7 @@ class Bob {
   }
 }
 &nbsp;
-export {
-  Bob as default
-};
+export { Bob as default };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -496,7 +511,7 @@ export {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-13T13:12:17.518Z
+                at 2026-04-15T09:51:30.418Z
             </div>
         <script src="../prettify.js"></script>
         <script>
