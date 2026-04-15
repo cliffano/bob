@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add style target
 
+### Changed
+- Set min node engine to >= 22.0.0
+
 ### Removed
 - Remove start, stop, status, restart, nuke, send, test-performance, versionup commands
 
