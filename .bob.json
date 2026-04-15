@@ -6,6 +6,9 @@
   "complexity": {
     "type": "plato"
   },
+  "style": {
+    "type": "prettier"
+  },
   "test": {
     "type": "mocha"
   },
@@ -17,8 +20,5 @@
   },
   "doc": {
     "type": "jsdoc"
-  },
-  "site": {
-    "type": "buildbranch"
   }
 }
