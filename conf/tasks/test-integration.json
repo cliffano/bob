@@ -7,7 +7,7 @@
       "args": "run test-integration/"
     },
     "mocha": {
-      "bin": "{bob}/node_modules/mocha/bin/mocha",
+      "bin": "{bob}/node_modules/.bin/mocha",
       "opts": {
         "human": "--colors --reporter spec --recursive",
         "robot": "--reporter xunit --recursive"

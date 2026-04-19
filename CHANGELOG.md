@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- Fix incorrect mocha bin path in test-acceptance and test-integration tasks
+
 ## 5.0.0 - 2026-04-15
 ### Added
 - Add style target
