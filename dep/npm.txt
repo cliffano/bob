@@ -1,5 +1,5 @@
 npm warn EBADENGINE Unsupported engine {
-npm warn EBADENGINE   package: 'bob@5.0.1',
+npm warn EBADENGINE   package: 'bob@5.0.2-pre.0',
 npm warn EBADENGINE   required: { node: "'>= 22.0.0'" },
 npm warn EBADENGINE   current: { node: 'v24.14.1', npm: '11.11.0' }
 npm warn EBADENGINE }
@@ -9,7 +9,7 @@ npm warn EBADENGINE   required: { node: "'>= 4.0.0'" },
 npm warn EBADENGINE   current: { node: 'v24.14.1', npm: '11.11.0' }
 npm warn EBADENGINE }
 
-up to date, audited 717 packages in 915ms
+up to date, audited 717 packages in 1s
 
 110 packages are looking for funding
   run `npm fund` for details
