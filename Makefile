@@ -1,4 +1,4 @@
-SUNTORY_VERSION = 0.9.0-pre.0
+SUNTORY_VERSION = 0.11.1
 
 ################################################################
 # User configuration variables
@@ -9,16 +9,16 @@ SUNTORY_VERSION = 0.9.0-pre.0
 # package_name: somepackage
 # author: Some Author
 
-# PACKAGE_NAME is the name of the Python package
+# PACKAGE_NAME is the name of the node.js package
 PACKAGE_NAME=$(shell yq .package_name suntory.yml)
 
-# AUTHOR is the author of the Python package
+# AUTHOR is the author of the node.js package
 AUTHOR ?= $(shell yq .author suntory.yml)
 
 $(info ################################################################)
-$(info Building node package using suntory with user configurations:)
-$(info - Package name: ${PACKAGE_NAME})
-$(info - Author: ${AUTHOR})
+$(info Building node.js package using Suntory with user configurations...)
+$(info - Package name = ${PACKAGE_NAME})
+$(info - Author = ${AUTHOR})
 
 export PATH := node_modules/bin:$(PATH)
 
@@ -39,8 +39,7 @@ clean:
 
 # Retrieve the Pyhon package dependencies
 deps:
-	npm install .
-	npm link
+	npm install -g bob@5.0.1
 	bob dep
 
 deps-upgrade:
@@ -55,21 +54,22 @@ update-to-latest: update-to-version
 
 # Update Makefile to the main branch
 update-to-main:
-	curl https://raw.githubusercontent.com/cliffano/{{ project_id }}/main/src/Makefile-{{ project_id }} -o Makefile
+	curl https://raw.githubusercontent.com/cliffano/suntory/main/src/Makefile-suntory -o Makefile
 
-# Update Makefile to the version defined in TARGET_{{ project_id }}_VERSION parameter
+# Update Makefile to the version defined in TARGET_SUNTORY_VERSION parameter
 update-to-version:
-	curl https://raw.githubusercontent.com/cliffano/{{ project_id }}/$(TARGET_{{ project_id }}_VERSION)/src/Makefile-{{ project_id }} -o Makefile
+	curl https://raw.githubusercontent.com/cliffano/suntory/$(TARGET_SUNTORY_VERSION)/src/Makefile-suntory -o Makefile
 
-# Update dotfiles using the generator-python
-update-dotfiles: GENERATOR_COMPONENT = $(shell yq .generator.component piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_PROJECT_ID = $(shell yq .generator.inputs.project_id piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_PROJECT_NAME = $(shell yq .generator.inputs.project_name piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_PROJECT_DESC = $(shell yq .generator.inputs.project_desc piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_AUTHOR_NAME = $(shell yq .generator.inputs.author_name piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_AUTHOR_EMAIL = $(shell yq .generator.inputs.author_email piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_GITHUB_ID = $(shell yq .generator.inputs.github_id piemaker.yml)
-update-dotfiles: GENERATOR_INPUTS_GITHUB_REPO = $(shell yq .generator.inputs.github_repo piemaker.yml)
+# Update dotfiles using the generator-node
+update-dotfiles: GENERATOR_COMPONENT = $(shell yq .generator.component suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_PROJECT_ID = $(shell yq .generator.inputs.project_id suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_PROJECT_NAME = $(shell yq .generator.inputs.project_name suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_PROJECT_DESC = $(shell yq .generator.inputs.project_desc suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_AUTHOR_NAME = $(shell yq .generator.inputs.author_name suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_AUTHOR_EMAIL = $(shell yq .generator.inputs.author_email suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_AUTHOR_URL = $(shell yq .generator.inputs.author_url suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_GITHUB_ID = $(shell yq .generator.inputs.github_id suntory.yml)
+update-dotfiles: GENERATOR_INPUTS_GITHUB_REPO = $(shell yq .generator.inputs.github_repo suntory.yml)
 update-dotfiles: stage
 	cd stage/ && \
 	  rm -rf generator-node/ && \
@@ -82,15 +82,16 @@ update-dotfiles: stage
 		--project_desc "$(GENERATOR_INPUTS_PROJECT_DESC)" \
 		--author_name "$(GENERATOR_INPUTS_AUTHOR_NAME)" \
 		--author_email "$(GENERATOR_INPUTS_AUTHOR_EMAIL)" \
+		--author_url "$(GENERATOR_INPUTS_AUTHOR_URL)" \
 		--github_id "$(GENERATOR_INPUTS_GITHUB_ID)" \
 		--github_repo "$(GENERATOR_INPUTS_GITHUB_REPO)"
 	cd stage/generator-node/stage/$(GENERATOR_COMPONENT) && \
 	  cp -R .github/* ../../../../.github/ && \
 	  cp .bob.json ../../../../.bob.json && \
 	  cp .gitignore ../../../../.gitignore && \
-	  cp .npmignore ../../../../.npmignore && \
-	  cp .rtk.json ../../../../.rtk.json && \
-	  cp eslint.config.js ../../../../eslint.config.js
+	  cp eslint.config.js ../../../../eslint.config.js && \
+	  cp .rtk.json ../../../../.rtk.json
+	make -f Makefile-extras x-overwrite-dotfiles
 
 ################################################################
 # Formatting targets
@@ -108,7 +109,7 @@ complexity: stage
 	bob complexity
 
 test:
-	bob test
+	MOCHA_OPTIONS="--timeout 5000" bob test
 
 test-integration:
 	bob test-integration
@@ -160,4 +161,4 @@ doc: stage
 
 ################################################################
 
-.PHONY: all ci clean complexity configurations coverage deps deps-extra-apt deps-upgrade rmdeps doc export export export install install-wheel lint name package package publish reinstall release-major release-minor release-patch stage style test test-examples test-integration uninstall update-to-latest update-to-latest update-to-main update-to-version
+.PHONY: all ci clean complexity configurations coverage deps deps-extra-apt deps-upgrade rmdeps doc export export export install install-wheel lint name package package publish reinstall release-major release-minor release-patch stage style test test-examples test-integration uninstall update-dotfiles update-to-latest update-to-latest update-to-main update-to-version

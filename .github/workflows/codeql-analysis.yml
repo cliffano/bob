@@ -14,16 +14,11 @@ on:
   schedule:
     - cron: '0 1 * * 0'
 
-
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-24.04
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-      pull-requests: read
+
     strategy:
       fail-fast: false
       matrix:

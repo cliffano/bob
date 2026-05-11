@@ -8,15 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: main
-          set-safe-directory: ${{ github.workspace }}
       - uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: '26'
           registry-url: https://registry.npmjs.org
-      - run: npm install -g bob@4
+      - run: npm install -g bob@5.0.1
       - run: npm install
       - run: bob publish
         env:

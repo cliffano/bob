@@ -2,7 +2,7 @@
 package_name: bob
 author: Cliffano Subagio
 generator:
-  component: node-lib
+  component: node-cli
   inputs:
     project_id: bob
     project_name: Bob

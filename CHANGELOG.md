@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade Suntory to 0.11.1
+- Upgrade dependency pins to latest
+
 ## 5.0.1 - 2026-04-19
 ### Fixed
 - Fix incorrect mocha bin path in test-acceptance and test-integration tasks
