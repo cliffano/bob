@@ -1,4 +1,4 @@
-SUNTORY_VERSION = 0.11.1
+SUNTORY_VERSION = 0.11.2
 
 ################################################################
 # User configuration variables
@@ -86,12 +86,11 @@ update-dotfiles: stage
 		--github_id "$(GENERATOR_INPUTS_GITHUB_ID)" \
 		--github_repo "$(GENERATOR_INPUTS_GITHUB_REPO)"
 	cd stage/generator-node/stage/$(GENERATOR_COMPONENT) && \
-	  cp -R .github/* ../../../../.github/ && \
+	  cp -R .github/. ../../../../.github/ && \
 	  cp .bob.json ../../../../.bob.json && \
 	  cp .gitignore ../../../../.gitignore && \
 	  cp eslint.config.js ../../../../eslint.config.js && \
 	  cp .rtk.json ../../../../.rtk.json
-	make -f Makefile-extras x-overwrite-dotfiles
 
 ################################################################
 # Formatting targets
