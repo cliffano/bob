@@ -58,6 +58,11 @@
     "@sinonjs/referee": "^11.0.2",
     "sinon": "^22.0.0"
   },
+  "overrides": {
+    "c8": {
+      "yars": "^18.0.0"
+    }
+  },
   "scripts": {},
   "engines": {
     "node": "'>= 22.0.0'"
