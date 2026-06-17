@@ -59,9 +59,7 @@
     "sinon": "^22.0.0"
   },
   "overrides": {
-    "c8": {
-      "yars": "^18.0.0"
-    }
+    "yargs": "^18.0.0"
   },
   "scripts": {},
   "engines": {
