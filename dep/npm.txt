@@ -1,17 +1,17 @@
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'bob@5.0.2-pre.0',
 npm warn EBADENGINE   required: { node: "'>= 22.0.0'" },
-npm warn EBADENGINE   current: { node: 'v24.16.0', npm: '11.13.0' }
+npm warn EBADENGINE   current: { node: 'v22.22.3', npm: '10.9.8' }
 npm warn EBADENGINE }
 npm warn EBADENGINE Unsupported engine {
 npm warn EBADENGINE   package: 'pkjutil@1.0.1',
 npm warn EBADENGINE   required: { node: "'>= 4.0.0'" },
-npm warn EBADENGINE   current: { node: 'v24.16.0', npm: '11.13.0' }
+npm warn EBADENGINE   current: { node: 'v22.22.3', npm: '10.9.8' }
 npm warn EBADENGINE }
 
-up to date, audited 717 packages in 1s
+up to date, audited 731 packages in 791ms
 
-110 packages are looking for funding
+116 packages are looking for funding
   run `npm fund` for details
 
 42 vulnerabilities (2 low, 15 moderate, 20 high, 5 critical)
