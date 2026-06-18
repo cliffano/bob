@@ -39,7 +39,7 @@ clean:
 
 # Retrieve the Pyhon package dependencies
 deps:
-	npm install -g bob@5.0.1
+	npm link
 	bob dep
 
 deps-extra-apt:
