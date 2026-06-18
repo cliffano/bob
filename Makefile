@@ -97,6 +97,7 @@ update-dotfiles: stage
 	  cp .gitignore ../../../../.gitignore && \
 	  cp eslint.config.js ../../../../eslint.config.js && \
 	  cp .rtk.json ../../../../.rtk.json
+	make -f Makefile-extras x-overwrite-dotfiles
 
 # Update partial snippets using the generator-node
 update-partials: GENERATOR_COMPONENT = $(shell yq .generator.component suntory.yml)

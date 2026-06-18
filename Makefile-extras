@@ -1,5 +1,5 @@
 x-overwrite-dotfiles:
-    # RTK config does not follow generator template because AE86 is using v<version> format predating the template.
+    # RTK config does not follow generator template because Bob is using v<version> format predating the template.
 	git checkout .rtk.json
 
 .PHONY: x-overwrite-dotfiles

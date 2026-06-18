@@ -1,4 +1,5 @@
 {
+  "tagFormat": "v{version}",
   "resources": [
     {
       "path": "package.json",
