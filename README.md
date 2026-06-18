@@ -1,9 +1,15 @@
+<!-- BEGIN:AVATAR -->
 ![Avatar](avatar.jpg)
+<!-- END:AVATAR -->
 
+<!-- BEGIN:BADGES -->
 [![Build Status](https://github.com/cliffano/bob/workflows/CI/badge.svg)](https://github.com/cliffano/bob/actions?query=workflow%3ACI)
 [![Dependencies Status](https://img.shields.io/librariesio/release/npm/bob)](https://libraries.io/npm/bob)
-[![Coverage Status](https://img.shields.io/coveralls/cliffano/bob.svg)](https://coveralls.io/r/cliffano/bob?branch=main)
-[![Published Version](https://img.shields.io/npm/v/bob.svg)](http://www.npmjs.com/package/bob)
+[![Code Scanning Status](https://github.com/cliffano/bob/workflows/CodeQL/badge.svg)](https://github.com/cliffano/bob/actions?query=workflow%3ACodeQL)
+[![Coverage Status](https://coveralls.io/repos/github/cliffano/bob/badge.svg?branch=main)](https://coveralls.io/r/cliffano/bob?branch=main)
+[![Security Status](https://snyk.io/test/github/cliffano/bob/badge.svg)](https://snyk.io/test/github/cliffano/bob)
+[![Published Version](https://img.shields.io/npm/v/bob.svg)](https://www.npmjs.com/package/bob)
+<!-- END:BADGES -->
 
 # Bob
 
@@ -105,8 +111,11 @@ Configure Bob in a Jenkins job with shell script build step:
 
 ## Colophon
 
-[Developer's Guide](https://cliffano.github.io/developers_guide.html#nodejs)
+<!-- BEGIN:DEVELOPERS_GUIDE -->
+[Developer's Guide](https://cliffano.github.io/developers-guide-nodejs.html)
+<!-- END:DEVELOPERS_GUIDE -->
 
+<!-- BEGIN:BUILD_REPORTS -->
 Build reports:
 
 * [Code complexity report](https://cliffano.github.io/bob/complexity/plato/index.html)
@@ -114,6 +123,8 @@ Build reports:
 * [Test coverage report](https://cliffano.github.io/bob/coverage/c8/index.html)
 * [Integration tests report](https://cliffano.github.io/bob/test-integration/cmdt.txt)
 * [API Documentation](https://cliffano.github.io/bob/doc/jsdoc/index.html)
+
+<!-- END:BUILD_REPORTS -->
 
 Videos:
 

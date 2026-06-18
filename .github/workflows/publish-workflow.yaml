@@ -4,6 +4,9 @@ name: Publish
   push:
     tags:
       - '*'
+permissions:
+  contents: read
+  id-token: write
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -15,8 +18,5 @@ jobs:
         with:
           node-version: '26'
           registry-url: https://registry.npmjs.org
-      - run: npm install -g bob@5.0.1
       - run: npm install
-      - run: bob publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+      - run: npm publish

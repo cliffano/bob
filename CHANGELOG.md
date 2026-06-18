@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Changed
-- Upgrade Suntory to 0.11.1
+- Upgrade Suntory to 1.0.0
 - Upgrade dependency pins to latest
+
+### Fixed
+- Fix c8 node 26 failure
 
 ## 5.0.1 - 2026-04-19
 ### Fixed

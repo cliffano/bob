@@ -11,3 +11,4 @@ generator:
     author_email: cliffano@gmail.com
     github_id: cliffano
     github_repo: bob
+    github_token_prefix: STUDIO
