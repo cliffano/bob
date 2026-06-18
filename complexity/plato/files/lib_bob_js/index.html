@@ -48,7 +48,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">147</p>
+      <p class="stat">172</p>
     </div>
   </div>
   <div class="row historical">
@@ -89,7 +89,13 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+    <textarea id="file-source" class="col-md-12">/**
+ * Bob build automation module.
+ * Manages task execution, configuration loading, and command preparation.
+ *
+ * @module bob
+ */
+&quot;use strict&quot;;
 import async from &quot;async&quot;;
 import config from &quot;./config.js&quot;;
 import jazz from &quot;jazz&quot;;
@@ -98,6 +104,9 @@ import runner from &quot;./runner.js&quot;;
 import task from &quot;./task.js&quot;;
 import util from &quot;util&quot;;
 
+/**
+ * Bob class for managing build task execution.
+ */
 class Bob {
   /**
    * Constructor for initialising Bob.
@@ -151,6 +160,13 @@ class Bob {
    * @param {Array} taskNames: an array of task names
    * @param {Function} cb: standard cb(err, result) callback
    */
+  /**
+   * Initialize Bob by loading task definitions and application configuration in parallel.
+   *
+   * @private
+   * @param {Array} taskNames - An array of task names to load
+   * @param {Function} cb - Standard callback function(err, result)
+   */
   _init(taskNames, cb) {
     const self = this;
 
@@ -164,11 +180,12 @@ class Bob {
   }
 
   /**
-   * Prepare commands to execute.
+   * Prepare commands to execute with template parameter substitution.
    *
-   * @param {Array} taskNames: an array of task names
-   * @param {Object} settings: tasks and application configs
-   * @param {Function} cb: standard cb(err, result) callback
+   * @private
+   * @param {Array} taskNames - An array of task names
+   * @param {Object} settings - Tasks and application configurations
+   * @param {Function} cb - Standard callback function(err, result)
    */
   _commands(taskNames, settings, cb) {
     const TPL_PARAMS = {
@@ -222,6 +239,14 @@ class Bob {
     async.parallel(jobs, cb);
   }
 
+  /**
+   * Get task type names for a given task, supporting both single and multiple types.
+   *
+   * @private
+   * @param {String} taskName - The name of the task
+   * @param {Object} settings - Tasks and application configurations
+   * @returns {Array} An array of task type names
+   */
   _taskTypeNames(taskName, settings) {
     // NOTE: allow multiple types in application config
     let taskTypeNames =
