@@ -40,7 +40,7 @@ clean:
 # Retrieve the Pyhon package dependencies
 deps:
 	npm link
-	bob dep
+	npm install .
 
 deps-extra-apt:
 	apt-get update
