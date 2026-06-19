@@ -1,4 +1,4 @@
-SUNTORY_VERSION = 1.0.0
+SUNTORY_VERSION = 1.1.0
 
 ################################################################
 # User configuration variables
@@ -39,8 +39,8 @@ clean:
 
 # Retrieve the Pyhon package dependencies
 deps:
-	npm link
-	npm install .
+	npm install -g bob@5.2.1
+	bob dep
 
 deps-extra-apt:
 	apt-get update
