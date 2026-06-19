@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+- Fix regression missing release_format in RTK config
+
 ## 5.2.0 - 2026-06-18
 ### Changed
 - Upgrade Suntory to 1.0.0
