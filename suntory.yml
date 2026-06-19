@@ -9,6 +9,7 @@ generator:
     project_desc: Convention-based build tool for node.js projects
     author_name: Cliffano Subagio
     author_email: cliffano@gmail.com
+    author_url: https://cliffano.com
     github_id: cliffano
     github_repo: bob
     github_token_prefix: STUDIO
