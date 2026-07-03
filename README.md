@@ -25,7 +25,9 @@ It doesn't have plugins. It uses various CLI tools and configure their usage in 
 
 ## Installation
 
-    npm install -g bob
+```shell
+npm install -g bob
+```
 
 ## Project Convention
 
@@ -39,15 +41,21 @@ A project must have:
 
 Run Bob: (from your project directory, where package.json is located)
 
-    bob clean lint test coverage
+```shell
+bob clean lint test coverage
+```
 
 Run Bob in robot mode: (generate machine-parsable output when possible)
 
-    BOB_MODE=robot bob clean lint test coverage
+```shell
+BOB_MODE=robot bob clean lint test coverage
+```
 
 Run Bob quietly: (only lists tasks, without each task's output)
 
-    bob --quiet clean lint test coverage
+```shell
+bob --quiet clean lint test coverage
+```
 
 ## Tasks
 
@@ -78,17 +86,21 @@ To customise Bob for your project, create a .bob.json file in your project direc
 
 To use nodelint instead of default jshint when running `bob lint`:
 
-    {
-      "lint": {
-        "type": "nodelint"
-      }
-    }
+```json
+{
+  "lint": {
+    "type": "nodelint"
+  }
+}
+```
 
 To add an alias task (called build) which executes clean lint test coverage tasks:
 
-    {
-      "build": "clean lint test coverage"
-    }
+```json
+{
+  "build": "clean lint test coverage"
+}
+```
 
 ## Continuous Integration
 
@@ -96,18 +108,22 @@ To add an alias task (called build) which executes clean lint test coverage task
 
 Configure Bob in GitHub workflow YAML file:
 
-    jobs:
-      build:
-        steps:
-          - run: npm install -g bob
-          - run: bob clean lint test coverage
+```yaml
+jobs:
+  build:
+    steps:
+      - run: npm install -g bob
+      - run: bob clean lint test coverage
+```
 
 ### Jenkins CI
 
 Configure Bob in a Jenkins job with shell script build step:
 
-    npm install -g bob
-    bob clean lint test coverage
+```shell
+npm install -g bob
+bob clean lint test coverage
+```
 
 ## Colophon
 
