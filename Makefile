@@ -4,7 +4,7 @@
 ################################################################
 
 # Suntory's version number
-SUNTORY_VERSION = 1.4.0
+SUNTORY_VERSION = 1.4.1
 
 ################################################################
 # User configuration variables
@@ -71,7 +71,7 @@ clean:
 
 # Retrieve the Node.js package dependencies
 deps:
-	npm install -g bob@5.2.1
+	npm install -g bob@5.3.0
 	bob dep
 	$(call deps_extra)
 

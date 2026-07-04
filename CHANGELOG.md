@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade Suntory to 1.4.1
+
 ## 5.3.0 - 2026-07-03
 ### Added
 - Add recursive support for jsdoc generation
