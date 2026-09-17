@@ -4,8 +4,9 @@
 ################################################################
 
 # Suntory info
-SUNTORY_VERSION = 1.6.0
+SUNTORY_VERSION = 1.9.0
 
+UPDATE_GH_ID = cliffano
 UPDATE_MAKEFILE = suntory
 UPDATE_GENERATOR = node
 UPDATE_DOTFILES = .github/. .bob.json .gitignore eslint.config.js .rtk.json AGENTS.md
@@ -14,7 +15,7 @@ UPDATE_PARTIALS = AVATAR BADGES BUILD_REPORTS DEVELOPERS_GUIDE
 ################################################################
 # User configuration variables
 # https://github.com/cliffano/suntory#configuration
-# Configuration variables should be stored in suntory.yml config file,
+# Configuration variables should be stored in suntory.yml config file
 
 # PACKAGE_NAME is the name of the node.js package
 PACKAGE_NAME=$(shell yq .package_name suntory.yml)
@@ -49,9 +50,9 @@ clean:
 
 # Retrieve the Node.js package dependencies
 deps:
+	$(call deps_extra)
 	npm install -g bob@5.3.0
 	bob dep
-	$(call deps_extra)
 
 deps-extra-apt:
 	apt-get update
@@ -144,7 +145,7 @@ endef
 define update_dotfiles_from_generator
 	cd stage/ && \
 	  rm -rf generator-$(1)/ && \
-	  git clone https://github.com/cliffano/generator-$(1) && \
+	  git clone https://github.com/$(UPDATE_GH_ID)/generator-$(1) && \
 	  cd generator-$(1) && \
 	  make deps && \
 	  node_modules/.bin/plop $(UPDATE_GENERATOR_COMPONENT) -- \
@@ -166,7 +167,7 @@ endef
 define update_partials_from_generator
 	cd stage/ && \
 	  rm -rf generator-$(1)/ && \
-	  git clone https://github.com/cliffano/generator-$(1) && \
+	  git clone https://github.com/$(UPDATE_GH_ID)/generator-$(1) && \
 	  cd generator-$(1) && \
 	  make deps && \
 	  node_modules/.bin/plop $(UPDATE_GENERATOR_COMPONENT)-partials -- \
@@ -203,16 +204,16 @@ $(1): UPDATE_GENERATOR_INPUTS_GITHUB_TOKEN_PREFIX = $$(shell yq .generator.input
 endef
 
 # Update Makefile to the latest version tag
-update-to-latest: UPDATE_TARGET_VERSION = $(shell curl -s https://api.github.com/repos/cliffano/$(UPDATE_MAKEFILE)/tags | jq -r '.[0].name')
+update-to-latest: UPDATE_TARGET_VERSION = $(shell curl -s https://api.github.com/repos/$(UPDATE_GH_ID)/$(UPDATE_MAKEFILE)/tags | jq -r '.[0].name')
 update-to-latest: update-to-version
 
 # Update Makefile to the main branch
 update-to-main:
-	curl https://raw.githubusercontent.com/cliffano/$(UPDATE_MAKEFILE)/main/src/Makefile-$(UPDATE_MAKEFILE) -o Makefile
+	curl https://raw.githubusercontent.com/$(UPDATE_GH_ID)/$(UPDATE_MAKEFILE)/main/src/Makefile-$(UPDATE_MAKEFILE) -o Makefile
 
 # Update Makefile to the version defined in UPDATE_TARGET_VERSION parameter
 update-to-version:
-	curl https://raw.githubusercontent.com/cliffano/$(UPDATE_MAKEFILE)/$(UPDATE_TARGET_VERSION)/src/Makefile-$(UPDATE_MAKEFILE) -o Makefile
+	curl https://raw.githubusercontent.com/$(UPDATE_GH_ID)/$(UPDATE_MAKEFILE)/$(UPDATE_TARGET_VERSION)/src/Makefile-$(UPDATE_MAKEFILE) -o Makefile
 
 # Update dotfiles using the generator
 $(eval $(call set_generator_vars,update-dotfiles,$(UPDATE_MAKEFILE)))
